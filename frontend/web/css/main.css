@@ -1,0 +1,467 @@
+
+/** Navigation **/
+
+.navbar#top {
+    background-color: #e6e6fa;
+    border-bottom: none;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.navbar#top .navbar-brand img {
+    max-width: 200px;
+}
+
+/** Main content **/
+
+.main-content {
+}
+
+.main-content .block {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.main-content .block.green {
+    background-color: #5cb85c;
+}
+
+.main-content .block.grey {
+    background-color: #e6e6fa;
+}
+
+.language {
+    cursor: pointer;
+}
+
+.field-advert-anonymously {
+    margin-top: 34px;
+}
+
+#register-employee-form .form-group {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+#register-employee-form .btn {
+    margin-top: 15px;
+}
+
+.last-section a {
+    padding-bottom: 15px;
+}
+
+.logout.logout-button {
+    height: 20px;
+    padding: 15px 0 0 0;
+}
+
+.navbar-right form {
+    height: 50px;
+    margin-bottom: 0;
+    padding: 0 10px;
+    background-color: #f8f8f8;
+}
+
+.navbar-right form:visited,
+.navbar-right form:active {
+    background-color: #e6e6fa;
+}
+
+.navbar-right form:hover {
+    background-color: #e6e6fa;
+}
+
+.navbar-right form .btn-link.logout.logout-button {
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    margin-top: -9px;
+}
+
+#registration-page label {
+    width: 100%;
+}
+
+#registration-page img {
+    margin-bottom: 10px;
+}
+
+#loginform-rememberme {
+    color: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #000000 !important;
+    background-color: #f8f8f8 !important;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #000000 !important;
+    background-color: #e6e6fa !important;
+}
+
+.navbar-right form {
+    background-color: #f8f8f8;
+}
+
+.form-group img {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.form-group img#signupemployerform-captcha-image {
+    width: 140px;
+}
+
+.cv {
+    color: green;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.missing-cv {
+    color: red;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.advert-description {
+    width: 100%;
+}
+
+.advert-description .control-label {
+    text-align: center;
+    width: 100%;
+}
+
+.no-money {
+    text-align: center;
+    color: red;
+}
+
+.normal {
+    border: 1px solid grey;
+    margin-bottom: 10px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.platinum-premium {
+    border: 1px solid gainsboro;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.advert-header, .advert-body, .advert-desc {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.advert-desc {
+    display: none;
+}
+
+.advert-header, .advert-body {
+    text-align: center;
+}
+
+.company-logo, .date {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.company-logo {
+    height: 100px;
+}
+
+.logo-im {
+    max-height: 190px !important;
+    margin: auto;
+}
+
+.logo-im.logo-index {
+    max-height: 140px !important;
+    max-width: 180px !important;
+    margin: auto;
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    bottom: auto;
+    left: 50%;
+}
+
+@media (max-width: 400px) {
+
+    .logo-im.logo-index {
+        max-height: 100px !important;
+        max-width: 120px !important;
+    }
+}
+
+.search-button {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.search-form-col.col-lg-2 {
+    float: none;
+}
+
+.row .a-search-button {
+    text-align: center;
+}
+
+.row .col-xs-12 {
+    margin-bottom: 5px;
+}
+
+.user-cv {
+    border: 1px solid grey;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.profile-wrapper {
+    margin-top: 30px;
+}
+
+.employer-title,
+.employee-title {
+    min-height: 100px;
+    padding: 10px 0 0 20px;
+    font-size: 25px;
+    overflow: hidden;
+
+}
+
+.employer-description,
+.employee-description {
+    min-height: 100px;
+    overflow: hidden;
+
+}
+
+.employee-description {
+    margin-top: 50px;
+
+}
+
+.employer-banner {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1199px) {
+    .employer-description {
+        margin-top: 0;
+
+    }
+}
+
+.employer-logo {
+    height: 200px;
+    overflow: hidden;
+}
+
+.employer-logo {
+    height: 200px;
+    width: auto;
+    overflow: hidden;
+}
+
+.platinum-homepage {
+    overflow: hidden;
+    border: 2px solid gold;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.section.premium {
+    overflow: hidden;
+}
+
+.section.premium .premium-wrapper {
+    display: inline-block;
+}
+
+@media (max-width: 350px) {
+    .section.premium .premium-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-right form .btn-link.logout.logout-button {
+        margin-top: -10px;
+        height: 100%;
+    }
+}
+
+.section.premium .premium-wrapper a:hover {
+    text-decoration: none;
+}
+
+.platinum-homepage {
+    overflow: hidden;
+    border: 1px solid gainsboro;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+    min-height: 310px;
+    position: relative;
+    box-shadow: 1.5px 1.5px 1.5px #888888;
+}
+
+.midi-homepage {
+    text-align: center;
+    border: 1px solid gainsboro;
+    margin-bottom: 10px;
+    padding: 5px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
+    min-height: 310px;
+    box-shadow: 1.5px 1.5px 1.5px #888888;
+}
+
+.promjenafonta {
+    font-size: 11px;
+}
+
+.category.col-md-6 {
+    padding-bottom: 5px;
+}
+
+.company.col-md-6 {
+    padding-bottom: 5px;
+}
+
+.position.col-md-6 {
+    padding-bottom: 5px;
+}
+
+._ba-oglas.php.col-d-6 {
+    padding-bottom: 5px;
+}
+
+.section.new-job {
+    padding: 0;
+    overflow: hidden;
+    margin: 0 15px;
+}
+
+hr.job-divider {
+    border-top-color: rgb(215, 215, 222);
+    border-top-width: 2px;
+    margin: 0 15px 15px 15px;
+}
+
+.job-title,
+.job-description,
+.job-employer-wrapper {
+    float: left;
+    width: 100%;
+}
+
+.job-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    max-height: 100px;
+    margin: 10px 0;
+}
+
+.job-location,
+.job-employer {
+    float: left;
+}
+
+.job-title a {
+    float: left;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.job-title:hover a,
+.job-title a:visited,
+.job-title a:focus,
+.job-title a:active {
+    text-decoration: none;
+    color: #000000;
+}
+
+.job-employer {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.job-employer a,
+.job-employer a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+.job-location,
+.job-description {
+    color: #000000;
+}
+
+.summary {
+    display: none;
+}
+
+.applications {
+    margin-bottom: 5px;
+}
+
+.sponsored-advert {
+    height: 150px !important;
+    overflow: hidden;
+    position: relative;
+}
+
+.sponsored-advert img {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    padding: 20px 10px 0 10px;
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.logo-im.logo-index img {
+    padding: 10px;
+}
+
+textarea {
+    max-width: 100%;
+}
+
+.upload-button {
+    padding-top: 15px;
+    overflow: hidden;
+}
+
+.btn-success.btn-apply-disabled{
+    background-color: rgba(92,184,92,0.5);
+}
+
+.btn-success.btn-apply-disabled:hover{
+    background-color: rgba(92,184,92,0.5);
+}
