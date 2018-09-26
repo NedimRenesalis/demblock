@@ -11,27 +11,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use yii\helpers\Url;
 
-?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-99588207-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
+?>  
 <?php
 $logoUrl = Url::to('@web/css/images/logo.png');
 $ba = Url::to('@web/css/images/bosna.gif');
@@ -63,21 +43,6 @@ if (Yii::$app->user->isGuest) {
     <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
     <head>
-
-<center>
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- 3 -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-5242454575053212"
-       data-ad-slot="3176335712"
-       data-ad-format="auto"></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <br>
-</center>
-
 
       <meta name="google-site-verification" content="cv9DJ_dvORsblSg-c3CioTy8v2O-GlmR_wQN1WBqVnU" />
         <meta charset="<?= Yii::$app->charset ?>">
