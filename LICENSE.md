@@ -1,3 +1,7 @@
+The machinepicker project has been made with the Yii framework by Renesalis Sarajevo.
+
+All rights reserved.
+
 The Yii framework is free software. It is released under the terms of
 the following BSD License.
 

@@ -1,3 +1,7 @@
+This software was developed with the Yii 2 Advanced Project Template by Renesalis Sarajevo.
+
+All rights reserved.
+
 Yii 2 Advanced Project Template
 ===============================
 
