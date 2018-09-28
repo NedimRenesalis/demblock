@@ -69,19 +69,19 @@ $jobs = [
                             <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
                             <div class="search-form-col">
-                                <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Unesite grad ili zemlju"])->label('') ?>
+                                <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
                             </div>
                             <br>
                             <div class="search-form-col">
-                                <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "Unesite poziciju ili ime kompanije"])->label('') ?>
+                                <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "ovde napravi dropdown products suppliers"])->label('') ?>
                             </div>
                             <br>
                             <div class="search-form-col">
-                                <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Odaberite kategoriju', 'label' => null])->label("") ?>
+                                <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Select category', 'label' => null])->label("") ?>
                             </div>
                             <br>
                             <div class="form-group search-button search-form-col">
-                                <?= Html::submitButton('Pronađi posao', ['class' => 'active btn btn-block btn-info btn-lg']) ?>
+                                <?= Html::submitButton('Search', ['class' => 'active btn btn-block btn-info btn-lg']) ?>
                             </div>
 
                             <?php ActiveForm::end(); ?>
@@ -98,7 +98,7 @@ $jobs = [
         <div class="row">
             <div class="col-md-12">
                 <div class="search-form-col">
-                    <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Odaberite kategoriju', 'label' => null])->label("") ?>
+                    <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Select category', 'label' => null])->label("") ?>
                 </div>
             </div>
         </div>
@@ -110,16 +110,16 @@ $jobs = [
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Unesite grad ili zemlju"])->label('') ?>
+                        <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "Unesite poziciju ili ime kompanije"])->label('') ?>
+                        <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "ovde napravi dropdown products suppliers"])->label('') ?>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12 col-sm-offset-0,9 text-center">
-                            <?= Html::submitButton('Pronađi posao', ['class' => 'active btn btn-info']) ?>
+                            <?= Html::submitButton('Search', ['class' => 'active btn btn-info']) ?>
                         </div>
                     </div>
                 </div>
@@ -134,13 +134,13 @@ $jobs = [
             <div class="col-md-12">
                 <form class="form-horizontal" role="form">
                     <div class="col-sm-6">
-                        <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Unesite grad ili zemlju"])->label('') ?>
+                        <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
                     </div>
                     <div class="col-sm-6">
-                        <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "Unesite poziciju ili ime kompanije"])->label('') ?>
+                        <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "ovde napravi dropdown products suppliers"])->label('') ?>
                     </div>
                     <div class="col-sm-10 col-sm-offset-2 text-center">
-                        <?= Html::submitButton('Pronađi posao', ['class' => 'active btn btn-info']) ?>
+                        <?= Html::submitButton('Search', ['class' => 'active btn btn-info']) ?>
                     </div>
                 </form>
             </div>
@@ -204,17 +204,6 @@ $jobs = [
     </div>
 </div>
 
-<center>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- 4 -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:300px;height:250px"
-         data-ad-client="ca-pub-5242454575053212"
-         data-ad-slot="3048289308"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</center>
 
 <?php if ($platinum || $midi): ?>
     <?php $counter = 0; ?>
