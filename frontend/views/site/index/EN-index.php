@@ -45,6 +45,15 @@ $this->title = 'Zapošljavanje';
         </div>
     </div>
 </div>
+
+<div class="container-header">
+    <div class="container">
+        <?php
+            echo $this->render('../banner/_banner', ['adspace' => 'location_top']);
+        ?>
+    </div>
+</div>
+
 <?php $form = ActiveForm::begin(['method' => 'post']); ?>
 
 <div class="hidden-lg hidden-md section section-success">
@@ -195,6 +204,13 @@ $this->title = 'Zapošljavanje';
     </div>
 </div>
 <footer class="section section-success">
+    <div class="container-footer">
+        <div class="container">
+            <?php
+                echo $this->render('../banner/_banner', ['adspace' => 'location_bottom']);
+            ?>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">

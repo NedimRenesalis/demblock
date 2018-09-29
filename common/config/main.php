@@ -1,6 +1,9 @@
 <?php
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'aliases' => [
+        '@banner' => '/frontend/web/uploads/banner',
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
