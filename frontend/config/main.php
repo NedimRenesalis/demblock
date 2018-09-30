@@ -43,6 +43,7 @@ return [
             'rules' => [
                 '' => 'site/index',
                 '/' => 'site/index',
+                'visit' => 'site/visit',
                 'index' => 'site/index',
                 'prijava' => 'site/prijava',
                 'registracija-poslodavac' => 'site/registracija-poslodavac',

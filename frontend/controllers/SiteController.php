@@ -2,6 +2,9 @@
 
 namespace frontend\controllers;
 
+
+use common\models\Banner;
+use backend\models\BannerSearch;
 use backend\models\Sponsored;
 use common\models\AdvertTypes;
 use Yii;
@@ -70,16 +73,16 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
+                'only' => ['visit', 'logout', 'signup', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
                     'objavljeni-poslovi', 'aplicirani-poslovi', 'aplikacije', 'obnovi-oglas', 'html', 'pdf'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['visit', 'signup'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
+                        'actions' => ['visit', 'logout', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
                             'objavljeni-poslovi', 'aplicirani-poslovi', 'aplikacije', 'obnovi-oglas', 'html', 'pdf'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -177,6 +180,23 @@ class SiteController extends Controller
             'midi' => $midi
         ]);
     }
+
+    /**
+     * Action visit.
+     */
+    public function actionVisit($id)
+    {
+        $banner = Banner::find()->where(['slug' => $id])->one();
+
+        if (!$banner->isActive()) {
+            throw new GoneHttpException(t('app', 'The requested banner is not active anymore.'));
+        }
+
+        $banner->updateCounters(['visit_count' => 1]);
+
+        return $this->redirect($banner->url);
+    }
+
 
     /**
      * Logs in a user.
