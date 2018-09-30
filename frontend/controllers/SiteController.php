@@ -3,35 +3,41 @@
 namespace frontend\controllers;
 
 
-use common\models\Banner;
-use backend\models\BannerSearch;
-use backend\models\Sponsored;
-use common\models\AdvertTypes;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 use yii\helpers\Url;
+
+use backend\models\BannerSearch;
+use backend\models\Sponsored;
+use backend\models\Subscribe;
+
+use common\models\AdvertTypes;
+use common\models\Banner;
+use common\components\Pikpay;
+use common\components\SecureTerminal;
+use common\models\User;
+use common\models\Advert;
+use common\models\Order;
 use common\models\LoginForm;
+use common\models\Apply;
+
+use frontend\models\SubscribeForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\SignupEmployeeForm;
 use frontend\models\SignupEmployerForm;
 use frontend\models\ContactForm;
-use common\models\User;
-use common\models\Advert;
-use common\models\Order;
 use frontend\models\UploadForm;
-use yii\web\UploadedFile;
-use common\models\Apply;
 use frontend\models\AdvertSearch;
 use frontend\models\AdvertEmployeeSearch;
 use frontend\models\AdvertEmployerSearch;
-use common\components\Pikpay;
-use common\components\SecureTerminal;
+
 use kartik\mpdf\Pdf;
 
 
@@ -82,7 +88,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['visit', 'logout', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
+                        'actions' => ['subscribe', 'visit', 'logout', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
                             'objavljeni-poslovi', 'aplicirani-poslovi', 'aplikacije', 'obnovi-oglas', 'html', 'pdf'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -177,6 +183,7 @@ class SiteController extends Controller
             "searchModel" => $searchModel,
             'registered' => $this->registered,
             'platinum' => $platinum,
+            'subscribeModel' => new SubscribeForm(),
             'midi' => $midi
         ]);
     }
@@ -197,6 +204,29 @@ class SiteController extends Controller
         return $this->redirect($banner->url);
     }
 
+    /**
+     * Action subscribe.
+     */
+    public function actionSubscribe()
+    {
+        $model = new SubscribeForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            try {
+                $data = new Subscribe();
+                $data['email'] = strtolower($model->email);
+                $data->save();
+                notify()->addSuccess(t('app', 'Successfully subscribed!'));
+            }   
+            catch (Exception $e) {
+                notify()->addError(t('app', 'Something went wrong!'));
+            }
+        } 
+        else {
+            notify()->addError(t('app', 'Something went wrong!'));
+        }
+
+        return $this->redirect("index");
+    }
 
     /**
      * Logs in a user.

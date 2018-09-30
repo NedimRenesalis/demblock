@@ -49,6 +49,7 @@ AppAsset::register($this);
             ['label' => 'Poslodavci', 'url' => ['/employer/index']],
             ['label' => 'Banneri', 'url' => ['/banner/index']],
             ['label' => 'Posloprimci', 'url' => ['/employee/index']],
+            ['label' => 'Subscribers', 'url' => ['/subscribers/index']],
             ['label' => 'Lozinka', 'url' => ['/site/change-password']],
         ];
         $menuItems[] = '<li>'

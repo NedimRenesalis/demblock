@@ -8426,9 +8426,39 @@ img.thumbnail.banner {
 }
 
 footer.section.section-success {
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
 .container-footer {
-    padding-bottom: 35px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+/* subscribe footer */
+.main-search.subscribe-footer {
+    background-image: none;
+    background: rgb(230, 230, 250);
+    padding-top: 20px;
+    padding-bottom: 1em;
+    min-height: auto;
+}
+
+.subscribe-icon {
+    position: absolute;
+    color: #999;
+    top: 10px;
+    left: 2em;
+}
+
+.subscribe-input {
+    padding-left: 2.5em;
+}
+
+.field-subscribeform-email .help-block {
+    display: none;
+}
+
+/* OVERRIDEN STYLES */
+.no-margin {
+    margin: 0px;
 }
