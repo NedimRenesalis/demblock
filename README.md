@@ -2,6 +2,10 @@ This software was developed with the Yii 2 Advanced Project Template by Renesali
 
 All rights reserved.
 
+All intellectual rights are solely owned by Renesalis Sarajevo as soon as they are pushed by collaborators onto this repository.
+
+
+
 Yii 2 Advanced Project Template
 ===============================
 
