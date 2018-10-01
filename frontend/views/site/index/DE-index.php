@@ -46,6 +46,14 @@ $this->title = 'Zapošljavanje';
     </div>
 </div>
 
+<div class="container-header">
+    <div class="container">
+        <?php
+            echo $this->render('../banner/_banner', ['adspace' => 'location_top']);
+        ?>
+    </div>
+</div>
+
 <?php if (false && $sponsored): ?>
     <div class="section">
         <?= $sponsored->html; ?>
@@ -212,6 +220,54 @@ $this->title = 'Zapošljavanje';
 </div>
 
 <footer class="section section-success">
+    <!-- Subscribe -->
+    <div class="subscribe">
+        <section class="main-search subscribe-footer ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-9">
+                        <?php $form = ActiveForm::begin([
+                            'method' => 'post',
+                            'fieldConfig' => ['options' => ['class' => 'no-margin form-group']],
+                            'action' => ['subscribe'],
+                            'options' => [
+                                'class' => 'search-form',
+                            ],
+                        ]);?>
+
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <?=$form
+                                ->field($subscribeModel, 'email', [
+                                    'template' => "{label}\n<i class='fa fa-envelope-o subscribe-icon' aria-hidden='true'></i>\n{input}\n{hint}\n{error}",
+                                ])
+                                ->textInput([
+                                    'placeholder' => \Yii::t('app', 'Email Address'),
+                                    'class' => 'form-control subscribe-input',
+                                ])
+                                ->label(false)?>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group no-padding no-margin">
+                                    <?=Html::submitButton(\Yii::t('app', 'Subscribe'), ['class' => 'btn btn-block btn-info'])?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php ActiveForm::end()?>
+            </div>
+        </section>
+    </div>
+    <!-- /Subscribe --> 
+    <div class="container-footer">
+        <div class="container">
+            <?php
+                echo $this->render('../banner/_banner', ['adspace' => 'location_bottom']);
+            ?>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">

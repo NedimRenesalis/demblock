@@ -47,7 +47,9 @@ AppAsset::register($this);
             ['label' => 'Sponzorisani oglasi', 'url' => ['/sponsored/index']],
             ['label' => 'Cijene', 'url' => ['/advert-types/index']],
             ['label' => 'Poslodavci', 'url' => ['/employer/index']],
+            ['label' => 'Banneri', 'url' => ['/banner/index']],
             ['label' => 'Posloprimci', 'url' => ['/employee/index']],
+            ['label' => 'Subscribers', 'url' => ['/subscribers/index']],
             ['label' => 'Lozinka', 'url' => ['/site/change-password']],
         ];
         $menuItems[] = '<li>'

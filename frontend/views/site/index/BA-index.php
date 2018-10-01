@@ -8,49 +8,47 @@ use yii\helpers\Html;
 $this->title = 'Zapošljavanje';
 
 $jobs = [
-    "Ostala zanimanja" => "Ostala zanimanja",
-    "Savjetovanje - Consulting usluge" => "Savjetovanje - Consulting usluge",
-    "Informatika - Hardware" => "Informatika - Hardware",
-    "Informatika - Software" => "Informatika - Software",
-    "Proizvodnja" => "Proizvodnja",
-    "Zanati" => "Zanati",
-    "Management" => "Management",
-    "Poduzetništvo" => "Poduzetništvo",
-    "Grafika i dizajn" => "Grafika i dizajn",
-    "Ljudski resursi - Human Resources - HR" => "Ljudski resursi - Human Resources - HR",
-    "Knjigovodstvo – Revizija - Controlling" => "Knjigovodstvo – Revizija - Controlling",
-    "Administrativne Usluge" => "Administrativne Usluge",
-    "Prodaja - Komercijala" => "Prodaja - Komercijala",
-    "Nabavka - Supply Chain Management" => "Nabavka - Supply Chain Management",
-    "Transport - Logistika" => "Transport - Logistika",
-    "Sekretarski poslovi - Asistencija" => "Sekretarski poslovi - Asistencija",
-    "Arhitektonske Usluge" => "Arhitektonske Usluge",
-    "Finansije i Bankarstvo" => "Finansije i Bankarstvo",
-    "Osiguranja" => "Osiguranja",
-    "Farmacija i Biotehnologija" => "Farmacija i Biotehnologija",
-    "Državna Služba i Uprava",
-    "Ekonomija" => "Ekonomija",
-    "Elektrotehnika - Mašinstvo" => "Elektrotehnika - Mašinstvo",
-    "Energetika" => "Energetika",
-    "Građevinarstvo" => "Građevinarstvo",
-    "Ljepota i Zdravlje" => "Ljepota i Zdravlje",
-    "Odnosi sa Javnošću - PR" => "Odnosi sa Javnošću - PR",
-    "Mediji" => "Mediji",
-    "Nauka - Istraživački Radovi" => "Nauka - Istraživački Radovi",
-    "Nekretnine" => "Nekretnine",
-    "Oglasi ZZZRS" => "Oglasi ZZZRS",
-    "Zaštitarske Usluge" => "Zaštitarske Usluge",
-    "Rudarstvo" => "Rudarstvo",
-    "Industrija" => "Industrija",
-    "Trgovina" => "Trgovina",
-    "Zastupanje" => "Zastupanje",
-    "Socijalne Usluge" => "Socijalne Usluge",
-    "NVO - Nevladine Organizacije" => "NVO - Nevladine Organizacije",
-    "Telekomunikacije" => "Telekomunikacije",
-    "Turizam - Ugostiteljstvo - Hotelijerstvo" => "Turizam - Ugostiteljstvo - Hotelijerstvo",
-    "Veterina" => "Veterina",
-    "Zabava" => "Zabava",
-    "Pravne Usluge" => "Pravne Usluge"
+"Agriculture" => "Agriculture",
+"Food & Beverage" => "Food & Beverage",
+"Apparel" => "Apparel",
+"Textile & Leather Products" => "Textile & Leather Products",
+"Fashion Accessories" => "Fashion Accessories",
+"Timepieces, Jewelry, Eyewear" => "Timepieces, Jewelry, Eyewear",
+"Automobiles" => "Automobiles",
+"Motorcycles" => "Motorcycles",
+"Transportation" => "Transportation",
+"Luggage" => "Luggage",
+"Bags" => "Bags",
+"Cases" => "Cases",
+"Shoes & Accessories" => "Shoes & Accessories",
+"Computer Software & Hardware" => "Computer Software & Hardware",
+"Home Appliance" => "Home Appliance",
+"Consumer Electronic" => "Consumer Electronic",
+"Security & Protection" => "Security & Protection",
+"Electrical Equipment & Supplies" => "Electrical Equipment & Supplies",
+"Telecommunication" => "Telecommunication",
+"Sports & Entertainment" => "Sports & Entertainment",
+"Gifts & Crafts" => "Gifts & Crafts",
+"Toys & Hobbies" => "Toys & Hobbies",
+"Health & Medical" => "Health & Medical",
+"Beauty & Personal Care" => "Beauty & Personal Care",
+"Construction & Real Estate" => "Construction & Real Estate",
+"Home & Garden" => "Home & Garden",
+"Lights & Lighting" => "Lights & Lighting",
+"Furniture" => "Furniture",
+"Machinery" => "Machinery",
+"Industrial Parts & Fabrication Services" => "Industrial Parts & Fabrication Services",
+"Tools" => "Tools",
+"Hardware" => "Hardware",
+"Measurement & Analysis Instruments" => "Measurement & Analysis Instruments",
+"Minerals & Metallurgy" => "Minerals & Metallurgy",
+"Chemicals" => "Chemicals",
+"Rubber & Plastics" => "Rubber & Plastics",
+"Energy" => "Energy",
+"Environment" => "Environment",
+"Packaging & Printing" => "Packaging & Printing",
+"Office & School Supplies" => "Office & School Supplies",
+"Service Equipment" => "Service Equipment",
 ];
 ?>
 
@@ -71,10 +69,7 @@ $jobs = [
                             <div class="search-form-col">
                                 <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
                             </div>
-                            <br>
-                            <div class="search-form-col">
-                                <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "ovde napravi dropdown products suppliers"])->label('') ?>
-                            </div>
+
                             <br>
                             <div class="search-form-col">
                                 <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Select category', 'label' => null])->label("") ?>
@@ -92,6 +87,15 @@ $jobs = [
         </div>
     </div>
 </div>
+
+<div class="container-header">
+    <div class="container">
+        <?php
+            echo $this->render('../banner/_banner', ['adspace' => 'location_top']);
+        ?>
+    </div>
+</div>
+
 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 <div class="hidden-lg hidden-md section section-success">
     <div class="container">
@@ -114,8 +118,8 @@ $jobs = [
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12">
-                        <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "ovde napravi dropdown products suppliers"])->label('') ?>
+                    <div class="search-form-col">
+                        <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Select category', 'label' => null])->label("") ?>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12 col-sm-offset-0,9 text-center">
@@ -136,8 +140,8 @@ $jobs = [
                     <div class="col-sm-6">
                         <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
                     </div>
-                    <div class="col-sm-6">
-                        <?= $form->field($searchModel, 'position')->textInput(['maxlength' => true, 'placeholder' => "ovde napravi dropdown products suppliers"])->label('') ?>
+                    <div class="search-form-col">
+                        <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Select category', 'label' => null])->label("") ?>
                     </div>
                     <div class="col-sm-10 col-sm-offset-2 text-center">
                         <?= Html::submitButton('Search', ['class' => 'active btn btn-info']) ?>
@@ -256,7 +260,55 @@ $jobs = [
 <?php endif; ?>
 
 
-<footer class="section section-success">
+<footer class="section section-success">   
+    <!-- Subscribe -->
+    <div class="subscribe">
+        <section class="main-search subscribe-footer ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-9">
+                        <?php $form = ActiveForm::begin([
+                            'method' => 'post',
+                            'fieldConfig' => ['options' => ['class' => 'no-margin form-group']],
+                            'action' => ['subscribe'],
+                            'options' => [
+                                'class' => 'search-form',
+                            ],
+                        ]);?>
+
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <?=$form
+                                ->field($subscribeModel, 'email', [
+                                    'template' => "{label}\n<i class='fa fa-envelope-o subscribe-icon' aria-hidden='true'></i>\n{input}\n{hint}\n{error}",
+                                ])
+                                ->textInput([
+                                    'placeholder' => \Yii::t('app', 'Email Address'),
+                                    'class' => 'form-control subscribe-input',
+                                ])
+                                ->label(false)?>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group no-padding no-margin">
+                                    <?=Html::submitButton(\Yii::t('app', 'Subscribe'), ['class' => 'btn btn-block btn-info'])?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php ActiveForm::end()?>
+            </div>
+        </section>
+    </div>
+    <!-- /Subscribe --> 
+    <div class="container-footer">
+        <div class="container">
+            <?php
+                echo $this->render('../banner/_banner', ['adspace' => 'location_bottom']);
+            ?>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">

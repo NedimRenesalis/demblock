@@ -16,6 +16,9 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+        'notify' => [
+            'class' => '\twisted1919\notify\Notify',
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

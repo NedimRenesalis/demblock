@@ -8405,3 +8405,60 @@ body {
         width: 100%;
     }
 }
+
+/* BANNER STYLES */
+a.banner img {
+    width: 100% !important;
+    max-height: 200px;
+    min-height: 60px;
+}
+ .banner-top, .banner-bottom {
+    background: white;
+} 
+
+img.thumbnail.banner {
+    margin-bottom: 0px;
+}
+
+.container-header {
+    padding: 20px;
+    background: ghostwhite !important;
+}
+
+footer.section.section-success {
+    padding-top: 0px;
+}
+
+.container-footer {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+/* subscribe footer */
+.main-search.subscribe-footer {
+    background-image: none;
+    background: rgb(230, 230, 250);
+    padding-top: 20px;
+    padding-bottom: 1em;
+    min-height: auto;
+}
+
+.subscribe-icon {
+    position: absolute;
+    color: #999;
+    top: 10px;
+    left: 2em;
+}
+
+.subscribe-input {
+    padding-left: 2.5em;
+}
+
+.field-subscribeform-email .help-block {
+    display: none;
+}
+
+/* OVERRIDEN STYLES */
+.no-margin {
+    margin: 0px;
+}

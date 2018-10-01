@@ -20,6 +20,9 @@ return [
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
+        'notify' => [
+            'class' => '\twisted1919\notify\Notify',
+        ],
         'session' => [
             // this is the name of the session cookie used for prijava on the frontend
             'name' => 'advanced-frontend',
@@ -45,6 +48,8 @@ return [
                 '/' => 'site/index',
                 'index' => 'site/index',
                 'prijava' => 'site/prijava',
+                'visit' => 'site/visit',
+                'subscribe' => 'site/subscribe',
                 'registracija-poslodavac' => 'site/registracija-poslodavac',
                 'registracija-posloprimac' => 'site/registracija-posloprimac',
                 'trazi-posao' => 'site/trazi-posao',

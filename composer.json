@@ -21,7 +21,9 @@
         "paypal/rest-api-sdk-php": "*",
         "kartik-v/yii2-widget-datetimepicker": "*",
         "2amigos/yii2-ckeditor-widget" : "2.0",
-        "kartik-v/yii2-mpdf": "1.0.0"
+        "kartik-v/yii2-mpdf": "1.0.0",
+        "kartik-v/yii2-widget-fileinput": "^1.0",
+        "twisted1919/yii2-notify": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

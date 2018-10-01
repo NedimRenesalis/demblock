@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "013470ebe4b099d8a17af8dd84f98464",
+    "content-hash": "f635fecd945d2ce0373ba71ed87082ca",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -416,6 +416,59 @@
             "time": "2018-02-23T01:58:20+00:00"
         },
         {
+            "name": "kartik-v/bootstrap-fileinput",
+            "version": "v4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
+                "reference": "7fbc8473783febfd123178dd00c9f5ee1bf73531"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/7fbc8473783febfd123178dd00c9f5ee1bf73531",
+                "reference": "7fbc8473783febfd123178dd00c9f5ee1bf73531",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\plugins\\fileinput\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced HTML 5 file input for Bootstrap 3.x with features for file preview for many file types, multiple selection, ajax uploads, and more.",
+            "homepage": "https://github.com/kartik-v/bootstrap-fileinput",
+            "keywords": [
+                "ajax",
+                "bootstrap",
+                "delete",
+                "file",
+                "image",
+                "input",
+                "jquery",
+                "multiple",
+                "preview",
+                "progress",
+                "upload"
+            ],
+            "time": "2018-09-25T15:16:57+00:00"
+        },
+        {
             "name": "kartik-v/mpdf",
             "version": "v1.0.2",
             "source": {
@@ -611,6 +664,61 @@
             "time": "2018-08-29T11:42:11+00:00"
         },
         {
+            "name": "kartik-v/yii2-widget-fileinput",
+            "version": "v1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
+                "reference": "7f76d784cc48733746ff90b53b8474dcf48ea6c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/7f76d784cc48733746ff90b53b8474dcf48ea6c4",
+                "reference": "7f76d784cc48733746ff90b53b8474dcf48ea6c4",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/bootstrap-fileinput": "~4.4",
+                "kartik-v/yii2-krajee-base": ">=1.9"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\file\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced FileInput widget for Bootstrap 3.x & 4.x with file preview, multiple selection, and more features (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-fileinput",
+            "keywords": [
+                "extension",
+                "file",
+                "form",
+                "input",
+                "jquery",
+                "plugin",
+                "upload",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-09-19T13:09:42+00:00"
+        },
+        {
             "name": "paypal/rest-api-sdk-php",
             "version": "1.13.0",
             "source": {
@@ -759,6 +867,95 @@
                 "mailer"
             ],
             "time": "2018-07-31T09:26:32+00:00"
+        },
+        {
+            "name": "twisted1919/yii2-notify",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twisted1919/yii2-notify.git",
+                "reference": "b6339fd84386302c059ffac7bd23e36718369af0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twisted1919/yii2-notify/zipball/b6339fd84386302c059ffac7bd23e36718369af0",
+                "reference": "b6339fd84386302c059ffac7bd23e36718369af0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "twisted1919/yii2-shortcut-functions": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "twisted1919\\notify\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "twisted1919"
+                }
+            ],
+            "description": "Success/Error/Warning/Info notification component",
+            "keywords": [
+                "notifications",
+                "notify",
+                "yii2"
+            ],
+            "time": "2018-07-26T11:34:42+00:00"
+        },
+        {
+            "name": "twisted1919/yii2-shortcut-functions",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twisted1919/yii2-shortcut-functions.git",
+                "reference": "06f71646710abecd7708c76f297ebe43b0d23cad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twisted1919/yii2-shortcut-functions/zipball/06f71646710abecd7708c76f297ebe43b0d23cad",
+                "reference": "06f71646710abecd7708c76f297ebe43b0d23cad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": ">=2.0.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "twisted1919",
+                    "homepage": "https://github.com/twisted1919"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/twisted1919/yii2-shortcut-functions/contributors"
+                }
+            ],
+            "description": "Shortcut functions for Yii2 developers",
+            "homepage": "https://github.com/twisted1919/yii2-shortcut-functions",
+            "keywords": [
+                "functions",
+                "shortcut",
+                "yii2"
+            ],
+            "time": "2018-03-27T14:34:35+00:00"
         },
         {
             "name": "yiisoft/yii2",
