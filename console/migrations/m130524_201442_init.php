@@ -50,6 +50,8 @@ class m130524_201442_init extends Migration
             'zip_code' => $this->string()->defaultValue(null),
             'isBlocked' => $this->smallInteger()->defaultValue(0),
             'image' => $this->string(),
+            'company_description'=> $this->string(500),
+            'banner' => $this->string(),
 
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
