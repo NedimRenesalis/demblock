@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 
+use frontend\models\Categories;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -1565,6 +1566,30 @@ class SiteController extends Controller
 
         // return the pdf output as per the destination setting
         return $pdf->render();
+    }
+
+    public function actionGetSubcategories(){
+        if(isset($_POST) && isset($_POST['selected'])){
+            $selected = $_POST['selected'];
+            if($selected == '') {
+                return '';
+            }
+            $parent =  Categories::find()->where(['like','Name', $selected])->one();
+            $dropDown = '';
+            if($parent) {
+                $pid = $parent['Id'];
+                $subCategories = Categories::find()->where(['ParentId' => $pid])->orderBy(['Name' => SORT_ASC])->all();
+                if(sizeof($subCategories) > 0) {
+                    $dropDown = '<option value>Select subcategory</option>';
+
+                    foreach ($subCategories as $subCategory) {
+                        $dropDown .= "<option value='$subCategory->Name'>$subCategory->Name</option>";
+                    }
+                }
+            }
+            return $dropDown;
+        }
+
     }
 
 

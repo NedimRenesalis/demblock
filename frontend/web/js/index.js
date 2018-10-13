@@ -38,6 +38,5 @@ $(document).ready(function () {
     $(".display-description").on("click", function () {
         var id = $(this).data('id');
         $(".advert-desc[data-desc-id=" + id + "]").toggle();
-    })
-
+    });
 });

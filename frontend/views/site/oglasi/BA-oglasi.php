@@ -3,6 +3,8 @@
 use yii\widgets\ListView;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use frontend\models\Categories;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\AdvertSearch */
@@ -12,51 +14,29 @@ use yii\widgets\ActiveForm;
 $this->title = 'Zapošljavanje';
 $this->params['breadcrumbs'][] = $this->title;
 
-$jobs = [
-    "Agriculture" => "Agriculture",
-    "Food & Beverage" => "Food & Beverage",
-    "Apparel" => "Apparel",
-    "Textile & Leather Products" => "Textile & Leather Products",
-    "Fashion Accessories" => "Fashion Accessories",
-    "Timepieces, Jewelry, Eyewear" => "Timepieces, Jewelry, Eyewear",
-    "Automobiles" => "Automobiles",
-    "Motorcycles" => "Motorcycles",
-    "Transportation" => "Transportation",
-    "Luggage" => "Luggage",
-    "Bags" => "Bags",
-    "Cases" => "Cases",
-    "Shoes & Accessories" => "Shoes & Accessories",
-    "Computer Software & Hardware" => "Computer Software & Hardware",
-    "Home Appliance" => "Home Appliance",
-    "Consumer Electronic" => "Consumer Electronic",
-    "Security & Protection" => "Security & Protection",
-    "Electrical Equipment & Supplies" => "Electrical Equipment & Supplies",
-    "Telecommunication" => "Telecommunication",
-    "Sports & Entertainment" => "Sports & Entertainment",
-    "Gifts & Crafts" => "Gifts & Crafts",
-    "Toys & Hobbies" => "Toys & Hobbies",
-    "Health & Medical" => "Health & Medical",
-    "Beauty & Personal Care" => "Beauty & Personal Care",
-    "Construction & Real Estate" => "Construction & Real Estate",
-    "Home & Garden" => "Home & Garden",
-    "Lights & Lighting" => "Lights & Lighting",
-    "Furniture" => "Furniture",
-    "Machinery" => "Machinery",
-    "Industrial Parts & Fabrication Services" => "Industrial Parts & Fabrication Services",
-    "Tools" => "Tools",
-    "Hardware" => "Hardware",
-    "Measurement & Analysis Instruments" => "Measurement & Analysis Instruments",
-    "Minerals & Metallurgy" => "Minerals & Metallurgy",
-    "Chemicals" => "Chemicals",
-    "Rubber & Plastics" => "Rubber & Plastics",
-    "Energy" => "Energy",
-    "Environment" => "Environment",
-    "Packaging & Printing" => "Packaging & Printing",
-    "Office & School Supplies" => "Office & School Supplies",
-    "Service Equipment" => "Service Equipment",
-];
 
+
+$categories = Categories::find()->where(["ParentId" => null])->orderBy(['Name' => SORT_ASC])->all();
+$jobs = [];
+foreach ($categories as $category) {
+    $jobs[$category->Name] = $category->Name;
+};
+$subCategoriesSelected = [];
+if($searchModel->category) {
+    $parent = Categories::find()->where(['like', 'Name', $searchModel->category])->one();
+    if ($parent) {
+        $pid = $parent['Id'];
+        $subCategories = Categories::find()->where(['ParentId' => $pid])->orderBy(['Name' => SORT_ASC])->all();
+        if (sizeof($subCategories) > 0) {
+
+            foreach ($subCategories as $subCategory) {
+                $subCategoriesSelected[$subCategory->Name] = $subCategory->Name;
+            }
+        }
+    }
+}
 ?>
+
 <div class="section text-justify">
     <div class="container">
         <div class="row">
@@ -68,8 +48,23 @@ $jobs = [
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Odaberite kategoriju'])->label('Kategorija') ?>
+                    <?=
+                    $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Country of sourcing, Product or Category', 'label' => null,
+                                'onchange' => '
+                                                $.post(
+                                                    "' . Url::toRoute('get-subcategories') . '", 
+                                                    {selected: $(this).val()}, 
+                                                        function(res){
+                                                            $("#advertsearch-position").html(res);
+                                                    }
+                                                );
+                                            ',
+                            ]
+                        )->label('Kategorija') ?>
                 </div>
+            <div class="col-lg-3 col-md-6">
+                <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('Subkategorija') ?>
+            </div>
 
                 <div class="form-group col-lg-3 col-md-6 search-button">
                     <?= Html::submitButton('Pretraga', ['class' => 'btn btn-success']) ?>
@@ -119,6 +114,7 @@ $jobs = [
             var id = $(this).data('id');
              apply(id);
         });
+
     });
 
     function apply(id) {
@@ -139,4 +135,5 @@ $jobs = [
         ;
     }
 </script>
+
 

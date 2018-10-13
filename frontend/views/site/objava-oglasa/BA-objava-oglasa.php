@@ -6,52 +6,30 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use kartik\datetime\DateTimePicker;
 use dosamigos\ckeditor\CKEditor;
+use frontend\models\Categories;
 
 $this->title = 'Zapošljavanje';
 
-$jobs = [
-    "Agriculture" => "Agriculture",
-    "Food & Beverage" => "Food & Beverage",
-    "Apparel" => "Apparel",
-    "Textile & Leather Products" => "Textile & Leather Products",
-    "Fashion Accessories" => "Fashion Accessories",
-    "Timepieces, Jewelry, Eyewear" => "Timepieces, Jewelry, Eyewear",
-    "Automobiles" => "Automobiles",
-    "Motorcycles" => "Motorcycles",
-    "Transportation" => "Transportation",
-    "Luggage" => "Luggage",
-    "Bags" => "Bags",
-    "Cases" => "Cases",
-    "Shoes & Accessories" => "Shoes & Accessories",
-    "Computer Software & Hardware" => "Computer Software & Hardware",
-    "Home Appliance" => "Home Appliance",
-    "Consumer Electronic" => "Consumer Electronic",
-    "Security & Protection" => "Security & Protection",
-    "Electrical Equipment & Supplies" => "Electrical Equipment & Supplies",
-    "Telecommunication" => "Telecommunication",
-    "Sports & Entertainment" => "Sports & Entertainment",
-    "Gifts & Crafts" => "Gifts & Crafts",
-    "Toys & Hobbies" => "Toys & Hobbies",
-    "Health & Medical" => "Health & Medical",
-    "Beauty & Personal Care" => "Beauty & Personal Care",
-    "Construction & Real Estate" => "Construction & Real Estate",
-    "Home & Garden" => "Home & Garden",
-    "Lights & Lighting" => "Lights & Lighting",
-    "Furniture" => "Furniture",
-    "Machinery" => "Machinery",
-    "Industrial Parts & Fabrication Services" => "Industrial Parts & Fabrication Services",
-    "Tools" => "Tools",
-    "Hardware" => "Hardware",
-    "Measurement & Analysis Instruments" => "Measurement & Analysis Instruments",
-    "Minerals & Metallurgy" => "Minerals & Metallurgy",
-    "Chemicals" => "Chemicals",
-    "Rubber & Plastics" => "Rubber & Plastics",
-    "Energy" => "Energy",
-    "Environment" => "Environment",
-    "Packaging & Printing" => "Packaging & Printing",
-    "Office & School Supplies" => "Office & School Supplies",
-    "Service Equipment" => "Service Equipment",
-];
+
+$categories = Categories::find()->where(["ParentId" => null])->orderBy(['Name' => SORT_ASC])->all();
+$jobs = [];
+foreach ($categories as $category) {
+    $jobs[$category->Name] = $category->Name;
+}
+$subCategoriesSelected = [];
+if($model && $model->category) {
+    $parent = Categories::find()->where(['like', 'Name', $model->category])->one();
+    if ($parent) {
+        $pid = $parent['Id'];
+        $subCategories = Categories::find()->where(['ParentId' => $pid])->orderBy(['Name' => SORT_ASC])->all();
+        if (sizeof($subCategories) > 0) {
+
+            foreach ($subCategories as $subCategory) {
+                $subCategoriesSelected[$subCategory->Name] = $subCategory->Name;
+            }
+        }
+    }
+}
 
 $types = [
     1 => "Platinum oglas",
@@ -104,9 +82,25 @@ $days = [
 
                     <?= $form->field($model, 'anonymously')->checkbox(['label' => null])->label('Objavi oglas anonimno&nbsp;&nbsp;') ?>
 
-                    <?= $form->field($model, 'position')->textInput(['maxlength' => true])->label('Pozicija') ?>
 
-                    <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'Odaberite kategoriju'])->label('Kategorija') ?>
+
+                    <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'Country of sourcing, Product or Category', 'label' => null,
+                            'onchange' => '
+                                                        $.post(
+                                                            "' . Url::toRoute('get-subcategories') . '", 
+                                                            {selected: $(this).val()}, 
+                                                                function(res){
+                                                                console.log(res);
+                                                                console.log($("#advert-position"));
+                                                                    $("#advert-position").html(res);
+                                                                    console.log($("#advert-position"));
+                                                            }
+                                                        );
+                                                    ']
+                        )->label("Country of sourcing, Product or Category  ") ?>
+
+                    <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('Pozicija') ?>
+
 
                     <?= $form->field($model, 'number_of_positions')->textInput()->label('Broj pozicija') ?>
 

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use common\models\Advert;
+use backend\models\Categories;
 
 
 /* @var $this yii\web\View */
@@ -85,6 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Kategorija',
                 'attribute' => 'category',
+                'filter' => ArrayHelper::map(Categories::find()->asArray()->where(['ParentId' => null])->all(), 'Name', 'Name')
             ],
             [
                 'label' => 'Tip',
