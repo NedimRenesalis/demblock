@@ -84,7 +84,7 @@ $days = [
 
 
 
-                    <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'Country of sourcing, Product or Category', 'label' => null,
+                    <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
                             'onchange' => '
                                                         $.post(
                                                             "' . Url::toRoute('get-subcategories') . '", 
@@ -97,7 +97,7 @@ $days = [
                                                             }
                                                         );
                                                     ']
-                        )->label("Country of sourcing, Product or Category  ") ?>
+                        )->label("Product or Category  ") ?>
 
                     <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('Pozicija') ?>
 

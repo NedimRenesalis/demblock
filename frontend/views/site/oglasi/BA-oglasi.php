@@ -49,7 +49,7 @@ if($searchModel->category) {
 
                 <div class="col-lg-3 col-md-6">
                     <?=
-                    $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Country of sourcing, Product or Category', 'label' => null,
+                    $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
                                 'onchange' => '
                                                 $.post(
                                                     "' . Url::toRoute('get-subcategories') . '", 

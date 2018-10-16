@@ -52,7 +52,7 @@ if($searchModel && $searchModel->category) {
                             <div class="search-form-col">
                                 <?=
 
-                                $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Country of sourcing, Product or Category', 'label' => null,
+                                $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
                                         'onchange' => '
                                                         $.post(
                                                             "' . Url::toRoute('get-subcategories') . '", 
@@ -116,7 +116,7 @@ if($searchModel && $searchModel->category) {
                     <div class="search-form-col">
                         <?=
 
-                        $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Country of sourcing, Product or Category', 'label' => null,
+                        $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
                                 'onchange' => ' $.post(
                                                     "' . Url::toRoute('get-subcategories') . '", 
                                                     {selected: $(this).val()}, 
