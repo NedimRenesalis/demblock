@@ -310,15 +310,21 @@ public $countryArray = array(
         $user->first_name = $this->first_name;
 
         $dialCode = '';
+        $validCountry = false;
 
         foreach ($this->countryArray as $key => $val){
             if($key == $this->location){
                 $this->location = $val['name'];
                 $dialCode = $val['code'];
-            } else {
-                return null;
+                $validCountry = true;
             }
         }
+
+        if($validCountry === false){
+            $this->location = '';
+            return null;
+        }
+
         if($this->phone != '') {
             $user->phone = '+' . $dialCode . $this->phone;
         }
