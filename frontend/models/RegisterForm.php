@@ -238,7 +238,6 @@ public $countryArray = array(
 'TZ'=>array('name'=>'TANZANIA, UNITED REPUBLIC OF','code'=>'255'),
 'UA'=>array('name'=>'UKRAINE','code'=>'380'),
 'UG'=>array('name'=>'UGANDA','code'=>'256'),
-'US'=>array('name'=>'UNITED STATES','code'=>'1'),
 'UY'=>array('name'=>'URUGUAY','code'=>'598'),
 'UZ'=>array('name'=>'UZBEKISTAN','code'=>'998'),
 'VA'=>array('name'=>'HOLY SEE (VATICAN CITY STATE)','code'=>'39'),
@@ -281,6 +280,7 @@ public $countryArray = array(
             ['first_name', 'required'],
             ['last_name', 'required'],
             ['userType', 'required'],
+            ['location', 'required'],
             ['company_name', 'required', 'when' => function ($model) {
                 return $model->userType != '3';
             }, 'whenClient' => "function (attribute, value) {
@@ -315,9 +315,13 @@ public $countryArray = array(
             if($key == $this->location){
                 $this->location = $val['name'];
                 $dialCode = $val['code'];
+            } else {
+                return null;
             }
         }
-        $user->phone = '+'.$dialCode.$this->phone;
+        if($this->phone != '') {
+            $user->phone = '+' . $dialCode . $this->phone;
+        }
 
         $user->location = $this->location;
 
