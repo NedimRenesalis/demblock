@@ -103,9 +103,10 @@ if (Yii::$app->user->isGuest) {
                 $registration1 = "Sign Up Employees";
                 $registration2 = "Sign Up Employers";
             } else {
-                $title = "Prijava / Registracija  ";
-                $login = "Prijava";
+                $title = "Sign in / Register";
+                $login = "Sign in";
                 $profile = "Profil";
+                $register = "Register";
                 $registration1 = "Registracija posloprimac";
                 $registration2 = "Registracija poslodavac";
             }
@@ -123,8 +124,7 @@ if (Yii::$app->user->isGuest) {
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="' . Url::to('@web/registracija-poslodavac') . '">' . $registration2 . '</a>
-                  <a href="' . Url::to('@web/registracija-posloprimac') . '">' . $registration1 . '</a>
+                  <a href="' . Url::to('@web/registracija') . '">' . $register . '</a>
                 </li>
               </ul>
             </li>
@@ -156,7 +156,7 @@ if (Yii::$app->user->isGuest) {
                 ]);
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 2) {
 
-                $menuItems[] = ['label' => $profile, 'url' => ['profil-poslodavac']];
+             /*   $menuItems[] = ['label' => $profile, 'url' => ['profil-poslodavac']];*/
                 $menuItems[] = ['label' => $jobs, 'url' => ['objavljeni-poslovi']];
 
                 $menuItems[] = '<li>'
@@ -175,8 +175,26 @@ if (Yii::$app->user->isGuest) {
                 ]);
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 3) {
 
-                $menuItems[] = ['label' => $profile, 'url' => ['profil-posloprimac']];
+              /*  $menuItems[] = ['label' => $profile, 'url' => ['profil-posloprimac']];*/
                 $menuItems[] = ['label' => $jobs, 'url' => ['aplicirani-poslovi']];
+
+                $menuItems[] = '<li>'
+                    . Html::beginForm(['/site/logout'], 'post')
+                    . Html::submitButton(
+
+                        'Logout(' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout logout-button']
+                    )
+                    . Html::endForm()
+                    . '</li>';
+                echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-right'],
+                    'items' => $menuItems,
+                ]);
+            } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 4) {
+
+                $menuItems[] = ['label' => 'Objavljeni poslovi', 'url' => ['objavljeni-poslovi']];
+                $menuItems[] = ['label' => 'Aplicirani poslovi', 'url' => ['aplicirani-poslovi']];
 
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')

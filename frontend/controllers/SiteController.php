@@ -38,6 +38,7 @@ use frontend\models\UploadForm;
 use frontend\models\AdvertSearch;
 use frontend\models\AdvertEmployeeSearch;
 use frontend\models\AdvertEmployerSearch;
+use frontend\models\RegisterForm;
 
 use kartik\mpdf\Pdf;
 
@@ -1591,6 +1592,31 @@ class SiteController extends Controller
         }
 
     }
+
+
+    /**
+        Registration as Buyer or seller or both
+     */
+
+    public function actionRegistracija()
+    {
+
+        $model = new RegisterForm();
+        if ($model->load(Yii::$app->request->post())) {
+            $model->username = $model->email;
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->redirect("index");
+                }
+            }
+        }
+
+        $model = new RegisterForm();
+        return $this->render('registracija/index', [
+            'model' => $model,
+        ]);
+    }
+
 
 
 }

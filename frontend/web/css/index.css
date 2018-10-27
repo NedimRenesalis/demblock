@@ -8462,3 +8462,98 @@ footer.section.section-success {
 .no-margin {
     margin: 0px;
 }
+
+.field-registerform-dialcode,
+.field-registerform-phone {
+    display: inline-block;
+}
+
+#registerform-usertype label {
+    width: auto;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.field-registerform-usertype .control-label {
+    width: auto !important;
+    float: left;
+    display: inline-block;
+}
+
+/* Password checker start */
+.password-checker {
+    position: absolute;
+    z-index: 10000;
+    background: white;
+    width: 90%;
+    padding: 20px;
+    text-align: left;
+    border: 1px solid lightgray;
+    outline: 1px solid darkgray;
+    display: none;
+}
+
+.password-checker:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 11px solid transparent;
+    border-bottom-color: #c0c0c0;
+    border-top: 0;
+    /* border-left: 0; */
+    margin-left: -9.5px;
+    margin-top: -12px;
+}
+
+.pc__strenght div {
+    display: inline-block;
+}
+
+.pcs__flags {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+span.pcsf__flag {
+    width: 30px;
+    height: 12px;
+    background: #c0c0c0;
+    margin-left: 3px;
+    display: inline-block;
+}
+
+.pc__strenght {
+    margin-bottom: 10px;
+}
+
+.pc__checker > div {
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    -ms-align-items:center;
+    align-items:center;
+}
+
+.pcc__text {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.pcc__icon {
+    display: inline-block;
+    width: 22px;
+    height: 13px;
+    background: url('images/icons.png') no-repeat  no-repeat 0 -13px;
+}
+
+span.pcsf__flag:first-child {
+    background: red;
+}
+
+/* Password checker end */
