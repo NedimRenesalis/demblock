@@ -269,7 +269,6 @@ public $countryArray = array(
         if (!$this->validate()) {
             return null;
         }
-
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
@@ -287,7 +286,7 @@ public $countryArray = array(
             }
         }
 
-        if($validCountry === false){
+        if($validCountry == false){
             $this->location = '';
             return null;
         }
