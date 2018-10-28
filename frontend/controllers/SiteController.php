@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\UploadedFile;
+use yii\web\Response;
 use yii\helpers\Url;
 
 use backend\models\BannerSearch;
@@ -27,6 +28,7 @@ use common\models\Order;
 use common\models\LoginForm;
 use common\models\Apply;
 
+use frontend\models\CompanyImage;
 use frontend\models\SubscribeForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -41,6 +43,7 @@ use frontend\models\AdvertEmployerSearch;
 use frontend\models\RegisterForm;
 
 use kartik\mpdf\Pdf;
+use PHPUnit\Framework\MockObject\Stub\Exception;
 
 
 /**
@@ -1060,58 +1063,142 @@ class SiteController extends Controller
         ]);
     }
 
-
     public
     function actionUploadLogo()
     {
-        $model = new UploadForm();
-
-        if (Yii::$app->request->isPost) {
-            $model->file = UploadedFile::getInstance($model, 'file');
-            if ($model->validate()) {
-
-                $allowed = array('jpg', 'jpeg', 'png');
-
-                $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-
-                if ($user == null) {
-                    return $this->goHome();
-                }
-
-                $type = $user->getUserType();
-
-                if ($type != 2) {
-                    return $this->goHome();
-                }
-
-                $extension = $model->file->extension;
-
-                if (!in_array(strtolower($extension), $allowed)) {
-                    echo '{"status":"error"}';
-                    exit;
-                }
-
-                $newImage = 'uploads/logo/' . $user->getId() . '-' . time() . '.' . $extension;
-
-                if ($user->image != null && file_exists($user->image)) {
-                    unlink($user->image);
-                }
-
-                if ($model->file->size > 1024 * 1024 * 2) {
-                    echo '{"status":"error"}';
-                    exit;
-                }
-
-                if ($model->file->saveAs($newImage)) {
-                    $user->image = $newImage;
-                    $user->save();
-                    return $this->redirect("profil-poslodavac");
-                }
-
+            $images = new CompanyImage();
+            $model = new UploadForm();
+            
+            $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+            if ($user == null || $user->getUserType() != 2) {
+                return $this->goHome();
             }
+
+            return $this->render('upload-logo/' . $this->language . '-upload-logo', [
+                'item'              => $model,
+                'images'            => $images,
+                'action'            => 'update',
+                'uploadedImages'    => $user->images,
+                'user_id'           => $user->getId(),
+                'image_random_key'  => substr(sha1(time()), 0, 8),
+            ]);
+    }
+
+    /**
+     * @return array|Response
+     */
+    public function actionRemovePhoto()
+    {
+        /* allow only ajax calls */
+        if (!request()->isAjax) {
+            return $this->redirect(['index']);
+        } 
+        /* set the output to json */
+        response()->format = Response::FORMAT_JSON;
+        
+        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+        if ($user == null || $user->getUserType() != 2) {
+            return ['result' => 'error', 'html' => t('app', 'Not permitted...')];
         }
 
-        return $this->render('upload-logo/' . $this->language . '-upload-logo', ['item' => $model]);
+        $imageId = request()->post('key');
+        if (empty($imageId)) {
+            return ['result' => 'error', 'html' => t('app', 'Something went wrong...')];
+        }
+
+        $image = CompanyImage::findOne(['image_id' => $imageId]);
+        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+
+        if (empty($image)) {
+            return ['result' => 'error', 'html' => t('app', 'Something went wrong...')];
+        }
+
+        if ($image->delete()) {
+            return ['result' => 'success', 'html' => $image];
+        }
+
+        return ['result' => 'error', 'html' => t('app', 'Something went wrong...')];
+    }
+
+    
+    /**
+     * @return array|Response
+     */
+    public function actionSortPhotos()
+    {
+        /* allow only ajax calls */
+        if (!request()->isAjax) {
+            return $this->redirect(['index']);
+        }
+
+        /* set the output to json */
+        response()->format = Response::FORMAT_JSON;
+
+        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+        if ($user == null || $user->getUserType() != 2) {
+            return ['result' => 'error', 'html' => t('app', 'Not permitted...')];
+        }
+
+        $images = request()->post('images');
+        $images = json_decode($images);
+
+        if (empty($images)) {
+            return ['result' => 'error', 'html' => t('app', 'Something went wrong...')];
+        }
+
+        foreach ($images as $sortOrder => $image) {
+            $_image = CompanyImage::findOne(['image_id' => $image->key]);
+            $_image->sort_order = $sortOrder + 1;
+            $_image->save();
+        }
+
+        return ['result' => 'success'];
+    }
+
+        /**
+     * @return array|Response
+     * @throws \Exception
+     */
+    public function actionUploadPhotos()
+    {
+        /* allow only ajax calls */
+        if (!request()->isAjax) {
+            return $this->redirect(['company/post']);
+        }
+        /* set the output to json */
+        response()->format = Response::FORMAT_JSON;
+
+        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+        if ($user == null || $user->getUserType() != 2) {
+            return ['result' => 'error', 'html' => t('app', 'Not permitted...')];
+        }
+
+        $fileId = request()->post('file_id');
+        $adId = request()->post('adId');
+        $action = request()->post('action');
+        $image_form_key = request()->post('image_form_key');
+
+        $UploadedImages = CompanyImage::find()
+            ->select('sort_order')
+            ->where(['company_id' => $adId])
+            ->orderBy('sort_order DESC')
+            ->one();
+
+        if(empty($UploadedImages))
+            $UploadedImages = CompanyImage::find()
+                ->select('sort_order')
+                ->where(['image_form_key' => $image_form_key])
+                ->orderBy('sort_order DESC')
+                ->one();
+
+        (!$UploadedImages) ? $sort = $fileId : $sort = $UploadedImages->sort_order + $fileId;
+
+        $images = new CompanyImage();
+        if(!($imagesGallery = UploadedFile::getInstances($images, 'imagesGallery'))){
+            throw new \Exception(t('app', 'Please add at least your logo to your ICO advertisement post'));
+        }
+
+        return $images->uploadImageByAjax($imagesGallery, $image_form_key, $adId, $sort);
     }
 
     public
