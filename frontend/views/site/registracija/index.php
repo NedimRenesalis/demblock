@@ -28,7 +28,7 @@ $this->title = 'Registration';
 
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center">
-                        <?= $form->field($model, 'email')->textInput()->label('Username') ?>
+                        <?= $form->field($model, 'email')->textInput()->label('Email') ?>
                     </div>
                 </div>
                 <div class="form-group has-feedback">
