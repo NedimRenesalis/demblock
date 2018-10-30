@@ -3,14 +3,15 @@
 namespace common\models;
 
 use Yii;
-use common\models\User;
+use common\models\Advert;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\Url;
 
 /**
- * This is the model class for table "{{%company_image}}".
+ * This is the model class for table "{{%advert_image}}".
  *
  * @property integer $image_id
- * @property integer $company_id
+ * @property integer $advert_id
  * @property string $image_path
  * @property integer $sort_order
  * @property string $created_at
@@ -18,14 +19,14 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property Company $company
  */
-class CompanyImage extends \yii\db\ActiveRecord
+class AdvertImage extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%company_image}}';
+        return '{{%advert_image}}';
     }
 
     /**
@@ -47,11 +48,11 @@ class CompanyImage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['company_id', 'sort_order'], 'integer'],
+            [['advert_id', 'sort_order'], 'integer'],
             [['created_at', 'updated_at'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['image_path'], 'string', 'max' => 255],
-            [['company_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['company_id' => 'id']],
+            [['advert_id'], 'exist', 'skipOnError' => true, 'targetClass' => Advert::className(), 'targetAttribute' => ['advert_id' => 'id']],
         ];
     }
 
@@ -62,7 +63,7 @@ class CompanyImage extends \yii\db\ActiveRecord
     {
         return [
             'image_id' => 'Image ID',
-            'company_id' => 'Company ID',
+            'advert_id' => 'Company ID',
             'image_path' => 'Image Path',
             'sort_order' => 'Sort Order',
             'created_at' => 'Created At',
@@ -75,16 +76,24 @@ class CompanyImage extends \yii\db\ActiveRecord
      */
     public function getCompany()
     {
-        return $this->hasOne(User::className(), ['company_id' => 'id']);
+        return $this->hasOne(Advert::className(), ['advert_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAbsImage()
+    {
+        return Url::base('') . $this->image_path;
     }
 
     
     /**
      * @inheritdoc
-     * @return CompanyImageQuery the active query used by this AR class.
+     * @return AdvertImageQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new CompanyImageQuery(get_called_class());
+        return new AdvertImageQuery(get_called_class());
     }
 }

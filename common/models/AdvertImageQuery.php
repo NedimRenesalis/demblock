@@ -3,11 +3,11 @@
 namespace common\models;
 
 /**
- * This is the ActiveQuery class for [[CompanyImage]].
+ * This is the ActiveQuery class for [[AdvertImage]].
  *
- * @see CompanyImage
+ * @see AdvertImage
  */
-class CompanyImageQuery extends \yii\db\ActiveQuery
+class AdvertImageQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class CompanyImageQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return CompanyImage[]|array
+     * @return AdvertImage[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CompanyImageQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return CompanyImage|array|null
+     * @return AdvertImage|array|null
      */
     public function one($db = null)
     {

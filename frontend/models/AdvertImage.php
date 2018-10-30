@@ -10,10 +10,10 @@ use app\yii\base\Event;
 use yii\helpers\Url;
 
 /**
- * Class CompanyImage
+ * Class AdvertImage
  * @package app\models
  */
-class CompanyImage extends \common\models\CompanyImage
+class AdvertImage extends \common\models\AdvertImage
 {
     /**
      * Image default width
@@ -37,7 +37,7 @@ class CompanyImage extends \common\models\CompanyImage
     {
         return [
             [['image_path'], 'required'],
-            [['sort', 'company_id', 'image_form_key'], 'safe'],
+            [['sort', 'advert_id', 'image_form_key'], 'safe'],
             ['imagesGallery', 'each', 'rule' => ['file', 'extensions' => 'png, jpg, jpeg']],
         ];
     }
@@ -99,7 +99,7 @@ class CompanyImage extends \common\models\CompanyImage
 
             $model = new static();
             $model->image_path = '/uploads/images/companies/' . $newGalleryImageName;
-            $model->company_id = $adId;
+            $model->advert_id = $adId;
             $model->image_form_key = $image_form_key;
             $model->sort_order = $sort;
 
@@ -115,6 +115,26 @@ class CompanyImage extends \common\models\CompanyImage
                 ]
             ];
 
+        }
+    }
+
+    /**
+     * @param $adId
+     * @param $image_form_key
+     * @throws \Exception
+     */
+    public function matchListingId($adId, $image_form_key)
+    {
+        $adId = (int)$adId;
+        $existingImages = self::find()->where(['image_form_key' => $image_form_key])->all();
+
+        if(empty($existingImages)){
+            throw new \Exception(t('app', 'There are no images in the database with this random key'));
+        }
+        
+        foreach($existingImages as $existingImage){
+            $existingImage->advert_id = $adId;
+            $existingImage->save();
         }
     }
 }

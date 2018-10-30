@@ -162,14 +162,6 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getImages()
-    {
-        return $this->hasMany(CompanyImage::className(), ['company_id' => 'id']);
-    }
-
-    /**
      * @inheritdoc
      */
     public function validateAuthKey($authKey)

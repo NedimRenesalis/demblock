@@ -88,6 +88,15 @@ class Advert extends \yii\db\ActiveRecord
         return $this->getPrimaryKey();
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getImages()
+    {
+        $images = AdvertImage::find()->where(["advert_id" => $this->getId()])->all();
+        return empty($images) ? null : $images;
+    }
+
     public static function getCompanyByUserId($id)
     {
         $user = User::find()->where(["id" => $id])->one();

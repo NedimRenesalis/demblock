@@ -109,11 +109,11 @@ $(document).ready(function () {
         $('.password-checker').hide();
     });
 
-    $('#companyimage-imagesgallery').on('filebatchselected', function() {
-        $('#companyimage-imagesgallery').fileinput("upload");
+    $('#advertimage-imagesgallery').on('filebatchselected', function() {
+        $('#advertimage-imagesgallery').fileinput("upload");
     });
     
     $('.file-loading').on('filesorted', function(event, params) {
-        $.post($('#companyimage-imagesgallery').data('sort-company-images'), { images: JSON.stringify(params.stack) }, function(json) {}, 'json');
+        $.post($('#advertimage-imagesgallery').data('sort-company-images'), { images: JSON.stringify(params.stack) }, function(json) {}, 'json');
     });
 });

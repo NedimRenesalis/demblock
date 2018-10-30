@@ -482,3 +482,17 @@ textarea {
 .btn-success.btn-apply-disabled:hover{
     background-color: rgba(92,184,92,0.5);
 }
+
+/* ad loader */
+.photo-ad-slider {
+    background: transparent;
+    box-shadow: none;
+}
+
+.photo-ad-slider .play-pause {
+    display: none;
+}
+
+.photo-ad-slider .next, .photo-ad-slider >.prev {
+    border-radius: 0px;
+}

@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `company_image`.
+ * Handles the creation of table `advert_image`.
  */
-class m170317_011759_company_image extends Migration
+class m170318_011759_advert_image extends Migration
 {
     /**
      * @inheritdoc
@@ -17,9 +17,9 @@ class m170317_011759_company_image extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%company_image}}', [
+        $this->createTable('{{%advert_image}}', [
             'image_id'                  => $this->primaryKey(),
-            'company_id'                => $this->integer(),
+            'advert_id'                => $this->integer(),
             'image_form_key'            => $this->string(8),
             'image_path'                => $this->string(),
             'sort_order'                => $this->integer()->defaultValue(0),
@@ -27,7 +27,7 @@ class m170317_011759_company_image extends Migration
             'updated_at'                => $this->dateTime()->notNull(),
         ], $tableOptions);
 
-        $this->addForeignKey('company_image_company_id_fk', '{{%company_image}}', 'company_id', '{{%user}}', 'id', 'CASCADE', 'NO ACTION');
+        $this->addForeignKey('advert_image_advert_id_fk', '{{%advert_image}}', 'advert_id', '{{%advert}}', 'id', 'CASCADE', 'NO ACTION');
     }
 
     /**
@@ -37,7 +37,7 @@ class m170317_011759_company_image extends Migration
     {
         $this->getDb()->createCommand('SET FOREIGN_KEY_CHECKS = 0')->execute();
 
-        $this->dropTable('{{%company_image}}');
+        $this->dropTable('{{%advert_image}}');
 
         $this->getDb()->createCommand('SET FOREIGN_KEY_CHECKS = 1')->execute();
     }

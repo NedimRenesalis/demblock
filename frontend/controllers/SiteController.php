@@ -28,7 +28,7 @@ use common\models\Order;
 use common\models\LoginForm;
 use common\models\Apply;
 
-use frontend\models\CompanyImage;
+use frontend\models\AdvertImage;
 use frontend\models\SubscribeForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -697,6 +697,16 @@ class SiteController extends Controller
     public function actionObjavaOglasa()
     {
         $model = new Advert();
+        $images = new AdvertImage();
+        
+        /* fixclean */
+        $UploadedImages = AdvertImage::find()
+            ->where(['advert_id' => null])
+            ->all();
+
+        if(!empty($UploadedImages))
+            foreach ($UploadedImages as $imag) 
+                $imag->delete();
 
         if (!Yii::$app->user->isGuest) {
             $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
@@ -713,10 +723,11 @@ class SiteController extends Controller
                 return $this->goHome();
             }
 
-            if ($model->load(Yii::$app->request->post())) {
+            if ($model->load(Yii::$app->request->post()) && $images->load(Yii::$app->request->post())) {
                 // save advert
                 $nowTimestamp = ((int)Yii::$app->formatter->asTimestamp(date("Y-m-d H:i:s"))) + 2 * 60 * 60;
                 $timestamp = (int)Yii::$app->formatter->asTimestamp($model->start_advert);
+                $image_form_key = $images->image_form_key;
 
                 $model->start_advert = $timestamp < $nowTimestamp ? $nowTimestamp : $timestamp;
                 $model->user_id = $user->getId();
@@ -755,9 +766,14 @@ class SiteController extends Controller
                             $model->start_advert = Yii::$app->formatter->asDatetime($model->start_advert);
                             return $this->render(
                                 'objava-oglasa/' . $this->language . '-objava-oglasa', [
-                                'model' => $model,
-                                'message' => $noMoneyMessage . " - " . $toPay,
-                                'isEmployer' => true
+                                'model'             => $model,
+                                'message'           => $noMoneyMessage . " - " . $toPay,
+                                'isEmployer'        => true,
+                                'images'            => $images,
+                                'action'            => 'create',
+                                'uploadedImages'    => $model->images,
+                                'advert_id'         => $model->getId(),
+                                'image_random_key'  => substr(sha1(time()), 0, 8),
                             ]);
                         }
 
@@ -774,7 +790,7 @@ class SiteController extends Controller
                             return $this->redirect("objava-oglasa");
                         }
 
-
+                        $images->matchListingId($model->getId(), $image_form_key);
                         $this->sendAdvertConfirmationMail($user, $model);
 
                         return $this->redirect("zahvala-za-placanje");
@@ -793,6 +809,7 @@ class SiteController extends Controller
                             $model->payment_status = 0;
                             $model->price = $toPay;
                             $model->save();
+                            $images->matchListingId($model->getId(), $image_form_key);
 
                             $order = new Order();
                             $order->ch_full_name = $user->full_name;
@@ -832,17 +849,27 @@ class SiteController extends Controller
             } else {
                 return $this->render(
                     'objava-oglasa/' . $this->language . '-objava-oglasa', [
-                    'model' => $model,
-                    'message' => null,
-                    'isEmployer' => $user->getUserType() == 2
+                    'model'             => $model,
+                    'message'           => null,
+                    'isEmployer'        => $user->getUserType() == 2,
+                    'images'            => $images,
+                    'action'            => 'create',
+                    'uploadedImages'    => $model->images,
+                    'advert_id'         => $model->getId(),
+                    'image_random_key'  => substr(sha1(time()), 0, 8),
                 ]);
             }
         } else {
             return $this->render(
                 'objava-oglasa/' . $this->language . '-objava-oglasa', [
-                'model' => $model,
-                'message' => null,
-                'isEmployer' => false
+                'model'             => $model,
+                'message'           => null,
+                'isEmployer'        => false,
+                'images'            => $images,
+                'action'            => 'create',
+                'uploadedImages'    => $model->images,
+                'advert_id'         => $model->getId(),
+                'image_random_key'  => substr(sha1(time()), 0, 8),
             ]);
         }
 
@@ -1066,22 +1093,40 @@ class SiteController extends Controller
     public
     function actionUploadLogo()
     {
-            $images = new CompanyImage();
-            $model = new UploadForm();
-            
-            $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-            if ($user == null || $user->getUserType() != 2) {
-                return $this->goHome();
+        $model = new UploadForm();
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if ($model->validate()) {
+                $allowed = array('jpg', 'jpeg', 'png');
+                $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+                if ($user == null) {
+                    return $this->goHome();
+                }
+                $type = $user->getUserType();
+                if ($type != 2) {
+                    return $this->goHome();
+                }
+                $extension = $model->file->extension;
+                if (!in_array(strtolower($extension), $allowed)) {
+                    echo '{"status":"error"}';
+                    exit;
+                }
+                $newImage = 'uploads/logo/' . $user->getId() . '-' . time() . '.' . $extension;
+                if ($user->image != null && file_exists($user->image)) {
+                    unlink($user->image);
+                }
+                if ($model->file->size > 1024 * 1024 * 2) {
+                    echo '{"status":"error"}';
+                    exit;
+                }
+                if ($model->file->saveAs($newImage)) {
+                    $user->image = $newImage;
+                    $user->save();
+                    return $this->redirect("profil-poslodavac");
+                }
             }
-
-            return $this->render('upload-logo/' . $this->language . '-upload-logo', [
-                'item'              => $model,
-                'images'            => $images,
-                'action'            => 'update',
-                'uploadedImages'    => $user->images,
-                'user_id'           => $user->getId(),
-                'image_random_key'  => substr(sha1(time()), 0, 8),
-            ]);
+        }
+        return $this->render('upload-logo/' . $this->language . '-upload-logo', ['item' => $model]);
     }
 
     /**
@@ -1106,7 +1151,7 @@ class SiteController extends Controller
             return ['result' => 'error', 'html' => t('app', 'Something went wrong...')];
         }
 
-        $image = CompanyImage::findOne(['image_id' => $imageId]);
+        $image = AdvertImage::findOne(['image_id' => $imageId]);
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
 
         if (empty($image)) {
@@ -1147,7 +1192,7 @@ class SiteController extends Controller
         }
 
         foreach ($images as $sortOrder => $image) {
-            $_image = CompanyImage::findOne(['image_id' => $image->key]);
+            $_image = AdvertImage::findOne(['image_id' => $image->key]);
             $_image->sort_order = $sortOrder + 1;
             $_image->save();
         }
@@ -1178,14 +1223,14 @@ class SiteController extends Controller
         $action = request()->post('action');
         $image_form_key = request()->post('image_form_key');
 
-        $UploadedImages = CompanyImage::find()
+        $UploadedImages = AdvertImage::find()
             ->select('sort_order')
-            ->where(['company_id' => $adId])
+            ->where(['advert_id' => $adId])
             ->orderBy('sort_order DESC')
             ->one();
 
         if(empty($UploadedImages))
-            $UploadedImages = CompanyImage::find()
+            $UploadedImages = AdvertImage::find()
                 ->select('sort_order')
                 ->where(['image_form_key' => $image_form_key])
                 ->orderBy('sort_order DESC')
@@ -1193,7 +1238,7 @@ class SiteController extends Controller
 
         (!$UploadedImages) ? $sort = $fileId : $sort = $UploadedImages->sort_order + $fileId;
 
-        $images = new CompanyImage();
+        $images = new AdvertImage();
         if(!($imagesGallery = UploadedFile::getInstances($images, 'imagesGallery'))){
             throw new \Exception(t('app', 'Please add at least your logo to your ICO advertisement post'));
         }
@@ -1437,8 +1482,18 @@ class SiteController extends Controller
             }
         }
 
+        $imagesPreview = [];
+        $UploadedImages = $advert->getImages();
+        if ($UploadedImages) foreach ($UploadedImages as $key => $image) {
+            $imagesPreview[] =  Url::base('') . $image->image_path;
+            $imagesPreviewConfig[$key]['poster']    = url($image->image_path);
+            $imagesPreviewConfig[$key]['href']      = url($image->image_path);
+            $imagesPreviewConfig[$key]['title']     = $image->image_id;
+        }
+
         return $this->render('oglas/' . $this->language . '-oglas', [
             'model' => $advert,
+            'images' => $imagesPreview,
             'employee' => $type == 3
         ]);
     }
