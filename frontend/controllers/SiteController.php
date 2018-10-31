@@ -700,13 +700,13 @@ class SiteController extends Controller
         $images = new AdvertImage();
         
         /* fixclean */
-        $UploadedImages = AdvertImage::find()
+        /*$UploadedImages = AdvertImage::find()
             ->where(['advert_id' => null])
             ->all();
 
         if(!empty($UploadedImages))
             foreach ($UploadedImages as $imag) 
-                $imag->delete();
+                $imag->delete();*/
 
         if (!Yii::$app->user->isGuest) {
             $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
