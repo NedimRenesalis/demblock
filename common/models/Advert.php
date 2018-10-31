@@ -95,7 +95,7 @@ class Advert extends \yii\db\ActiveRecord
     {
         $images = AdvertImage::find()
             ->where(["advert_id" => $this->getId()])
-            ->orderBy('sort_order DESC')
+            ->orderBy('sort_order ASC')
             ->all();
         return empty($images) ? null : $images;
     }
@@ -103,7 +103,7 @@ class Advert extends \yii\db\ActiveRecord
     public function getFirstImage() {
         $first = AdvertImage::find()
             ->where(['advert_id' => $this->getId()])
-            ->orderBy('sort_order DESC')
+            ->orderBy('sort_order ASC')
             ->one();
         return $first;
     }
