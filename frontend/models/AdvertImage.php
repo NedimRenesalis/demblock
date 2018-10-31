@@ -128,13 +128,11 @@ class AdvertImage extends \common\models\AdvertImage
         $adId = (int)$adId;
         $existingImages = self::find()->where(['image_form_key' => $image_form_key])->all();
 
-        if(empty($existingImages)){
-            throw new \Exception(t('app', 'There are no images in the database with this random key'));
-        }
-        
-        foreach($existingImages as $existingImage){
-            $existingImage->advert_id = $adId;
-            $existingImage->save();
+        if(!empty($existingImages)){
+            foreach($existingImages as $existingImage){
+                $existingImage->advert_id = $adId;
+                $existingImage->save();
+            }
         }
     }
 }

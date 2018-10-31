@@ -18,9 +18,9 @@ use yii\helpers\Url;
           <div class="sponsored-advert">
               <img src="<?= Url::to('@web/css/images/for-client.png'); ?>" class="img-responsive logo-im logo-index">
           </div>
-        <?php elseif ($model->getImages()): ?>
+        <?php elseif ($model->getFirstImage()): ?>
             <div class="sponsored-advert">
-                <img src="<?= ($model->getImages()[0])->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
+                <img src="<?= ($model->getFirstImage())->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
             </div>
         <?php else: ?>
           <div class="sponsored-advert">
@@ -47,9 +47,9 @@ use yii\helpers\Url;
           <div class="sponsored-advert">
               <img src="<?= Url::to('@web/css/images/for-client.png'); ?>" class="img-responsive logo-im logo-index">
           </div>
-        <?php elseif ($model->getImages()): ?>
+        <?php elseif ($model->getFirstImage()): ?>
             <div class="sponsored-advert">
-                <img src="<?= ($model->getImages()[0])->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
+                <img src="<?= ($model->getFirstImage())->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
             </div>
         <?php else: ?>
           <div class="sponsored-advert">

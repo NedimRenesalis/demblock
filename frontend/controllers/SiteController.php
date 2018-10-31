@@ -699,15 +699,6 @@ class SiteController extends Controller
         $model = new Advert();
         $images = new AdvertImage();
         
-        /* fixclean */
-        /*$UploadedImages = AdvertImage::find()
-            ->where(['advert_id' => null])
-            ->all();
-
-        if(!empty($UploadedImages))
-            foreach ($UploadedImages as $imag) 
-                $imag->delete();*/
-
         if (!Yii::$app->user->isGuest) {
             $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
 
@@ -719,7 +710,7 @@ class SiteController extends Controller
                 $noMoneyMessage = 'Ihr Guthaben ist zu niedrig.';
             }
 
-            if ($user == null || $user->getUserType() != 2) {
+            if ($user == null) {
                 return $this->goHome();
             }
 
@@ -791,7 +782,10 @@ class SiteController extends Controller
                         }
 
                         $images->matchListingId($model->getId(), $image_form_key);
-                        $this->sendAdvertConfirmationMail($user, $model);
+
+                        try {
+                            $this->sendAdvertConfirmationMail($user, $model);
+                        } catch (Exception $e) {}
 
                         return $this->redirect("zahvala-za-placanje");
                         break;
@@ -860,6 +854,15 @@ class SiteController extends Controller
                 ]);
             }
         } else {
+            /* fixclean */
+            $UploadedImages = AdvertImage::find()
+                ->where(['advert_id' => null])
+                ->all();
+
+            if(!empty($UploadedImages))
+                foreach ($UploadedImages as $imag) 
+                    $imag->delete();
+
             return $this->render(
                 'objava-oglasa/' . $this->language . '-objava-oglasa', [
                 'model'             => $model,
@@ -1142,7 +1145,7 @@ class SiteController extends Controller
         response()->format = Response::FORMAT_JSON;
         
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-        if ($user == null || $user->getUserType() != 2) {
+        if ($user == null) {
             return ['result' => 'error', 'html' => t('app', 'Not permitted...')];
         }
 
@@ -1180,7 +1183,7 @@ class SiteController extends Controller
         response()->format = Response::FORMAT_JSON;
 
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-        if ($user == null || $user->getUserType() != 2) {
+        if ($user == null) {
             return ['result' => 'error', 'html' => t('app', 'Not permitted...')];
         }
 
@@ -1214,7 +1217,7 @@ class SiteController extends Controller
         response()->format = Response::FORMAT_JSON;
 
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-        if ($user == null || $user->getUserType() != 2) {
+        if ($user == null) {
             return ['result' => 'error', 'html' => t('app', 'Not permitted...')];
         }
 
