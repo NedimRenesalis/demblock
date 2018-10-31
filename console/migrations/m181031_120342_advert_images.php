@@ -3,14 +3,14 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `advert_image`.
+ * Class m181031_120342_advert_images
  */
-class m170318_011759_advert_image extends Migration
+class m181031_120342_advert_images extends Migration
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function up()
+    public function safeUp()
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -31,14 +31,30 @@ class m170318_011759_advert_image extends Migration
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function down()
+    public function safeDown()
     {
+        
         $this->getDb()->createCommand('SET FOREIGN_KEY_CHECKS = 0')->execute();
 
         $this->dropTable('{{%advert_image}}');
 
         $this->getDb()->createCommand('SET FOREIGN_KEY_CHECKS = 1')->execute();
     }
+
+    /*
+    // Use up()/down() to run migration code without a transaction.
+    public function up()
+    {
+
+    }
+
+    public function down()
+    {
+        echo "m181031_120342_advert_images cannot be reverted.\n";
+
+        return false;
+    }
+    */
 }
