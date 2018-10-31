@@ -22,7 +22,7 @@ use yii\helpers\Url;
           </div>
         <?php elseif ($model->getFirstImage()): ?>
             <div class="sponsored-advert">
-                <img src="<?= ($model->getFirstImage())->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
+                <img src="<?= $model->getFirstImage()->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
             </div>
         <?php else: ?>
           <div class="sponsored-advert">
@@ -55,7 +55,7 @@ use yii\helpers\Url;
           </div>
         <?php elseif ($model->getFirstImage()): ?>
             <div class="sponsored-advert">
-                <img src="<?= ($model->getFirstImage())->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
+                <img src="<?= $model->getFirstImage()->getAbsImage(); ?>" class="img-responsive logo-im logo-index">
             </div>
         <?php else: ?>
           <div class="sponsored-advert">
