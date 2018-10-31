@@ -5,7 +5,12 @@ use yii\db\Migration;
 class m170409_103612_advert extends Migration
 {
     public function up()
-    {
+    {        
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
+        
         $this->createTable('{{%advert}}', [
             'id' => $this->primaryKey(),
             'position' => $this->string()->notNull(),
@@ -27,7 +32,7 @@ class m170409_103612_advert extends Migration
             'price' => $this->float()->notNull(),
             'description' => $this->text(),
             'user_id' => $this->integer()->notNull(),
-        ]);
+        ], $tableOptions);
 
         $this->addForeignKey(
             'fk-application-company_id',

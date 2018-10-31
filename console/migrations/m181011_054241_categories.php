@@ -1095,12 +1095,16 @@ class m181011_054241_categories extends Migration
     // Use up()/down() to run migration code without a transaction.
     public function up()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
 
         $this->createTable('{{%categories}}', [
             'Id' => $this->primaryKey(),
             'ParentId' => $this->integer()->defaultValue(NULL),
             'Name' => $this->string()->notNull(),
-        ]);
+        ], $tableOptions);
 
         $categories = $this->categories;
 

@@ -19,7 +19,7 @@ class m181031_120342_advert_images extends Migration
 
         $this->createTable('{{%advert_image}}', [
             'image_id'                  => $this->primaryKey(),
-            'advert_id'                => $this->integer(),
+            'advert_id'                 => $this->integer(),
             'image_form_key'            => $this->string(8),
             'image_path'                => $this->string(),
             'sort_order'                => $this->integer()->defaultValue(0),

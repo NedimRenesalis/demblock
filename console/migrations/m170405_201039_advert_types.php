@@ -7,6 +7,11 @@ class m170405_201039_advert_types extends Migration
 {
     public function up()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
+
         $this->createTable('{{%advert_types}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
@@ -15,7 +20,7 @@ class m170405_201039_advert_types extends Migration
             'days' => $this->integer()->notNull(),
             'price' => $this->float()->notNull(),
             'positions' => $this->integer()->notNull()
-        ]);
+        ], $tableOptions);
 
         // BA
         $advertType1 = new AdvertTypes();
