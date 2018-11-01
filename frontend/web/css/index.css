@@ -8556,4 +8556,16 @@ span.pcsf__flag:first-child {
     background: red;
 }
 
+.send-confirmation {
+    border: none;
+    background: transparent;
+    color: #0909ca;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.inactive-profile-wrapper-notification {
+    position: relative;
+}
+
 /* Password checker end */

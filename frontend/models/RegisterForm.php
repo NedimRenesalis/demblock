@@ -255,7 +255,7 @@ public $countryArray = array(
             
                     return $('#registerform-usertype input:checked').val() != '3';
                 }"],
-            [['first_name', 'last_name', 'phone', 'job', 'location', 'dialCode','userType'], 'safe'],
+            [['first_name', 'last_name', 'phone', 'job', 'location', 'dialCode','userType', 'status'], 'safe'],
         ];
     }
 
@@ -305,6 +305,8 @@ public $countryArray = array(
         } else {
             $user->user_type = 3;
         }
+
+        $user->status = User::STATUS_INACTIVE;
 
         $user->setPassword($this->password);
         $user->generateAuthKey();

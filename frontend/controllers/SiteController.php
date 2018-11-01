@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 
 use frontend\models\Categories;
+use frontend\models\EmailConfirmation;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -50,6 +51,7 @@ class SiteController extends Controller
 {
     public $language;
     public $registered = false;
+    public $isActive = false;
 
     public function beforeAction($action)
     {
@@ -180,6 +182,14 @@ class SiteController extends Controller
             ->orderBy(['id' => SORT_DESC])
             ->all();
 
+        if (!Yii::$app->user->isGuest){
+            $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+
+            if ($user && $user->status == User::STATUS_INACTIVE) {
+                return $this->render('index/inactive', ['user' => $user, 'registered' => $this->registered]);
+            }
+        }
+
         return $this->render('index/' . $this->language . '-index', [
             "sponsored" => $sponsored,
             "searchModel" => $searchModel,
@@ -242,9 +252,18 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            if (User::isBlocked(Yii::$app->user->identity->username))
-                $this->actionLogout();
+            if (User::isInActive(Yii::$app->user->identity->username) == User::STATUS_INACTIVE && !User::isBlocked(Yii::$app->user->identity->username)){
+                $this->isActive = true;
+                return $this->render('index/inactive', ['user' => Yii::$app->user->identity]);
+               // $this->actionLogout();
+            } else {
+                if (User::isBlocked(Yii::$app->user->identity->username)) {
+                    $this->actionLogout();
+                }
+            }
             return $this->goBack();
         } else {
             return $this->render('prijava/' . $this->language . '-prijava', [
@@ -1605,6 +1624,11 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->username = $model->email;
             if ($user = $model->signup()) {
+
+                $mail = new EmailConfirmation();
+
+                $mail->sendEmail($user);
+
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->redirect("index");
                 }
@@ -1617,6 +1641,34 @@ class SiteController extends Controller
         ]);
     }
 
+
+    public function actionActivateProfile($key){
+        $user = User::findOne(['auth_key' => $key]);
+
+        if($user){
+
+            $user->status = User::STATUS_ACTIVE;
+            if($user->save()){
+                Yii::$app->session->setFlash('success', 'Your profile is activated.');
+
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->redirect("index");
+                }
+            }
+        }
+    }
+
+    public function actionRequestNewActivationKey($key){
+        $mail = new EmailConfirmation();
+        $user = User::findOne(['auth_key' => $key]);
+        if($user) {
+            if ($mail->sendEmail($user)) {
+                return 1;
+            }
+        }
+
+        return $this->redirect("index");
+    }
 
 
 }
