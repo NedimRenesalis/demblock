@@ -16,7 +16,24 @@
 
 .main-content {
 }
+.zoombtn {
+    position: absolute;
+    top: -230%;
+    left: 0%;
+    height: 165px;
+    padding: 0 !important;
+    width: 213px;
+    opacity: 1;
+    background-color: transparent !important;
+    color: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
 
+.zoombtn:hover {
+    background-color: #63636338 !important;
+    color: #777 !important;
+}
 .main-content .block {
     padding-top: 35px;
     padding-bottom: 35px;
@@ -464,4 +481,18 @@ textarea {
 
 .btn-success.btn-apply-disabled:hover{
     background-color: rgba(92,184,92,0.5);
+}
+
+/* ad loader */
+.photo-ad-slider {
+    background: transparent;
+    box-shadow: none;
+}
+
+.photo-ad-slider .play-pause {
+    display: none;
+}
+
+.photo-ad-slider .next, .photo-ad-slider >.prev {
+    border-radius: 0px;
 }

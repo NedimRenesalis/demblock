@@ -34,12 +34,19 @@ if (!Yii::$app->user->isGuest) {
                                 <img src="<?= Url::to('@web/css/images/for-client.png'); ?>"
                                      class="img-responsive logo-im">
                             </div>
-                        <?php elseif (Advert::getImageByUserId($model->user_id)): ?>
-                            <div class=" col-lg-1.5 col-md-6">
-                                <img src="<?= Url::to('@web/' . Advert::getImageByUserId($model->user_id)); ?>"
-                                     class="img-responsive logo-im">
-                            </div>
-                        <?php else: ?>
+                            <?php elseif (!empty($images)): ?>
+                                <div class=" col-lg-1.5 col-md-6">
+                                    <?php 
+                                        echo dosamigos\gallery\Carousel::widget([
+                                            'items' => $images, 
+                                            'json' => true,
+                                            'clientOptions' => [
+                                                'displayClass' => 'blueimp-gallery-display photo-ad-slider'
+                                            ]
+                                        ]); 
+                                    ?>
+                                </div>
+                            <?php else: ?>
                             <div class=" col-lg-1.5 col-md-6">
                                 <img src="<?= Url::to('@web/css/images/big-logo.png'); ?>"
                                      class="img-responsive logo-im">
@@ -157,10 +164,17 @@ if (!Yii::$app->user->isGuest) {
                         <div class=" col-lg-1.5 col-md-6">
                             <img src="<?= Url::to('@web/css/images/for-client.png'); ?>" class="img-responsive logo-im">
                         </div>
-                    <?php elseif (Advert::getImageByUserId($model->user_id)): ?>
+                    <?php elseif (!empty($images)): ?>
                         <div class=" col-lg-1.5 col-md-6">
-                            <img src="<?= Url::to('@web/' . Advert::getImageByUserId($model->user_id)); ?>"
-                                 class="img-responsive logo-im">
+                            <?php 
+                                echo dosamigos\gallery\Carousel::widget([
+                                    'items' => $images, 
+                                    'json' => true,
+                                    'clientOptions' => [
+                                        'displayClass' => 'blueimp-gallery-display photo-ad-slider'
+                                    ]
+                                ]); 
+                            ?>
                         </div>
                     <?php else: ?>
                         <div class="col-lg-1.5 col-md-6">

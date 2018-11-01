@@ -48,7 +48,7 @@ $(document).ready(function () {
         $('#registerform-dialcode').val(value);
 
     });
-
+    
     $('#registerform-password').on('keyup', function() {
         // do something
         var strength = 0;
@@ -107,5 +107,13 @@ $(document).ready(function () {
 
     $('body').on('click', function(){
         $('.password-checker').hide();
+    });
+
+    $('#advertimage-imagesgallery').on('filebatchselected', function() {
+        $('#advertimage-imagesgallery').fileinput("upload");
+    });
+    
+    $('.file-loading').on('filesorted', function(event, params) {
+        $.post($('#advertimage-imagesgallery').data('sort-company-images'), { images: JSON.stringify(params.stack) }, function(json) {}, 'json');
     });
 });
