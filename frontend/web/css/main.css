@@ -1,4 +1,3 @@
-
 /** Navigation **/
 
 .navbar#top {
@@ -12,10 +11,11 @@
     max-width: 200px;
 }
 
+
 /** Main content **/
 
-.main-content {
-}
+.main-content {}
+
 .zoombtn {
     position: absolute;
     top: -230%;
@@ -34,13 +34,14 @@
     background-color: #63636338 !important;
     color: #777 !important;
 }
+
 .main-content .block {
     padding-top: 35px;
     padding-bottom: 35px;
 }
 
 .main-content .block.green {
-    background-color: #5cb85c;
+    background-color: #ffffff;
 }
 
 .main-content .block.grey {
@@ -108,13 +109,13 @@
     color: transparent;
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav>li>a {
     color: #000000 !important;
     background-color: #f8f8f8 !important;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>li>a:focus {
     color: #000000 !important;
     background-color: #e6e6fa !important;
 }
@@ -174,7 +175,9 @@
     box-shadow: 5px 5px 5px grey;
 }
 
-.advert-header, .advert-body, .advert-desc {
+.advert-header,
+.advert-body,
+.advert-desc {
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -184,11 +187,13 @@
     display: none;
 }
 
-.advert-header, .advert-body {
+.advert-header,
+.advert-body {
     text-align: center;
 }
 
-.company-logo, .date {
+.company-logo,
+.date {
     overflow: hidden;
     margin-bottom: 10px;
 }
@@ -217,7 +222,6 @@
 }
 
 @media (max-width: 400px) {
-
     .logo-im.logo-index {
         max-height: 100px !important;
         max-width: 120px !important;
@@ -257,19 +261,16 @@
     padding: 10px 0 0 20px;
     font-size: 25px;
     overflow: hidden;
-
 }
 
 .employer-description,
 .employee-description {
     min-height: 100px;
     overflow: hidden;
-
 }
 
 .employee-description {
     margin-top: 50px;
-
 }
 
 .employer-banner {
@@ -280,7 +281,6 @@
 @media (max-width: 1199px) {
     .employer-description {
         margin-top: 0;
-
     }
 }
 
@@ -411,7 +411,6 @@ hr.job-divider {
     font-weight: 600;
     cursor: pointer;
     font-size: 16px;
-
 }
 
 .job-title:hover a,
@@ -475,15 +474,17 @@ textarea {
     overflow: hidden;
 }
 
-.btn-success.btn-apply-disabled{
-    background-color: rgba(92,184,92,0.5);
+.btn-success.btn-apply-disabled {
+    background-color: rgba(92, 184, 92, 0.5);
 }
 
-.btn-success.btn-apply-disabled:hover{
-    background-color: rgba(92,184,92,0.5);
+.btn-success.btn-apply-disabled:hover {
+    background-color: rgba(92, 184, 92, 0.5);
 }
+
 
 /* ad loader */
+
 .photo-ad-slider {
     background: transparent;
     box-shadow: none;
@@ -493,6 +494,7 @@ textarea {
     display: none;
 }
 
-.photo-ad-slider .next, .photo-ad-slider >.prev {
+.photo-ad-slider .next,
+.photo-ad-slider>.prev {
     border-radius: 0px;
 }
