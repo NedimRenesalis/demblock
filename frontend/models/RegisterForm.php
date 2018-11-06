@@ -69,6 +69,7 @@ public $countryArray = array(
 'CK'=>array('name'=>'COOK ISLANDS','code'=>'682'),
 'CL'=>array('name'=>'CHILE','code'=>'56'),
 'CM'=>array('name'=>'CAMEROON','code'=>'237'),
+    'CN'=>array('name'=>'CHINA','code'=>'86'),
 'CO'=>array('name'=>'COLOMBIA','code'=>'57'),
 'CR'=>array('name'=>'COSTA RICA','code'=>'506'),
     'CU'=>array('name'=>'CUBA','code'=>'53'),
