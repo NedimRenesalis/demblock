@@ -62,7 +62,7 @@ class SiteController extends Controller
         $this->enableCsrfValidation = false;
 
         $this->registered = false;
-        $this->language = isset($_COOKIE['language']) ? $_COOKIE['language'] : "BA";
+        $this->language = "BA";
         if (!Yii::$app->user->isGuest) {
             $isBlocked = User::isBlocked(Yii::$app->user->identity->username);
             if ($isBlocked) {

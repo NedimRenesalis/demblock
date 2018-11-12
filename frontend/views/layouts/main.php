@@ -17,7 +17,7 @@ $logoUrl = Url::to('@web/css/images/logo.png');
 $ba = Url::to('@web/css/images/bosna.gif');
 $en = Url::to('@web/css/images/germany.png');
 $de = Url::to('@web/css/images/england.png');
-$language = isset($_COOKIE['language']) ? $_COOKIE['language'] : "BA";
+$language = "BA";
 AppAsset::register($this);
 $languages = "";
 $profile = "";
@@ -26,17 +26,11 @@ if(!Yii::$app->user->isGuest){
     $language = User::getUserLanguageByUsername(Yii::$app->user->identity->username);
 }
 
-if (Yii::$app->user->isGuest) {
+/*if (Yii::$app->user->isGuest) {
     $languages = ' <a class="hidden-sm hidden-xs navbar-brand" id="BA">
                 <img alt="Brand" class="center-block language" height="21" src="' . $ba . '">
-            </a>
-            <a class="hidden-sm hidden-xs navbar-brand" id="DE">
-                <img alt="Brand" class="center-block language" height="21" src="' . $en . '">
-            </a>
-            <a class="hidden-sm hidden-xs navbar-brand language" id="EN">
-                <img height="19" alt="Brand" class="center-bloc languagek" src="' . $de . '">
             </a>';
-}
+}*/
 
 ?>
 <?php $this->beginPage() ?>
