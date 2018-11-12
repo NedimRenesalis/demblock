@@ -585,8 +585,8 @@ textarea {
 }
 
 .section-item img {
-    width: 55%;
-    height: 55%;
+    width: 115px;
+    height: 115px;
 }
 
 .section-item:hover {
@@ -608,6 +608,10 @@ textarea {
     .section-item {
         width: 50%;
         height: 250px;
+    }
+    .section-item img {
+        width: 135px;
+        height: 135px;
     }
 }
 
