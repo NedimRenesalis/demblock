@@ -65,7 +65,7 @@
     margin-top: 15px;
 }
 
-.last-section a {
+.last- a {
     padding-bottom: 15px;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .advert-header,
-.advert-body,
+.advert-,
 .advert-desc {
     width: 100%;
     height: auto;
@@ -188,7 +188,7 @@
 }
 
 .advert-header,
-.advert-body {
+.advert- {
     text-align: center;
 }
 
@@ -303,16 +303,16 @@
     padding: 5px;
 }
 
-.section.premium {
+..premium {
     overflow: hidden;
 }
 
-.section.premium .premium-wrapper {
+..premium .premium-wrapper {
     display: inline-block;
 }
 
 @media (max-width: 350px) {
-    .section.premium .premium-wrapper {
+    ..premium .premium-wrapper {
         width: 100%;
     }
 }
@@ -324,7 +324,7 @@
     }
 }
 
-.section.premium .premium-wrapper a:hover {
+..premium .premium-wrapper a:hover {
     text-decoration: none;
 }
 
@@ -372,7 +372,7 @@
     padding-bottom: 5px;
 }
 
-.section.new-job {
+..new-job {
     padding: 0;
     overflow: hidden;
     margin: 0 15px;
@@ -497,4 +497,167 @@ textarea {
 .photo-ad-slider .next,
 .photo-ad-slider>.prev {
     border-radius: 0px;
+}
+
+/* header */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./images/hero.jpg');
+    background-repeat: no-repeat;
+    height: 500px;
+    opacity: 0.9;
+    filter: alpha(opacity=60);
+    background-position: top center;
+    background-size: cover;
+}
+
+.header-content {
+    background-color: #ededed;
+}
+
+.search-form form {
+    display: flex;
+    position: relative;
+    border-radius: 4px;
+    -webkit-box-shadow: 2px 4px 86px 42px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 86px 42px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 86px 42px rgba(0,0,0,0.75);
+    opacity: 0.9;
+    width: 900px;
+    align-items: center;
+    background-color: #bababa;
+}
+
+@media screen and (max-width: 920px) {
+    .search-form form {
+        flex-direction: column;
+        width: 400px;
+        padding: 20px;
+    }
+
+    .search-form-col {
+        width: 100% !important;
+    }
+}
+
+.search-form-col {
+    margin: 10px;
+    width: 200px;
+}
+
+.search-button {
+    width: 200px;
+    margin: auto !important;
+    border-color: white !important;
+    border-radius: 2px !important;
+    background-color: #76787a !important;
+}
+
+.search-button:hover {
+    background-color: #515254 !important;
+}
+
+/* section */
+
+.section-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    background-color: #ededed;
+}
+
+.section-item {
+    width: 200px;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-item:hover {
+    -webkit-box-shadow: 2px 4px 32px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 32px -13px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 32px -13px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+.section-item-link {
+    text-decoration: none;
+    color: black;
+}
+
+.section-item-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 920px) {
+    .section-item {
+        width: 50%;
+        height: 250px;
+    }
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cop-text a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.cop-text a:hover {
+    text-decoration: none;
+    color: gray;
+    font-size: 22px;
+}
+
+.button-footer {
+    background-color: gray;
+    text-rendering: optimizeLegibility;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 22px;
+    font-family: "Roboto",sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: .1em;
+    line-height: 44px;
+    white-space: nowrap;
+    cursor: pointer;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: 0 24px;
+    transform: translateZ(0);
+    transition: all .4s;
+    border: 1px solid transparent;
+    touch-action: manipulation;
+    height: 25px;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+}
+
+.button-footer:hover {
+    text-decoration: none;
+    color: black;
+    background-color: white;
 }
