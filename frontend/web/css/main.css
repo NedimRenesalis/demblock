@@ -579,6 +579,14 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+
+.section-item img {
+    width: 55%;
+    height: 55%;
 }
 
 .section-item:hover {
@@ -586,16 +594,14 @@ textarea {
     -moz-box-shadow: 2px 4px 32px -13px rgba(0,0,0,0.75);
     box-shadow: 2px 4px 32px -13px rgba(0,0,0,0.75);
     cursor: pointer;
-}
-
-.section-item-link {
     text-decoration: none;
     color: black;
 }
 
-.section-item-link:hover {
-    text-decoration: none;
-    color: black;
+.section-item:active {
+    -webkit-box-shadow: inset 2px 4px 32px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 2px 4px 32px -13px rgba(0,0,0,0.75);
+    box-shadow: inset 2px 4px 32px -13px rgba(0,0,0,0.75);
 }
 
 @media screen and (max-width: 920px) {
