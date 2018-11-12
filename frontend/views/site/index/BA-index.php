@@ -29,59 +29,42 @@ if($searchModel && $searchModel->category) {
     }
 }
 ?>
+    <div class="header-content">
+        <div class="header">
+            <div class="search-form">
+                <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
-<div class="hidden-sm hidden-xs section section-success">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 text-justify">
-                <img class="img-responsive" src="<?= Url::to('@web/css/images/hero.jpg') ?>">
-            </div>
-            <div class="col-md-3">
-                <div class="section text-justify">
-                    <div class="row">
-                        <br>
-                        <br>
-                        <div class="search-form ">
-                            <?php $form = ActiveForm::begin(['method' => 'get']); ?>
-
-                            <div class="search-form-col">
-                                <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
-                            </div>
-
-                            <br>
-                            <div class="search-form-col">
-                                <?=
-
-                                $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
-                                        'onchange' => '
-                                                        $.post(
-                                                            "' . Url::toRoute('get-subcategories') . '", 
-                                                            {selected: $(this).val()}, 
-                                                                function(res){
-                                                                    $("#advertsearch-position").html(res);
-                                                            }
-                                                        );
-                                                    ',
-                                        ]
-                                )->label("") ?>
-                            </div>
-                            <br>
-                            <div class="search-form-col">
-                                <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
-                            </div>
-                            <br>
-                            <div class="form-group search-button search-form-col">
-                                <?= Html::submitButton('Search', ['class' => 'active btn btn-block btn-info btn-lg']) ?>
-                            </div>
-
-                            <?php ActiveForm::end(); ?>
-                        </div>
-                    </div>
+                <div class="search-form-col">
+                    <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
                 </div>
+
+                <br>
+                <div class="search-form-col">
+                    <?=
+
+                    $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
+                            'onchange' => '
+                                            $.post(
+                                                "' . Url::toRoute('get-subcategories') . '", 
+                                                {selected: $(this).val()}, 
+                                                    function(res){
+                                                        $("#advertsearch-position").html(res);
+                                                }
+                                            );
+                                        ',
+                            ]
+                    )->label("") ?>
+                </div>
+                <br>
+                <div class="search-form-col">
+                    <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
+                </div>
+                <br>
+                <?= Html::submitButton('Search', ['class' => 'search-button active btn btn-info btn-lg']) ?>
+                <?php ActiveForm::end(); ?>
             </div>
         </div>
     </div>
-</div>
 
 <div class="container-header">
     <div class="container">
@@ -91,6 +74,7 @@ if($searchModel && $searchModel->category) {
     </div>
 </div>
 
+<!-- OVO NE TREBA
 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 <div class="hidden-lg hidden-md section section-success">
     <div class="container">
@@ -126,14 +110,14 @@ if($searchModel && $searchModel->category) {
                                                 );
                                             ',
                             ]
-                        )->label("") ?>
+                        )->label("")  ?>
                     </div>
                     <div class="search-form-col">
                         <?= $form->field($searchModel, 'position')->dropDownList([],['prompt' => "Select subcategory"])->label('') ?>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12 col-sm-offset-0,9 text-center">
-                            <?= Html::submitButton('Search', ['class' => 'active btn btn-info']) ?>
+                            <?=  Html::submitButton('Search', ['class' => 'active btn btn-info']) ?>
                         </div>
                     </div>
                 </div>
@@ -142,19 +126,20 @@ if($searchModel && $searchModel->category) {
     </div>
 </div>
 <br>
+
 <div class="hidden-lg hidden-md hidden-sm section">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <form class="form-horizontal" role="form">
                     <div class="col-sm-6">
-                        <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
+                    <?=  $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
                     </div>
                     <div class="search-form-col">
                         <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Select category', 'label' => null])->label("") ?>
                     </div>
                     <div class="col-sm-10 col-sm-offset-2 text-center">
-                        <?= Html::submitButton('Search', ['class' => 'active btn btn-info']) ?>
+                        <?=  Html::submitButton('Search', ['class' => 'active btn btn-info']) ?>
                     </div>
                 </form>
             </div>
@@ -163,29 +148,38 @@ if($searchModel && $searchModel->category) {
 </div>
 
 
-<div class="section">
-    <div class="container index-button">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <a class="active btn btn-primary hidden-xs" href="<?= Url::to('objava-oglasa'); ?>">Objava
-                    oglasa</a>
-                <a class="active btn btn-primary hidden-xs" href="<?= Url::to('cjenovnik-usluge'); ?>">Cijenovnik
-                    i usluge</a>
-                <a class="active btn btn-primary hidden-xs" href="<?= Url::to('kontakt-prodaja'); ?>">Kontakt
-                    prodaja</a>
-                <br>
-                <br>
-                <a class="active btn btn-block btn-primary" href="<?= Url::to('o-nama'); ?>">Ko smo mi</a>
-                <br>
-                <a class="active btn btn-block btn-primary" href="<?= Url::to('zasto-odabrati-nas'); ?>">Zašto
-                    odabrati nas</a>
-                <br>
+--> 
 
-            </div>
-        </div>
+
+
+<div class="section-menu">
+    <div class="section-item">
+        <a class="section-item-link" href="<?= Url::to('objava-oglasa'); ?>">
+            Objava oglasa
+        </a>
+    </div>
+    <div class="section-item">
+        <a class="section-item-link" href="<?= Url::to('cjenovnik-usluge'); ?>">
+            Cijenovnik i usluge
+        </a>
+    </div>
+    <div class="section-item">
+        <a class="section-item-link" href="<?= Url::to('kontakt-prodaja'); ?>">
+            Kontakt prodaja
+        </a>
+    </div>
+    <div class="section-item">
+        <a class="section-item-link" href="<?= Url::to('o-nama'); ?>">
+            Ko smo mi
+        </a>
+    </div>
+    <div class="section-item">
+        <a class="section-item-link" href="<?= Url::to('zasto-odabrati-nas'); ?>">
+            Zašto odabrati nas
+        </a>
     </div>
 </div>
-
+<!-- OVO SU ZELENI BTN-I NA MOB TAKO DA NE TREBAJU
 <div class="row">
     <div class="col-md-12 hidden-lg hidden-md hidden-sm text-center">
 
@@ -204,19 +198,24 @@ if($searchModel && $searchModel->category) {
     </div>
 </div>
 
+
 <div class="hidden-lg hidden-md hidden-sm section">
     <div class="container">
         <div class="row">
             <div class="col-md-12 hidden-lg hidden-md hidden-sm text-center">
                 <a class="active btn btn-block btn-success" href="<?= Url::to('objava-oglasa'); ?>">Objava oglasa</a>
-                <br>
-                <br>
                 <a class="active btn btn-success" href="<?= Url::to('cjenovnik-usluge'); ?>">Cijenovnik oglasa</a>
                 <a class="active btn btn-success" href="<?= Url::to('kontakt-prodaja'); ?>">Kontakt prodaja</a>
             </div>
         </div>
     </div>
 </div>
+
+-->
+
+
+
+
 
 
 <?php if ($platinum || $midi): ?>
@@ -252,7 +251,22 @@ if($searchModel && $searchModel->category) {
 <?php endif; ?>
 
 
-<div class="hidden-lg hidden-md section section-success text-right">
+<!--
+OVAJ DIO KODA IZBACI VELIKU SLIKU KADA JE MOBILE TO JE NEPOTREBNO
+ <div class="hidden-lg hidden-md section section-success text-right">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="<?=  Url::to('@web/css/images/hero-mob.jpg') ?>" class="hidden-lg hidden-md img-responsive">
+            </div>
+        </div>
+    </div>
+</div>
+<?php //ActiveForm::end(); ?>
+
+-->
+<!--
+ <div class="hidden-lg hidden-md section section-success text-right">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -261,6 +275,7 @@ if($searchModel && $searchModel->category) {
         </div>
     </div>
 </div>
+                                            -->
 <?php ActiveForm::end(); ?>
 
 <?php if (false && $sponsored): ?>
@@ -319,12 +334,12 @@ if($searchModel && $searchModel->category) {
             ?>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
+    <div class="footer">
+        <div>
             <div class="col-sm-6">
                 <p class="text-center"></p>
                 <h3 class="text-center">zaposljavanje.ba - oglasi za posao</h3>
-                <p></p>
+                <p style="border-bottom: 1px solid gray;"></p>
                 <p></p>
                 <p class="text-center">
                     <br>Renesalis d.o.o.
@@ -334,13 +349,9 @@ if($searchModel && $searchModel->category) {
                     <br>Tel: 062-332-325</p>
             </div>
             <div class="col-sm-6">
-                <p class="text-info text-right">
-                    <br>
-                    <br>
-                </p>
-                <div class="row">
+                <div class="">
                     <div class="col-md-12 hidden-lg hidden-md hidden-sm text-center">
-                        <a href="https://www.instagram.com/zaposljavanje.ba/"><i
+                        <a href="https://www.instagram.com/zaposljavanje.ba/" ><i
                                     class="fa fa-2x fa-fw fa-instagram text-inverse"></i></a>
                         <a href="https://www.linkedin.com/company/18282027/"><i
                                     class="fa fa-2x fa-fw fa-linkedin text-inverse"></i></a>
@@ -356,45 +367,38 @@ if($searchModel && $searchModel->category) {
                                     class="fa fa-android" style="font-size:36px"></i></a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 hidden-xs text-right">
-                        <a href="https://www.instagram.com/zaposljavanje.ba/"><i
-                                    class="fa fa-2x fa-fw fa-instagram text-inverse"></i></a>
-                        <a href="https://www.linkedin.com/company/18282027/"><i
-                                    class="fa fa-2x fa-fw fa-linkedin text-inverse"></i></a>
-                        <a href="https://www.facebook.com/zaposljavanje.ba/"><i
-                                    class="fa fa-2x fa-facebook fa-fw text-inverse"></i></a>
-                        <br>
-                        <br>
-                        <p class="text-right">Preuzmite mobilnu aplikaciju za mobilne telefone i tablete</p>
-                        <br><a href="https://itunes.apple.com/us/app/zaposljavanje/id1293977864?ls=1&mt=8"><i
-                                    class="fa fa-apple" style="font-size:36px"></i></a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                href="https://play.google.com/store/apps/details?id=com.zaposljavanje&hl=en"><i
-                                    class="fa fa-android" style="font-size:36px"></i></a>
-                    </div>
+                <div class="col-md-12 hidden-xs text-right" style="margin-top: 30px;">
+                    <a href="https://www.instagram.com/zaposljavanje.ba/"><i
+                                class="fa fa-2x fa-fw fa-instagram text-inverse"></i></a>
+                    <a href="https://www.linkedin.com/company/18282027/"><i
+                                class="fa fa-2x fa-fw fa-linkedin text-inverse"></i></a>
+                    <a href="https://www.facebook.com/zaposljavanje.ba/"><i
+                                class="fa fa-2x fa-facebook fa-fw text-inverse"></i></a>
+                    <br>
+                    <br>
+                    <p class="text-right" style="">Preuzmite mobilnu aplikaciju za mobilne telefone i tablete</p>
+                    <a href="https://itunes.apple.com/us/app/zaposljavanje/id1293977864?ls=1&mt=8"><i
+                                class="fa fa-apple" style="font-size:36px"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                            href="https://play.google.com/store/apps/details?id=com.zaposljavanje&hl=en"><i
+                                class="fa fa-android" style="font-size:36px"></i></a>
                 </div>
             </div>
+          
+        </div>
+        <div class="text-center cop-text" style="margin-top: 20px;">
+            <a class="copright-button" href="<?= Url::to('uslovi-koristenja'); ?>">Copyright
+                - Privatnost - Uslovi korištenja</a>
         </div>
     </div>
 </footer>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <a class="active btn btn-block btn-primary" href="<?= Url::to('uslovi-koristenja'); ?>">Copyright
-                    - Privatnost - Uslovi korištenja</a>
-            </div>
-        </div>
-    </div>
-</div>
 <?php if (Yii::$app->user->isGuest): ?>
     <div class="hidden-lg hidden-md section section-success">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center">
-                    <a class="active btn btn-primary" id="DE-mob">Deutsch </a>
-                    <a class="active btn btn-primary" id="EN-mob">English</a>
+                    <a class="button-footer" id="DE-mob">Deutsch </a>
+                    <a class="button-footer" id="EN-mob">English</a>
                 </div>
             </div>
         </div>

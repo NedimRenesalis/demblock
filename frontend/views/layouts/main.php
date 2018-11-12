@@ -125,7 +125,7 @@ if (Yii::$app->user->isGuest) {
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="' . Url::to('@web/registracija') . '">' . $register . '</a>
+                  <a href="' . Url::to('@web/registracija') . '"> Register </a>
                 </li>
               </ul>
             </li>
