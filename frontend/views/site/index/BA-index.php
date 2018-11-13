@@ -30,10 +30,49 @@ if($searchModel && $searchModel->category) {
 }
 ?>
 
+<?php 
+    $searchBar = ``
+?> 
 <div>
-    <div class="header"></div>
-    <div class="header-content">
-        <div class="search-form">
+    <div class="header">
+        <div class="header-content">
+            <div class="search-form">
+                <?php $form = ActiveForm::begin(['method' => 'get']); ?>
+
+                <div class="search-form-col">
+                    <?= $form->field($searchModel, 'location')
+                            ->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])
+                                ->label('') ?>
+                </div>
+
+                <div class="search-form-col">
+                    <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
+                            'onchange' => '
+                                $.post(
+                                    "' . Url::toRoute('get-subcategories') . '", 
+                                    {selected: $(this).val()}, 
+                                        function(res){
+                                            $("#advertsearch-position").html(res);
+                                    }
+                                );
+                            ',
+                            ]
+                    )->label("") ?>
+                </div>
+
+                <div class="search-form-col">
+                    <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
+                </div>
+                <br>
+                <div class="search-form-col" style="display: flex; align-self: center;">
+                    <?= Html::submitButton('Search', ['class' => 'search-button btn btn-block btn-info']) ?>
+                </div>
+                <?php ActiveForm::end(); ?>
+            </div>
+        </div>
+    </div>
+    <div class="header-content-mobile">
+        <div class="search-form-mobile">
             <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
             <div class="search-form-col">
