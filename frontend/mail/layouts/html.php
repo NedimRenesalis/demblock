@@ -11,6 +11,7 @@ use yii\helpers\Html;
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=<?= Yii::$app->charset ?>" />
     <title><?= Html::encode($this->title) ?></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <?php $this->head() ?>
 </head>
 <body>
