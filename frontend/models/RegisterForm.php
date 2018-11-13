@@ -279,13 +279,13 @@ public $countryArray = array(
         $user->last_name = $this->last_name;
         $user->first_name = $this->first_name;
 
-        $dialCode = '';
+        //$dialCode = '';
         $validCountry = false;
 
         foreach ($this->countryArray as $key => $val){
             if($key == $this->location){
                 $this->location = $val['name'];
-                $dialCode = $val['code'];
+               // $dialCode = $val['code'];
                 $validCountry = true;
             }
         }
@@ -296,7 +296,7 @@ public $countryArray = array(
         }
 
         if($this->phone != '') {
-            $user->phone = '+' . $dialCode . $this->phone;
+            $user->phone =  $this->phone;
         }
 
         $user->location = $this->location;
