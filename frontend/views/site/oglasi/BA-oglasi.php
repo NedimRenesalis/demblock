@@ -51,19 +51,22 @@ if($searchModel->category) {
                     <?=
                     $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
                                 'onchange' => '
-                                                $.post(
-                                                    "' . Url::toRoute('get-subcategories') . '", 
-                                                    {selected: $(this).val()}, 
-                                                        function(res){
-                                                            $("#advertsearch-position").html(res);
-                                                    }
-                                                );
-                                            ',
+                                    $.post(
+                                        "' . Url::toRoute('get-subcategories') . '", 
+                                        {selected: $(this).val()}, 
+                                            function(res){
+                                                $("#advertsearch-position").html(res);
+                                        }
+                                    );
+                                ',
                             ]
                         )->label('Kategorija') ?>
                 </div>
             <div class="col-lg-3 col-md-6">
-                <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('Subkategorija') ?>
+                <?= $form->field($searchModel, 'position')
+                        ->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])
+                            ->label('Subkategorija')
+                ?>
             </div>
 
                 <div class="form-group col-lg-3 col-md-6 search-button">

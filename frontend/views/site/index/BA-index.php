@@ -30,40 +30,42 @@ if($searchModel && $searchModel->category) {
 }
 ?>
 
-    <div class="header-content" style="height: 500px;">
-        <div class="header">
-            <div class="search-form">
-                <?php $form = ActiveForm::begin(['method' => 'get']); ?>
+<div>
+    <div class="header"></div>
+    <div class="header-content">
+        <div class="search-form">
+            <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
-                <div class="search-form-col">
-                    <?= $form->field($searchModel, 'location')->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])->label('') ?>
-                </div>
-
-                <br>
-                <div class="search-form-col">
-                    <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
-                            'onchange' => '
-                                            $.post(
-                                                "' . Url::toRoute('get-subcategories') . '", 
-                                                {selected: $(this).val()}, 
-                                                    function(res){
-                                                        $("#advertsearch-position").html(res);
-                                                }
-                                            );
-                                        ',
-                            ]
-                    )->label("") ?>
-                </div>
-                <br>
-                <div class="search-form-col">
-                    <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
-                </div>
-                <br>
-                <?= Html::submitButton('Search', ['class' => 'search-button active btn btn-info btn-lg']) ?>
-                <?php ActiveForm::end(); ?>
+            <div class="search-form-col">
+                <?= $form->field($searchModel, 'location')
+                        ->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])
+                            ->label('') ?>
             </div>
+
+            <div class="search-form-col">
+                <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
+                        'onchange' => '
+                            $.post(
+                                "' . Url::toRoute('get-subcategories') . '", 
+                                {selected: $(this).val()}, 
+                                    function(res){
+                                        $("#advertsearch-position").html(res);
+                                }
+                            );
+                        ',
+                        ]
+                )->label("") ?>
+            </div>
+
+            <div class="search-form-col">
+                <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
+            </div>
+            <br>
+            <?= Html::submitButton('Search', ['class' => 'search-button btn btn-block btn-info']) ?>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
+</div>
 
 <div class="container-header">
     <div class="container">
@@ -83,16 +85,12 @@ if($searchModel && $searchModel->category) {
         <span>Cijenovnik i usluge</span>
     </a>
     <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
-        <img src=<?= Url::to('@web/css/images/section-img/kontakt'); ?>
+        <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja'); ?>
         <span>Kontakt prodaja</span>
     </a>
     <a class="section-item" href="<?= Url::to('o-nama'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi'); ?>
         <span>Ko smo mi</span>
-    </a>
-    <a class="section-item" href="<?= Url::to('zasto-odabrati-nas'); ?>">
-        <img src=<?= Url::to('@web/css/images/section-img/zasto-nas'); ?>
-        <span>Zašto odabrati nas</span>
     </a>
 </div>
 

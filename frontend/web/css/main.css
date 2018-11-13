@@ -502,33 +502,28 @@ textarea {
 /* header */
 
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url('./images/hero.jpg');
     background-repeat: no-repeat;
-    height: 500px;
     opacity: 0.9;
+    height: 750px;
     filter: alpha(opacity=60);
-    background-position: top center;
+    background-position: center center;
     background-size: cover;
 }
 
 .header-content {
-    background-color: #ededed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #271b46;
 }
 
 .search-form form {
     display: flex;
     position: relative;
-    border-radius: 4px;
-    -webkit-box-shadow: 2px 4px 86px 42px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 4px 86px 42px rgba(0,0,0,0.75);
-    box-shadow: 2px 4px 86px 42px rgba(0,0,0,0.75);
     opacity: 0.9;
-    width: 900px;
+    width: 100%;
     align-items: center;
-    background-color: #bababa;
 }
 
 @media screen and (max-width: 920px) {
@@ -549,15 +544,9 @@ textarea {
 }
 
 .search-button {
-    width: 200px;
-    margin: auto !important;
-    border-color: white !important;
-    border-radius: 2px !important;
-    background-color: #76787a !important;
-}
-
-.search-button:hover {
-    background-color: #515254 !important;
+    margin-right: 20px !important;
+    width: 200px !important;
+    margin: auto !important;    
 }
 
 /* section */
