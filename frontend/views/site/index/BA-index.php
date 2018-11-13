@@ -274,7 +274,7 @@ if($searchModel && $searchModel->category) {
           
         </div>
         <div class="text-center cop-text" style="margin-top: 20px;">
-            <a class="copright-button" href="<?= Url::to('uslovi-koristenja'); ?>">Copyright
+            <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">Copyright
                 - Privatnost - Uslovi korištenja</a>
         </div>
     </div>
@@ -319,10 +319,4 @@ if($searchModel && $searchModel->category) {
     .navbar-right form {
         background-color: #e6e6fa;
     }
-
-    .navbar-inverse .navbar-nav > li > a {
-        color: #000000 !important;
-        background-color: #e6e6fa !important;
-    }
-
 </style>

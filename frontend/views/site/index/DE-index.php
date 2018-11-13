@@ -375,8 +375,4 @@ $this->title = 'Zapošljavanje';
     .navbar-right form {
         background-color: #e6e6fa;
     }
-    .navbar-inverse .navbar-nav > li > a {
-        color:  #000000 !important;
-        background-color: #e6e6fa !important;
-    }
 </style>
