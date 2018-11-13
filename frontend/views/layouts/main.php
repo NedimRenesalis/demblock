@@ -115,11 +115,16 @@ if(!Yii::$app->user->isGuest){
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' . $title . '<i class="et-down fa fa-border fa-caret-down pull-right"></i></a>
               <ul class="dropdown-menu" role="menu">
                 <li>
-                  <a href="' . Url::to('@web/prijava') . '">' . $login . '</a>
+                  <a href="' . Url::to('@web/prijava') . '">
+                    <span>' . $login . '</span>
+                    <img src="' .Url::to('@web/css/images/dropdown-img/sign-in.png'). '" />
+                  </a>
                 </li>
-                <li class="divider"></li>
                 <li>
-                  <a href="' . Url::to('@web/registracija') . '"> Register </a>
+                  <a href="' . Url::to('@web/registracija') . '">
+                    <span>Register</span>
+                    <img src="' .Url::to('@web/css/images/dropdown-img/registration.png'). '" />
+                    </a>
                 </li>
               </ul>
             </li>

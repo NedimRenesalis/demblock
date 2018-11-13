@@ -58,7 +58,7 @@ if ($advert->type == 1) {
 
 
 ?>
-<div style="background-color: white; font-family: Arial">
+<div style="background-color: white;">
 
     <div style="margin:auto; width:794px; height:1122px;">
 
