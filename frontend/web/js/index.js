@@ -40,14 +40,14 @@ $(document).ready(function () {
         $(".advert-desc[data-desc-id=" + id + "]").toggle();
     });
 
-    $('#registerform-location').on('change', function(){
+  /*  $('#registerform-location').on('change', function(){
         var $me = $(this);
         var text = $me.find(':selected').text();
         var value = $me.find(':selected').val();
 
         $('#registerform-dialcode').val(value);
 
-    });
+    });*/
     
     $('#registerform-password').on('keyup', function() {
         // do something

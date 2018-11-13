@@ -99,12 +99,9 @@ $this->title = 'Registration';
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center">
                         <label>Phone</label>
-                        <?= $form->field($model, 'dialCode')->dropDownList(ArrayHelper::getColumn($model->countryArray, 'code'))->label(false) ?>
                         <?= $form->field($model, 'phone')->textInput()->label(false) ?>
                     </div>
                 </div>
-
-
 
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center">
@@ -113,7 +110,7 @@ $this->title = 'Registration';
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-12 col-sm-offset- text-center">
+                    <div class="col-sm-12 text-center">
                         <input type="submit" class="active btn btn-block btn-info" value="Confirm"/>
                     </div>
                 </div>
