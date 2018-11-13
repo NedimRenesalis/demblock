@@ -39,13 +39,13 @@ if($searchModel && $searchModel->category) {
             <div class="search-form">
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
-                <div class="search-form-col">
+                <div class="search-form-col" style="width: 172px;">
                     <?= $form->field($searchModel, 'location')
                             ->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])
                                 ->label('') ?>
                 </div>
 
-                <div class="search-form-col">
+                <div class="search-form-col" style="width: 285px !important;">
                     <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
                             'onchange' => '
                                 $.post(
@@ -60,13 +60,10 @@ if($searchModel && $searchModel->category) {
                     )->label("") ?>
                 </div>
 
-                <div class="search-form-col">
+                <div class="search-form-col" style="width: 285px !important;">
                     <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
                 </div>
-                <br>
-                <div class="search-form-col" style="display: flex; align-self: center;">
-                    <?= Html::submitButton('Search', ['class' => 'search-button btn btn-block btn-info']) ?>
-                </div>
+                <?= Html::submitButton('Search', ['class' => 'search-button btn btn-info']) ?>
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
@@ -100,7 +97,7 @@ if($searchModel && $searchModel->category) {
                 <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
             </div>
             <br>
-            <?= Html::submitButton('Search', ['class' => 'search-button btn btn-block btn-info']) ?>
+            <?= Html::submitButton('Search', ['class' => 'search-button-mobile btn btn-block btn-info']) ?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
