@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 
+use app\models\UserContactInformation;
 use frontend\models\Categories;
 use frontend\models\EmailConfirmation;
 use Yii;
@@ -1774,6 +1775,12 @@ class SiteController extends Controller
 
                 $mail->sendEmail($user);
 
+                $userDetails = new UserContactInformation();
+                $userDetails->Email = $user->email;
+                $userDetails->Phone = $user->phone;
+                $userDetails->UserId = $user->id;
+                $userDetails->save();
+
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->redirect("index");
                 }
@@ -1813,6 +1820,37 @@ class SiteController extends Controller
         }
 
         return $this->redirect("index");
+    }
+
+    public function actionUserProfile()
+    {
+        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+
+        $contactInformation = UserContactInformation::find()->where(['UserId' => $user->id])->one();
+
+        if ($user->load(Yii::$app->request->post())) {
+            $user->save();
+        }
+        return $this->render('user-profile/index', [
+            'model' => $user,
+            'registered' => $this->registered,
+            'contactInfo' => $contactInformation
+        ]);
+    }
+
+    public function actionEditUserContactDetails(){
+        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+        $model = UserContactInformation::find()->where(['UserId' => $user->id])->one();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $user->phone = $model->Phone;
+            $user->save();
+            $model->save();
+        }
+
+        return $this->render('user-profile/user-contact', [
+            'model' => $model
+        ]);
     }
 
 
