@@ -1824,34 +1824,62 @@ class SiteController extends Controller
 
     public function actionUserProfile()
     {
-        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+        if (!Yii::$app->user->isGuest){
+            $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+            if($user) {
+                $contactInformation = UserContactInformation::find()->where(['UserId' => $user->id])->one();
 
-        $contactInformation = UserContactInformation::find()->where(['UserId' => $user->id])->one();
-
-        if ($user->load(Yii::$app->request->post())) {
-            $user->save();
+                if ($user->load(Yii::$app->request->post())) {
+                    $user->save();
+                }
+                return $this->render('user-profile/index', [
+                    'model'       => $user,
+                    'registered'  => $this->registered,
+                    'contactInfo' => $contactInformation
+                ]);
+            }
         }
-        return $this->render('user-profile/index', [
-            'model' => $user,
-            'registered' => $this->registered,
-            'contactInfo' => $contactInformation
-        ]);
+        return $this->goHome();
     }
 
     public function actionEditUserContactDetails(){
-        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-        $model = UserContactInformation::find()->where(['UserId' => $user->id])->one();
+        if (!Yii::$app->user->isGuest) {
+            $user  = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+            if($user){
+            $model = UserContactInformation::find()->where(['UserId' => $user->id])->one();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $user->phone = $model->Phone;
-            $user->save();
-            $model->save();
-            return $this->redirect("user-profile");
+            if ($model->load(Yii::$app->request->post())) {
+                $user->phone = $model->Phone;
+                $user->save();
+                $model->save();
+                return $this->redirect("user-profile");
+            }
+
+            return $this->render('user-profile/user-contact', [
+                'model' => $model
+            ]);
+        }
+        }
+        return $this->goHome();
+    }
+
+    public function actionEditUserMainDetails(){
+        if (!Yii::$app->user->isGuest) {
+            $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+
+            if($user){
+                if ($user->load(Yii::$app->request->post())) {
+                    $user->save();
+                    return $this->redirect("user-profile");
+                }
+
+                return $this->render('user-profile/user-main-details', [
+                    'model' => $user
+                ]);
+            }
         }
 
-        return $this->render('user-profile/user-contact', [
-            'model' => $model
-        ]);
+        return $this->goHome();
     }
 
 
