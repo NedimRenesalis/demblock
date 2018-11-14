@@ -1846,6 +1846,7 @@ class SiteController extends Controller
             $user->phone = $model->Phone;
             $user->save();
             $model->save();
+            return $this->redirect("user-profile");
         }
 
         return $this->render('user-profile/user-contact', [

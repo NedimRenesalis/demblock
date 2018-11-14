@@ -87,6 +87,8 @@ return [
                 'aplikacije' => 'site/aplikacije',
                 'obnovi-oglas' => 'site/obnovi-oglas',
                 'zahvala-za-placanje' => 'site/zahvala-za-placanje',
+                'user-profile' => 'site/user-profile',
+                'edit-user-contact-details' => 'site/edit-user-contact-details'
             ],
         ],
     ],
