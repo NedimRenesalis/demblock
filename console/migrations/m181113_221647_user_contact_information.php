@@ -40,13 +40,13 @@ class m181113_221647_user_contact_information extends Migration
         $this->createTable('{{%user_contact_information}}', [
             'Id' => $this->primaryKey(),
             'Email' => $this->string()->notNull()->unique(),
-            'AlternativeEmail' => $this->string()->defaultValue('none'),
-            'Phone' => $this->string()->defaultValue('none'),
-            'Fax' => $this->string()->defaultValue('none'),
-            'Mobile' => $this->string()->defaultValue('none'),
-            'Facebook' =>$this->string()->defaultValue('none'),
-            'Twitter' =>$this->string()->defaultValue('none'),
-            'Instagram' =>$this->string()->defaultValue('none'),
+            'AlternativeEmail' => $this->string()->defaultValue(null),
+            'Phone' => $this->string()->defaultValue(null),
+            'Fax' => $this->string()->defaultValue(null),
+            'Mobile' => $this->string()->defaultValue(null),
+            'Facebook' =>$this->string()->defaultValue(null),
+            'Twitter' =>$this->string()->defaultValue(null),
+            'Instagram' =>$this->string()->defaultValue(null),
             'UserId' => $this->integer()->notNull(),
         ], $tableOptions);
 

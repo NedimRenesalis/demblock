@@ -139,7 +139,7 @@ if(!Yii::$app->user->isGuest){
 
      ';
         } else {
-
+               $menuItems[] = ['label' => $profile, 'url' => ['user-profile']];
             if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 1) {
                 $menuItems = [];
                 $menuItems[] = '<li>'
