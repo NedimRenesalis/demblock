@@ -4,9 +4,9 @@ use yii\widgets\ActiveForm;
 $this->title = 'Zapošljavanje';
 ?>
 
-<div class="login-container">
+<div class="sign-container">
     <div class="login">
-        <div class="login-header">
+        <div class="sign-header">
             <h2>LOGIN</h2>
         </div>
         <?php $form = ActiveForm::begin(['id' => 'prijava-form']); ?>
