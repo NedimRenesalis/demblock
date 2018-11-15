@@ -24,22 +24,22 @@ $this->title = 'Registration';
             
             <div class="column">
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'email')->textInput()->label('Email') ?>
                     </div>
                 </div>
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'first_name')->textInput()->label('First name') ?>
                     </div>
                 </div>
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'last_name')->textInput()->label('Last name') ?>
                     </div>
                 </div>
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'phone')->textInput()->label('Phone') ?>
                     </div>
                 </div>
@@ -48,18 +48,18 @@ $this->title = 'Registration';
 
             <div class="sec-column">
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'company_name')->textInput(['placeholder' => 'Must be a legally registered company'])->label('Company Name') ?>
                     </div>
                 </div>
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'location')->dropDownList(ArrayHelper::getColumn($model->countryArray, 'name'),['placeholder' => 'Select location'])->label('Location') ?>
                     </div>
                 </div>
 
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Please enter your password', 'maxlength' => 20])->label('Password') ?>
                         <div class="password-checker">
                             <div class="pc__strenght">
@@ -90,7 +90,7 @@ $this->title = 'Registration';
                 </div>
 
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'confirm_password')->passwordInput(['placeholder' => 'Please retype your password'])->label('Confirm Password') ?>
                     </div>
                 </div>
@@ -99,19 +99,19 @@ $this->title = 'Registration';
 
             <div class="last-column">
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'userType')->radioList([2 => 'Supplier', 3 =>'Buyer', 4 => 'Both'])->label('I am a: ') ?>
                     </div>
                 </div>
 
                 <div class="form-group has-feedback">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'captcha')->widget(Captcha::className())->label('Enter text from image') ?>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-sm-12 text-center form-input">
                         <input type="submit" class="active btn btn-block btn-info" value="Confirm"/>
                     </div>
                 </div>

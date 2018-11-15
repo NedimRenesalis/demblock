@@ -797,13 +797,12 @@ textarea {
 
 .login {
     width: 500px;
-    margin: auto;
+    margin-top: 35px;
     align-self: center;
-    background: rgba(0, 0, 0, 0.22);
     position: relative;
-    -webkit-box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.12);
-    -moz-box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.12);
-    box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
     height: 433px;
     text-align: center;
     display: flex;
@@ -829,6 +828,11 @@ textarea {
     font-size: 13px;
     letter-spacing: 1px;
     text-decoration: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 117px;
+    margin-top: 20px;
 }
 
 .login-footer > a {
@@ -859,7 +863,8 @@ nav > .container {
     -webkit-box-shadow: 0px 9px 31px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 9px 31px -8px rgba(0,0,0,0.75);
     box-shadow: -2px 7px 16px -7px rgba(0,0,0,0.75);
-    background: #8a75c0;
+    background: #0077B5;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -883,16 +888,25 @@ nav > .container {
     align-self: center;
     background: rgba(0, 0, 0, 0.22);
     position: relative;
-    -webkit-box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.12);
-    -moz-box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.12);
-    box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
     height: 562px;
     text-align: center;
+}
+
+.form-input > div > input {
+    background-color: #0089ff17;
+}
+
+.form-input > div > select {
+    background-color: #0089ff17;
 }
 
 .reg-controls > form {
     padding: 20px;
     display: flex;
+    background: white;
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
@@ -901,6 +915,12 @@ nav > .container {
 .reg-controls > .form-group {
     widows: 200px;
     display: flex;
+    
+}
+
+.reg-controls label {
+    opacity: 0.7;
+    font-size: 13px;
     
 }
 
@@ -915,20 +935,24 @@ nav > .container {
 }
 
 .sec-column {
-    width: 344px;
+    width: 330px;
 }
 
 .last-column {
     width: 215px;
 }
+
+
 @media screen and (max-width: 853px) {
     .reg {
-        width: 625px;
+        width: 641px;
         height: 755px;
         margin: auto;
     }
+
     .reg-controls > form {
         flex-direction: row;
+        justify-content: space-around;
         flex: 1;
     }
     .sec-column {
@@ -956,7 +980,7 @@ nav > .container {
     }
 
     .last-section {
-        margin-top: 20px;
+        margin-top: 76px;
     }
    
 }
@@ -1003,5 +1027,9 @@ nav > .container {
         display: flex;
         flex-direction: row;
         align-items: center;
+    }
+
+    .last-section {
+        margin-top: 20px;
     }
 }
