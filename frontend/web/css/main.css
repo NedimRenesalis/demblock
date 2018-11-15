@@ -855,12 +855,19 @@ nav > .container {
 
 .login-header {
     width: 100%;
-    background: linear-gradient(to right bottom, #ae66eac7 ,#87a5da, #cddcf7,#1cc7d0);
+    -webkit-box-shadow: 0px 9px 31px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 9px 31px -8px rgba(0,0,0,0.75);
+    box-shadow: -2px 7px 16px -7px rgba(0,0,0,0.75);
+    background: #8a75c0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 63px;
 }
+
+.login > form > div > label {
+    opacity: 0.7;
+} 
 
 .login-header > h2 {
     margin: 0 !important;
