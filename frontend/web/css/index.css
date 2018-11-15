@@ -6766,10 +6766,6 @@ a.list-group-item-danger.active:focus {
     padding-bottom: 75%;
 }
 
-.wrap {
-    overflow: hidden;
-}
-
 .well {
     min-height: 20px;
     padding: 19px;
