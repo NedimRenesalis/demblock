@@ -705,7 +705,7 @@ textarea {
     text-decoration: none;
     color: #fff;
     border-radius: 22px;
-    font-family: "Roboto",sans-serif;
+    ily: "Roboto",sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: bold;
@@ -813,11 +813,15 @@ textarea {
 .sign-container {
     height: 100%;
     display: flex;
-    font-family: 'Open Sans', sans-serif !important;
+    ily: 'Roboto', sans-serif !important;
     background-color: white;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.login input {
+    background-color: #0089ff17;
 }
 
 .login-footer {
