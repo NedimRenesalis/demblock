@@ -810,6 +810,12 @@ textarea {
     flex-direction: column;
 }
 
+@media screen and (max-width: 505px) {
+    .login {
+        width: 100%;
+    }
+}
+
 .sign-container {
     height: 100%;
     display: flex;
@@ -881,7 +887,15 @@ nav > .container {
 
 .sign-header > h2 {
     margin: 0 !important;
-    padding: 0 !important;  
+    padding: 0 !important; 
+    color: white;
+    font-size: 24px;
+    font-feature-settings: normal;
+    font-weight: 800;
+    font-kerning: inherit;
+    font-stretch: expanded;
+    text-rendering: geometricPrecision;
+    text-transform: uppercase; 
 }
 
 /* registration */
@@ -894,7 +908,7 @@ nav > .container {
     -webkit-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
     box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
-    height: 562px;
+    height: 546px;
     text-align: center;
 }
 
@@ -905,6 +919,14 @@ nav > .container {
 .form-input > div > select {
     background-color: #0089ff17;
 }
+
+.reg .control-label {
+    color: #000000 !important;
+}
+.login .control-label {
+    color: #000000 !important;
+}
+
 
 .reg-controls > form {
     padding: 20px;
@@ -934,7 +956,7 @@ nav > .container {
 }
 
 .field-registerform-captcha {
-    margin-top: 16px;
+    margin-top: 11px;
 }
 
 .sec-column {
@@ -945,11 +967,16 @@ nav > .container {
     width: 215px;
 }
 
+.last-section {
+    font-family: monospace;
+    font-weight: 500;
+}
+
 
 @media screen and (max-width: 853px) {
     .reg {
         width: 641px;
-        height: 755px;
+        height: 777px;
         margin: auto;
     }
 
@@ -972,13 +999,13 @@ nav > .container {
     .last-column > div:last-child {
         position: absolute;
         display: unset;
-        bottom: 145px;
+        bottom: 158px;
         left: 33%;
         width: 214px;
     }
 
     .last-column > div:nth-child(2) {
-        margin-left: 79px;
+        margin-left: 122px;
         margin-top: -21px;
     }
 
@@ -1030,6 +1057,7 @@ nav > .container {
         display: flex;
         flex-direction: row;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     .last-section {
