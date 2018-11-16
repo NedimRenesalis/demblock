@@ -885,6 +885,10 @@ nav > .container {
     opacity: 0.7;
 } 
 
+.reset-password form label {
+    opacity: 0.7;
+}
+
 .sign-header > h2 {
     margin: 0 !important;
     padding: 0 !important; 
