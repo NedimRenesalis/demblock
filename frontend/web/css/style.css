@@ -22,7 +22,8 @@ html{
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    font-family: 'Work Sans', sans-serif;
     color: #4f4f4f;
 }
 

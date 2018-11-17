@@ -34,6 +34,9 @@ if($searchModel && $searchModel->category) {
     $searchBar = ``
 ?> 
 <div>
+<iframe id="" class="videobg" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" src="https://www.youtube.com/embed/BawYlmhjtZ8?playlist=BawYlmhjtZ8&amp;autoplay=1&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=1&amp;disablekb=1&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fpayeer.com&amp;widgetid=1" width="3000" height="1415" frameborder="0"></iframe>
+<div class="overlay"></div>
+<div class="overlay2"></div>
     <div class="header">
         <div class="header-content">
             <div class="search-form">
@@ -270,9 +273,10 @@ if($searchModel && $searchModel->category) {
             </div>
           
         </div>
-        <div class="text-center cop-text" style="margin-top: 20px;">
-            <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">Copyright
-                - Privatnost - Uslovi korištenja</a>
+        <div class="footer-controls">
+            <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('uslovi-koristenja'); ?>">Cop</a>
+            <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">Privatnost</a>
+            <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">Uslovi korištenja</a>
         </div>
     </div>
 </footer>
@@ -310,7 +314,7 @@ if($searchModel && $searchModel->category) {
 
 <style>
     .navbar#top {
-        background-color: #e6e6fa;
+        background-color: #e6e6fa00;
     }
 
     .navbar-right form {

@@ -54,7 +54,6 @@ if(!Yii::$app->user->isGuest){
     <?php $this->beginBody() ?>
 
 
-    <div class="wrap">
         <?php
         NavBar::begin([
             'brandLabel' => '
@@ -110,25 +109,20 @@ if(!Yii::$app->user->isGuest){
 
 
         <div class="collapse navbar-collapse in" id="navbar-ex-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' . $title . '<i class="et-down fa fa-border fa-caret-down pull-right"></i></a>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a href="' . Url::to('@web/prijava') . '">
-                    <span>' . $login . '</span>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="' . Url::to('@web/prijava') . '" class="login-btn">
                     <img src="' .Url::to('@web/css/images/dropdown-img/sign-in.png'). '" />
-                  </a>
-                </li>
-                <li>
-                  <a href="' . Url::to('@web/registracija') . '">
-                    <span>Register</span>
-                    <img src="' .Url::to('@web/css/images/dropdown-img/registration.png'). '" />
-                    </a>
-                </li>
-              </ul>
+                    <span>' . $login . '</span>
+                </a>
             </li>
-          </ul>
+            <li>
+                <a href="' . Url::to('@web/registracija') . '" class="regist-btn">
+                    <img src="' .Url::to('@web/css/images/dropdown-img/registration.png'). '" />
+                    <span>Register</span>
+                </a>
+            </li>
+        </ul>
           <p class="navbar-text navbar-right">
             <a href="#" class="navbar-link"></a>
           </p>
@@ -224,16 +218,9 @@ if(!Yii::$app->user->isGuest){
         <?php echo Alert::widget() ?>
     </div>
     -->
-        <div class="main-content">
-            <?= $content ?>
-        </div>
+    <div class="main-content">
+        <?= $content ?>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-
-        </div>
-    </footer>
 
     <?php $this->endBody() ?>
     </body>
