@@ -318,3 +318,18 @@ $countryArray = array(
         <a href="<?= Url::to('company-details'); ?>">Edit</a>
     </div>
 </div>
+
+
+
+<div>
+    <h3>Sourcing Information</h3>
+
+    <div>Annual Purchasing Volume: <?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>
+    <div>Primary Sourcing Purpose: <?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?> </div>
+    <div>Average Sourcing Frequency <?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?> </div>
+    <div>Preferred Supplier Qualifications: <?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?> </div>
+    <div>Preferred Industries: <?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?> </div>
+    <div>
+        <a href="<?= Url::to('sourcing-information'); ?>">Edit</a>
+    </div>
+</div>
