@@ -24,11 +24,7 @@ $this->title = 'Zapošljavanje';
     </div>
     <div class="login-footer">
             <a class="btn btn-info active" href="<?= Url::to('zaboravljena-lozinka'); ?>">Ako ste zaboravili lozinku - kliknite ovde</a>
-
-            <a class="btn btn-info active" href="<?= Url::to('registracija-posloprimac'); ?>">Ako niste registrovani kao posloprimac</a>
-
-            <a class="btn btn-info active" href="<?= Url::to('registracija-poslodavac'); ?>">Ako niste registrovani kao poslodavac</a>
-        </div>
+    </div>
 </div>
 
 <div style="display: none;">

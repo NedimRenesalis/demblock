@@ -50,8 +50,6 @@ return [
                 'prijava' => 'site/prijava',
                 'visit' => 'site/visit',
                 'subscribe' => 'site/subscribe',
-                'registracija-poslodavac' => 'site/registracija-poslodavac',
-                'registracija-posloprimac' => 'site/registracija-posloprimac',
                 'registracija' => 'site/registracija',
                 'trazi-posao' => 'site/trazi-posao',
                 'objava-oglasa' => 'site/objava-oglasa',
