@@ -1869,15 +1869,47 @@ class SiteController extends Controller
     public function actionEditUserMainDetails(){
         if (!Yii::$app->user->isGuest) {
             $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-
+            $item = new UploadForm();
             if($user){
-                if ($user->load(Yii::$app->request->post())) {
+
+                if($user->load(Yii::$app->request->post())) {
+                    $user->full_name = $user->first_name . ' ' . $user->last_name;
                     $user->save();
+                }
+
+                if (Yii::$app->request->isPost) {
+                    $item->file = UploadedFile::getInstance($item, 'file');
+                    if($item->file != null) {
+                        if ($item->validate()) {
+                            $allowed = array('jpg', 'jpeg', 'png');
+
+                            $extension = $item->file->extension;
+                            if (!in_array(strtolower($extension), $allowed)) {
+                                echo '{"status":"error"}';
+                                exit;
+                            }
+
+                            $newImage = 'uploads/logo/' . $user->getId() . '-' . time() . '.' . $extension;
+                            if ($user->image != null && file_exists($user->image)) {
+                                unlink($user->image);
+                            }
+                            if ($item->file->size > 1024 * 1024 * 2) {
+                                echo '{"status":"error"}';
+                                exit;
+                            }
+                            if ($item->file->saveAs($newImage)) {
+                                $user->image = $newImage;
+                                $user->save();
+                                return $this->redirect("user-profile");
+                            }
+                        }
+                    }
                     return $this->redirect("user-profile");
                 }
 
                 return $this->render('user-profile/user-main-details', [
-                    'model' => $user
+                    'model' => $user,
+                    'item' => $item
                 ]);
             }
         }

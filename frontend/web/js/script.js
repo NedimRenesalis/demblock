@@ -45,7 +45,14 @@ $(function(){
             });
 
             // Automatically upload the file once it is added to the queue
-            var jqXHR = data.submit();
+
+            if($('#uploadImageMainDetails').length){
+                $('#uploadImageMainDetails').on('click', function(){
+                    data.submit();
+                });
+            } else {
+                var jqXHR = data.submit();
+            }
         },
 
         progress: function(e, data){
