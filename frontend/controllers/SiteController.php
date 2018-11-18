@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 
+use app\models\CompanyInformation;
 use app\models\UserContactInformation;
 use frontend\models\Categories;
 use frontend\models\EmailConfirmation;
@@ -1828,6 +1829,7 @@ class SiteController extends Controller
             $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
             if($user) {
                 $contactInformation = UserContactInformation::find()->where(['UserId' => $user->id])->one();
+                $companyInformation = CompanyInformation::find()->where(['UserId' => $user->id])->one();
 
                 if ($user->load(Yii::$app->request->post())) {
                     $user->save();
@@ -1835,7 +1837,8 @@ class SiteController extends Controller
                 return $this->render('user-profile/index', [
                     'model'       => $user,
                     'registered'  => $this->registered,
-                    'contactInfo' => $contactInformation
+                    'contactInfo' => $contactInformation,
+                    'companyInformation' => $companyInformation,
                 ]);
             }
         }
@@ -1879,6 +1882,32 @@ class SiteController extends Controller
             }
         }
 
+        return $this->goHome();
+    }
+
+    public function actionCompanyDetails(){
+        if (!Yii::$app->user->isGuest) {
+            $user  = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
+            if($user){
+                $model = CompanyInformation::find()->where(['UserId' => $user->id])->one();
+
+                if(!$model){
+                    $model = new CompanyInformation();
+                }
+                $model->UserId = $user->id;
+                if ($model->load(Yii::$app->request->post())) {
+
+                    $user->company_name = $model->CompanyName;
+                    $user->save();
+                    $model->save();
+                    return $this->redirect("user-profile");
+                }
+
+                return $this->render('user-profile/company-information', [
+                    'model' => $model
+                ]);
+            }
+        }
         return $this->goHome();
     }
 

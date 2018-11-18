@@ -241,10 +241,11 @@ $countryArray = array(
     </div>
     <div>Main products:
         <?php
-            if($model->mainProducts != null)
+            if($model->mainProducts != null && $model->mainProducts != '') {
                 echo $model->mainProducts;
-            else
+            } else {
                 echo 'none';
+            }
         ?>
     </div>
     <div>
@@ -297,3 +298,19 @@ $countryArray = array(
     <a href="<?= Url::to('edit-user-contact-details'); ?>">Edit</a>
 </div>
 <!-- End contact information -->
+
+<div>
+    <h3>Company Information</h3>
+
+    <div>Company name: <?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
+    <div>Year Estabilished: <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?> </div>
+    <div>Official Website: <?php echo ($companyInformation != null && $companyInformation->Website != '') ? $companyInformation->Website : 'none';  ?> </div>
+    <div>Total Number of Employees: <?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?> </div>
+    <div>Registered Address: <?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?> </div>
+    <div>Operational Address: <?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?> </div>
+    <div>About Us: <?php echo ($companyInformation != null && $companyInformation->AboutUs != '') ? $companyInformation->AboutUs : 'none';  ?> </div>
+
+    <div>
+        <a href="<?= Url::to('company-details'); ?>">Edit</a>
+    </div>
+</div>
