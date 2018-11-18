@@ -241,7 +241,9 @@ $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id
                     $selected = $key;
                 }
             } ?>
-            <?= $form->field($model, 'location')->dropDownList(ArrayHelper::getColumn($countryArray, 'name'),['placeholder' => 'Select location', 'options' => [$selected => ['Selected' => 'selected']]])->label('Location') ?>
+            <?= $form->field($model, 'location')->dropDownList(
+                    ArrayHelper::getColumn($countryArray, 'name'),['placeholder' => 'Select location',
+                                                                         'options' => [$selected => ['Selected' => 'selected']]])->label('Location') ?>
             <?= $form->field($model, 'first_name') ?>
             <?= $form->field($model, 'last_name') ?>
             <?= $form->field($model, 'mainProducts')->textarea() ?>
