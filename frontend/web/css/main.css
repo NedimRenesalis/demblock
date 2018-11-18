@@ -637,7 +637,6 @@ body {
 }
 
 /* section */
-
 .section-menu{
     display: flex;
     align-items: center;
@@ -693,16 +692,36 @@ body {
 }
 
 .footer-controls {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 86%;
+    border-top: 1px solid gray;
+    padding: 20px;
+}
+
+.footer-controls  div {
     margin-top: 20px;
-    width: 100%;
+    flex:1; 
+    width: 551px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
 }
 
+.footer > div > div:nth-child(1) {
+    border-right: 1px solid gray;
+}
+
+.footer-controls > a {
+   width: 300px;
+}
+
 .footer-controls a {
-    width: 200px;
+    margin: 9px;
+    flex: 1;
 }
 
 .section-item:hover {
