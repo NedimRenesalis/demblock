@@ -80,9 +80,9 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_INACTIVE]],
             [['money', 'total_money'],'integer', 'integerOnly' => false],
             [['company_description'], 'string'],
-            [['mainProducts'], 'text', 'max' => 10000],
+            [['mainProducts'], 'string', 'max' => 10000],
             [['first_name', 'money', 'last_name', 'year_of_birth', 'gender', 'education_level', 'career_level', 'additional_experience',
-                'phone', 'language', 'address', 'company_name', 'pdv', 'full_name', 'email', 'job', 'location', 'isBlocked', 'zip_code','company_description', 'banner'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process', 'mainProducts']
+                'phone', 'language', 'address', 'company_name', 'pdv', 'full_name', 'email', 'job', 'location', 'isBlocked', 'zip_code','company_description', 'banner', 'mainProducts'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process']
         ];
     }
 
