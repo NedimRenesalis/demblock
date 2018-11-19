@@ -365,7 +365,7 @@ class SiteController extends Controller
                 return $this->render('oglasi/' . $this->language . '-oglasi', [
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
-                    'employee' => $type == 3
+                    'employee' => $type == 3 || $type == 4
                 ]);
             }
         }
@@ -965,7 +965,7 @@ class SiteController extends Controller
                     'objava-oglasa/' . $this->language . '-objava-oglasa', [
                     'model'             => $model,
                     'message'           => null,
-                    'isEmployer'        => $user->getUserType() == 2,
+                    'isEmployer'        => $user->getUserType() == 2 || $user->getUserType() == 4,
                     'images'            => $images,
                     'action'            => 'create',
                     'uploadedImages'    => $model->images,
@@ -1587,7 +1587,7 @@ class SiteController extends Controller
         return $this->render('oglasi/' . $this->language . '-oglasi', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'employee' => $type == 3
+            'employee' => $type == 3 || $type == 4
         ]);
     }
 
@@ -1754,7 +1754,7 @@ class SiteController extends Controller
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
         $type = $user->getUserType();
 
-        if ($id && $type == 3) {
+        if ($id && ($type == 3 || $type == 4)) {
             $apply = Apply::find()->where(["user_id" => $user->id, "advert_id" => $id])->one();
             if (!$apply) {
                 // todo check if job is valid
