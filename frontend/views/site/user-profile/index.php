@@ -1,5 +1,8 @@
 <?php
 use yii\helpers\Url;
+use frontend\assets\UploadAsset;
+
+UploadAsset::register($this);
 
 $countryArray = array(
 'AD'=>array('name'=>'ANDORRA','code'=>'376'),
@@ -228,10 +231,11 @@ $countryArray = array(
         <?php endif; ?>
     </div>
     <div>
-        <!-- When add company information insert company website url -->
-        <!-- For FE dev: Please adjust style for both (with link and without link) -->
-        <div>at <a href="">renesalis</a></div>
-        <div>at renesalis</div>
+        <?php  if($companyInformation != null && $companyInformation->Website != '' && $companyInformation->CompanyName != ''):  ?>
+            <div>at <a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a></div>
+        <?php elseif($companyInformation != null && $companyInformation->CompanyName != ''): ?>
+            <div>at <?php echo $companyInformation->CompanyName; ?></div>
+        <?php endif; ?>
     </div>
     <div>
         Email: <?php echo $contactInfo->Email; ?>
@@ -304,7 +308,7 @@ $countryArray = array(
 
     <div>Company name: <?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
     <div>Year Estabilished: <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?> </div>
-    <div>Official Website: <?php echo ($companyInformation != null && $companyInformation->Website != '') ? $companyInformation->Website : 'none';  ?> </div>
+    <div>Official Website: <?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?> </div>
     <div>Total Number of Employees: <?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?> </div>
     <div>Registered Address: <?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?> </div>
     <div>Operational Address: <?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?> </div>
@@ -312,5 +316,20 @@ $countryArray = array(
 
     <div>
         <a href="<?= Url::to('company-details'); ?>">Edit</a>
+    </div>
+</div>
+
+
+
+<div>
+    <h3>Sourcing Information</h3>
+
+    <div>Annual Purchasing Volume: <?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>
+    <div>Primary Sourcing Purpose: <?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?> </div>
+    <div>Average Sourcing Frequency <?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?> </div>
+    <div>Preferred Supplier Qualifications: <?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?> </div>
+    <div>Preferred Industries: <?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?> </div>
+    <div>
+        <a href="<?= Url::to('sourcing-information'); ?>">Edit</a>
     </div>
 </div>

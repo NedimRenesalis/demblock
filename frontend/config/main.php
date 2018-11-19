@@ -50,8 +50,6 @@ return [
                 'prijava' => 'site/prijava',
                 'visit' => 'site/visit',
                 'subscribe' => 'site/subscribe',
-                'registracija-poslodavac' => 'site/registracija-poslodavac',
-                'registracija-posloprimac' => 'site/registracija-posloprimac',
                 'registracija' => 'site/registracija',
                 'trazi-posao' => 'site/trazi-posao',
                 'objava-oglasa' => 'site/objava-oglasa',
@@ -90,7 +88,8 @@ return [
                 'user-profile' => 'site/user-profile',
                 'edit-user-contact-details' => 'site/edit-user-contact-details',
                 'edit-user-main-details' => 'site/edit-user-main-details',
-                'company-details' => 'site/company-details'
+                'company-details' => 'site/company-details',
+                'sourcing-information' => 'site/sourcing-information'
             ],
         ],
     ],
