@@ -41,7 +41,7 @@ class UserSearch extends User
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $type)
+    public function search($params, $type, $type2 = null)
     {
         $query = User::find();
 
@@ -55,6 +55,12 @@ class UserSearch extends User
         $query->andFilterWhere([
             'user_type' => $type,
         ]);
+
+        if($type2 != null) {
+            $query->orFilterWhere([
+                'user_type' => $type2,
+            ]);
+        }
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails

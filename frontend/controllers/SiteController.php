@@ -1617,7 +1617,7 @@ class SiteController extends Controller
         return $this->render('oglas/' . $this->language . '-oglas', [
             'model' => $advert,
             'images' => $imagesPreview,
-            'employee' => $type == 3
+            'employee' => $type == 3 || $type == 4
         ]);
     }
 
@@ -1631,7 +1631,7 @@ class SiteController extends Controller
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
         $type = $user->getUserType();
 
-        if ($type != 2) {
+        if ($type != 2 && $type != 4) {
             return $this->redirect("index");
         }
 
@@ -1645,7 +1645,7 @@ class SiteController extends Controller
         return $this->render('objavljeni-poslovi/' . $this->language . '-objavljeni-poslovi', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'employee' => $type == 3
+            'employee' => $type == 3 || $type == 4
         ]);
     }
 
@@ -1659,7 +1659,7 @@ class SiteController extends Controller
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
         $type = $user->getUserType();
 
-        if ($type != 3) {
+        if ($type != 3 && $type != 4) {
             return $this->redirect("index");
         }
 

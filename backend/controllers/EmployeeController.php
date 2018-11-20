@@ -62,7 +62,7 @@ class EmployeeController extends Controller
     {
 
         $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 3);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 3, 4);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
