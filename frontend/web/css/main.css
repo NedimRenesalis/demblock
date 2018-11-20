@@ -1189,3 +1189,80 @@ nav > .container {
     border: 1px solid white;
     padding: 7px 17px!important;
 }
+
+.services .container .row {
+    display: flex !important;
+    align-items: flex-start;
+    background: #ededed;
+    justify-content: center;
+}
+
+.service-card {
+    width: 350px !important;
+    border-radius: 5px;
+}
+
+.service-card img {
+    width: 292px;
+    height: 176px;
+    margin: auto;
+}
+
+.service-content {
+    padding: 10px;
+    margin-right: 15px;
+}
+
+.service-header {
+    margin: 0 4px 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.service-header > h3 {
+    display: flex;
+}
+
+.service-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.service-content * {
+    background: #f7f7f7;
+    padding: 5px;
+}
+
+.service-content .describe {
+    height: 130px;
+    display: flex;
+    align-items: center;
+}
+
+.service-content .describe,
+.service-content .prices * {
+    border-bottom: 1px solid gray;
+}
+
+.service-content .prices {
+    height: 100%;
+}
+
+.service-content .prices * {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.midi {
+    -webkit-box-shadow: 0px 9px 32px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 9px 32px -7px rgba(0,0,0,0.75);
+box-shadow: 0px 9px 32px -7px rgba(0,0,0,0.75);
+}

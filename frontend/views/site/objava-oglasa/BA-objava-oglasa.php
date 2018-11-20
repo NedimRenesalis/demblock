@@ -105,7 +105,6 @@ $days = [
                     'options' => [
                         'enctype' => 'multipart/form-data',
                         'data-company'   => $advert_id,
-                        'data-err-msg-gallery' => t('app', 'Please add at least your ICOs logo. Besides you can upload additional 19 pictures, screenshots, graphics.'),
                         'data-err-msg-img-limit' => t('app', 'The number of uploaded images exceeds the maximum allowed limit of {limitNumber} images', [
                             'limitNumber' => 20,
                         ]),
