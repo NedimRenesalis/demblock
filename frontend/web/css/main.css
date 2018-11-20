@@ -642,7 +642,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    
+
     background-color: #ededed;
 }
 
@@ -670,7 +670,7 @@ body {
 }
 
 @media screen and (max-width: 617px) {
-    .section-item { 
+    .section-item {
         width: 200px;
         min-width: 214px;
     }
@@ -703,7 +703,7 @@ body {
 
 .footer-controls  div {
     margin-top: 20px;
-    flex:1; 
+    flex:1;
     width: 551px;
     display: flex;
     flex-wrap: wrap;
@@ -953,7 +953,7 @@ nav > .container {
 
 .login > form > div > label {
     opacity: 0.7;
-} 
+}
 
 .reset-password form label {
     opacity: 0.7;
@@ -961,7 +961,7 @@ nav > .container {
 
 .sign-header > h2 {
     margin: 0 !important;
-    padding: 0 !important; 
+    padding: 0 !important;
     color: white;
     font-size: 24px;
     font-feature-settings: normal;
@@ -969,7 +969,7 @@ nav > .container {
     font-kerning: inherit;
     font-stretch: expanded;
     text-rendering: geometricPrecision;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 /* registration */
@@ -1014,13 +1014,13 @@ nav > .container {
 .reg-controls > .form-group {
     widows: 200px;
     display: flex;
-    
+
 }
 
 .reg-controls label {
     opacity: 0.7;
     font-size: 13px;
-    
+
 }
 
 .last-column > div > div > div > div {
@@ -1086,7 +1086,7 @@ nav > .container {
     .last-section {
         margin-top: 76px;
     }
-   
+
 }
 
 @media screen and (max-width: 630px) {
@@ -1193,9 +1193,9 @@ nav > .container {
 .services .container .row {
     display: flex !important;
     align-items: flex-start;
-    background: #ededed;
-    justify-content: center;
+    justify-content: space-between;
 }
+
 
 .service-card {
     width: 350px !important;
@@ -1210,11 +1210,10 @@ nav > .container {
 
 .service-content {
     padding: 10px;
-    margin-right: 15px;
 }
 
 .service-header {
-    margin: 0 4px 0;
+    margin: 0 4px 0 0;
     padding: 0;
     width: 100%;
     height: 50px;
@@ -1236,7 +1235,6 @@ nav > .container {
 }
 
 .service-content * {
-    background: #f7f7f7;
     padding: 5px;
 }
 
@@ -1244,13 +1242,23 @@ nav > .container {
     height: 130px;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    position: relative;
 }
 
-.service-content .describe,
-.service-content .prices * {
-    border-bottom: 1px solid gray;
+.describe img {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 0;
 }
 
+.describe p {
+    padding-top: 5px;
+    width: 280px;
+    text-align: left;
+}
 .service-content .prices {
     height: 100%;
 }
@@ -1261,8 +1269,23 @@ nav > .container {
     align-items: center;
 }
 
+.prices img {
+  height: 40px !important;
+  width: 40px;
+}
+
+.prices > div > span > p {
+  margin-top: 14px;
+}
+
+.prices > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .midi {
-    -webkit-box-shadow: 0px 9px 32px -7px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 9px 32px -7px rgba(0,0,0,0.75);
-box-shadow: 0px 9px 32px -7px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
+    box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
 }
