@@ -1239,6 +1239,8 @@ nav > .container {
 }
 
 .service-content .describe {
+    margin-left: 12px;
+    padding-left: 25px;
     height: 130px;
     display: flex;
     align-items: center;
