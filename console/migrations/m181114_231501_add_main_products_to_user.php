@@ -29,7 +29,10 @@ class m181114_231501_add_main_products_to_user extends Migration
     // Use up()/down() to run migration code without a transaction.
     public function up()
     {
-        $this->addColumn('user', 'mainProducts', $this->string(10000));
+        $table = Yii::$app->db->schema->getTableSchema('user');
+        if(!isset($table->columns['mainProducts'])) {
+            $this->addColumn('user', 'mainProducts', $this->string(10000));
+        }
     }
     /*
        public function down()
