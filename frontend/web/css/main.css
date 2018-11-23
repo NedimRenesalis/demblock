@@ -1279,3 +1279,88 @@ nav > .container {
     -moz-box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
     box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
 }
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.info {
+  background: white;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.info .logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.logo-no-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+  background: gray;
+}
+
+.info .company-name a {
+  color: blue;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.info .title {
+  color: #8f8c8c;
+  margin: 0 5px;
+}
+
+.info .fullname {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.info .controls {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+}
+
+.info .controls a {
+  margin: 4px 15px;
+}
+
+
+.info .verified {
+  color: green;
+}
+
+.info > .user-info {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #efefef;
+}
+
+.info > .user-info > div {
+  margin-right: 60px;
+}
+
+.info > .main-info {
+  flex: 2;
+  align-self: flex-start;
+  margin: 0 10px;
+  height: 119px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info .main-info-text {
+  overflow: auto;
+}
