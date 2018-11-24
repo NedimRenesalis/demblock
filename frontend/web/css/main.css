@@ -1,10 +1,13 @@
 /** Navigation **/
 
 .navbar#top {
-    background-color: #e6e6fa;
+    background-color: #8d8d8d4d;
     border-bottom: none;
     position: relative;
     margin-bottom: 0;
+    height: 55px;
+    display: flex;
+    align-items: center;
 }
 
 .navbar#top .navbar-brand img {
@@ -112,7 +115,7 @@
 
 .navbar-inverse .navbar-nav>li>a {
     color: white !important;
-    margin: 11px 0 0 2px;
+    margin: 5px 0 0 2px;
     font-size: 14px;
     padding: 5px;
     padding: 3px 15px;
@@ -253,7 +256,7 @@
     margin-bottom: 5px;
 }
 
-.user-cv {
+-cv {
     border: 1px solid grey;
     padding: 5px;
     overflow: hidden;
@@ -541,6 +544,7 @@ textarea {
 
 body {
     overflow-x: hidden;
+    background: #e9e9e9 !important
 }
 .overlay2 {
     background: #000;
@@ -868,6 +872,7 @@ body {
 .login {
     width: 500px;
     margin-top: 35px;
+    margin-bottom: 70px;
     align-self: center;
     position: relative;
     -webkit-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
@@ -889,7 +894,6 @@ body {
 .sign-container {
     height: 100%;
     display: flex;
-    ily: 'Roboto', sans-serif !important;
     background-color: white;
     flex-direction: column;
     align-items: center;
@@ -898,21 +902,6 @@ body {
 
 .login input {
     background-color: #0089ff17;
-}
-
-.login- {
-    font-size: 13px !important;
-    display: flex;
-    flex-direction: row;
-    color: #fff !important;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    height: 117px;
-    margin-top: 20px;
 }
 
 .login- > a {
@@ -1140,7 +1129,7 @@ nav > .container {
 }
 
 .login-btn {
-    background: rgba(255,255,255,0.2);
+    background: #999999e6;
     color: #fff !important;
     border-color: #fff;
     padding: 20px 30px 20px !important;
@@ -1164,7 +1153,7 @@ nav > .container {
 }
 
 .regist-btn {
-    background: #05defe8c;
+    background: #358ecfcc;
     color: #fff !important;
     border-color: #fff;
     font-size: 14px !important;
@@ -1290,4 +1279,223 @@ nav > .container {
     -webkit-box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
     -moz-box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
     box-shadow: 0 0 34px -15px rgba(0,0,0,0.75);
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.info {
+  background: white;
+  position: relative;
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 24px;
+  min-height: 100px;
+}
+
+.info .logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.logo-no-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+  background: gray;
+}
+
+.info .company-name a {
+  color: blue;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.info .title {
+  color: #8f8c8c;
+  margin: 0 5px;
+}
+
+.info .fullname {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.info .controls {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.info .controls a {
+  margin: 4px 15px;
+}
+
+
+.info .verified {
+  color: green;
+}
+
+.info > -info {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #efefef;
+  min-width: 400px;
+}
+
+.info > -info > div {
+  margin-right: 60px;
+}
+
+.info > .main-info {
+  flex: 2;
+  align-self: flex-start;
+  margin: 0 10px;
+  height: 119px;
+  min-width: 575px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 1133px) {
+    .info > .user-info {
+        margin-bottom: 20px;
+        align-self: flex-start; 
+        border: unset;
+    }
+
+    .info > div {
+        min-width: 200px;
+    }
+    .info > .main-info {
+    }
+
+    .info-user {
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 622px) {
+    .info {
+        flex-direction: column;
+    }
+
+    .main-info-text {
+        height: 301px;
+        width: unset;
+    }
+
+    .info > .main-info {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 473px) {
+    .info .logo {
+        width: 90px !important;
+        height: 90px !important;
+        margin-bottom: 42px !important;
+    }
+
+    .info .fullname {
+        font-size: 16px;
+        margin-top: 22px;
+    }
+
+    .user-info > div > div:nth-child(4) {
+        position: relative;
+        left: -107px;
+        top: 109px;
+        margin-bottom: 69px;
+        margin-top: -82px;
+        font-size: 11px;
+        width: 100vw;
+    }
+
+    .info > h3 {
+        margin-top: 32px;
+    }
+
+    .info > div:nth-child(2) {
+        margin-top: 40px !important;
+    }
+
+    .info .logo {
+        width: 109px;
+        height: 84px;
+        margin-bottom: 75px;
+        top: 28px;
+        position: relative;
+    }
+}
+
+
+.info .main-info-text {
+  overflow: auto;
+}
+
+.info .info-title {
+    position: absolute;
+    left: 30px;
+    top: 0;
+}
+
+.info-edit {
+    width: 600px;
+    background: white;
+    margin: 50px auto;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info-edit button {
+    width: 100%;
+}
+
+.info-edit > form {
+    width: 74%;
+}
+
+.info-edit label {
+    opacity: 0.7;
+}
+
+.info-edit > h3 {
+    height: 70px;
+    background: gray;
+    color: white;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 0 20px 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    position: relative;
+    top: 0;
+}
+
+.upload-logo > form {
+    padding: 0 !important;
+    margin: 0 !important;
 }

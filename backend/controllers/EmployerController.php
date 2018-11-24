@@ -82,9 +82,9 @@ class EmployerController extends Controller
             $model->money += $user->money;
             $model->save();
             if ($user->money > 0) {
-                \Yii::$app->getSession()->setFlash('success', 'Money has been added to employer.');
+                \Yii::$app->getSession()->setFlash('success', 'Credits have been added.');
             } else {
-                \Yii::$app->getSession()->setFlash('error', 'Money has been removed.');
+                \Yii::$app->getSession()->setFlash('error', 'Credits have been removed.');
             }
             Yii::$app
                 ->mailer
@@ -120,7 +120,7 @@ class EmployerController extends Controller
         if (($model = User::findOne($id)) !== null) {
             $model->isBlocked = 1;
             $model->save();
-            \Yii::$app->getSession()->setFlash('error', 'Korisnik je blokiran i svi njegovi oglasi su uklonjeni.');
+            \Yii::$app->getSession()->setFlash('error', 'The user has been blocked and listings removed.');
             $adverts = Advert::find()->where(['user_id' => $model->id])->all();
 
             foreach ($adverts as $advert) {
@@ -138,7 +138,7 @@ class EmployerController extends Controller
         if (($model = User::findOne($id)) !== null) {
             $model->isBlocked = 0;
             $model->save();
-            \Yii::$app->getSession()->setFlash('info', 'Korisnik je odblokiran');
+            \Yii::$app->getSession()->setFlash('info', 'This account has been reactivated.');
             $this->redirect(['view', 'id' => $id]);
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

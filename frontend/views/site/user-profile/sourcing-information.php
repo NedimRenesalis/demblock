@@ -7,11 +7,10 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\SourcingInformation */
 /* @var $form ActiveForm */
 ?>
-<div class="site-user-profile-sourcing-information">
-
+<div class="info-edit">
+    <h3>EDIT SOURCING INFORMATION</h3>
+    
     <?php $form = ActiveForm::begin(); ?>
-    <div class="row">
-        <div class="col-md-4">
         <?= $form->field($model, 'AnnualPurchasingVolume') ?>
         <?= $form->field($model, 'PrimarySourcingPurpose') ?>
         <?= $form->field($model, 'AverageSourcingFrequency') ?>
@@ -21,8 +20,6 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary']) ?>
         </div>
-    </div>
-    </div>
     <?php ActiveForm::end(); ?>
 
 </div><!-- site-user-profile-sourcing-information -->
