@@ -2047,7 +2047,12 @@ class SiteController extends Controller
                 if ($model->load(Yii::$app->request->post())) {
 
                     $user->company_name = $model->CompanyName;
+
+                    $time = date("Y-m-d", strtotime($model->Year));
+                    $model->Year = $time;
+
                     $user->save();
+
                     $model->save();
                     return $this->redirect("user-profile");
                 }

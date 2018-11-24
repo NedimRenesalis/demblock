@@ -13,15 +13,9 @@ UploadAsset::register($this);
 <div class="site-user-profile-company-information">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?php echo DatePicker::widget([
-        'model' => $model,
-        'attribute' => 'Year',
-        'pluginOptions' => [
-            'autoclose' => true,
-            'format' => 'yyyy-mm-dd'
-        ]
-    ]); ?>
+    <?php $date = DateTime::createFromFormat("Y-m-d", $model->Year);
+    $model->Year =  $date->format("Y"); ?>
+        <?= $form->field($model, 'Year')->textInput(['type' => 'number', 'min' => 1800]) ?>
         <?= $form->field($model, 'NumberOfEmployees')->textInput(['type' => 'number', 'min' => 0]) ?>
         <?= $form->field($model, 'AboutUs') ?>
         <?= $form->field($model, 'CompanyName') ?>
