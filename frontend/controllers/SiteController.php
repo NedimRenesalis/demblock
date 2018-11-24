@@ -659,7 +659,7 @@ class SiteController extends Controller
         $model = new Advert();
         $model->setAttributes($data);
 
-        $noMoneyMessage = 'Nemate dovoljno novca na Vašem računu';
+        $noMoneyMessage = 'Your credit is too low.';
 
         if ($user->language == "EN") {
             $noMoneyMessage = 'Your credit is too low.';
@@ -810,7 +810,7 @@ class SiteController extends Controller
             ->setFrom("no-reply@zaposljavanje.ba")
             ->setTo($user->email)
             //->setBcc('samra@renesalis-packaging.com')
-            ->setSubject("Vaš oglas - Ihre Stellenanzeige - Your job posting")
+            ->setSubject("Your listing")
             ->send();
     }
 
@@ -822,7 +822,7 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
 
-            $noMoneyMessage = 'Nemate dovoljno novca na Vašem računu';
+            $noMoneyMessage = 'Your credit is too low.';
 
             if ($user->language == "EN") {
                 $noMoneyMessage = 'Your credit is too low.';
