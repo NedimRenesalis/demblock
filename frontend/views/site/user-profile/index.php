@@ -210,7 +210,7 @@ $countryArray = array(
 
 <div class="info-container">
 
-  <div class="info">
+  <div class="info info-user">
       <div class="user-info">
           <?php if ($model->image != null): ?>
               <img src="<?= $model->image; ?>" class="logo">
@@ -270,8 +270,8 @@ $countryArray = array(
       </div>
 
       <div class="controls">
-          <a href="<?= Url::to('edit-user-main-details'); ?>">See what others see</a>
-          <a href="<?= Url::to('edit-user-main-details'); ?>">Edit</a>
+          <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-eye"> </i> See what others see</a>
+          <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
       </div>
 
       <hr>
@@ -279,80 +279,95 @@ $countryArray = array(
 
 <!-- Start contact information -->
 <div class="info">
-    <h3>
+    <h3 class="info-title">
         Contact information
     </h3>
+    <div style="margin-top: 30px;">
+        <div>
+            <span class="title">Email:</span> <?php echo $contactInfo->Email; ?>
+            <span class="verified">
+                [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
+            </span>
+        </div>
+        <div>
+            <span class="title">Alternative Email:</span> <?php echo $contactInfo->AlternativeEmail; ?>
+        </div>
+        <div>
+            <span class="title">Social Links:</span>
+            <div style="margin-left: 20px;">
+                <?php if($contactInfo->Facebook == "none"
+                    && $contactInfo->Twitter == "none"
+                    && $contactInfo->Instagram == "none") echo 'none';?>
+                <?php if($contactInfo->Facebook != "none"): ?>
+                    <div>Facebook: <?php echo $contactInfo->Facebook; ?></div>
+                <?php endif; ?>
+                <?php if($contactInfo->Twitter != "none"): ?>
+                    <div>Twitter: <?php echo $contactInfo->Twitter; ?></div>
+                <?php endif; ?>
+                <?php if($contactInfo->Instagram != "none"): ?>
+                    <div>Instagram: <?php echo $contactInfo->Instagram; ?></div>
+                <?php endif; ?>
+            </div>
+            
+        </div>          
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <div>
+            <span class="title">Fax:</span> <?php echo $contactInfo->Fax; ?>
+        </div>
 
-    <div>
-       Email: <?php echo $contactInfo->Email; ?>
-        <span>
-             [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
-        </span>
-    </div>
-    <div>
-        Alternative Email: <?php echo $contactInfo->AlternativeEmail; ?>
-    </div>
-    <div>
-        Social Links:
-        <?php if($contactInfo->Facebook == "none"
-              && $contactInfo->Twitter == "none"
-               && $contactInfo->Instagram == "none") echo 'none';?>
-        <?php if($contactInfo->Facebook != "none"): ?>
-            <div>Facebook: <?php echo $contactInfo->Facebook; ?></div>
-        <?php endif; ?>
-        <?php if($contactInfo->Twitter != "none"): ?>
-            <div>Twitter: <?php echo $contactInfo->Twitter; ?></div>
-        <?php endif; ?>
-        <?php if($contactInfo->Instagram != "none"): ?>
-            <div>Instagram: <?php echo $contactInfo->Instagram; ?></div>
-        <?php endif; ?>
-    </div>
-    <div>
-        Fax: <?php echo $contactInfo->Fax; ?>
+        <div>
+            <span class="title">Telephone:</span> <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?>
+        </div>
+
+        <div>
+            <span class="title">Mobile:</span> <?php echo $contactInfo->Mobile; ?>
+        </div>
     </div>
 
-    <div>
-        Telephone: <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?>
-    </div>
-
-    <div>
-        Mobile: <?php echo $contactInfo->Mobile; ?>
-    </div>
-
-    <div>
-        <a href="<?= Url::to('edit-user-contact-details'); ?>">Edit</a>
+    <div class="controls">
+        <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
     </div>
 </div>
 
 <!-- End contact information -->
 
 <div class="info">
-    <h3>Company Information</h3>
+    <h3 class="info-title">Company Information</h3>
+    <div style="margin-top: 30px;">
+        <div><span class="title">Company name: </span><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
+        <div><span class="title">Year Estabilished: </span> <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?> </div>
+        <div><span class="title">Official Website: </span><?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?> </div>
+        <div><span class="title">Total Number of Employees: </span><?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?> </div>
 
-    <div>Company name: <?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
-    <div>Year Estabilished: <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?> </div>
-    <div>Official Website: <?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?> </div>
-    <div>Total Number of Employees: <?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?> </div>
-    <div>Registered Address: <?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?> </div>
-    <div>Operational Address: <?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?> </div>
-    <div>About Us: <?php echo ($companyInformation != null && $companyInformation->AboutUs != '') ? $companyInformation->AboutUs : 'none';  ?> </div>
-
-    <div>
-        <a href="<?= Url::to('company-details'); ?>">Edit</a>
+    </div>
+    <div style="margin-top: 30px;">
+        <div><span class="title">Registered Address: </span><?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?> </div>
+        <div><span class="title">Operational Address: </span><?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?> </div>
+        <div><span class="title">About Us:</span> <?php echo ($companyInformation != null && $companyInformation->AboutUs != '') ? $companyInformation->AboutUs : 'none';  ?> </div>
+    </div>
+    <div class="controls">
+        <a href="<?= Url::to('company-details'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
     </div>
 </div>
 
 
 
-<div class="info  ">
-    <h3>Sourcing Information</h3>
+<div class="info">
+    <h3 class="info-title">Sourcing Information</h3>
 
-    <div>Annual Purchasing Volume: <?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>
-    <div>Primary Sourcing Purpose: <?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?> </div>
-    <div>Average Sourcing Frequency <?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?> </div>
-    <div>Preferred Supplier Qualifications: <?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?> </div>
-    <div>Preferred Industries: <?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?> </div>
-    <div>
-        <a href="<?= Url::to('sourcing-information'); ?>">Edit</a>
+    <div style="margin-top: 30px;">
+        <div><span class="title">Annual Purchasing Volume: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>
+        <div><span class="title">Primary Sourcing Purpose: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?> </div>
+        <div><span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?> </div>    
+    </div>
+    <div style="margin-top: 30px;">
+        <div><span class="title">Preferred Supplier Qualifications: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?> </div>
+        <div><span class="title">Preferred Industries: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?> </div>
+    </div>
+    
+    <div class="controls">
+        <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
     </div>
 </div>

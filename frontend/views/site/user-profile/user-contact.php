@@ -10,9 +10,10 @@ UploadAsset::register($this);
 /* @var $model app\models\UserContactInformation */
 /* @var $form ActiveForm */
 ?>
-<div class="site-user-profile-user-contact">
-    <div class="row">
-        <div class="col-md-4">
+
+<div class="info-edit">
+    <h3>EDIT USER CONTACT DETAILS</h3>
+
     <?php $form = ActiveForm::begin(); ?>
 
         <?= $form->field($model, 'AlternativeEmail')->input('email') ?>
@@ -27,7 +28,5 @@ UploadAsset::register($this);
             <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary']) ?>
         </div>
     <?php ActiveForm::end(); ?>
-        </div>
-        </div>
 
-</div><!-- site-user-profile-user-contact -->
+</div>
