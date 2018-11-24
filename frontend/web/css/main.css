@@ -1463,6 +1463,9 @@ nav > .container {
     background: white;
     margin: 50px auto;
     display: flex;
+    -webkit-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 5px 7px 6px rgba(0, 0, 0, 0.12);
     padding: 0;
     align-items: center;
     flex-direction: column;
@@ -1492,6 +1495,9 @@ nav > .container {
     justify-content: center;
     text-transform: uppercase;
     position: relative;
+    -webkit-box-shadow: 2px 15px 19px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 15px 19px -17px rgba(0,0,0,0.75);
+    box-shadow: 2px 15px 19px -17px rgba(0,0,0,0.75);
     top: 0;
 }
 
