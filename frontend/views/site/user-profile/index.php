@@ -208,102 +208,125 @@ $countryArray = array(
 );
 ?>
 
-<div class="">
-    <?php if ($model->image != null): ?>
-        <img src="<?= $model->image; ?>">
-    <?php endif; ?>
+<div class="info-container">
 
-    <div>
-        <?php if($model->full_name != ''){
-                echo $model->full_name;
-            }
-        ?>
+  <div class="info">
+      <div class="user-info">
+          <?php if ($model->image != null): ?>
+              <img src="<?= $model->image; ?>" class="logo">
+          <?php endif; ?>
+          <?php if ($model->image == null): ?>
+              <span class="logo-no-image"></span>
+          <?php endif; ?>
+
+          <div>
+              <div class="fullname">
+                  <?php if($model->full_name != ''){
+                          echo $model->full_name;
+                      }
+                  ?>
+              </div>
+
+              <div style="margin-bottom: 10px;">
+                  <?php if($model->location != ''): ?>
+                      <?php foreach ($countryArray as $key => $val): ?>
+                          <?php if($val['name'] == $model->location):?>
+                              <img src="<?= Url::to('@web/css/images/blank.gif'); ?>" class="flag flag-<?php echo strtolower($key); ?>"> <span><?php echo $key; ?></span>
+                              <?php break; ?>
+                          <?php endif;?>
+                     <?php endforeach; ?>
+                  <?php endif; ?>
+              </div>
+
+              <div class="company-name">
+                  <?php  if($companyInformation != null && $companyInformation->Website != '' && $companyInformation->CompanyName != ''):  ?>
+                      <div><span class="title">at</span> <a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a></div>
+                  <?php elseif($companyInformation != null && $companyInformation->CompanyName != ''): ?>
+                      <div><span class="title">at</span> <a><?php echo $companyInformation->CompanyName; ?></a></div>
+                  <?php endif; ?>
+              </div>
+
+              <div>
+                  <span class="title">Email:</span> <?php echo $contactInfo->Email; ?>
+                  <span class="verified">
+                    [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
+                 </span>
+              </div>
+          </div>
+
+      </div>
+
+      <div class="main-info">
+        <span class="title">Main products:</span>
+        <span class="main-info-text">
+          <?php
+              if($model->mainProducts != null && $model->mainProducts != '') {
+                  echo $model->mainProducts;
+              } else {
+                  echo 'none';
+              }
+          ?>
+        </span>
+      </div>
+
+      <div class="controls">
+          <a href="<?= Url::to('edit-user-main-details'); ?>">See what others see</a>
+          <a href="<?= Url::to('edit-user-main-details'); ?>">Edit</a>
+      </div>
+
+      <hr>
     </div>
 
-    <div>
-        <?php if($model->location != ''): ?>
-            <?php foreach ($countryArray as $key => $val): ?>
-                <?php if($val['name'] == $model->location):?>
-                    <img src="<?= Url::to('@web/css/images/blank.gif'); ?>" class="flag flag-<?php echo strtolower($key); ?>"> <span><?php echo $key; ?></span>
-                    <?php break; ?>
-                <?php endif;?>
-           <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-    <div>
-        <?php  if($companyInformation != null && $companyInformation->Website != '' && $companyInformation->CompanyName != ''):  ?>
-            <div>at <a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a></div>
-        <?php elseif($companyInformation != null && $companyInformation->CompanyName != ''): ?>
-            <div>at <?php echo $companyInformation->CompanyName; ?></div>
-        <?php endif; ?>
-    </div>
-    <div>
-        Email: <?php echo $contactInfo->Email; ?>
-        <span>
-         [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
-    </span>
-    </div>
-    <div>Main products:
-        <?php
-            if($model->mainProducts != null && $model->mainProducts != '') {
-                echo $model->mainProducts;
-            } else {
-                echo 'none';
-            }
-        ?>
-    </div>
-    <div>
-        <a href="<?= Url::to('edit-user-main-details'); ?>">Edit</a>
-    </div>
-</div>
-<hr>
 <!-- Start contact information -->
-<h3>
-    Contact information
-</h3>
+<div class="info">
+    <h3>
+        Contact information
+    </h3>
 
-<div>
-   Email: <?php echo $contactInfo->Email; ?>
-    <span>
-         [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
-    </span>
-</div>
-<div>
-    Alternative Email: <?php echo $contactInfo->AlternativeEmail; ?>
-</div>
-<div>
-    Social Links:
-    <?php if($contactInfo->Facebook == "none"
-          && $contactInfo->Twitter == "none"
-           && $contactInfo->Instagram == "none") echo 'none';?>
-    <?php if($contactInfo->Facebook != "none"): ?>
-        <div>Facebook: <?php echo $contactInfo->Facebook; ?></div>
-    <?php endif; ?>
-    <?php if($contactInfo->Twitter != "none"): ?>
-        <div>Twitter: <?php echo $contactInfo->Twitter; ?></div>
-    <?php endif; ?>
-    <?php if($contactInfo->Instagram != "none"): ?>
-        <div>Instagram: <?php echo $contactInfo->Instagram; ?></div>
-    <?php endif; ?>
-</div>
-<div>
-    Fax: <?php echo $contactInfo->Fax; ?>
+    <div>
+       Email: <?php echo $contactInfo->Email; ?>
+        <span>
+             [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
+        </span>
+    </div>
+    <div>
+        Alternative Email: <?php echo $contactInfo->AlternativeEmail; ?>
+    </div>
+    <div>
+        Social Links:
+        <?php if($contactInfo->Facebook == "none"
+              && $contactInfo->Twitter == "none"
+               && $contactInfo->Instagram == "none") echo 'none';?>
+        <?php if($contactInfo->Facebook != "none"): ?>
+            <div>Facebook: <?php echo $contactInfo->Facebook; ?></div>
+        <?php endif; ?>
+        <?php if($contactInfo->Twitter != "none"): ?>
+            <div>Twitter: <?php echo $contactInfo->Twitter; ?></div>
+        <?php endif; ?>
+        <?php if($contactInfo->Instagram != "none"): ?>
+            <div>Instagram: <?php echo $contactInfo->Instagram; ?></div>
+        <?php endif; ?>
+    </div>
+    <div>
+        Fax: <?php echo $contactInfo->Fax; ?>
+    </div>
+
+    <div>
+        Telephone: <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?>
+    </div>
+
+    <div>
+        Mobile: <?php echo $contactInfo->Mobile; ?>
+    </div>
+
+    <div>
+        <a href="<?= Url::to('edit-user-contact-details'); ?>">Edit</a>
+    </div>
 </div>
 
-<div>
-    Telephone: <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?>
-</div>
-
-<div>
-    Mobile: <?php echo $contactInfo->Mobile; ?>
-</div>
-
-<div>
-    <a href="<?= Url::to('edit-user-contact-details'); ?>">Edit</a>
-</div>
 <!-- End contact information -->
 
-<div>
+<div class="info">
     <h3>Company Information</h3>
 
     <div>Company name: <?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
@@ -321,7 +344,7 @@ $countryArray = array(
 
 
 
-<div>
+<div class="info  ">
     <h3>Sourcing Information</h3>
 
     <div>Annual Purchasing Volume: <?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>

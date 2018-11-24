@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     font-family: 'Work Sans', sans-serif;
-
+    background: gray !important;
 }
 
 article,
@@ -7912,7 +7912,7 @@ body {
 }
 
 .section-success {
-    background-color: #232e35; 
+    background-color: #232e35;
     color: #fff;
 }
 
