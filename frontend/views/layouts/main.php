@@ -38,10 +38,10 @@ if(!Yii::$app->user->isGuest){
     <html lang="<?= Yii::$app->language ?>">
     <head>
 
-      <meta name="google-site-verification" content="cv9DJ_dvORsblSg-c3CioTy8v2O-GlmR_wQN1WBqVnU" />
+     
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="google-site-verification" content="vTvqxStkFVTSep1V8y1S-CanMQEHBgJoNxyuUHbaX50"/>
+       
         <link rel="shortcut icon" href="<?php echo Yii::$app->request->baseUrl; ?>/icon.ico" type="image/x-icon"/>
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
@@ -79,7 +79,7 @@ if(!Yii::$app->user->isGuest){
             $profile = "Profile";
             $jobs = "Jobs";
         } else {
-            $profile = "Profil";
+            $profile = "MY DASHBOARD";
             $jobs = "Poslovi";
         }
 
@@ -139,7 +139,7 @@ if(!Yii::$app->user->isGuest){
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
-                        'Logout(' . Yii::$app->user->identity->username . ')',
+                        'Logout',
                         ['class' => 'btn btn-link logout logout-button']
                     )
                     . Html::endForm()
@@ -156,7 +156,7 @@ if(!Yii::$app->user->isGuest){
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ') ',
+                        'Logout',
 
                         ['class' => 'btn btn-link logout logout-button']
                     )
@@ -176,7 +176,7 @@ if(!Yii::$app->user->isGuest){
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
 
-                        'Logout(' . Yii::$app->user->identity->username . ')',
+                        'Logout',
                         ['class' => 'btn btn-link logout logout-button']
                     )
                     . Html::endForm()
@@ -187,14 +187,14 @@ if(!Yii::$app->user->isGuest){
                 ]);
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 4) {
 
-                $menuItems[] = ['label' => 'Objavljeni poslovi', 'url' => ['objavljeni-poslovi']];
-                $menuItems[] = ['label' => 'Aplicirani poslovi', 'url' => ['aplicirani-poslovi']];
+                $menuItems[] = ['label' => 'Listed products', 'url' => ['objavljeni-poslovi']];
+                $menuItems[] = ['label' => 'Tagged products', 'url' => ['aplicirani-poslovi']];
 
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
 
-                        'Logout(' . Yii::$app->user->identity->username . ')',
+                        'LOGOUT',
                         ['class' => 'btn btn-link logout logout-button']
                     )
                     . Html::endForm()

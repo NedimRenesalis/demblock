@@ -49,7 +49,7 @@ if($searchModel && $searchModel->category) {
                 </div>
 
                 <div class="search-form-col" style="width: 285px !important;">
-                    <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
+                    <?= $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or category', 'label' => null,
                             'onchange' => '
                                 $.post(
                                     "' . Url::toRoute('get-subcategories') . '", 
@@ -117,19 +117,19 @@ if($searchModel && $searchModel->category) {
 <div class="section-menu">
     <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa'); ?>
-        <span>Objava oglasa</span>
+        <span>List your product</span>
     </a>
     <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge'); ?>
-        <span>Cijenovnik i usluge</span>
+       <c> <span>Business identity <br>  verfication and <br>   memberships </span></c>
     </a>
     <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja'); ?>
-        <span>Kontakt prodaja</span>
+        <span>Contact us</span>
     </a>
     <a class="section-item" href="<?= Url::to('o-nama'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi'); ?>
-        <span>Ko smo mi</span>
+        <span>Tour our marketplace</span>
     </a>
 </div>
 
@@ -195,7 +195,7 @@ if($searchModel && $searchModel->category) {
                                     'template' => "{label}\n<i class='fa fa-envelope-o subscribe-icon' aria-hidden='true'></i>\n{input}\n{hint}\n{error}",
                                 ])
                                 ->textInput([
-                                    'placeholder' => \Yii::t('app', 'Email Address'),
+                                    'placeholder' => \Yii::t('app', 'email address'),
                                     'class' => 'form-control subscribe-input',
                                 ])
                                 ->label(false)?>
