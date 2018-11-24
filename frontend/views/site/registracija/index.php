@@ -132,4 +132,13 @@ $this->title = 'Registration';
 
         
     </div>
-</div>
+<?php if($model->errors && isset($model->errors['email'])): ?>
+    <div class="registration-failed">
+
+        <div class="register-failed-msg-wrapper">
+            <div class="register-failed-close">X</div>
+            <p>A user with this email address is already registered - please use another email address to create your account</p>
+            <br>
+        </div>
+    </div>
+<?php endif; ?>

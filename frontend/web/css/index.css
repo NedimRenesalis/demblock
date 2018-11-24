@@ -8429,4 +8429,39 @@ span.pcsf__flag:first-child {
 }
 
 
-/* Password checker end *
+/* Password checker end */
+
+/* Registration modal start */
+.registration-failed {
+    width: 100%;
+    top: 0;
+    padding-top: 20%;
+    z-index: 1000;
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.43);
+}
+
+.registration-failed .register-failed-msg-wrapper {
+    position: relative;
+    z-index: 10000;
+    margin: auto;
+    width: 340px;
+    padding-top: 33px;
+    min-height: 100px;
+    background-color: #e6e6fa;
+    font-weight: bold;
+    text-align: center;
+    font-family: Lato;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.register-failed-close {
+    position: absolute;
+    top: 9px;
+    right: 11px;
+    cursor: pointer;
+}
+/* Registration modal end */

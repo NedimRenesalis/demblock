@@ -116,4 +116,8 @@ $(document).ready(function () {
     $('.file-loading').on('filesorted', function(event, params) {
         $.post($('#advertimage-imagesgallery').data('sort-company-images'), { images: JSON.stringify(params.stack) }, function(json) {}, 'json');
     });
+
+    $('.register-failed-close').on('click', function(){
+        $('.registration-failed').hide();
+    });
 });
