@@ -1481,6 +1481,11 @@ nav > .container {
 
 .info-edit label {
     opacity: 0.7;
+    color: black !important;
+}
+
+.info-edit input {
+    border: 1px solid #ccc !important;
 }
 
 .info-edit > h3 {
