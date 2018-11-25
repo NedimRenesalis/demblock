@@ -79,7 +79,7 @@ if(!Yii::$app->user->isGuest){
             $profile = "Profile";
             $jobs = "Jobs";
         } else {
-            $profile = "MY DASHBOARD";
+            $profile ="MY DASHBOARD";
             $jobs = "Poslovi";
         }
 

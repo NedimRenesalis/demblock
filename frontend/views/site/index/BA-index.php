@@ -121,11 +121,11 @@ if($searchModel && $searchModel->category) {
     </a>
     <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge'); ?>
-       <c> <span>Business identity <br>  verfication and <br>   memberships </span></c>
+       <c> <span>Corporate <br>  verfication and <br>   memberships </span></c>
     </a>
     <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja'); ?>
-        <span>Contact us</span>
+        <span>About us</span>
     </a>
     <a class="section-item" href="<?= Url::to('o-nama'); ?>">
         <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi'); ?>
@@ -246,12 +246,7 @@ if($searchModel && $searchModel->category) {
                                     class="fa fa-2x fa-facebook fa-fw text-inverse"></i></a>
                         <br>
                         <br>
-                        <p class="text-center">Preuzmite mobilnu aplikaciju</p>
-
-                        <br><a href="https://itunes.apple.com/us/app/zaposljavanje/id1293977864?ls=1&mt=8"><i
-                                    class="fa fa-apple" style="font-size:36px"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                href="https://play.google.com/store/apps/details?id=com.zaposljavanje&hl=en"><i
-                                    class="fa fa-android" style="font-size:36px"></i></a>
+                       
                     </div>
                 </div>
                 <div class="col-md-12 hidden-xs text-right" style="margin-top: 30px;">
@@ -263,29 +258,24 @@ if($searchModel && $searchModel->category) {
                                 class="fa fa-2x fa-facebook fa-fw text-inverse"></i></a>
                     <br>
                     <br>
-                    <p class="text-right" style="">Preuzmite mobilnu aplikaciju za mobilne telefone i tablete</p>
-                    <a href="https://itunes.apple.com/us/app/zaposljavanje/id1293977864?ls=1&mt=8"><i
-                                class="fa fa-apple" style="font-size:36px"></i></a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                            href="https://play.google.com/store/apps/details?id=com.zaposljavanje&hl=en"><i
-                                class="fa fa-android" style="font-size:36px"></i></a>
+                    
                 </div>
             </div>
           
         </div>
         <div class="footer-controls">
             <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('uslovi-koristenja'); ?>">
-                Copyright-Privatnost-Uslovi korištenja
+                CONTACT US
             </a>
             <div>
                 <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('uslovi-koristenja'); ?>">
-                    Cop
+                    RULES AND POLICIES
                 </a>
                 <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">
-                    Privatnost
+                    LISTING POLICY
                 </a>
                 <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">
-                    Uslovi korištenja
+                    TERMS OF USE
                 </a>
             </div>
         </div>

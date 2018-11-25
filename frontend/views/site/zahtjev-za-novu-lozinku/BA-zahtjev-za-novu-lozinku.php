@@ -22,6 +22,6 @@ $this->title = 'Zapošljavanje';
         display: flex;
         align-items: center;"
     >
-        Password reset link has been sent you by email
+        Password reset link has been sent to you by email.
     </h3>
 </div>

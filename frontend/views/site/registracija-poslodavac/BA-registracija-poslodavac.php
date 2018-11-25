@@ -167,6 +167,6 @@ $this->title = 'Zapošljavanje';
         <p class="text-center" contenteditable="true">Popunjavanjem formulara i kreiranjem novog korisničko računa,
             kao
             &nbsp;i klikom na “Registruj se” prihvatate da se slažete sa:&nbsp;</p>
-        <a href="<?= Url::to('uslovi-koristenja'); ?>">Uslovima korištenja, Privatnosti, kao i Copyright-a</a>
+        <a href="<?= Url::to('uslovi-koristenja'); ?>">TERMS OF USE</a>
     </div>
 </div>

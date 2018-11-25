@@ -20,16 +20,13 @@ $this->title = 'Zapošljavanje';
     <div style="width: 340px; margin: auto;" class="reset-password">
         <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form', 'fieldConfig' => ['template' => '{label}{input}']]); ?>
 
-        <?= $form->field($model, 'email')->textInput(['autofocus' => true])->label("Za promjenu lozinke - unesite Vaš e-mail") ?>
+        <?= $form->field($model, 'email')->textInput(['autofocus' => true])->label("Your email") ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Pošalji zahtijev', ['class' => 'active btn btn-block btn-primary']) ?>
+            <?= Html::submitButton('Send password reset request to email address', ['class' => 'active btn btn-block btn-primary']) ?>
         </div>
  
-            <div style="">
-                <p class="text-center">U slučaju eventualnih problema – kontaktirajte nas na</p>
-                <a>oglasi@zaposljavanje.ba</a>
-            </div>
+            
         <?php ActiveForm::end(); ?>
     </div>
 </div>
