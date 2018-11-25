@@ -216,43 +216,45 @@ $countryArray = array(
 ?>
 
 <div class="info-edit">
-    <h3>Edit user</h3>
-    <div class="upload-logo">
-        <?php
-            $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'upload']]);?>
-            <div id="drop">Prenesite logo ovde ili
-                <a>Odaberite logo</a>
-                <?= $form->field($item, 'file')->fileInput()->label("") ?>
-                        (MAX 2MB)<br/>
-            </div>
+    <h3 class="info-header">Edit user</h3>
 
-            <ul>
-                <!-- The file uploads will be shown here -->
-            </ul>
-        <?php ActiveForm::end(); ?>
-    </div>
+    <div class="info-content-edit">
+        <div class="upload-logo">
+            <?php
+                $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'upload']]);?>
+                <div id="drop">Prenesite logo ovde ili
+                    <a>Odaberite logo</a>
+                    <?= $form->field($item, 'file')->fileInput()->label("") ?>
+                            (MAX 2MB)<br/>
+                </div>
 
-        
-    <div class="form">
-        <?php $form = ActiveForm::begin(); ?>
-
-        <?php
-        $selected = null;
-        foreach ($countryArray as $key => $val){
-            if($val['name'] == $model->location){
-                $selected = $key;
-            }
-        } ?>
-        <?= $form->field($model, 'location')->dropDownList(
-                ArrayHelper::getColumn($countryArray, 'name'),['placeholder' => 'Select location',
-                                                                    'options' => [$selected => ['Selected' => 'selected']]])->label('Location') ?>
-        <?= $form->field($model, 'first_name') ?>
-        <?= $form->field($model, 'last_name') ?>
-        <?= $form->field($model, 'mainProducts')->textarea() ?>
-
-        <div class="form-group">
-            <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary', 'id' => 'uploadImageMainDetails']) ?>
+                <ul>
+                    <!-- The file uploads will be shown here -->
+                </ul>
+            <?php ActiveForm::end(); ?>
         </div>
-        <?php ActiveForm::end(); ?>
-    </div><!-- site-user-profile-user-contact -->
+
+            
+        <div class="form">
+            <?php $form = ActiveForm::begin(); ?>
+
+            <?php
+            $selected = null;
+            foreach ($countryArray as $key => $val){
+                if($val['name'] == $model->location){
+                    $selected = $key;
+                }
+            } ?>
+            <?= $form->field($model, 'location')->dropDownList(
+                    ArrayHelper::getColumn($countryArray, 'name'),['placeholder' => 'Select location',
+                                                                        'options' => [$selected => ['Selected' => 'selected']]])->label('Location') ?>
+            <?= $form->field($model, 'first_name') ?>
+            <?= $form->field($model, 'last_name') ?>
+            <?= $form->field($model, 'mainProducts')->textarea() ?>
+
+            <div class="form-group">
+                <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary', 'id' => 'uploadImageMainDetails']) ?>
+            </div>
+            <?php ActiveForm::end(); ?>
+    </div>
 </div>

@@ -12,9 +12,10 @@ UploadAsset::register($this);
 ?>
 
 <div class="info-edit">
-    <h3>EDIT USER CONTACT DETAILS</h3>
+    <h3 class="info-header">EDIT USER CONTACT DETAILS</h3>
 
-    <?php $form = ActiveForm::begin(); ?>
+    <div class="info-content-edit">
+        <?php $form = ActiveForm::begin(); ?>
 
         <?= $form->field($model, 'AlternativeEmail')->input('email') ?>
         <?= $form->field($model, 'Phone') ?>
@@ -23,10 +24,11 @@ UploadAsset::register($this);
         <?= $form->field($model, 'Facebook') ?>
         <?= $form->field($model, 'Twitter') ?>
         <?= $form->field($model, 'Instagram') ?>
-    
+
         <div class="form-group">
             <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary']) ?>
         </div>
-    <?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
+    </div>
 
 </div>
