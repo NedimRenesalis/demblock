@@ -18,6 +18,9 @@
 /** Main content **/
 
 .main-content {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
 }
 
 .zoombtn {
@@ -1477,4 +1480,14 @@ nav > .container {
 .upload-logo > form {
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.info-message {
+    padding: 20px;
+    margin: auto;
+    background: #80808029;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -8,8 +8,9 @@ use yii\helpers\Html;
 Yii::$app->user->logout();
 
 ?>
-<div class="just-registered-wrapper inactive-profile-wrapper-notification">
-    <div class="just-registered send-email-wrapper">
+
+<div class="info-message">
+    <div class="send-email-wrapper">
         <?php if(isset($registered)): ?>
         <p>Thanks for registering</p>
         <?php endif; ?>
@@ -17,14 +18,12 @@ Yii::$app->user->logout();
         <p>Please check your email and activate the profile</p>
         <br>
         <p>To send activation code again, please click <button class="send-confirmation" data-key="<?php echo $user->auth_key; ?>">here</button></p>
-        <br>
     </div>
-    <div class="just-registered email-sent-wrapper" style="display: none">
+    <div class="email-sent-wrapper" style="display: none">
         <p>Confirmation email has been sent successfully.</p>
         <p>Please check your email and activate the profile</p>
         <br>
         <p>To send activation code again, please click <button class="send-confirmation" data-key="<?php echo $user->auth_key; ?>">here</button></p>
-        <br>
     </div>
 </div>
 
