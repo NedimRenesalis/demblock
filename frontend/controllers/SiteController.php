@@ -1869,13 +1869,13 @@ class SiteController extends Controller
         $model = new RegisterForm();
         if ($model->load(Yii::$app->request->post())) {
             $model->username = $model->email;
-            if(!$model->validate()) {
+            /*if(!$model->validate()) {
                 if($model->errors){
                     $model->addErrors($model->errors);
                 }
-            }
-            if ($user = $model->signup()) {
+            }*/
 
+            if ($user = $model->signup()) {
                 $mail = new EmailConfirmation();
 
                 $mail->sendEmail($user);
