@@ -11,19 +11,19 @@ $this->title = 'Zapošljavanje';
         </div>
         <?php $form = ActiveForm::begin(['id' => 'prijava-form']); ?>
 
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label("Email adresa") ?>
-        <?= $form->field($model, 'password')->passwordInput()->label("Lozinka") ?>
+        <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label("Your email address") ?>
+        <?= $form->field($model, 'password')->passwordInput()->label("Your password") ?>
 
-        <?= $form->field($model, 'rememberMe')->checkbox(['label' => null])->label("Zapamti me") ?>
+        <?= $form->field($model, 'rememberMe')->checkbox(['label' => null])->label("Stay logged in") ?>
 
         <div class="form-group">
-            <button class="active btn btn-block btn-info" type="submit">Prijava</button>
+            <button class="active btn btn-block btn-info" type="submit">Login</button>
         </div>
 
         <?php ActiveForm::end(); ?>
     </div>
     <div class="login-footer">
-            <a class="btn btn-info active" href="<?= Url::to('zaboravljena-lozinka'); ?>">Ako ste zaboravili lozinku - kliknite ovde</a>
+            <a class="btn btn-info active" href="<?= Url::to('zaboravljena-lozinka'); ?>">Lost your password? Create a new one.</a>
     </div>
 </div>
 

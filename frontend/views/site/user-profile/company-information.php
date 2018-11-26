@@ -11,12 +11,11 @@ UploadAsset::register($this);
 /* @var $form ActiveForm */
 ?>
 <div class="info-edit">
-    <h3 class="info-header">EDIT COMPANY INFORMATIONS</h3>
+    <h3 class="info-header">EDIT COMPANY INFORMATION</h3>
 
     <div class="info-content-edit">
         <?php $form = ActiveForm::begin(); ?>
-            <?php// $date = DateTime::createFromFormat("Y-m-d", $model->Year);
-                // $model->Year =  $date->format("Y"); ?>
+            <?php// $date = DateTime::createFromFormat("Y-m-d", $model->
                     <?= $form->field($model, 'Year')->textInput(['type' => 'number', 'min' => 1800]) ?>
                     <?= $form->field($model, 'NumberOfEmployees')->textInput(['type' => 'number', 'min' => 0]) ?>
                     <?= $form->field($model, 'AboutUs') ?>

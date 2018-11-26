@@ -119,11 +119,11 @@ $this->title = 'Registration';
             <div class="last-section">
                 <div class="col-md-12 text-center">
                     <br><p class="text-center">
-                        Da biste izvršili upload loga firme, nakon ovde završene registracije, prijavite se na početnoj www.zaposljavanje.ba stranici na Vaš profil. </p>
-                    <p class="text-center" contenteditable="true">Popunjavanjem formulara i kreiranjem novog korisničko računa,
-                        kao
-                        &nbsp;i klikom na “Registruj se” prihvatate da se slažete sa:&nbsp;</p>
-                    <a href="<?= Url::to('uslovi-koristenja'); ?>">Uslovima korištenja, Privatnosti, kao i Copyright-a</a>
+                        In order to upload your corporate logo, provide corporate verification and list your product/s, please login into your account after successfull registration. </p>
+                    <p class="text-center" contenteditable="true">
+                      
+                        &nbsp;By pressing the CONFIRM button you agree to our:&nbsp;</p>
+                    <a href="<?= Url::to('uslovi-koristenja'); ?>">TERMS OF USE</a>
                 </div>
             </div>
             <?php ActiveForm::end(); ?>

@@ -53,7 +53,7 @@ class CompanyInformation extends \yii\db\ActiveRecord
         return [
             'Id' => Yii::t('app', 'ID'),
             'CompanyName' => Yii::t('app', 'Company Name'),
-            'Year' => Yii::t('app', 'Year'),
+            'Year' => Yii::t('app', 'Year Of Incorporation'),
             'Website' => Yii::t('app', 'Website'),
             'NumberOfEmployees' => Yii::t('app', 'Number Of Employees'),
             'RegisteredAddress' => Yii::t('app', 'Registered Address'),

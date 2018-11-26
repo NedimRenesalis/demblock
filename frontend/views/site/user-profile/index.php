@@ -211,14 +211,14 @@ $countryArray = array(
 <div class="info-container">
 
     <div class="info info-user">
-        <h3 class="info-header">USER DETAILS</h3>
+        <h3 class="info-header">MY DASHBOARD</h3>
 
         <div class="info-content">
             <div class="controls">
-            <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-eye"> </i> See what others see</a>
-            <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
-            </div>
             
+            <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-pencil">&nbsp; </i>MODIFY FORMS</a>
+            </div>
+            <br>
             <div class="logo-img">
                 <?php if ($model->image != null): ?>
                     <img src="<?= $model->image; ?>" class="logo">
@@ -229,16 +229,16 @@ $countryArray = array(
             </div>
 
             <div class="fullname">
-                <span class="title">Name: </span>
+               <b> <span class="title">CONTACT PERSON:</span></b>
                 <?php if($model->full_name != ''){
                         echo $model->full_name;
                     }
                 ?>
             </div>
-
+<br>
             <div>
-                <span class="title">Country: </span>
-                <?php if($model->location != ''): ?>
+               <b> <span class="title">COUNTRY: </span> </b>
+                 <?php if($model->location != ''): ?>
                     <?php foreach ($countryArray as $key => $val): ?>
                         <?php if($val['name'] == $model->location):?>
                             <img src="<?= Url::to('@web/css/images/blank.gif'); ?>" class="flag flag-<?php echo strtolower($key); ?>"> <span><?php echo $key; ?></span>
@@ -247,24 +247,24 @@ $countryArray = array(
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
-
-            <div class="company-name">
+<br>
+           <div class="company-name">
                 <?php  if($companyInformation != null && $companyInformation->Website != '' && $companyInformation->CompanyName != ''):  ?>
-                    <div><span class="title">Working at</span><a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a></div>
+                <b>    <div><span class="title">COMPANY NAME:</span></b><a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a></div>
                 <?php elseif($companyInformation != null && $companyInformation->CompanyName != ''): ?>
-                    <div><span class="title">Working at</span><a><?php echo $companyInformation->CompanyName; ?></a></div>
+                 <b>   <div><span class="title">COMPANY NAME:</span></b><a><?php echo $companyInformation->CompanyName; ?></a></div>
                 <?php endif; ?>
             </div>
-
+<br>
             <div>
-                <span class="title">Email:</span> <?php echo $contactInfo->Email; ?>
+               <b> <span class="title">Email:</span> </b><?php echo $contactInfo->Email; ?>
                 <span class="verified">
                 [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
                 </span>
             </div>
-
+<br>
             <div class="main-info">
-                <span class="title">Main products:</span>
+               <b> <span class="title">Main products:</span></b>
                 <span class="main-info-text">
                 <?php
                     if($model->mainProducts != null && $model->mainProducts != '') {
@@ -287,10 +287,10 @@ $countryArray = array(
             </h3>
             <div class="info-content">
                 <div class="controls">
-                    <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
-                </div>
+                    <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
+                </div>   <br>
                 <div>
-                    <span class="title">Email:</span> <?php echo $contactInfo->Email; ?>
+                   <b> <span class="title">Email:</span></b> <?php echo $contactInfo->Email; ?>
                     <span class="verified">
                         [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
                     </span>
@@ -326,9 +326,9 @@ $countryArray = array(
 
             <div class="info-content">
                 <div class="controls">
-                    <a href="<?= Url::to('company-details'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
-                </div>
-                <div><span class="title">Company name: </span><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
+                    <a href="<?= Url::to('company-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
+                </div>   <br>
+            <b>    <div><span class="title">Company name: </span></b><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
                 <div><span class="title">Year Estabilished: </span> <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?> </div>
                 <div><span class="title">Official Website: </span><?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?> </div>
                 <div><span class="title">Total Number of Employees: </span><?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?> </div>
@@ -343,9 +343,9 @@ $countryArray = array(
 
             <div class="info-content">
                 <div class="controls">
-                    <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil"> </i> Edit</a>
-                </div>
-                <div><span class="title">Annual Purchasing Volume: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>
+                    <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil">&nbsp; </i> MODIFY FORMS</a>
+                </div>   <br>
+              <b>  <div><span class="title">Annual Purchasing Volume: </span></b><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>
                 <div><span class="title">Primary Sourcing Purpose: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?> </div>
                 <div><span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?> </div>    
                 <div><span class="title">Preferred Supplier Qualifications: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?> </div>
