@@ -22,6 +22,12 @@
     flex-direction: column;
 }
 
+.raw-text {
+    background: #f7f7f7;
+    margin-top: 23px;
+    padding: 21px;
+}
+
 .zoombtn {
     position: absolute;
     top: -230%;
@@ -895,11 +901,16 @@ body {
 
 .sign-container {
     height: 100%;
+    margin: auto;
     display: flex;
     background-color: white;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.objava-oglasa .fields {
+    width: 90%;
 }
 
 .login input {

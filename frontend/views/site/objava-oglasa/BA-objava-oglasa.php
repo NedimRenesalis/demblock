@@ -74,22 +74,27 @@ $days = [
 
 ?>
 
-<div class="col-md-12">
-    <h3 class="text-center">Objava oglasa</h3>
+<div class="col-lg-10 col-md-8 sign-container objava-oglasa">
+    <div class="sign-header">
+        <h2 class="text-center">Objava oglasa</h2>
+    </div>
     <br>
-  <center>    <br><b>Plaćanje oglasa</b>
-  <br>Oglasi se mogu platiti odmah putem kreditne kartice online ili putem uplatnice na osnovu predračuna.
-  <br>
-  <br>Ako odaberete uplatu putem  uplatnice kontaktirate nas emailom na <a href="mailto:#">oglasi@zaposljavanje.ba</a> ili putem telefona na 062-332-325 za izdavanje predračuna. U email-u navedite ime Vaše firme i vrstu oglasa koji želite objaviti.
-  <br>Nakon izvršene uplate i nakon što novac legne na naš račun, možete Vaš oglas na našoj stranici odmah sastaviti i objaviti.
-  <br>
-  <br>Plaćanje putem kreditne kartice na našoj stranici Vam omogućava da odmah sastavite i objavite oglas bez kontaktiranja naše oglasne službe.
-<br>
-<br><b>Anonimni oglas</b>
-                  <br>U slučaju da poslodavac ne želi navesti svoj identitet u oglasu, postoji
-                    mogućnost objave takozvanog anonimnog oglasa, gdje umjesto loga i imena
-                    kompanije koja oglašava, stoji "zaposljavanje.ba za klijenta". Anonimni
-                    oglas je moguć kao dodatna opcija za sve tri vrste oglasa.</p></center>
+  <div class="raw-text">
+        <br><b>Plaćanje oglasa</b>
+        <br>Oglasi se mogu platiti odmah putem kreditne kartice online ili putem uplatnice na osnovu predračuna.
+        <br>
+        <br>Ako odaberete uplatu putem  uplatnice kontaktirate nas emailom na <a href="mailto:#">oglasi@zaposljavanje.ba</a> ili putem telefona na 062-332-325 za izdavanje predračuna. U email-u navedite ime Vaše firme i vrstu oglasa koji želite objaviti.
+        <br>Nakon izvršene uplate i nakon što novac legne na naš račun, možete Vaš oglas na našoj stranici odmah sastaviti i objaviti.
+        <br>
+        <br>Plaćanje putem kreditne kartice na našoj stranici Vam omogućava da odmah sastavite i objavite oglas bez kontaktiranja naše oglasne službe.
+        <br>
+        <br><b>Anonimni oglas</b>
+        <br>
+        <p>U slučaju da poslodavac ne želi navesti svoj identitet u oglasu, postoji
+        mogućnost objave takozvanog anonimnog oglasa, gdje umjesto loga i imena
+        kompanije koja oglašava, stoji "zaposljavanje.ba za klijenta". Anonimni
+        oglas je moguć kao dodatna opcija za sve tri vrste oglasa.</p>
+    </div>
 <br>
 </div>
 <div class="section text-justify">
@@ -113,7 +118,7 @@ $days = [
                     'method'    => 'post',
                     'fieldConfig' => ['template' => '{label}{input}']]); 
             ?>
-            <div class="row text-center">
+            <div class="row text-center fileds">
                 <div class="col-md-4">
 
                     <?= $form->field($model, 'anonymously')->checkbox(['label' => null])->label('Objavi oglas anonimno&nbsp;&nbsp;') ?>
