@@ -263,6 +263,10 @@ $countryArray = array(
                 </span>
             </div>
 <br>
+    <div>
+        <b> <span class="title">Your current balance is:</span> </b><?php echo $model->money; ?>
+    </div>
+    <br>
             <div class="main-info">
                <b> <span class="title">Main products:</span></b>
                 <span class="main-info-text">
