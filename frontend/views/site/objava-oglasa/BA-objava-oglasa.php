@@ -74,12 +74,13 @@ $days = [
 
 ?>
 
-<div class="col-md-12">
-    <b><h3 class="text-center">PRODUCT LISTING</h3></b>
-   
-  
- <br> 
- <br>
+<br><br>
+<div class="col-lg-10 col-md-8 sign-container objava-oglasa">
+    <div class="sign-header">
+        <h2 class="text-center">PRODUCT LISTING</h2>
+    </div>
+    <br>
+ 
 <br>
 </div>
 <div class="section text-justify">
@@ -106,8 +107,11 @@ $days = [
                     'method'    => 'post',
                     'fieldConfig' => ['template' => '{label}{input}']]); 
             ?>
+
             <div class="row text-center">
                 <div class="col-md-6">
+
+
 
                    
 

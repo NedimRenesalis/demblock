@@ -43,13 +43,13 @@ if($searchModel->category) {
 
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
-                <div class="col-lg-3 col-md-6">
-                    <?= $form->field($searchModel, 'location')->label("Grad ili država") ?>
+                <div class="col-lg-4 col-md-6">
+                    <?= $form->field($searchModel, 'location')->label("COUNTRY OF SOURCING") ?>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <?=
-                    $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
+                    $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or category', 'label' => null,
                                 'onchange' => '
                                     $.post(
                                         "' . Url::toRoute('get-subcategories') . '", 
@@ -60,22 +60,22 @@ if($searchModel->category) {
                                     );
                                 ',
                             ]
-                        )->label('Kategorija') ?>
+                        )->label('PRODUCT OR CATEGORY') ?>
                 </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <?= $form->field($searchModel, 'position')
                         ->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])
-                            ->label('Subkategorija')
+                            ->label('SUBCATEGORY')
                 ?>
             </div>
-
-                <div class="form-group col-lg-3 col-md-6 search-button">
-                    <?= Html::submitButton('Pretraga', ['class' => 'btn btn-success']) ?>
-                </div>
+<br>
+           
+<center><div class="form-group col-lg-3 col-md-6 search-button">
+                <?= Html::submitButton('SEARCH AGAIN', ['class' => 'btn btn-success']) ?>
+                </div></center>
 
                 <?php ActiveForm::end(); ?>
-
-        </div>
+        </div> 
     </div>
 </div>
 
@@ -97,7 +97,7 @@ if($searchModel->category) {
             ?>
             <?php else: ?>
 
-                <?= "Nema rezultata."; ?>
+                <?= "NO RESULTS"; ?>
 
             <?php endif; ?>
         </div>

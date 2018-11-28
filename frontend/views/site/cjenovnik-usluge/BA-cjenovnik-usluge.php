@@ -152,7 +152,7 @@ $this->title = 'Zapošljavanje';
     </div>
 
     <div class="section">
-    <div class="container" style="background: #f7f7f7; margin-top: 23px; padding: 21px;">
+    <div class="container" style="raw-text">
         <div class="row">
             <div class="col-md-12">
                 <p class="text-center"><h4>Prije objave oglasa molimo da se registrujete kao poslodavac.</h4>

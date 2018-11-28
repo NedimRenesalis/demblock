@@ -24,8 +24,10 @@
         "2amigos/yii2-gallery-widget": "~1.0",
         "kartik-v/yii2-mpdf": "1.0.0",
         "kartik-v/yii2-widget-fileinput": "^1.0",
+        "kartik-v/yii2-widget-activeform": "@dev",
         "twisted1919/yii2-notify": "^1.0",
-        "kartik-v/yii2-widget-datepicker": "dev-master"
+        "kartik-v/yii2-widget-datepicker": "dev-master",
+        "kartik-v/yii2-builder": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
