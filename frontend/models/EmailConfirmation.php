@@ -49,7 +49,7 @@ class EmailConfirmation extends Model
             )
             ->setFrom("admir.etf@gmail.com")
             ->setTo($user->email)
-            ->setSubject('Machine Picker - Profile activation')
+            ->setSubject('Profile activation')
             ->send();
     }
 

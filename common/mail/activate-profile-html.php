@@ -9,7 +9,7 @@ $activateLink = Yii::$app->urlManager->createAbsoluteUrl(['site/activate-profile
 <div class="password-reset">
     <p>Hello <?= Html::encode($user->username) ?>,</p>
 
-    <p>Click link below to verify your profile:</p>
+    <p>Click the link below to verify your profile:</p>
 
     <p><?= Html::a(Html::encode($activateLink), $activateLink) ?></p>
 </div>

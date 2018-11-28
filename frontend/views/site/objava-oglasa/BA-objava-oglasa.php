@@ -56,43 +56,36 @@ if($model && $model->category) {
 }
 
 $types = [
-    1 => "Platinum oglas",
-    2 => "Izdvojeni oglas",
-    3 => "Oglas prema kategoriji",
+    1 => "PRIME LISTING",
+    2 => "SELECTED LISTING",
+    3 => "CLASSIC LISTING",
 ];
 
 $payments = [
-    1 => "Uplatnica - Predračun",
-    3 => "Kreditna kartica",
+    1 => "CLICK HERE TO CHOOSE PAYMENT WITH TOKENS",
+   
 ];
 
 $days = [
-    15 => "15 (samo za Platinum oglase)",
-    30 => "30",
-    40 => "40 (samo za Platinum oglase)",
+    15 => "15 days - only for PRIME LISTING available",
+    30 => "30 days",
+    40 => "40 days - only for PRIME LISTING available",
 ];
 
 ?>
 
 <div class="col-md-12">
-    <h3 class="text-center">Objava oglasa</h3>
-    <br>
-  <center>    <br><b>Plaćanje oglasa</b>
-  <br>Oglasi se mogu platiti odmah putem kreditne kartice online ili putem uplatnice na osnovu predračuna.
-  <br>
-  <br>Ako odaberete uplatu putem  uplatnice kontaktirate nas emailom na <a href="mailto:#">oglasi@zaposljavanje.ba</a> ili putem telefona na 062-332-325 za izdavanje predračuna. U email-u navedite ime Vaše firme i vrstu oglasa koji želite objaviti.
-  <br>Nakon izvršene uplate i nakon što novac legne na naš račun, možete Vaš oglas na našoj stranici odmah sastaviti i objaviti.
-  <br>
-  <br>Plaćanje putem kreditne kartice na našoj stranici Vam omogućava da odmah sastavite i objavite oglas bez kontaktiranja naše oglasne službe.
-<br>
-<br><b>Anonimni oglas</b>
-                  <br>U slučaju da poslodavac ne želi navesti svoj identitet u oglasu, postoji
-                    mogućnost objave takozvanog anonimnog oglasa, gdje umjesto loga i imena
-                    kompanije koja oglašava, stoji "zaposljavanje.ba za klijenta". Anonimni
-                    oglas je moguć kao dodatna opcija za sve tri vrste oglasa.</p></center>
+    <b><h3 class="text-center">PRODUCT LISTING</h3></b>
+   
+  
+ <br> 
+ <br>
 <br>
 </div>
 <div class="section text-justify">
+<br> 
+
+<br>
     <div class="container">
         <div class="row">
             <?php if ($message != null): ?>
@@ -114,13 +107,13 @@ $days = [
                     'fieldConfig' => ['template' => '{label}{input}']]); 
             ?>
             <div class="row text-center">
-                <div class="col-md-4">
+                <div class="col-md-6">
 
-                    <?= $form->field($model, 'anonymously')->checkbox(['label' => null])->label('Objavi oglas anonimno&nbsp;&nbsp;') ?>
+                   
 
 
 
-                    <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'Product or Category', 'label' => null,
+                    <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'SELECT', 'label' => null,
                             'onchange' => '
                                                         $.post(
                                                             "' . Url::toRoute('get-subcategories') . '", 
@@ -133,19 +126,21 @@ $days = [
                                                             }
                                                         );
                                                     ']
-                        )->label("Product or Category  ") ?>
+                        )->label("PRODUCT OR CATEGORY") ?>
 
-                    <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('Pozicija') ?>
+                    <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected,['prompt' => "SELECT"])->label('SUBCATEGORY') ?>
 
+ <?= $form->field($model, 'location')->textInput(['maxlength' => true])->label('SHIPPING FROM') ?>
 
-                    <?= $form->field($model, 'number_of_positions')->textInput()->label('Broj pozicija') ?>
+<?= $form->field($model, 'type')->dropDownList($types, ['prompt' => 'LISTING TYPE'])->label('CHOOSE LISTING TYPE') ?>
+<?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'LISTING DURATION'])->label('CHOOSE LISTING DURATION') ?>
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
 
-                        <?php echo '<label>Datum objave oglasa</label>'; ?>
+                        <?php echo '<label>CHOOSE LISTING STARTING DATE</label>'; ?>
                         <?php echo DateTimePicker::widget([
                             'model' => $model,
                             'attribute' => 'start_advert',
@@ -158,25 +153,24 @@ $days = [
                         ]); ?>
                     </div>
 
-                    <?= $form->field($model, 'contact_person')->textInput(['maxlength' => true])->label('Kontakt osoba') ?>
+                    <?= $form->field($model, 'contact_person')->textInput(['maxlength' => true])->label('CONTACT PERSON') ?>
 
-                    <?= $form->field($model, 'contact_email')->textInput(['maxlength' => true])->label('Kontakt email') ?>
+                    <?= $form->field($model, 'contact_email')->textInput(['maxlength' => true])->label('EMAIL') ?>
 
-                    <?= $form->field($model, 'web_address')->textInput(['maxlength' => true])->label('Web adresa') ?>
-
+                    <?= $form->field($model, 'web_address')->textInput(['maxlength' => true])->label('PRODUCT URL ON YOUR CORPORATE WEBSITE') ?>
+                    <?= $form->field($model, 'payment')->dropDownList($payments, ['prompt' => 'PAY WITH TOKENS'])->label('PAYMENT') ?>
                 </div>
 
-                <div class="col-md-4">
-                    <?= $form->field($model, 'location')->textInput(['maxlength' => true])->label('Grad') ?>
+                <div class="col-md-6">
+                   
 
-                    <?= $form->field($model, 'type')->dropDownList($types, ['prompt' => 'Odaberite tip oglasa'])->label('Vrsta oglasa') ?>
+                 
 
-                    <?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'Odaberite'])->label('Trajanje oglasa (u danima)') ?>
-
-                    <?= $form->field($model, 'payment')->dropDownList($payments, ['prompt' => 'Odaberite način plaćanja'])->label('Plaćanje') ?>
+                  
                 </div>
             </div>
-
+<br>
+<br>
             <div class="col-lg-2"></div>
             <div class="col-lg-8 advert-description">
             <?php 
@@ -229,14 +223,14 @@ $days = [
                             'browseOnZoneClick' => true,
                             'dropZoneEnabled' => false,
 
-                            'browseLabel' => t('app', 'Upload files'),
+                            'browseLabel' => t('app', 'CLICK TO UPLOAD'),
                             'browseClass' => 'btn btn-success',
                             'uploadClass' => 'btn btn-info',
                             'removeClass' => 'btn btn-danger ',
                             'removeIcon' => '<i class="glyphicon glyphicon-trash"></i> ',
-                            'msgPlaceholder' => t('app', 'Select files...'),
+                            'msgPlaceholder' => t('app', 'Upload upto 20 sreenshots, pictures, graphics'),
                             'captionClass'  => [
-                                    'height' => '100px'
+                                    'height' => '150px'
                             ],
                             'layoutTemplates' =>
                                 [
@@ -262,19 +256,20 @@ $days = [
                     ],
                     'preset' => 'advanced',
                     'clientOptions' => [
-                            'language'=>'hr'
+                            'language'=>'en'
                     ]
+                    
+                ])->label('PRODUCT DETAILS<br><br>Please insert below short product description, minimum order quantity, lead time, packaging and delivery options and FAQ. <br>'); ?><br>
+            </div>          
 
-                ])->label('Opis'); ?>
-            </div>
-            <div class="col-lg-2"></div>
+           
         </div>
-        <div class="section">
+        <div class="section"> 
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <div class="form-group">
-                            <?= Html::submitButton('Objavi', ['class' => 'btn btn-primary']) ?>
+                        <div class="form-group"><br>
+                            <?= Html::submitButton('PUBLISH PRODUCT LISTING', ['class' => 'btn btn-primary']) ?>
                         </div>
                     </div>
                 </div>
@@ -287,7 +282,7 @@ $days = [
 <?php if (!$isEmployer): ?>
     <div class="just-for-employers-wrapper">
         <div class="just-for-employers">
-            Ova prijava je samo za poslodavce.
+            Please first log in before listing product.
         </div>
     </div>
 <?php endif; ?>

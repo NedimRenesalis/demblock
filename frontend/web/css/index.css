@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
-
 html {
     font-family: 'Work Sans', sans-serif;
     -ms-text-size-adjust: 100%;
@@ -8152,7 +8151,7 @@ body {
     overflow: hidden;
     position: absolute;
     height: 2000px;
-    background-color: rgba(0, 0, 0, 0.43);
+    background-color: rgba(250, 253, 255, 0.932);
 }
 
 .not-registered-wrapper {
@@ -8177,8 +8176,8 @@ body {
     margin: auto;
     width: 340px;
     padding-top: 33px;
-    min-height: 100px;
-    background-color: #e6e6fa;
+    min-height: "00px;
+ background-color: #e6e6fa;
     font-weight: bold;
     text-align: center;
     font-family: Lato;
@@ -8430,7 +8429,9 @@ span.pcsf__flag:first-child {
 
 /* Password checker end */
 
+
 /* Registration modal start */
+
 .registration-failed {
     width: 100%;
     top: 0;
@@ -8463,4 +8464,6 @@ span.pcsf__flag:first-child {
     right: 11px;
     cursor: pointer;
 }
-/* Registration modal end */
+
+
+/* Registration modal end *
