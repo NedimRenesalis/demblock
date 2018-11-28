@@ -894,8 +894,10 @@ class SiteController extends Controller
                         $model->isPublished = 1;
                         $model->payment_status = 1;
                         $model->price = $toPay;
+                        $model->anonymously = 0;
+
                         if (!$model->save()) {
-                            $user->money += $toPay;
+                            $user->money       += $toPay;
                             $user->total_money -= $toPay;
                             $user->save();
                             return $this->redirect("objava-oglasa");
@@ -917,7 +919,6 @@ class SiteController extends Controller
                         break;
 
                     case 3:
-
                         try {
                             $model->isPublished = 0;
                             $model->payment_status = 0;
