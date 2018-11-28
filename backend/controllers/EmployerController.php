@@ -82,7 +82,7 @@ class EmployerController extends Controller
             $model->money += $user->money;
             $model->save();
             if ($user->money > 0) {
-                \Yii::$app->getSession()->setFlash('success', 'Credits have been added.');
+                \Yii::$app->getSession()->setFlash('success', 'Tokens have been added.');
             } else {
                 \Yii::$app->getSession()->setFlash('error', 'Credits have been removed.');
             }
@@ -94,7 +94,7 @@ class EmployerController extends Controller
                 )
                 ->setFrom("no-reply@zaposljavanje.ba")
                 ->setTo($model->email)
-                ->setSubject("Uplata")
+                ->setSubject("Tokens have been added to your account")
                 ->send();
         }
 

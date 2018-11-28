@@ -247,13 +247,13 @@ $countryArray = array(
             } ?>
             <?= $form->field($model, 'location')->dropDownList(
                     ArrayHelper::getColumn($countryArray, 'name'),['placeholder' => 'Select location',
-                                                                        'options' => [$selected => ['Selected' => 'selected']]])->label('Location') ?>
+                                                                        'options' => [$selected => ['Selected' => 'selected']]])->label('LOCATION') ?>
             <?= $form->field($model, 'first_name') ?>
             <?= $form->field($model, 'last_name') ?>
             <?= $form->field($model, 'mainProducts')->textarea() ?>
 
             <div class="form-group">
-                <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary', 'id' => 'uploadImageMainDetails']) ?>
+                <?= Html::submitButton(Yii::t('app', 'SUBMIT'), ['class' => 'btn btn-primary', 'id' => 'uploadImageMainDetails']) ?>
             </div>
             <?php ActiveForm::end(); ?>
     </div>

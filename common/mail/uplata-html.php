@@ -14,20 +14,22 @@
     Your credit is <?= $user->money; ?>  €.
     <br>Now you can publish your job posting.
 <?php else: ?>
-    <br>Poštovani,
+    <br>Dear customer,
     <br>
-    <br>Novo stanje na Vašem računu je <?= $user->money; ?> KM
+    <br>You have successfully added tokens to your account.
     <br>
-    <br>Sada možete odmah nakon prijave na https://www.zaposljavanje.ba/prijava sastaviti i objaviti oglas u polju “objava oglasa”.
+    <br>Your account's new token balance is <?= $user->money; ?> .
     <br>
-    <br>Oglas je odmah nakon unosa i objave online.
+    <br>Now you can list your product.
+    <br>
+    <br>Your product listing will be online immediately.
     <br>
 
-    <br>U slucaju eventualnih pitanja, kontaktirajte nas na oglasi@zaposljavanje.ba ili putem telefona na 062-332-325.
+    <br>In case you have any questions, please contact our support.
     <br>
-    <br>S poštovanjem,
+    <br>Best regards
     <br>
-    <br>Vaš zaposljavanje.ba tim
+    <br>
 
 
 <?php endif; ?>
