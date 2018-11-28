@@ -8146,7 +8146,7 @@ body {
 .just-registered-wrapper {
     width: 100%;
     top: 0;
-    padding-top: 20%;
+    padding-top: 32%;
     z-index: 1000;
     overflow: hidden;
     position: absolute;
@@ -8175,12 +8175,11 @@ body {
     z-index: 10000;
     margin: auto;
     width: 340px;
-    padding-top: 33px;
-    min-height: "00px;
- background-color: #e6e6fa;
-    font-weight: bold;
+    padding: 20px;
+    background-color: #929292;
+    margin: auto;
+    color: white;
     text-align: center;
-    font-family: Lato;
     font-size: 14px;
     line-height: 1.42857143;
 }

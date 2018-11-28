@@ -165,7 +165,8 @@
 }
 
 .advert-description {
-    width: 100%;
+    width: 83%;
+    margin: auto;
 }
 
 .advert-description .control-label {
@@ -1497,6 +1498,32 @@ nav > .container {
     margin: auto;
     background: #80808029;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oglas-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.oglas-form label {
+    opacity: 0.7;
+    color: #000000 !important;
+}
+
+@media screen and (max-width: 977px) {
+    .oglas-form {
+        justify-content: center;
+    }
+}
+
+.oglas-modal {
+    background: gray;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;

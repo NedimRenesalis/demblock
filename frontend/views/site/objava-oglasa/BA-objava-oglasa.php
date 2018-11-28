@@ -75,12 +75,11 @@ $days = [
 ?>
 
 <br><br>
-<div class="col-lg-10 col-md-8 sign-container objava-oglasa">
+<div class="col-lg-8 col-md-8 sign-container objava-oglasa" style="margin-top: 47px;width: 100%;max-width: 1200px;">
     <div class="sign-header">
         <h2 class="text-center">PRODUCT LISTING</h2>
     </div>
     <br>
- 
 <br>
 </div>
 <div class="section text-justify">
@@ -108,15 +107,8 @@ $days = [
                     'fieldConfig' => ['template' => '{label}{input}']]); 
             ?>
 
-            <div class="row text-center">
-                <div class="col-md-6">
-
-
-
-                   
-
-
-
+            <div class="row text-center oglas-form">
+                <div class="col-md-4">
                     <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'SELECT', 'label' => null,
                             'onchange' => '
                                                         $.post(
@@ -133,15 +125,11 @@ $days = [
                         )->label("PRODUCT OR CATEGORY") ?>
 
                     <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected,['prompt' => "SELECT"])->label('SUBCATEGORY') ?>
-
- <?= $form->field($model, 'location')->textInput(['maxlength' => true])->label('SHIPPING FROM') ?>
-
-<?= $form->field($model, 'type')->dropDownList($types, ['prompt' => 'LISTING TYPE'])->label('CHOOSE LISTING TYPE') ?>
-<?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'LISTING DURATION'])->label('CHOOSE LISTING DURATION') ?>
-
+                    <?= $form->field($model, 'location')->textInput(['maxlength' => true])->label('SHIPPING FROM') ?>
+                    <?= $form->field($model, 'type')->dropDownList($types, ['prompt' => 'LISTING TYPE'])->label('CHOOSE LISTING TYPE') ?>
+                    <?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'LISTING DURATION'])->label('CHOOSE LISTING DURATION') ?>
                 </div>
-
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
 
                         <?php echo '<label>CHOOSE LISTING STARTING DATE</label>'; ?>
@@ -158,25 +146,14 @@ $days = [
                     </div>
 
                     <?= $form->field($model, 'contact_person')->textInput(['maxlength' => true])->label('CONTACT PERSON') ?>
-
                     <?= $form->field($model, 'contact_email')->textInput(['maxlength' => true])->label('EMAIL') ?>
-
                     <?= $form->field($model, 'web_address')->textInput(['maxlength' => true])->label('PRODUCT URL ON YOUR CORPORATE WEBSITE') ?>
                     <?= $form->field($model, 'payment')->dropDownList($payments, ['prompt' => 'PAY WITH TOKENS'])->label('PAYMENT') ?>
                 </div>
-
-                <div class="col-md-6">
-                   
-
-                 
-
-                  
-                </div>
             </div>
-<br>
-<br>
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 advert-description">
+            <br>
+            <br>
+            <div class="advert-description">
             <?php 
                     $imagesPreview = [];
                     $imagesPreviewConfig = [];
@@ -285,7 +262,7 @@ $days = [
 
 <?php if (!$isEmployer): ?>
     <div class="just-for-employers-wrapper">
-        <div class="just-for-employers">
+        <div class="just-for-employers oglas-modal">
             Please first log in before listing product.
         </div>
     </div>
@@ -293,7 +270,6 @@ $days = [
 
 
 <script>
-
     $(document).ready(function () {
         $("#advert-anonymously").on("click", function () {
 
