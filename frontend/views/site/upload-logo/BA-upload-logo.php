@@ -6,8 +6,8 @@ $this->title = 'Zapošljavanje';
 
 use yii\widgets\ActiveForm;
 $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'upload']]);?>
-<div id="drop">Prenesite logo ovde ili
-    <a>Odaberite logo</a>
+<div id="drop">DROP LOGO HERE OR <br>
+    <a>CHOOSE FILE</a>
     <?= $form->field($item, 'file')->fileInput()->label("") ?>
     (MAX 2MB)<br/>
 </div>

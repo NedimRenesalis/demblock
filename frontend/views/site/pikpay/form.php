@@ -48,7 +48,7 @@ $this->title = 'Pikpay';
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
                                         <option value="Algeria">Algeria</option>
-                                        <option value="American Samoa">American Samoa</option>
+                                     
                                         <option value="Andorra">Andorra</option>
                                         <option value="Angola">Angola</option>
                                         <option value="Anguilla">Anguilla</option>
@@ -237,7 +237,7 @@ $this->title = 'Pikpay';
                                         <option value="St Vincent and Grenadines">St Vincent &amp; Grenadines</option>
                                         <option value="Saipan">Saipan</option>
                                         <option value="Samoa">Samoa</option>
-                                        <option value="Samoa American">Samoa American</option>
+                                    
                                         <option value="San Marino">San Marino</option>
                                         <option value="Sao Tome and Principe">Sao Tome &amp; Principe</option>
                                         <option value="Saudi Arabia">Saudi Arabia</option>

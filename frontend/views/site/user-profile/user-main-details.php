@@ -22,7 +22,7 @@ $countryArray = array(
 'AO'=>array('name'=>'ANGOLA','code'=>'244'),
 'AQ'=>array('name'=>'ANTARCTICA','code'=>'672'),
 'AR'=>array('name'=>'ARGENTINA','code'=>'54'),
-'AS'=>array('name'=>'AMERICAN SAMOA','code'=>'1684'),
+
 'AT'=>array('name'=>'AUSTRIA','code'=>'43'),
 'AU'=>array('name'=>'AUSTRALIA','code'=>'61'),
 'AW'=>array('name'=>'ARUBA','code'=>'297'),
@@ -222,8 +222,8 @@ $countryArray = array(
         <div class="upload-logo">
             <?php
                 $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'upload']]);?>
-                <div id="drop">Prenesite logo ovde ili
-                    <a>Odaberite logo</a>
+                <div id="drop">DROP LOGO HERE <br>OR <br>
+                    <a>CHOOSE FILE</a>
                     <?= $form->field($item, 'file')->fileInput()->label("") ?>
                             (MAX 2MB)<br/>
                 </div>
