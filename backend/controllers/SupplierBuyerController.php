@@ -2,19 +2,22 @@
 
 namespace backend\controllers;
 
+use common\models\Advert;
+use common\models\Apply;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\User;
 use backend\models\UserSearch;
+use backend\models\UserMoney;
 use yii\web\NotFoundHttpException;
 
 
 /**
  * Site controller
  */
-class EmployeeController extends Controller
+class SupplierBuyerController extends Controller
 {
 
     /**
@@ -31,7 +34,7 @@ class EmployeeController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index', 'view', 'block', 'un-block', 'download-cv'],
+                        'actions' => ['index', 'view', 'block', 'un-block', 'money'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -62,7 +65,7 @@ class EmployeeController extends Controller
     {
 
         $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 3);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 4);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -72,8 +75,34 @@ class EmployeeController extends Controller
 
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $user = new UserMoney();
+
+        if ($user->load(Yii::$app->request->post())) {
+            $model->money += $user->money;
+            $model->save();
+            if ($user->money > 0) {
+                \Yii::$app->getSession()->setFlash('success', 'Tokens have been added.');
+            } else {
+                \Yii::$app->getSession()->setFlash('error', 'Credits have been removed.');
+            }
+            Yii::$app
+                ->mailer
+                ->compose(
+                    ['html' => 'uplata-html', 'text' => 'uplata-text'],
+                    ['user' => $model]
+                )
+                ->setFrom("no-reply@zaposljavanje.ba")
+                ->setTo($model->email)
+                ->setSubject("Tokens have been added to your account")
+                ->send();
+        }
+
+        $user->money = null;
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'user' => $user,
+            'model' => $model,
         ]);
     }
 
@@ -91,6 +120,13 @@ class EmployeeController extends Controller
         if (($model = User::findOne($id)) !== null) {
             $model->isBlocked = 1;
             $model->save();
+            \Yii::$app->getSession()->setFlash('error', 'The user has been blocked and listings removed.');
+            $adverts = Advert::find()->where(['user_id' => $model->id])->all();
+
+            foreach ($adverts as $advert) {
+                Apply::deleteAll(['advert_id' => $advert->id]);
+                $advert->delete();
+            }
             $this->redirect(['view', 'id' => $id]);
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
@@ -102,47 +138,11 @@ class EmployeeController extends Controller
         if (($model = User::findOne($id)) !== null) {
             $model->isBlocked = 0;
             $model->save();
+            \Yii::$app->getSession()->setFlash('info', 'This account has been reactivated.');
             $this->redirect(['view', 'id' => $id]);
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
 
-    public
-    function actionDownloadCv()
-    {
-
-        $id = Yii::$app->request->get('id');
-
-        $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
-
-        if ($user == null) {
-            return $this->goHome();
-        }
-
-        $type = $user->getUserType();
-
-
-        if ($type == 1) {
-
-            $employee = User::find()->where(["id" => $id])->one();
-
-
-
-            if (!$employee || !$employee->image) {
-                return $this->redirect("index");
-            }
-
-            $path = Yii::getAlias('@webroot') . '/';
-            $file = $path . $employee->image;
-            $file = str_replace("backend", "frontend", $file);
-
-            if (file_exists($file)) {
-                Yii::$app->response->sendFile($file);
-                return;
-            }
-
-        }
-
-    }
 }

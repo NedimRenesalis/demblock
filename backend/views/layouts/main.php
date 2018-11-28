@@ -46,10 +46,11 @@ AppAsset::register($this);
             ['label' => 'Oglasi', 'url' => ['/advert/index']],
             ['label' => 'Sponzorisani oglasi', 'url' => ['/sponsored/index']],
             ['label' => 'Cijene', 'url' => ['/advert-types/index']],
-            ['label' => 'Poslodavci', 'url' => ['/employer/index']],
             ['label' => 'Kategorije', 'url' => ['/categories/index']],
             ['label' => 'Banneri', 'url' => ['/banner/index']],
-            ['label' => 'Posloprimci', 'url' => ['/employee/index']],
+            ['label' => 'Supplier', 'url' => ['/employer/index']],
+            ['label' => 'Buyer', 'url' => ['/employee/index']],
+            ['label' => 'Supplier & Buyer', 'url' => ['/supplier-buyer/index']],
             ['label' => 'Subscribers', 'url' => ['/subscribers/index']],
             ['label' => 'Lozinka', 'url' => ['/site/change-password']],
         ];
