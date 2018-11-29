@@ -229,14 +229,14 @@ $countryArray = array(
             </div>
 
             <div class="fullname">
-               <b> <span class="title">CONTACT PERSON:</span></b>
+               <b><span class="title">CONTACT PERSON:</span></b>
                 <?php if($model->full_name != ''){
                         echo $model->full_name;
                     }
                 ?>
             </div>
-<br>
-            <div>
+            <div class="user-info-line"></div>
+            <div class="table-field" style="margin-top: 18px;">
                <b> <span class="title">COUNTRY: </span> </b>
                  <?php if($model->location != ''): ?>
                     <?php foreach ($countryArray as $key => $val): ?>
@@ -247,25 +247,23 @@ $countryArray = array(
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
-<br>
-           <div class="company-name">
+           <div class="company-name table-field" >
                 <?php  if($companyInformation != null && $companyInformation->Website != '' && $companyInformation->CompanyName != ''):  ?>
-                <b>    <div><span class="title">COMPANY NAME:</span></b><a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a></div>
+                <b><span class="title">COMPANY NAME:</span></b><a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a>
                 <?php elseif($companyInformation != null && $companyInformation->CompanyName != ''): ?>
-                 <b>   <div><span class="title">COMPANY NAME:</span></b><a><?php echo $companyInformation->CompanyName; ?></a></div>
+                 <b><span class="title">COMPANY NAME:</span></b><a><?php echo $companyInformation->CompanyName; ?></a>
                 <?php endif; ?>
             </div>
-<br>
-            <div>
+            <div class="table-field">
                <b> <span class="title">Email:</span> </b><?php echo $contactInfo->Email; ?>
                 <span class="verified">
                 [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
                 </span>
             </div>
-<br>
-    <div>
+    <div class="table-field">
         <b> <span class="title">Your current balance is:</span> </b><?php echo $model->money; ?>
     </div>
+    <div class="user-info-line"></div>
     <br>
             <div class="main-info">
                <b> <span class="title">Main products:</span></b>
@@ -293,33 +291,30 @@ $countryArray = array(
                 <div class="controls">
                     <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
                 </div>   <br>
-                <div>
-                   <b> <span class="title">Email:</span></b> <?php echo $contactInfo->Email; ?>
-                    <span class="verified">
+                <div class="table-field" style="margin-top: 5px;">
+                   <b><span class="title">Email:</span></b> <?php echo $contactInfo->Email; ?>
+                    <p class="verified" style="margin-left: 11px;">
                         [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
-                    </span>
+                    </p>
                 </div>
-                <div><span class="title">Alternative Email:</span> <?php echo $contactInfo->AlternativeEmail; ?></div>
-                <div>
-                    <span class="title">Social Links:</span>
-                    <div style="margin-left: 20px;">
-                        <?php if($contactInfo->Facebook == "none"
-                            && $contactInfo->Twitter == "none"
-                            && $contactInfo->Instagram == "none") echo 'none';?>
-                        <?php if($contactInfo->Facebook != "none"): ?>
-                            <div>Facebook: <?php echo $contactInfo->Facebook; ?></div>
-                        <?php endif; ?>
-                        <?php if($contactInfo->Twitter != "none"): ?>
-                            <div>Twitter: <?php echo $contactInfo->Twitter; ?></div>
-                        <?php endif; ?>
-                        <?php if($contactInfo->Instagram != "none"): ?>
-                            <div>Instagram: <?php echo $contactInfo->Instagram; ?></div>
-                        <?php endif; ?>
-                    </div>
+                <div class="table-field">
+                    <span class="title">Alternative Email:</span> <?php echo $contactInfo->AlternativeEmail; ?>
                 </div>
-                <div> <span class="title">Fax:</span> <?php echo $contactInfo->Fax; ?></div>
-                <div><span class="title">Telephone:</span> <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?></div>
-                <div><span class="title">Mobile:</span> <?php echo $contactInfo->Mobile; ?></div>
+                <?php if($contactInfo->Facebook == "none"
+                    && $contactInfo->Twitter == "none"
+                    && $contactInfo->Instagram == "none") echo 'none';?>
+                <?php if($contactInfo->Facebook != "none"): ?>
+                    <div class="table-field"> <span class="title">Facebook: </span><?php echo $contactInfo->Facebook; ?></div>
+                <?php endif; ?>
+                <?php if($contactInfo->Twitter != "none"): ?>
+                    <div class="table-field"> <span class="title">Twitter: </span><?php echo $contactInfo->Twitter; ?></div>
+                <?php endif; ?>
+                <?php if($contactInfo->Instagram != "none"): ?>
+                    <div class="table-field"> <span class="title">Instagram: </span><?php echo $contactInfo->Instagram; ?></div>
+                <?php endif; ?>
+                <div class="table-field"> <span class="title">Fax:</span> <?php echo $contactInfo->Fax; ?></div>
+                <div class="table-field"><span class="title">Telephone:</span> <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?></div>
+                <div class="table-field"><span class="title">Mobile:</span> <?php echo $contactInfo->Mobile; ?></div>
             </div>
         </div>
 
@@ -331,14 +326,28 @@ $countryArray = array(
             <div class="info-content">
                 <div class="controls">
                     <a href="<?= Url::to('company-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
-                </div>   <br>
-            <b>    <div><span class="title">Company name: </span></b><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?> </div>
-                <div><span class="title">Year Estabilished: </span> <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?> </div>
-                <div><span class="title">Official Website: </span><?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?> </div>
-                <div><span class="title">Total Number of Employees: </span><?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?> </div>
-                <div><span class="title">Registered Address: </span><?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?> </div>
-                <div><span class="title">Operational Address: </span><?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?> </div>
-                <div><span class="title">About Us:</span> <?php echo ($companyInformation != null && $companyInformation->AboutUs != '') ? $companyInformation->AboutUs : 'none';  ?> </div>
+                </div>
+                <div class="table-field" style="margin-top: 26px;">
+                    <b><span class="title">Company name: </span></b><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?>
+                </div>
+                <div class="table-field">
+                    <span class="title">Year Estabilished: </span> <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?> 
+                </div>
+                <div class="table-field">
+                    <span class="title">Official Website: </span><?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?> 
+                </div>
+                <div class="table-field">
+                    <span class="title">Total Number of Employees: </span><?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?> 
+                </div> 
+                <div class="table-field">
+                    <span class="title">Registered Address: </span><?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?> 
+                </div>
+                <div class="table-field">
+                    <span class="title">Operational Address: </span><?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?> 
+                </div>
+                <div class="table-field">
+                    <span class="title">About Us:</span> <?php echo ($companyInformation != null && $companyInformation->AboutUs != '') ? $companyInformation->AboutUs : 'none';  ?> 
+                </div> 
             </div>
         </div>
 
@@ -349,12 +358,21 @@ $countryArray = array(
                 <div class="controls">
                     <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil">&nbsp; </i> MODIFY FORMS</a>
                 </div>   <br>
-              <b>  <div><span class="title">Annual Purchasing Volume: </span></b><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?> </div>
-                <div><span class="title">Primary Sourcing Purpose: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?> </div>
-                <div><span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?> </div>    
-                <div><span class="title">Preferred Supplier Qualifications: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?> </div>
-                <div><span class="title">Preferred Industries: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?> </div>
-            
+                <div class="table-field">
+                    <b><span class="title" style="margin-right: 18px !important;">Annual Purchasing Volume: </span></b><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?>
+                </div>
+                <div class="table-field">
+                    <span class="title">Primary Sourcing Purpose: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?>
+                </div>
+                <div class="table-field">
+                    <span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?>
+                </div>
+                <div class="table-field">
+                    <span class="title">Preferred Supplier Qualifications: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?>
+                </div>
+                <div class="table-field">
+                    <span class="title">Preferred Industries: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?>
+                </div>
             </div>
         </div>
     </div>
