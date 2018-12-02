@@ -22,6 +22,7 @@ class RegisterForm extends Model
     public $full_name;
     public $dialCode;
     public $userType;
+    public $address;
 
     public $captcha;
 
@@ -252,6 +253,7 @@ public $countryArray = array(
             ['last_name', 'required'],
             ['userType', 'required'],
             ['location', 'required'],
+            ['address', 'string'],
             ['company_name', 'required', 'when' => function ($model) {
                 return $model->userType != '3';
             }, 'whenClient' => "function (attribute, value) {
@@ -259,7 +261,7 @@ public $countryArray = array(
             
                     return $('#registerform-usertype input:checked').val() != '3';
                 }"],
-            [['first_name', 'last_name', 'phone', 'job', 'location', 'dialCode','userType', 'status'], 'safe'],
+            [['first_name', 'last_name', 'phone', 'job', 'location', 'dialCode','userType', 'status','address'], 'safe'],
         ];
     }
 
@@ -278,6 +280,7 @@ public $countryArray = array(
         $user->email = $this->email;
         $user->last_name = $this->last_name;
         $user->first_name = $this->first_name;
+        $user->address = $this->address;
 
         //$dialCode = '';
         $validCountry = false;
