@@ -372,7 +372,7 @@ $countryArray = array(
                     <span class="title">Primary Sourcing Purpose: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?>
                 </div>
                 <div class="table-field">
-                    <span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $companyInformation->AverageSourcingFrequency : 'none';  ?>
+                    <span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $sourcingInformation->AverageSourcingFrequency : 'none';  ?>
                 </div>
                 <div class="table-field">
                     <span class="title">Preferred Supplier Qualifications: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?>

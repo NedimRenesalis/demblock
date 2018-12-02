@@ -30,29 +30,15 @@ $this->title = 'Zapošljavanje';
             ],
 
             [
-                'label' => 'Jezik',
-                'attribute' => 'language',
-            ],
-            [
                 'label' => 'Ime kompanije',
                 'attribute' => 'company_name',
             ],
-            [
-                'label' => 'PDV',
-                'attribute' => 'pdv',
-            ],
+
             [
                 'label' => 'Adresa',
                 'attribute' => 'address',
             ],
-            [
-                'label' => 'Postanski broj',
-                'attribute' => 'zip_code',
-            ],
-            [
-                'label' => 'PDV',
-                'attribute' => 'pdv',
-            ],
+
             [
                 'label' => 'Novac',
                 'attribute' => 'money',

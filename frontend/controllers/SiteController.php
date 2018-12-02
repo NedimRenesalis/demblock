@@ -3,9 +3,9 @@
 namespace frontend\controllers;
 
 
-use app\models\CompanyInformation;
-use app\models\SourcingInformation;
-use app\models\UserContactInformation;
+use frontend\models\CompanyInformation;
+use frontend\models\SourcingInformation;
+use frontend\models\UserContactInformation;
 use frontend\models\Categories;
 use frontend\models\EmailConfirmation;
 use Yii;
