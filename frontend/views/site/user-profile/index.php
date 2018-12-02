@@ -255,6 +255,13 @@ $countryArray = array(
                 <?php endif; ?>
             </div>
             <div class="table-field">
+                <b><span class="title">Address</span></b>
+                <?php if($model->address != ''){
+                    echo $model->address;
+                }
+                ?>
+            </div>
+            <div class="table-field">
                <b> <span class="title">Email:</span> </b><?php echo $contactInfo->Email; ?>
                 <span class="verified">
                 [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
