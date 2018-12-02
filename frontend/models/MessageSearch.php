@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
@@ -8,28 +8,35 @@ use yii\data\ActiveDataProvider;
 use app\models\Message;
 
 /**
- * MessageSearch represents the model behind the search form of `app\models\Message`.
+ * MessageSearch represents the model behind the search form about `app\models\Message`.
  */
 class MessageSearch extends Message
 {
+    public $inbox = false;
+
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
         return [
             [['id', 'from', 'to', 'status'], 'integer'],
-            [['hash', 'title', 'message', 'created_at', 'context'], 'safe'],
+            [['hash', 'status', 'title', 'message', 'created_at'], 'safe'],
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
+    }
+
+    public function beforeValidate()
+    {
+        return true;
     }
 
     /**
@@ -47,6 +54,7 @@ class MessageSearch extends Message
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort'=> ['defaultOrder' => ['created_at'=>SORT_DESC]]
         ]);
 
         $this->load($params);
@@ -62,14 +70,17 @@ class MessageSearch extends Message
             'id' => $this->id,
             'from' => $this->from,
             'to' => $this->to,
-            'status' => $this->status,
             'created_at' => $this->created_at,
+            'status' => $this->status,
         ]);
+
+        if($this->inbox)
+            $query->andFilterWhere(['>=', 'status', 0]);
+
 
         $query->andFilterWhere(['like', 'hash', $this->hash])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'message', $this->message])
-            ->andFilterWhere(['like', 'context', $this->context]);
+            ->andFilterWhere(['like', 'message', $this->message]);
 
         return $dataProvider;
     }

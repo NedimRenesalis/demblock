@@ -10,6 +10,7 @@ use common\models\User;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use yii\helpers\Url;
+use app\models\Message;
 
 ?>  
 <?php
@@ -24,6 +25,11 @@ $profile = "";
 
 if(!Yii::$app->user->isGuest){
     $language = User::getUserLanguageByUsername(Yii::$app->user->identity->username);
+    $messagelabel = '<span class="fas fa-envelope"></span>';
+    $unread = Message::find()->where(['to' => Yii::$app->user->identity->id, 'status' => 0])->count();
+    if ($unread > 0) {
+        $messagelabel .= '(' . $unread . ')';
+    }
 }
 
 /*if (Yii::$app->user->isGuest) {
@@ -31,6 +37,8 @@ if(!Yii::$app->user->isGuest){
                 <img alt="Brand" class="center-block language" height="21" src="' . $ba . '">
             </a>';
 }*/
+
+
 
 ?>
 <?php $this->beginPage() ?>
@@ -48,7 +56,7 @@ if(!Yii::$app->user->isGuest){
         <?php $this->head() ?>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
     <body>
     <?php $this->beginBody() ?>
@@ -63,6 +71,7 @@ if(!Yii::$app->user->isGuest){
                 'id' => 'top',
                 'class' => 'navbar-inverse navbar-fixed-top',
             ],
+
         ]);
 
         $menuItems = [
@@ -134,6 +143,15 @@ if(!Yii::$app->user->isGuest){
      ';
         } else {
                $menuItems[] = ['label' => $profile, 'url' => ['user-profile']];
+            $menuItems[] = [
+                'label' => $messagelabel,
+                'url' => '',
+                'visible' => !Yii::$app->user->isGuest, 'items' => [
+                ['label' => '<i class="fas fa-inbox"></i> Inbox', 'url' => ['message/inbox']],
+                ['label' => '<i class="fas fa-share-square"></i> Sent', 'url' => ['message/sent']],
+                '<hr>',
+                ['label' => '<i class="fas fa-plus"></i> Compose a Message', 'url' => ['message/compose']],
+            ]];
             if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 1) {
                 $menuItems = [];
                 $menuItems[] = '<li>'
@@ -144,10 +162,7 @@ if(!Yii::$app->user->isGuest){
                     )
                     . Html::endForm()
                     . '</li>';
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items' => $menuItems,
-                ]);
+
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 2) {
 
              /*   $menuItems[] = ['label' => $profile, 'url' => ['profil-poslodavac']];*/
@@ -163,10 +178,6 @@ if(!Yii::$app->user->isGuest){
                     . Html::endForm()
                     . '</li>';
 
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items' => $menuItems,
-                ]);
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 3) {
 
               /*  $menuItems[] = ['label' => $profile, 'url' => ['profil-posloprimac']];*/
@@ -181,10 +192,7 @@ if(!Yii::$app->user->isGuest){
                     )
                     . Html::endForm()
                     . '</li>';
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items' => $menuItems,
-                ]);
+
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 4) {
 
                 $menuItems[] = ['label' => 'Listed products', 'url' => ['objavljeni-poslovi']];
@@ -199,11 +207,13 @@ if(!Yii::$app->user->isGuest){
                     )
                     . Html::endForm()
                     . '</li>';
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items' => $menuItems,
-                ]);
+
             }
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'items' => $menuItems,
+                'encodeLabels' => false,
+            ]);
         }
 
         ?>
