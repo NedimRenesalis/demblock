@@ -51,7 +51,7 @@ $countryArray = array(
     'CN'=>array('name'=>'CHINA','code'=>'86'),
 'CO'=>array('name'=>'COLOMBIA','code'=>'57'),
 'CR'=>array('name'=>'COSTA RICA','code'=>'506'),
-    'CU'=>array('name'=>'CUBA','code'=>'53'),
+
 'CV'=>array('name'=>'CAPE VERDE','code'=>'238'),
 'CX'=>array('name'=>'CHRISTMAS ISLAND','code'=>'61'),
 'CY'=>array('name'=>'CYPRUS','code'=>'357'),
@@ -104,7 +104,7 @@ $countryArray = array(
 'KG'=>array('name'=>'KYRGYZSTAN','code'=>'996'),
 'KH'=>array('name'=>'CAMBODIA','code'=>'855'),
 'KN'=>array('name'=>'SAINT KITTS AND NEVIS','code'=>'1869'),
-'KP'=>array('name'=>'KOREA DEMOCRATIC PEOPLES REPUBLIC OF','code'=>'850'),
+
 'KR'=>array('name'=>'KOREA REPUBLIC OF','code'=>'82'),
 'KW'=>array('name'=>'KUWAIT','code'=>'965'),
 'KZ'=>array('name'=>'KAZAKSTAN','code'=>'7'),
@@ -124,7 +124,7 @@ $countryArray = array(
 'ME'=>array('name'=>'MONTENEGRO','code'=>'382'),
 'MF'=>array('name'=>'SAINT MARTIN','code'=>'1599'),
 'MG'=>array('name'=>'MADAGASCAR','code'=>'261'),
-'MH'=>array('name'=>'MARSHALL ISLANDS','code'=>'692'),
+
 'MK'=>array('name'=>'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF','code'=>'389'),
 'ML'=>array('name'=>'MALI','code'=>'223'),
 'MM'=>array('name'=>'MYANMAR','code'=>'95'),
@@ -158,7 +158,7 @@ $countryArray = array(
 'PL'=>array('name'=>'POLAND','code'=>'48'),
 'PM'=>array('name'=>'SAINT PIERRE AND MIQUELON','code'=>'508'),
 'PN'=>array('name'=>'PITCAIRN','code'=>'870'),
-'PR'=>array('name'=>'PUERTO RICO','code'=>'1'),
+
 'PT'=>array('name'=>'PORTUGAL','code'=>'351'),
 'PW'=>array('name'=>'PALAU','code'=>'680'),
 'PY'=>array('name'=>'PARAGUAY','code'=>'595'),
@@ -183,7 +183,7 @@ $countryArray = array(
 'TG'=>array('name'=>'TOGO','code'=>'228'),
 'TH'=>array('name'=>'THAILAND','code'=>'66'),
 'TJ'=>array('name'=>'TAJIKISTAN','code'=>'992'),
-'TK'=>array('name'=>'TOKELAU','code'=>'690'),
+
 'TL'=>array('name'=>'TIMOR-LESTE','code'=>'670'),
 'TM'=>array('name'=>'TURKMENISTAN','code'=>'993'),
 'TN'=>array('name'=>'TUNISIA','code'=>'216'),
@@ -201,7 +201,7 @@ $countryArray = array(
 'VE'=>array('name'=>'VENEZUELA','code'=>'58'),
 'VG'=>array('name'=>'VIRGIN ISLANDS, BRITISH','code'=>'1284'),
 'VN'=>array('name'=>'VIET NAM','code'=>'84'),
-'WS'=>array('name'=>'SAMOA','code'=>'685'),
+
 'XK'=>array('name'=>'KOSOVO','code'=>'381'),
 'ZA'=>array('name'=>'SOUTH AFRICA','code'=>'27'),
 'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
