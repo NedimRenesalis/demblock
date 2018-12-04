@@ -114,6 +114,29 @@ if($searchModel && $searchModel->category) {
     </div>
 </div>
 
+
+<div>
+    <div class="section-menu">
+        <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png');?> style="width: 88px;"/>
+            <span>List your product</span>
+        </a>
+        <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
+            <span>Corporate <br>  verfication and <br>   memberships </span>
+        </a>
+        <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
+            <span>About us</span>
+        </a>
+        <a class="section-item" href="<?= Url::to('o-nama'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi.png'); ?> />
+            <span>Tour our marketplace</span>
+        </a>
+    </div>
+</div>
+
+
 <?php if ($platinum || $midi): ?>
     <?php $counter = 0; ?>
     <div>
@@ -153,26 +176,6 @@ if($searchModel && $searchModel->category) {
     </div>
 <?php endif; ?>
 
-    <div>
-        <div class="section-menu">
-        <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
-            <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png');?> style="width: 88px;"/>
-            <span>List your product</span>
-        </a>
-        <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
-            <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
-            <span>Corporate <br>  verfication and <br>   memberships </span>
-        </a>
-        <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
-            <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
-            <span>About us</span>
-        </a>
-        <a class="section-item" href="<?= Url::to('o-nama'); ?>">
-            <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi.png'); ?> />
-            <span>Tour our marketplace</span>
-        </a>
-    </div>
-    </div>
 
 <footer class="section section-success">   
     <!-- Subscribe -->

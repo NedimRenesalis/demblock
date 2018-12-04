@@ -655,8 +655,12 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
+    margin-bottom: 12px;
     background-color: #ededed;
+}
+
+.section-menu a:nth-child(1) {
+    border-left: unset;
 }
 
 .section-item {
