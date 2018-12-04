@@ -132,7 +132,7 @@ if($searchModel && $searchModel->category) {
         <span>Tour our marketplace</span>
     </a>
 </div>
-
+<br>
 <?php if ($platinum || $midi): ?>
     <?php $counter = 0; ?>
     <div class="section premium">
@@ -281,18 +281,7 @@ if($searchModel && $searchModel->category) {
         </div>
     </div>
 </footer>
-<?php if (Yii::$app->user->isGuest): ?>
-    <div class="hidden-lg hidden-md section section-success">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <a class="button-footer" id="DE-mob">Deutsch </a>
-                    <a class="button-footer" id="EN-mob">English</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php endif; ?>
+
 
 <?php if ($registered): ?>
     <div class="just-registered-wrapper">
@@ -300,7 +289,7 @@ if($searchModel && $searchModel->category) {
             <div class="close-img">
                 <img class="image-responsive" src="<?= Url::to('@web/css/images/close.png') ?>">
             </div>
-            Hvala na registraciji
+            Thank you for your registration.
         </div>
     </div>
 <?php endif; ?>
