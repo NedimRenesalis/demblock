@@ -114,28 +114,9 @@ if($searchModel && $searchModel->category) {
     </div>
 </div>
 
-<div class="section-menu">
-    <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
-        <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png');?> style="width: 88px;"/>
-        <span>List your product</span>
-    </a>
-    <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
-        <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
-        <span>Corporate <br>  verfication and <br>   memberships </span>
-    </a>
-    <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
-        <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
-        <span>About us</span>
-    </a>
-    <a class="section-item" href="<?= Url::to('o-nama'); ?>">
-        <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi.png'); ?> />
-        <span>Tour our marketplace</span>
-    </a>
-</div>
-
 <?php if ($platinum || $midi): ?>
     <?php $counter = 0; ?>
-    <div class="section premium">
+    <div>
         <?php foreach ($platinum as $p): ?>
             <?php $counter++; ?>
             <div class="premium-wrapper col-lg-2 col-sm-4 col-xs-6 col-xxs-12">
@@ -171,6 +152,27 @@ if($searchModel && $searchModel->category) {
         <?= $sponsored->html; ?>
     </div>
 <?php endif; ?>
+
+    <div>
+        <div class="section-menu">
+            <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
+                <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png');?> style="width: 88px;"/>
+                <span>List your product</span>
+            </a>
+            <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
+                <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
+                <span>Corporate <br>  verfication and <br>   memberships </span>
+            </a>
+            <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
+                <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
+                <span>About us</span>
+            </a>
+            <a class="section-item" href="<?= Url::to('o-nama'); ?>">
+                <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi.png'); ?> />
+                <span>Tour our marketplace</span>
+            </a>
+        </div>
+    </div>
 
 <footer class="section section-success">   
     <!-- Subscribe -->
@@ -267,17 +269,12 @@ if($searchModel && $searchModel->category) {
             <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('uslovi-koristenja'); ?>">
                 CONTACT US
             </a>
-            <div>
-                <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('uslovi-koristenja'); ?>">
-                    RULES AND POLICIES
-                </a>
-                <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">
-                    LISTING POLICY
-                </a>
-                <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">
-                    TERMS OF USE
-                </a>
-            </div>
+            <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('uslovi-koristenja'); ?>">
+                RULES AND POLICIES
+            </a>
+            <a class="btn btn-block btn-info" href="<?= Url::to('uslovi-koristenja'); ?>">
+                TERMS OF USE
+            </a>
         </div>
     </div>
 </footer>

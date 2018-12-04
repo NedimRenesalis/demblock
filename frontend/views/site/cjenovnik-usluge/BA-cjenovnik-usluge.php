@@ -168,11 +168,11 @@ $this->title = 'Zapošljavanje';
   <br>
                   <br>Svi oglasi se dodatno objavljuju na našoj Facebook, kao i LinkedIn stranici.
 
-<br>
-<br><b>Obnova isteklog oglasa</b>
-<br>Svaki oglas je moguće osvježiti da nakon isteka plaćenog roka oglašavanja bude ponovo objavljen.
-<br>
-<br><b>Anonimni oglas</b>
+                <br>
+                <br><b>Obnova isteklog oglasa</b>
+                <br>Svaki oglas je moguće osvježiti da nakon isteka plaćenog roka oglašavanja bude ponovo objavljen.
+                <br>
+                <br><b>Anonimni oglas</b>
                   <br>U slučaju da poslodavac ne želi navesti svoj identitet u oglasu, postoji
                     mogućnost objave takozvanog anonimnog oglasa, gdje umjesto loga i imena
                     kompanije koja oglašava, stoji "zaposljavanje.ba za klijenta". Anonimni

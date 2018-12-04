@@ -707,8 +707,9 @@ body {
 .footer-controls {
     margin-top: 30px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     width: 86%;
     border-top: 1px solid gray;
     padding: 20px;
@@ -717,7 +718,6 @@ body {
 .footer-controls  div {
     margin-top: 20px;
     flex:1;
-    width: 551px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -730,6 +730,7 @@ body {
 
 .footer-controls > a {
    width: 300px;
+   min-width: 236px;
 }
 
 .footer-controls a {
