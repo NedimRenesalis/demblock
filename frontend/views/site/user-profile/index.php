@@ -256,7 +256,7 @@ $countryArray = array(
             </div>
             <div class="table-field">
                <b> <span class="title">Email:</span> </b><?php echo $contactInfo->Email; ?>
-                <span class="verified">
+                <span class="verified" style="margin-left: 5px;">
                 [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
                 </span>
             </div>
@@ -291,7 +291,7 @@ $countryArray = array(
                 <div class="controls">
                     <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
                 </div>   <br>
-                <div class="table-field" style="margin-top: 5px;">
+                <div class="table-field" style="margin-top: 20px;">
                    <b><span class="title">Email:</span></b> <?php echo $contactInfo->Email; ?>
                     <p class="verified" style="margin-left: 11px;">
                         [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
@@ -358,7 +358,7 @@ $countryArray = array(
                 <div class="controls">
                     <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil">&nbsp; </i> MODIFY FORMS</a>
                 </div>   <br>
-                <div class="table-field">
+                <div class="table-field" style="margin-top: 20px;">
                     <b><span class="title" style="margin-right: 18px !important;">Annual Purchasing Volume: </span></b><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?>
                 </div>
                 <div class="table-field">
