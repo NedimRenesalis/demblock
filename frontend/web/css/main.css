@@ -649,6 +649,16 @@ body {
     width: 125px !important;
 }
 
+.header > span {
+    position: relative;
+    top: 60%;
+    font-size: 4vw;
+    color: white;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+}
+
 /* section */
 .section-menu{
     display: flex;

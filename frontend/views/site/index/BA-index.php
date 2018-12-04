@@ -70,6 +70,9 @@ if($searchModel && $searchModel->category) {
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
+        <span>
+            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        </span>
     </div>
     <div class="header-content-mobile">
         <div class="search-form-mobile">
