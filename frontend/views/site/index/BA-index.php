@@ -269,9 +269,7 @@ if($searchModel && $searchModel->category) {
           
         </div>
         <div class="footer-controls">
-            <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('uslovi-koristenja'); ?>">
-                RULES AND POLICIES
-            </a>
+            
             <a class="btn btn-block btn-info" style="margin-top: 5px;" href="<?= Url::to('pravila-koristenja'); ?>">
                LISTING POLICY 
             </a>
