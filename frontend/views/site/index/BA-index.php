@@ -155,23 +155,23 @@ if($searchModel && $searchModel->category) {
 
     <div>
         <div class="section-menu">
-            <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
-                <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png');?> style="width: 88px;"/>
-                <span>List your product</span>
-            </a>
-            <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
-                <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
-                <span>Corporate <br>  verfication and <br>   memberships </span>
-            </a>
-            <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
-                <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
-                <span>About us</span>
-            </a>
-            <a class="section-item" href="<?= Url::to('o-nama'); ?>">
-                <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi.png'); ?> />
-                <span>Tour our marketplace</span>
-            </a>
-        </div>
+        <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png');?> style="width: 88px;"/>
+            <span>List your product</span>
+        </a>
+        <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
+            <span>Corporate <br>  verfication and <br>   memberships </span>
+        </a>
+        <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
+            <span>About us</span>
+        </a>
+        <a class="section-item" href="<?= Url::to('o-nama'); ?>">
+            <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi.png'); ?> />
+            <span>Tour our marketplace</span>
+        </a>
+    </div>
     </div>
 
 <footer class="section section-success">   
@@ -278,18 +278,7 @@ if($searchModel && $searchModel->category) {
         </div>
     </div>
 </footer>
-<?php if (Yii::$app->user->isGuest): ?>
-    <div class="hidden-lg hidden-md section section-success">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <a class="button-footer" id="DE-mob">Deutsch </a>
-                    <a class="button-footer" id="EN-mob">English</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php endif; ?>
+
 
 <?php if ($registered): ?>
     <div class="just-registered-wrapper">
@@ -297,7 +286,7 @@ if($searchModel && $searchModel->category) {
             <div class="close-img">
                 <img class="image-responsive" src="<?= Url::to('@web/css/images/close.png') ?>">
             </div>
-            Hvala na registraciji
+            Thank you for your registration.
         </div>
     </div>
 <?php endif; ?>
