@@ -27,38 +27,27 @@ if( $advert->type == 1){
 }
 ?>
 <center>
-Poštovani
+
 <br>
-<br>Sehr geehrte Damen und Herren
-<br>
-<br>Good day
+Hello
 <br>
 <br><b><?= $user->company_name; ?></b>
 <br>
-<br>Vaš oglas je online.
+<br>Your listing is online.
 <br>
-Preuzmite Vas račun putem dolenavedenog linka.
 
-<br>Link možete otvoriti ako ste logovani sa Vašim profilom.
-<br>
-<br>Im Link unten finden Sie Ihre Rechnung.
-
-<br>Um den Link aufmachen zu können, loggen Sie sich zuerst auf diesem Gerät mit Ihrem Profil ein.
-<br>
 <br>You will find your invoice in the link below.
 
-<br>In order to be able to open the link, first log into your profile with this device.
+<br>In order to be able to open the link, first log into your account with this device.
 <br>
 <br>
 <a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['site/html', 'id' => $advert->id]);?>">
-  Račun - Rechnung - Invoice
+  Your listing invoice
 </a>
 <br>
-<br>S poštovanjem
-<br>
-<br>MfG
+
 <br>
 <br>Best regards
 <br>
-<br>www.zaposljavanje.ba
+
 </center>

@@ -57,6 +57,11 @@ $this->title = 'Registration';
                         <?= $form->field($model, 'location')->dropDownList(ArrayHelper::getColumn($model->countryArray, 'name'),['placeholder' => 'Select location'])->label('Location') ?>
                     </div>
                 </div>
+                <div class="form-group has-feedback">
+                    <div class="col-sm-12 text-center form-input">
+                        <?= $form->field($model, 'address')->textInput(['placeholder' => ''])->label('Address') ?>
+                    </div>
+                </div>
 
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center form-input">

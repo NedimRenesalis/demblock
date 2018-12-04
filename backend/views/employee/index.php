@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -24,10 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Email',
                 'attribute' => 'email',
             ],
-            [
-                'label' => 'Jezik',
-                'attribute' => 'language',
-            ],
+
             [
                 'label' => 'Ime',
                 'attribute' => 'first_name',
@@ -36,35 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Prezime',
                 'attribute' => 'last_name',
             ],
-            [
-                'label' => 'Godina rodjena',
-                'attribute' => 'year_of_birth',
-            ],
-            [
-                'label' => 'Posao',
-                'attribute' => 'job',
-            ],
-            [
-                'label' => 'Lokacija',
-                'attribute' => 'location',
-            ],
-            [
-                'label' => 'Postanski broj',
-                'attribute' => 'zip_code',
-            ],
-            [
-                'label' => 'Spol',
-                'attribute' => 'gender',
-            ],
 
             [
-                'label' => 'Struka',
-                'attribute' => 'career_level',
+                'label' => 'Country',
+                'attribute' => 'location',
             ],
-            [
-                'label' => 'Obrazovanje',
-                'attribute' => 'education_level',
-            ],
+
             ['class' => 'yii\grid\ActionColumn', 'template'=>'{view}'],
         ],
     ]); ?>

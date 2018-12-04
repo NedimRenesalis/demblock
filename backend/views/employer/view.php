@@ -4,6 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use frontend\models\UserContactInformation;
+use frontend\models\CompanyInformation;
+use frontend\models\SourcingInformation;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -15,6 +18,10 @@ $currency = "KM";
 if ($model->language == "EN" || $model->language == "DE") {
     $currency = "EUR";
 }
+$userContactDetails = UserContactInformation::findOne(['UserId' => $model->id]);
+$userCompanyInformation = CompanyInformation::findOne(['UserId' => $model->id]);
+$sourcingInformation = SourcingInformation::findOne(['UserId' => $model->id]);
+
 ?>
 <div class="user-view">
 
@@ -54,28 +61,20 @@ if ($model->language == "EN" || $model->language == "DE") {
             ],
 
             [
-                'label' => 'Jezik',
-                'attribute' => 'language',
-            ],
-            [
                 'label' => 'Ime kompanije',
                 'attribute' => 'company_name',
             ],
             [
-                'label' => 'PDV',
-                'attribute' => 'pdv',
+                'label' => 'Country',
+                'attribute' => 'location',
             ],
             [
                 'label' => 'Adresa',
                 'attribute' => 'address',
             ],
             [
-                'label' => 'Postanski broj',
-                'attribute' => 'zip_code',
-            ],
-            [
-                'label' => 'PDV',
-                'attribute' => 'pdv',
+                'label' => 'Main products',
+                'attribute' => 'mainProducts',
             ],
             [
                 'label' => 'Novac',
@@ -104,6 +103,78 @@ if ($model->language == "EN" || $model->language == "DE") {
                 'value' => function ($model) {
                     return Yii::$app->formatter->asDatetime($model->created_at);
                 }
+            ],
+            [
+                'label' => 'Alternative Email',
+                'value' => (($userContactDetails != null) ? $userContactDetails->AlternativeEmail : '')
+            ],
+            [
+                'label' => 'Facebook',
+                'value' => (($userContactDetails != null) ? $userContactDetails->Facebook : '')
+            ],
+            [
+                'label' => 'Twitter',
+                'value' => (($userContactDetails != null) ? $userContactDetails->Twitter : '')
+            ],
+            [
+                'label' => 'Instagram',
+                'value' => (($userContactDetails != null) ? $userContactDetails->Instagram : '')
+            ],
+            [
+                'label' => 'Fax',
+                'value' => (($userContactDetails != null) ? $userContactDetails->Fax : '')
+            ],
+            [
+                'label' => 'Phone',
+                'value' => (($userContactDetails != null) ? $userContactDetails->Phone : '')
+            ],
+            [
+                'label' => 'Mobile',
+                'value' => (($userContactDetails != null) ? $userContactDetails->Mobile : '')
+            ],
+            [
+                'label' => 'Year Estabilished',
+                'value' => (($userCompanyInformation != null) ? $userCompanyInformation->Year : '')
+            ],
+            [
+                'label' => 'Website',
+                'value' => (($userCompanyInformation != null) ? $userCompanyInformation->Website : '')
+            ],
+            [
+                'label' => 'Number of Employees',
+                'value' => (($userCompanyInformation != null) ? $userCompanyInformation->NumberOfEmployees : '')
+            ],
+            [
+                'label' => 'Registered Address',
+                'value' => (($userCompanyInformation != null) ? $userCompanyInformation->RegisteredAddress : '')
+            ],
+            [
+                'label' => 'Operational Address',
+                'value' => (($userCompanyInformation != null) ? $userCompanyInformation->OperationalAddress : '')
+            ],
+            [
+                'label' => 'About Us',
+                'value' => (($userCompanyInformation != null) ? $userCompanyInformation->AboutUs : '')
+            ],
+            [
+                'label' => 'Annual Purchasing Volume',
+                'value' => (($sourcingInformation != null) ? $sourcingInformation->AnnualPurchasingVolume : '')
+            ],
+            [
+                'label' => 'Primary Sourcing Purpose',
+                'value' => (($sourcingInformation != null) ? $sourcingInformation->PrimarySourcingPurpose : '')
+            ],
+            [
+                'label' => 'Average Sourcing Frequency',
+                'value' => (($sourcingInformation != null) ? $sourcingInformation->AverageSourcingFrequency : '')
+            ],
+            [
+                'label' => 'Preferred Supplier Qualifications',
+                'value' => (($sourcingInformation != null) ? $sourcingInformation->PreferredSupplierQualifications : '')
+            ],
+            [
+                'label' => 'Preffered Industries',
+                'value' => (($sourcingInformation != null) ? $sourcingInformation->PreferredIndustries: '')
             ],
             [
                 'label' => 'Zadnja izmjena profila',

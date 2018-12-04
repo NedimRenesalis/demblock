@@ -84,7 +84,7 @@ $this->title = 'Pikpay';
                                         <option value="Canada">Canada</option>
                                         <option value="Canary Islands">Canary Islands</option>
                                         <option value="Cape Verde">Cape Verde</option>
-                                        <option value="Cayman Islands">Cayman Islands</option>
+                                       
                                         <option value="Central African Republic">Central African Republic</option>
                                         <option value="Chad">Chad</option>
                                         <option value="Channel Islands">Channel Islands</option>
@@ -99,7 +99,7 @@ $this->title = 'Pikpay';
                                         <option value="Costa Rica">Costa Rica</option>
                                         <option value="Cote DIvoire">Cote D'Ivoire</option>
                                         <option value="Croatia">Croatia</option>
-                                        <option value="Cuba">Cuba</option>
+                                      
                                         <option value="Curaco">Curacao</option>
                                         <option value="Cyprus">Cyprus</option>
                                         <option value="Czech Republic">Czech Republic</option>
@@ -179,7 +179,7 @@ $this->title = 'Pikpay';
                                         <option value="Maldives">Maldives</option>
                                         <option value="Mali">Mali</option>
                                         <option value="Malta">Malta</option>
-                                        <option value="Marshall Islands">Marshall Islands</option>
+                                       
                                         <option value="Martinique">Martinique</option>
                                         <option value="Mauritania">Mauritania</option>
                                         <option value="Mauritius">Mauritius</option>
@@ -219,7 +219,7 @@ $this->title = 'Pikpay';
                                         <option value="Pitcairn Island">Pitcairn Island</option>
                                         <option value="Poland">Poland</option>
                                         <option value="Portugal">Portugal</option>
-                                        <option value="Puerto Rico">Puerto Rico</option>
+                                       
                                         <option value="Qatar">Qatar</option>
                                         <option value="Republic of Montenegro">Republic of Montenegro</option>
                                         <option value="Republic of Serbia">Republic of Serbia</option>
@@ -236,7 +236,7 @@ $this->title = 'Pikpay';
                                         <option value="St Pierre and Miquelon">St Pierre &amp; Miquelon</option>
                                         <option value="St Vincent and Grenadines">St Vincent &amp; Grenadines</option>
                                         <option value="Saipan">Saipan</option>
-                                        <option value="Samoa">Samoa</option>
+                                      
                                        
                                         <option value="San Marino">San Marino</option>
                                         <option value="Sao Tome and Principe">Sao Tome &amp; Principe</option>
@@ -265,7 +265,7 @@ $this->title = 'Pikpay';
                                         <option value="Tanzania">Tanzania</option>
                                         <option value="Thailand">Thailand</option>
                                         <option value="Togo">Togo</option>
-                                        <option value="Tokelau">Tokelau</option>
+                                       
                                         <option value="Tonga">Tonga</option>
                                         <option value="Trinidad and Tobago">Trinidad &amp; Tobago</option>
                                         <option value="Tunisia">Tunisia</option>
@@ -277,7 +277,7 @@ $this->title = 'Pikpay';
                                         <option value="Ukraine">Ukraine</option>
                                         <option value="United Arab Erimates">United Arab Emirates</option>
                                         <option value="United Kingdom">United Kingdom</option>
-                                        <option value="United States of America">United States of America</option>
+                                       
                                         <option value="Uraguay">Uruguay</option>
                                         <option value="Uzbekistan">Uzbekistan</option>
                                         <option value="Vanuatu">Vanuatu</option>
@@ -285,10 +285,10 @@ $this->title = 'Pikpay';
                                         <option value="Venezuela">Venezuela</option>
                                         <option value="Vietnam">Vietnam</option>
                                         <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
-                                        <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
-                                        <option value="Wake Island">Wake Island</option>
+                                      
+                                     
                                         <option value="Wallis and Futana Is">Wallis &amp; Futana Is</option>
-                                        <option value="Yemen">Yemen</option>
+                                        
                                         <option value="Zaire">Zaire</option>
                                         <option value="Zambia">Zambia</option>
                                         <option value="Zimbabwe">Zimbabwe</option>
