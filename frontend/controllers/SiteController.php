@@ -612,6 +612,16 @@ class SiteController extends Controller
         return $this->render('uslovi-koristenja/' . $this->language . '-uslovi-koristenja');
     }
 
+    public function actionPravilaKoristenja()
+    {
+        return $this->render('pravila-koristenja/' . $this->language . '-pravila-koristenja');
+    }
+
+    public function actionUvjetiKoristenja()
+    {
+        return $this->render('uvjeti-koristenja/' . $this->language . '-uvjeti-koristenja');
+    }
+
     public function actionPrivatnost()
     {
         return $this->render('privatnost/' . $this->language . '-privatnost');

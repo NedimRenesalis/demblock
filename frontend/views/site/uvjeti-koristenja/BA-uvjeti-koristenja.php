@@ -9,12 +9,12 @@ $this->title = 'Zapošljavanje';
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-              <b>  <h3 class="text-center">RULES AND POLICIES</h3></b>
+              <b>  <h3 class="text-center">TERMS OF USE</h3></b>
             </div>
         </div>
     </div>
 </div><br>
-<div class="section text-justify">
+<div class="section text-ju2stify">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

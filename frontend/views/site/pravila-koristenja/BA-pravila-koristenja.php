@@ -9,7 +9,7 @@ $this->title = 'Zapošljavanje';
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-              <b>  <h3 class="text-center">RULES AND POLICIES</h3></b>
+              <b>  <h3 class="text-center">LISTING POLICY</h3></b>
             </div>
         </div>
     </div>
@@ -20,14 +20,14 @@ $this->title = 'Zapošljavanje';
             <div class="col-md-12">
             <center><b>GENERAL</b></center> <br><br>
 
-<center>You may not post or sell anything that is sanctioned and/or prohibited by a federal, state or local law in your country or jurisdiction, and in addition to that - due to the fact that we are a global marketplace - also the soliciting, selling or posting of products which may be prohibited and/or restricted  in any foreign market you target.
-<br><br>
-<b>Any violation of this policy will result in the notification to relevant government authorities.
-<br><br>
-Besides such activity will get your account blocked indefinitely.
-<br><br>
-YOU MUST NOT LIST THE FOLLOWING, UNLESS STATED OTHERWISE:
-<br><br><br></b></center>
+        <center>You may not post or sell anything that is sanctioned and/or prohibited by a federal, state or local law in your country or jurisdiction, and in addition to that - due to the fact that we are a global marketplace - also the soliciting, selling or posting of products which may be prohibited and/or restricted  in any foreign market you target.
+        <br><br>
+        <b>Any violation of this policy will result in the notification to relevant government authorities.
+        <br><br>
+        Besides such activity will get your account blocked indefinitely.
+        <br><br>
+        YOU MUST NOT LIST THE FOLLOWING, UNLESS STATED OTHERWISE:
+        <br><br><br></b></center>
 
 <b>THIS LIST OF SANCTIONED PRODUCTS IS NOT INTENDED TO BE FINITE.<br><br> YOU, AS THE SELLER/SOLICITOR, ARE SOLELY RESPONSIBLE FOR MAKING SURE THAT YOU ARE NOT POSTING A PRODUCT THAT IS PROHIBITED/RESTRICTED  BY LAW IN ANY JURISDICTION
 </b><br><br>

@@ -58,6 +58,8 @@ return [
                 'o-nama' => 'site/o-nama',
                 'zasto-odabrati-nas' => 'site/zasto-odabrati-nas',
                 'uslovi-koristenja' => 'site/uslovi-koristenja',
+                'pravila-koristenja' => 'site/pravila-koristenja',
+                'uvjeti-koristenja' => 'site/uvjeti-koristenja',
                 'impressum' => 'site/impressum',
                 'privatnost' => 'site/privatnost',
                 'zahtjev-za-novu-lozinku' => 'site/zahtjev-za-novu-lozinku',
