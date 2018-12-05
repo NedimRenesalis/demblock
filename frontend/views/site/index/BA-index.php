@@ -71,7 +71,7 @@ if($searchModel && $searchModel->category) {
             </div>
         </div>
         <span>
-            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            MACHINEPICKER
         </span>
     </div>
     <div class="header-content-mobile">
