@@ -70,8 +70,8 @@ if($searchModel && $searchModel->category) {
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
-        <span>
-            MACHINEPICKER
+        <span class="header-title">
+            
         </span>
     </div>
     <div class="header-content-mobile">
