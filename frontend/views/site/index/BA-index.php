@@ -71,7 +71,7 @@ if($searchModel && $searchModel->category) {
             </div>
         </div>
         <span class="header-title">
-            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            
         </span>
     </div>
     <div class="header-content-mobile">
