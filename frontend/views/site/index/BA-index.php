@@ -277,7 +277,7 @@ if($searchModel && $searchModel->category) {
                LISTING POLICY 
             </a>
             <a class="btn btn-block btn-info" href="<?= Url::to('uvjeti-koristenja'); ?>">
-                TERMS OF USE
+                TERMS OF USE & PRIVACY POLICY
             </a>
         </div>
     </div>

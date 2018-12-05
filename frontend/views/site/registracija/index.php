@@ -59,7 +59,7 @@ $this->title = 'Registration';
                 </div>
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center form-input">
-                        <?= $form->field($model, 'address')->textInput(['placeholder' => ''])->label('Address') ?>
+                        <?= $form->field($model, 'address')->textInput(['placeholder' => ''])->label('Your wallet address from which you are going to pay with our tokens on our marketplace') ?>
                     </div>
                 </div>
 
@@ -127,8 +127,8 @@ $this->title = 'Registration';
                         In order to upload your corporate logo, provide corporate verification and list your product/s, please login into your account after successfull registration. </p>
                     <p class="text-center" contenteditable="true">
                       
-                        &nbsp;By pressing the CONFIRM button you agree to our:&nbsp;</p>
-                    <a href="<?= Url::to('uslovi-koristenja'); ?>">TERMS OF USE</a>
+                        &nbsp;By pressing the CONFIRM button you agree to our Listing Policy, Terms Of Use and Privacy Policy. &nbsp;</p>
+                    
                 </div>
             </div>
             <?php ActiveForm::end(); ?>
