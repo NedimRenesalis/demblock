@@ -70,7 +70,7 @@ if($searchModel && $searchModel->category) {
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
-        <span>
+        <span class="header-title">
             AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         </span>
     </div>
