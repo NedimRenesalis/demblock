@@ -32,7 +32,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
 
             $recipient_label = Yii::t('app', 'Recipient');
             echo "<label class=\"control-label\" for=\"message-recipient\">$recipient_label</label>";
-            echo '<p>' . $model->recipient->username . '</p>';
+            echo '<p>' . ($model->recipient->company_name != '') ? $model->recipient->company_name : ($model->recipient->full_name != '') ? $model->recipient->full_name : $model->recipient->username . '</p>';
             echo '<input type=hidden name="Message[to]" value="' . $to . '" />';
         } else
             echo $form->field($model, 'to')->widget(Select2::className(), [
@@ -63,7 +63,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
 
         <?php if (!Yii::$app->request->isAjax): ?>
             <hr>
-            <?php echo Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> ' . Yii::t('app', 'Back to Inbox'), ['/message/message/inbox']) ?>
+            <?php echo Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> ' . Yii::t('app', 'Back to Inbox'), ['/message/inbox']) ?>
         <?php endif ?>
     </div>
 

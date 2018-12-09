@@ -36,7 +36,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
             echo Html::a('<i class="fa fa-remove"></i> ' . Yii::t('app', 'Delete'), ['delete', 'hash' => $message->hash], [
                 'class' => 'text-red ml',
                 'data' => [
-                    'confirm' => Yii::t('message', 'Are you sure you want to delete this message?'),
+                    'confirm' => Yii::t('app', 'Are you sure you want to delete this message?'),
                     'method' => 'post',
                 ],
             ]);
@@ -44,17 +44,9 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
         ?>
     </p>
     <?php
-    if (isset(Yii::$app->getModule('app')->userProfileRoute)) {
-        $from = Html::a($message->sender->username, array_merge(Yii::$app->getModule('app')->userProfileRoute, ['id' => $message->from]));
-    } else {
-        $from = $message->sender->username;
-    }
+        $from = ($message->sender->company_name != '') ? $message->sender->company_name : (($message->sender->full_name != '') ? $message->sender->full_name : $message->sender->username);
+    $to = ($message->recipient->company_name != '') ? $message->recipient->company_name : (($message->recipient->full_name != '') ? $message->recipient->full_name : $message->recipient->username);
 
-    if (isset(Yii::$app->getModule('app')->userProfileRoute)) {
-        $to = Html::a($message->recipient->username, array_merge(Yii::$app->getModule('app')->userProfileRoute, ['id' => $message->to]));
-    } else {
-        $to = $message->recipient->username;
-    }
     ?>
     <hr>
 
@@ -70,7 +62,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
                 <?= Yii::t('app', 'sent at'); ?>: <?= Yii::$app->formatter->asDate($message->created_at, 'long'); ?>
                 <?= Yii::t('app', 'at'); ?> <?= Yii::$app->formatter->asDate($message->created_at, 'php:H:i:s'); ?> Uhr<br>
                 <?php if ($message->context) : ?>
-                    <?= Yii::t('message', 'Referring to'); ?>: <?= $message->context; ?>
+                    <?= Yii::t('app', 'Referring to'); ?>: <?= $message->context; ?>
                 <?php endif; ?>
             </small>
         </div>

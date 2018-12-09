@@ -158,7 +158,7 @@ class Message extends \yii\db\ActiveRecord
     public function getRecipientLabel()
     {
         if (!$this->recipient)
-            return Yii::t('message', 'Removed user');
+            return Yii::t('app', 'Removed user');
         else
             return $this->recipient->username;
     }

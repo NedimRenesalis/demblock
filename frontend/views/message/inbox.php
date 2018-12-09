@@ -33,12 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'from',
                 'format' => 'raw',
                 'value' => function ($message) {
-                    if (isset(Yii::$app->getModule('message')->userProfileRoute)) {
-                        return Html::a($message->sender->username, array_merge(
-                            Yii::$app->getModule('message')->userProfileRoute, ['id' => $message->from]), ['data-pjax' => 0]);
-                    } else {
-                        return $message->sender->username;
-                    }
+                    return ($message->sender->company_name != '') ? $message->sender->company_name : (($message->sender->full_name != '') ? $message->sender->full_name : $message->sender->username);
                 },
                 'filter' => $users,
             ],

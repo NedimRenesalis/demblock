@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\User;
 use Yii;
 use app\models\Message;
 use frontend\models\MessageSearch;
@@ -50,6 +51,16 @@ class MessageController extends Controller
         $users = ArrayHelper::map(
             Message::find()->where(['to' => Yii::$app->user->id])->groupBy('from')->all(), 'from', 'sender.username');
 
+        $messages = Message::find()->where(['to' => Yii::$app->user->id])->andWhere(['>=', 'status', 0])->groupBy('from')->all();
+        $users = [];
+
+        foreach ($messages as $message) {
+            $user = User::findOne(['id'=>$message->from]);
+            if($user) {
+                $users[$message->from] = (($user->company_name != '') ? $user->company_name : $user->full_name);
+            }
+        }
+
         return $this->render('inbox', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -84,11 +95,16 @@ class MessageController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($hash)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($hash);
 
-        return $this->redirect(['index']);
+        if ($model->to != Yii::$app->user->id)
+            throw new ForbiddenHttpException;
+
+        $model->delete();
+
+        return $this->redirect(['inbox']);
     }
 
     /**
@@ -103,10 +119,10 @@ class MessageController extends Controller
         $message = Message::find()->where(['hash' => $hash])->one();
 
         if (!$message)
-            throw new NotFoundHttpException(Yii::t('message', 'The requested message does not exist.'));
+            throw new NotFoundHttpException(Yii::t('app', 'The requested message does not exist.'));
 
         if (Yii::$app->user->id != $message->to && Yii::$app->user->id != $message->from)
-            throw new ForbiddenHttpException(Yii::t('message', 'You are not allowed to access this message.'));
+            throw new ForbiddenHttpException(Yii::t('app', 'You are not allowed to access this message.'));
 
         return $message;
     }
@@ -119,9 +135,21 @@ class MessageController extends Controller
 
         Yii::$app->user->setReturnUrl(['sent']);
 
+
+        $messages = Message::find()->where(['from' => Yii::$app->user->id])->groupBy('to')->all();
+        $users = [];
+
+        foreach ($messages as $message) {
+            $user = User::findOne(['id'=>$message->to]);
+            if($user) {
+                $users[$message->to] = (($user->company_name != '') ? $user->company_name : $user->full_name);
+            }
+        }
+
         return $this->render('sent', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'users' => $users
         ]);
     }
 
@@ -190,7 +218,7 @@ class MessageController extends Controller
             $origin = Message::find()->where(['hash' => $answers])->one();
 
             if (!$origin) {
-                throw new NotFoundHttpException(Yii::t('message', 'Message to be answered can not be found'));
+                throw new NotFoundHttpException(Yii::t('app', 'Message to be answered can not be found'));
             }
         }
 
@@ -204,6 +232,7 @@ class MessageController extends Controller
                 $model = new Message();
                 $model->load(Yii::$app->request->post());
                 $model->to = $recipient_id;
+                $model->status = Message::STATUS_UNREAD;
                 $model->save();
 
                 if ($answers) {
@@ -223,7 +252,7 @@ class MessageController extends Controller
             }
 
             if ($answers) {
-                $prefix = Yii::$app->getModule('message')->answerPrefix;
+                $prefix = 'Re: ';
 
                 // avoid stacking of prefixes (Re: Re: Re:)
                 if (substr($origin->title, 0, strlen($prefix)) !== $prefix) {
@@ -235,13 +264,20 @@ class MessageController extends Controller
                 $model->context = $origin->context;
             }
 
+
+            $recipients = [];
+
+            foreach ($possible_recipients as $recipient){
+                $recipients[$recipient->id] = (($recipient->company_name != '') ? $recipient->company_name : $recipient->full_name);
+            }
+
             return $this->render('compose', [
                 'model' => $model,
                 'answers' => $answers,
                 'context' => $context,
                 'dialog' => Yii::$app->request->isAjax,
                 'allow_multiple' => true,
-                'possible_recipients' => ArrayHelper::map($possible_recipients, 'id', 'username'),
+                'possible_recipients' => $recipients//ArrayHelper::map($possible_recipients, 'id', 'full_name'),
             ]);
         }
     }

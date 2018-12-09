@@ -31,14 +31,10 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
                 'format' => 'raw',
                 'value' => function ($message) {
                     if ($message->recipient) {
-                        if (isset(Yii::$app->getModule('message')->userProfileRoute)) {
-                            return Html::a($message->recipient->username, array_merge(
-                                    Yii::$app->getModule('message')->userProfileRoute, ['id' => $message->to]), ['data-pjax' => 0]);
-                        } else {
-                            return $message->recipient->username;
-                        }
+                        return ($message->recipient->company_name != '') ? $message->recipient->company_name : (($message->recipient->full_name != '') ? $message->recipient->full_name : $message->recipient->username);
                     }
-                }
+                },
+                'filter' => $users,
             ],
             [
                 'headerOptions' => ['style' => 'width: 200px;'],

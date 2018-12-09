@@ -55,7 +55,8 @@ if(!Yii::$app->user->isGuest){
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
     <body>
@@ -142,7 +143,7 @@ if(!Yii::$app->user->isGuest){
 
      ';
         } else {
-               $menuItems[] = ['label' => $profile, 'url' => ['user-profile']];
+               $menuItems[] = ['label' => $profile, 'url' => ['/site/user-profile']];
             $menuItems[] = [
                 'label' => $messagelabel,
                 'url' => '',
@@ -166,7 +167,7 @@ if(!Yii::$app->user->isGuest){
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 2) {
 
              /*   $menuItems[] = ['label' => $profile, 'url' => ['profil-poslodavac']];*/
-                $menuItems[] = ['label' => $jobs, 'url' => ['objavljeni-poslovi']];
+                $menuItems[] = ['label' => $jobs, 'url' => ['/site/objavljeni-poslovi']];
 
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
@@ -181,7 +182,7 @@ if(!Yii::$app->user->isGuest){
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 3) {
 
               /*  $menuItems[] = ['label' => $profile, 'url' => ['profil-posloprimac']];*/
-                $menuItems[] = ['label' => $jobs, 'url' => ['aplicirani-poslovi']];
+                $menuItems[] = ['label' => $jobs, 'url' => ['/site/aplicirani-poslovi']];
 
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
@@ -195,8 +196,8 @@ if(!Yii::$app->user->isGuest){
 
             } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 4) {
 
-                $menuItems[] = ['label' => 'Listed products', 'url' => ['objavljeni-poslovi']];
-                $menuItems[] = ['label' => 'Tagged products', 'url' => ['aplicirani-poslovi']];
+                $menuItems[] = ['label' => 'Listed products', 'url' => ['/site/objavljeni-poslovi']];
+                $menuItems[] = ['label' => 'Tagged products', 'url' => ['/site/aplicirani-poslovi']];
 
                 $menuItems[] = '<li>'
                     . Html::beginForm(['/site/logout'], 'post')
