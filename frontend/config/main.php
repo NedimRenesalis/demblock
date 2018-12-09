@@ -91,7 +91,10 @@ return [
                 'edit-user-contact-details' => 'site/edit-user-contact-details',
                 'edit-user-main-details' => 'site/edit-user-main-details',
                 'company-details' => 'site/company-details',
-                'sourcing-information' => 'site/sourcing-information'
+                'sourcing-information' => 'site/sourcing-information',
+                'inbox' => 'message/inbox',
+                'sent' => 'message/sent',
+                'compose' => 'message/compose',
             ],
         ],
     ],
