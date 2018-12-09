@@ -39,33 +39,36 @@ class MessageController extends Controller
      */
     public function actionInbox()
     {
-        $searchModel = new MessageSearch();
-        $searchModel->to = Yii::$app->user->id;
+        if (!Yii::$app->user->isGuest) {
+            $searchModel     = new MessageSearch();
+            $searchModel->to = Yii::$app->user->id;
 
-        $searchModel->inbox = true;
+            $searchModel->inbox = true;
 
-        Yii::$app->user->setReturnUrl(['inbox']);
+            Yii::$app->user->setReturnUrl(['inbox']);
 
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $users = ArrayHelper::map(
-            Message::find()->where(['to' => Yii::$app->user->id])->groupBy('from')->all(), 'from', 'sender.username');
+            $users = ArrayHelper::map(
+                Message::find()->where(['to' => Yii::$app->user->id])->groupBy('from')->all(), 'from', 'sender.username');
 
-        $messages = Message::find()->where(['to' => Yii::$app->user->id])->andWhere(['>=', 'status', 0])->groupBy('from')->all();
-        $users = [];
+            $messages = Message::find()->where(['to' => Yii::$app->user->id])->andWhere(['>=', 'status', 0])->groupBy('from')->all();
+            $users    = [];
 
-        foreach ($messages as $message) {
-            $user = User::findOne(['id'=>$message->from]);
-            if($user) {
-                $users[$message->from] = (($user->company_name != '') ? $user->company_name : $user->full_name);
+            foreach ($messages as $message) {
+                $user = User::findOne(['id' => $message->from]);
+                if ($user) {
+                    $users[$message->from] = (($user->company_name != '') ? $user->company_name : $user->full_name);
+                }
             }
-        }
 
-        return $this->render('inbox', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'users' => $users,
-        ]);
+            return $this->render('inbox', [
+                'searchModel'  => $searchModel,
+                'dataProvider' => $dataProvider,
+                'users'        => $users,
+            ]);
+        }
+    return $this->goHome();
     }
 
 
@@ -77,15 +80,18 @@ class MessageController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Message();
+        if (!Yii::$app->user->isGuest) {
+            $model = new Message();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->goHome();
     }
 
     /**
@@ -97,14 +103,17 @@ class MessageController extends Controller
      */
     public function actionDelete($hash)
     {
-        $model = $this->findModel($hash);
+        if (!Yii::$app->user->isGuest) {
+            $model = $this->findModel($hash);
 
-        if ($model->to != Yii::$app->user->id)
-            throw new ForbiddenHttpException;
+            if ($model->to != Yii::$app->user->id)
+                throw new ForbiddenHttpException;
 
-        $model->delete();
+            $model->delete();
 
-        return $this->redirect(['inbox']);
+            return $this->redirect(['inbox']);
+        }
+        return $this->goHome();
     }
 
     /**
@@ -129,28 +138,32 @@ class MessageController extends Controller
 
     public function actionSent()
     {
-        $searchModel = new MessageSearch();
-        $searchModel->from = Yii::$app->user->id;
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        Yii::$app->user->setReturnUrl(['sent']);
+        if (!Yii::$app->user->isGuest) {
+            $searchModel       = new MessageSearch();
+            $searchModel->from = Yii::$app->user->id;
+            $dataProvider      = $searchModel->search(Yii::$app->request->queryParams);
+
+            Yii::$app->user->setReturnUrl(['sent']);
 
 
-        $messages = Message::find()->where(['from' => Yii::$app->user->id])->groupBy('to')->all();
-        $users = [];
+            $messages = Message::find()->where(['from' => Yii::$app->user->id])->groupBy('to')->all();
+            $users    = [];
 
-        foreach ($messages as $message) {
-            $user = User::findOne(['id'=>$message->to]);
-            if($user) {
-                $users[$message->to] = (($user->company_name != '') ? $user->company_name : $user->full_name);
+            foreach ($messages as $message) {
+                $user = User::findOne(['id' => $message->to]);
+                if ($user) {
+                    $users[$message->to] = (($user->company_name != '') ? $user->company_name : $user->full_name);
+                }
             }
-        }
 
-        return $this->render('sent', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'users' => $users
-        ]);
+            return $this->render('sent', [
+                'searchModel'  => $searchModel,
+                'dataProvider' => $dataProvider,
+                'users'        => $users
+            ]);
+        }
+        return $this->goHome();
     }
 
     public function actionMarkAllAsRead()
@@ -166,14 +179,17 @@ class MessageController extends Controller
 
     public function actionView($hash)
     {
-        $message = $this->findModel($hash);
+        if (!Yii::$app->user->isGuest) {
+            $message = $this->findModel($hash);
 
-        if ($message->status == Message::STATUS_UNREAD && $message->to == Yii::$app->user->id)
-            $message->updateAttributes(['status' => Message::STATUS_READ]);
+            if ($message->status == Message::STATUS_UNREAD && $message->to == Yii::$app->user->id)
+                $message->updateAttributes(['status' => Message::STATUS_READ]);
 
-        return $this->render('view', [
-            'message' => $message
-        ]);
+            return $this->render('view', [
+                'message' => $message
+            ]);
+        }
+        return $this->goHome();
     }
     public function add_to_recipient_list($to)
     {
@@ -197,89 +213,91 @@ class MessageController extends Controller
 
     public function actionCompose($to = null, $answers = null, $context = null, $add_to_recipient_list = false)
     {
-
-        if (Yii::$app->request->isAjax) {
-            $this->layout = false;
-        }
-
-
-        if ($add_to_recipient_list && $to) {
-            $this->add_to_recipient_list($to);
-        }
-
-        $model = new Message();
-        $possible_recipients = Message::getPossibleRecipients(Yii::$app->user->id);
-
-        if (!Yii::$app->user->returnUrl) {
-            Yii::$app->user->setReturnUrl(Yii::$app->request->referrer);
-        }
-
-        if ($answers) {
-            $origin = Message::find()->where(['hash' => $answers])->one();
-
-            if (!$origin) {
-                throw new NotFoundHttpException(Yii::t('app', 'Message to be answered can not be found'));
-            }
-        }
-
-        if (Yii::$app->request->isPost) {
-            $recipients = Yii::$app->request->post()['Message']['to'];
-
-            if (is_numeric($recipients)) # Only one recipient given
-                $recipients = [$recipients];
-
-            foreach ($recipients as $recipient_id) {
-                $model = new Message();
-                $model->load(Yii::$app->request->post());
-                $model->to = $recipient_id;
-                $model->status = Message::STATUS_UNREAD;
-                $model->save();
-
-                if ($answers) {
-                    if ($origin && $origin->to == Yii::$app->user->id && $origin->status == Message::STATUS_READ) {
-                        $origin->updateAttributes(['status' => Message::STATUS_ANSWERED]);
-                    }
-                }
-            }
-            return Yii::$app->request->isAjax ? true : $this->goBack();
-        } else {
-            if ($to) {
-                $model->to = [$to];
+        if (!Yii::$app->user->isGuest) {
+            if (Yii::$app->request->isAjax) {
+                $this->layout = false;
             }
 
-            if ($context) {
-                $model->context = $context;
+
+            if ($add_to_recipient_list && $to) {
+                $this->add_to_recipient_list($to);
+            }
+
+            $model               = new Message();
+            $possible_recipients = Message::getPossibleRecipients(Yii::$app->user->id);
+
+            if (!Yii::$app->user->returnUrl) {
+                Yii::$app->user->setReturnUrl(Yii::$app->request->referrer);
             }
 
             if ($answers) {
-                $prefix = 'Re: ';
+                $origin = Message::find()->where(['hash' => $answers])->one();
 
-                // avoid stacking of prefixes (Re: Re: Re:)
-                if (substr($origin->title, 0, strlen($prefix)) !== $prefix) {
-                    $model->title = $prefix . $origin->title;
-                } else {
-                    $model->title = $origin->title;
+                if (!$origin) {
+                    throw new NotFoundHttpException(Yii::t('app', 'Message to be answered can not be found'));
+                }
+            }
+
+            if (Yii::$app->request->isPost) {
+                $recipients = Yii::$app->request->post()['Message']['to'];
+
+                if (is_numeric($recipients)) # Only one recipient given
+                    $recipients = [$recipients];
+
+                foreach ($recipients as $recipient_id) {
+                    $model = new Message();
+                    $model->load(Yii::$app->request->post());
+                    $model->to     = $recipient_id;
+                    $model->status = Message::STATUS_UNREAD;
+                    $model->save();
+
+                    if ($answers) {
+                        if ($origin && $origin->to == Yii::$app->user->id && $origin->status == Message::STATUS_READ) {
+                            $origin->updateAttributes(['status' => Message::STATUS_ANSWERED]);
+                        }
+                    }
+                }
+                return Yii::$app->request->isAjax ? true : $this->goBack();
+            } else {
+                if ($to) {
+                    $model->to = [$to];
                 }
 
-                $model->context = $origin->context;
+                if ($context) {
+                    $model->context = $context;
+                }
+
+                if ($answers) {
+                    $prefix = 'Re: ';
+
+                    // avoid stacking of prefixes (Re: Re: Re:)
+                    if (substr($origin->title, 0, strlen($prefix)) !== $prefix) {
+                        $model->title = $prefix . $origin->title;
+                    } else {
+                        $model->title = $origin->title;
+                    }
+
+                    $model->context = $origin->context;
+                }
+
+
+                $recipients = [];
+
+                foreach ($possible_recipients as $recipient) {
+                    $recipients[$recipient->id] = (($recipient->company_name != '') ? $recipient->company_name : $recipient->full_name);
+                }
+
+                return $this->render('compose', [
+                    'model'               => $model,
+                    'answers'             => $answers,
+                    'context'             => $context,
+                    'dialog'              => Yii::$app->request->isAjax,
+                    'allow_multiple'      => true,
+                    'possible_recipients' => $recipients//ArrayHelper::map($possible_recipients, 'id', 'full_name'),
+                ]);
             }
-
-
-            $recipients = [];
-
-            foreach ($possible_recipients as $recipient){
-                $recipients[$recipient->id] = (($recipient->company_name != '') ? $recipient->company_name : $recipient->full_name);
-            }
-
-            return $this->render('compose', [
-                'model' => $model,
-                'answers' => $answers,
-                'context' => $context,
-                'dialog' => Yii::$app->request->isAjax,
-                'allow_multiple' => true,
-                'possible_recipients' => $recipients//ArrayHelper::map($possible_recipients, 'id', 'full_name'),
-            ]);
         }
+        return $this->goHome();
     }
 
 }
