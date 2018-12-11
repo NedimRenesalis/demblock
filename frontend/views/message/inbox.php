@@ -1,5 +1,5 @@
 <?php
-use thyseus\message\models\Message;
+use app\models\Message;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
