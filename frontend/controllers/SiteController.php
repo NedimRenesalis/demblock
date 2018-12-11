@@ -671,7 +671,7 @@ class SiteController extends Controller
         if ($id) {
             $user = User::find()->where(['id' => $id])->one();
 
-            if ($user && (User::getUserTypeByUsername($user->username) == 2 || User::getUserTypeByUsername($user->username) == 3)) {
+            if ($user && (User::getUserTypeByUsername($user->username) == 2 || User::getUserTypeByUsername($user->username) == 4)) {
 
                 $contactInformation = UserContactInformation::find()->where(['UserId' => $user->id])->one();
                 $companyInformation = CompanyInformation::find()->where(['UserId' => $user->id])->one();
