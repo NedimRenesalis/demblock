@@ -1,6 +1,6 @@
 <?php
 
-use thyseus\message\models\Message;
+use app\models\Message;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
@@ -16,18 +16,10 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
     <br>
     <p>
         <?php
-        $ignored = Message::isUserIgnoredBy($message->from, Yii::$app->user->id);
+
         if ($message->from != Yii::$app->user->id) {
-            if ($ignored) {
-                echo Html::tag('span', Yii::t('app', 'Answer'), [
-                    'class' => 'btn btn-primary disabled',
-                    'title' => $ignored ? Yii::t(
-                        'app', 'The recipient has added you to the ignore list. You can not send any messages to this person.') : '',
-                ]);
-            } else {
                 echo Html::a('<i class="fa fa-reply" aria-hidden="true"></i> ' . Yii::t('app', 'Answer'), [
                     'compose', 'to' => $message->from, 'answers' => $message->hash]);
-            }
         }
         ?>
 
