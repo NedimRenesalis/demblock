@@ -27,8 +27,9 @@ if (!Yii::$app->user->isGuest) {
         <div class="row">
             <?php if ($model->type == 3): ?>
             <div class="normal">
+
                 <div class="advert-header">
-                    <center>
+                    <div>
                         <?php if ($model->anonymously): ?>
                             <div class=" col-lg-1.5 col-md-6">
                                 <img src="<?= Url::to('@web/css/images/for-client.png'); ?>"
@@ -52,8 +53,11 @@ if (!Yii::$app->user->isGuest) {
                                      class="img-responsive logo-im">
                             </div>
                         <?php endif; ?>
-                    </center>
+                    </div>
+                
                 </div>
+
+
                 <br>
                 <div class="advert-body">
                     <?php if ($model->anonymously): ?>
@@ -153,10 +157,8 @@ if (!Yii::$app->user->isGuest) {
 
 <?php else: ?>
 
-    <div class="platinum-premium">
+    <div>
         <div class="advert-body">
-
-
             <div class="advert-header">
 
                 <center>

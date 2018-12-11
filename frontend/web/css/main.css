@@ -195,6 +195,12 @@
     box-shadow: 5px 5px 5px grey;
 }
 
+.advert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .advert-header,
 .advert-,
 .advert-desc {
