@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'id' => 'messageInbox',
         'columns' => [
             [
                 'headerOptions' => ['style' => 'width: 200px;'],

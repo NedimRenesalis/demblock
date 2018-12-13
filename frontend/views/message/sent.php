@@ -24,6 +24,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'id' => 'messageSentbox',
         'columns' => [
             [
                 'headerOptions' => ['style' => 'width: 200px;'],

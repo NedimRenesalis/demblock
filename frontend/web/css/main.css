@@ -195,6 +195,58 @@
     box-shadow: 5px 5px 5px grey;
 }
 
+.advert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advert-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.advert-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  margin: 16px;
+  border-bottom: 1px solid #dddddd8a;
+  border-top: 1px solid #dddddd8a;
+}
+
+.advert-sec > .sec {
+  flex: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.advert-body {
+  margin-top: 43px;
+}
+
+.advert-header-body {
+    position: relative;
+    flex-direction: column;
+    flex: 1;
+    display: flex;
+    margin: 20px 5px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-width: 500px;
+    max-width: 700px;
+    height: 100%;
+}
+
+.advert-header-body > .table-field {
+  padding: 10px 0;
+}
+
 .advert-header,
 .advert-,
 .advert-desc {
@@ -205,11 +257,6 @@
 
 .advert-desc {
     display: none;
-}
-
-.advert-header,
-.advert- {
-    text-align: center;
 }
 
 .company-logo,
@@ -1363,7 +1410,7 @@ nav > .container {
   justify-content: space-evenly;
   align-items: flex-start;
   flex-wrap: wrap;
-  min-width: 500px; 
+  min-width: 500px;
   max-width: 700px;
   min-height: 100px;
 }
