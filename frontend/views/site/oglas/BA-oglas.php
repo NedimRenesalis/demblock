@@ -18,7 +18,6 @@ if (!Yii::$app->user->isGuest) {
         $apply = Apply::find()->where(["user_id" => $user->id, "advert_id" => $model->id])->one();
     }
 }
-
 ?>
 
 
@@ -36,14 +35,14 @@ if (!Yii::$app->user->isGuest) {
                             </div>
                             <?php elseif (!empty($images)): ?>
                                 <div class=" col-lg-1.5 col-md-6">
-                                    <?php 
+                                    <?php
                                         echo dosamigos\gallery\Carousel::widget([
-                                            'items' => $images, 
+                                            'items' => $images,
                                             'json' => true,
                                             'clientOptions' => [
                                                 'displayClass' => 'blueimp-gallery-display photo-ad-slider'
                                             ]
-                                        ]); 
+                                        ]);
                                     ?>
                                 </div>
                             <?php else: ?>
@@ -67,7 +66,9 @@ if (!Yii::$app->user->isGuest) {
                             <div><b>Profil kompanije:&nbsp</b>
                                 <a target="_blank"
                                    href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
-
+                                <a href="<?= Url::to(['message/compose', 'to' => $model->user_id,
+                                                                         'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
+                                ]); ?>">Posalji poruku</a>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -166,14 +167,14 @@ if (!Yii::$app->user->isGuest) {
                         </div>
                     <?php elseif (!empty($images)): ?>
                         <div class=" col-lg-1.5 col-md-6">
-                            <?php 
+                            <?php
                                 echo dosamigos\gallery\Carousel::widget([
-                                    'items' => $images, 
+                                    'items' => $images,
                                     'json' => true,
                                     'clientOptions' => [
                                         'displayClass' => 'blueimp-gallery-display photo-ad-slider'
                                     ]
-                                ]); 
+                                ]);
                             ?>
                         </div>
                     <?php else: ?>
@@ -197,6 +198,9 @@ if (!Yii::$app->user->isGuest) {
                             <a target="_blank"
                                href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
                             <br>
+                            <a href="<?= Url::to(['message/compose', 'to' => $model->user_id,
+                                'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
+                                ]); ?>">Posalji poruku</a>
                         </div>
                     </div>
 

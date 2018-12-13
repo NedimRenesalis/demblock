@@ -6,6 +6,7 @@ use common\models\User;
 use Yii;
 use app\models\Message;
 use frontend\models\MessageSearch;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -211,7 +212,7 @@ class MessageController extends Controller
     }
 
 
-    public function actionCompose($to = null, $answers = null, $context = null, $add_to_recipient_list = false)
+    public function actionCompose($to = null, $answers = null, $context = null, $add_to_recipient_list = false, $fromArticle = false, $articleId = null)
     {
         if (!Yii::$app->user->isGuest) {
             if (Yii::$app->request->isAjax) {
@@ -257,6 +258,11 @@ class MessageController extends Controller
                         }
                     }
                 }
+
+                if($fromArticle){
+                    return $this->redirect(['site/oglas','id' => $articleId]);
+                }
+
                 return Yii::$app->request->isAjax ? true : $this->goBack();
             } else {
                 if ($to) {
@@ -293,7 +299,8 @@ class MessageController extends Controller
                     'context'             => $context,
                     'dialog'              => Yii::$app->request->isAjax,
                     'allow_multiple'      => true,
-                    'possible_recipients' => $recipients//ArrayHelper::map($possible_recipients, 'id', 'full_name'),
+                    'possible_recipients' => $recipients,//ArrayHelper::map($possible_recipients, 'id', 'full_name'),
+                    'fromArticle' => $fromArticle
                 ]);
             }
         }
