@@ -13,18 +13,18 @@ $this->params['breadcrumbs'][] = $this->title;
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 
 ?>
-<div class="message-index">
+<div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p> <?= Html::a(Yii::t('app', 'Write a message') . ' <i class="fa fa-plus"></i>', ['compose'], ['class' => 'btn btn-success']) ?> </p>
-
+    <div class="message-header">
+        <h1><?= Html::encode($this->title) ?></h1>
+        <span> <?= Html::a(Yii::t('app', 'Write a message') . ' <i class="fa fa-plus"></i>', ['compose'], ['class' => 'btn btn-success']) ?> </span>
+    </div>
     <?php Pjax::begin(); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'id' => 'messageSentbox',
+        'id' => 'message-inbox',
         'columns' => [
             [
                 'headerOptions' => ['style' => 'width: 200px;'],

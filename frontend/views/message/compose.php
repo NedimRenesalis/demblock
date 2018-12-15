@@ -13,15 +13,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 ?>
-<div class="message-create">
+<div class="info" style="margin: 40px auto;">
 
     <?php if (!$dialog): ?>
-        <h1> <?= Html::encode($this->title) ?> </h1>
+        <h1 class="info-header"> <?= Html::encode($this->title) ?> </h1>
     <?php endif ?>
 
-    <div class="message-form">
+    <div class="wite-message info-content-edit">
 
-        <?php $form = ActiveForm::begin(['id' => 'message-form']); ?>
+        <?php $form = ActiveForm::begin(); ?>
 
         <?php
         if ($model->to) {
@@ -59,12 +59,13 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
                 echo Html::submitButton(Yii::t('app', 'Send'), ['class' => 'btn btn-success']) ?>
         </div>
 
-        <?php ActiveForm::end(); ?>
 
         <?php if (!Yii::$app->request->isAjax && !$fromArticle): ?>
             <hr>
             <?php echo Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> ' . Yii::t('app', 'Back to Inbox'), ['/message/inbox']) ?>
-        <?php endif ?>
+            <hr>
+            <?php endif ?>
+        <?php ActiveForm::end(); ?>
     </div>
 
 </div>

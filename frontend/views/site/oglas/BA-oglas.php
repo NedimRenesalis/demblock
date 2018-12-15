@@ -28,7 +28,7 @@ if (!Yii::$app->user->isGuest) {
             <?php if ($model->type == 3): ?>
             <div class="normal">
 
-                <div class="advert-header">
+                <div class="advert-header"> 
                     <div>
                         <?php if ($model->anonymously): ?>
                             <div class="col col-lg-1.5 col-md-6" style="min-width: 400px;">
@@ -74,9 +74,7 @@ if (!Yii::$app->user->isGuest) {
                                 <br>
 
                             </div>
-                            <a href="<?= Url::to(['message/compose', 'to' => $model->user_id,
-                                                                     'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
-                            ]); ?>">Posalji poruku</a>
+                            
                         </div>
                     <?php endif; ?>
 
@@ -126,8 +124,11 @@ if (!Yii::$app->user->isGuest) {
                                 <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
                                      data-applied-id="<?= $model->id; ?>">Aplikacija je poslata
                                 </div>
-                                <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
-                                     data-id="<?= $model->id; ?>">Apliciraj
+                                    <a class="btn btn-primary btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
+                                                                    'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
+                                    ]); ?>">Posalji poruku</a>
+                                    <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
+                                        data-id="<?= $model->id; ?>">Apliciraj
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -199,9 +200,6 @@ if (!Yii::$app->user->isGuest) {
 
 
                           </div>
-                        <a href="<?= Url::to(['message/compose', 'to' => $model->user_id,
-                                                                 'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
-                        ]); ?>">Posalji poruku</a>
                     <?php endif; ?>
 
                     <div class="table-field">
@@ -243,8 +241,13 @@ if (!Yii::$app->user->isGuest) {
                         <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
                              data-applied-id="<?= $model->id; ?>">Aplikacija je poslata
                         </div>
-                        <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
-                             data-id="<?= $model->id; ?>">Apliciraj
+                        <div>
+                            <a class="btn btn-primary btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
+                                                                    'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
+                            ]); ?>">Posalji poruku</a>
+                            <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
+                                data-id="<?= $model->id; ?>">Apliciraj
+                            </div>
                         </div>
                     <?php else: ?>
                         <div class="btn  btn-success btn-apply-disabled">Apliciraj</div>

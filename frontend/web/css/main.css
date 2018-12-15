@@ -195,6 +195,42 @@
     box-shadow: 5px 5px 5px grey;
 }
 
+#message-inbox > table {
+    width: 90%;
+    margin: auto;
+    border: 1px solid white;    
+}
+
+#message-inbox > table * {
+    border: unset;    
+}
+
+#message-inbox > table > tbody > tr > td {
+    padding: 10px 10px;   
+}
+
+#message-inbox input,
+#message-inbox select{
+    border: 1px solid #c7bfbf;    
+}
+
+.wite-message button{
+    width: 100%;   
+}
+
+.message-header {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px solid #f6f6f6;
+    margin-bottom: 20px;
+}
+
+.message-header > h1 {
+    margin: 0 15px;
+}
+
 .advert {
     display: flex;
     align-items: center;
