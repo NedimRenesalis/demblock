@@ -86,10 +86,10 @@ if(!Yii::$app->user->isGuest){
                     <br>
                     <?php if ($employee): ?>
                         <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
-                             data-applied-id="<?= $model->id; ?>">Aplikacija je poslata
+                             data-applied-id="<?= $model->id; ?>">Product tagged
                         </div>
                         <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
-                             data-id="<?= $model->id; ?>">Apliciraj
+                             data-id="<?= $model->id; ?>">TAG PRODUCT
                         </div>
                     <?php endif; ?>
                 </div>
@@ -175,10 +175,10 @@ if(!Yii::$app->user->isGuest){
                     <br>
                     <?php if ($employee): ?>
                         <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
-                             data-applied-id="<?= $model->id; ?>">Aplikacija je poslata
+                             data-applied-id="<?= $model->id; ?>">Product tagged
                         </div>
                         <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
-                             data-id="<?= $model->id; ?>">Apliciraj
+                             data-id="<?= $model->id; ?>">TAG PRODUC
                         </div>
                     <?php endif; ?>
                 </div>

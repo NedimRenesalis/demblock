@@ -1,3 +1,3 @@
-You have received the following message through <?= isset(Yii::$app->name) ? Yii::$app->name : 'Message'; ?>:
+You have received the following message  : 'Message'; ?>:
 
 <?= $content; ?>

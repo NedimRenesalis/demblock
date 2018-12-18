@@ -68,7 +68,7 @@ if (!Yii::$app->user->isGuest) {
                     <?php else: ?>
                         <div class="company col-lg-1.5 col-md-6">
 
-                            <div><b>Profil kompanije:&nbsp</b>
+                            <div><b>COMPANY PROFILE</b>
                                 <a target="_blank"
                                    href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
                                 <br>
@@ -80,23 +80,23 @@ if (!Yii::$app->user->isGuest) {
 
                     <br>
                     <div class="category col-lg-1.5 col-md-6">
-                        <div><b>Kategorija:</b>&nbsp
+                        <div><b>PRODUCT  CATEGORY</b>&nbsp
                             <?= $model->category; ?></div>
                     </div>
 
                     <div class="position col-lg-1.5 col-md-6">
-                        <div><b>Pozicija:</b>&nbsp
+                        <div><b>SUBCATEGORY</b>&nbsp
                             <?= $model->position; ?></div>
                     </div>
 
                     <div class="number-of-positions col-lg-1.5 col-md-6">
-                        <div><b>Lokacija:</b>&nbsp
+                        <div><b>HIPPING FROM</b>&nbsp
                             <?= $model->location; ?></div>
                     </div>
                     <br>
                     <br>
                     <div class="date col-lg-1.5 col-md-6">
-                        <div><b>Početak - kraj oglasa:</b></div>
+                        <div><b>AD VALID FROM - TO</b></div>
                         <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?>&nbsp - &nbsp
                             <?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
                     </div>
@@ -122,13 +122,13 @@ if (!Yii::$app->user->isGuest) {
                             <br>
                             <?php if ($employee): ?>
                                 <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
-                                     data-applied-id="<?= $model->id; ?>">Aplikacija je poslata
+                                     data-applied-id="<?= $model->id; ?>">Product tagged
                                 </div>
                                     <a class="btn btn-primary btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
                                                                     'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
-                                    ]); ?>">Posalji poruku</a>
+                                    ]); ?>">CONTACT SUPPLIER</a>
                                     <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
-                                        data-id="<?= $model->id; ?>">Apliciraj
+                                        data-id="<?= $model->id; ?>">TAG PRODUCT
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -193,7 +193,7 @@ if (!Yii::$app->user->isGuest) {
                         </div>
                     <?php else: ?>
                         <div class="table-field">
-                          <b><span class="title">Profil kompanije:&nbsp</span></b>
+                          <b><span class="title">COMPANY PROFILE</span></b>
                               <a target="_blank"
                               style="margin-left: 11px;" 
                                  href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
@@ -203,15 +203,15 @@ if (!Yii::$app->user->isGuest) {
                     <?php endif; ?>
 
                     <div class="table-field">
-                        <b><span class="title">Kategorija:</span></b>&nbsp
+                        <b><span class="title">PRODUCT  CATEGORY</span></b>&nbsp
                             <?= $model->category; ?>
                     </div>
                     <div class="table-field">
-                        <b><span class="title">Pozicija:</span></b>&nbsp
+                        <b><span class="title">SUBCATEGORY</span></b>&nbsp
                             <?= $model->position; ?>
                     </div>
                     <div class="table-field">
-                        <b><span class="title">Lokacija:</span></b>&nbsp
+                        <b><span class="title">SHIPPING FROM</span></b>&nbsp
                             <?= $model->location; ?>
                     </div>
 
@@ -224,7 +224,7 @@ if (!Yii::$app->user->isGuest) {
 
             <div class="advert-sec">
               <div class="sec">
-                  <div><b>Početak - kraj oglasa:</b></div>
+                  <div><b>AD VALID FROM - TO</b></div>
                   <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?>&nbsp - &nbsp
                       <?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
               </div>
@@ -239,18 +239,18 @@ if (!Yii::$app->user->isGuest) {
                 <div class="sec">
                     <?php if ($employee): ?>
                         <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
-                             data-applied-id="<?= $model->id; ?>">Aplikacija je poslata
+                             data-applied-id="<?= $model->id; ?>">Product tagged
                         </div>
                         <div>
                             <a class="btn btn-primary btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
                                                                     'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
-                            ]); ?>">Posalji poruku</a>
+                            ]); ?>">CONTACT SUPPLIER</a>
                             <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
-                                data-id="<?= $model->id; ?>">Apliciraj
+                                data-id="<?= $model->id; ?>">TAG PRODUCT
                             </div>
                         </div>
                     <?php else: ?>
-                        <div class="btn  btn-success btn-apply-disabled">Apliciraj</div>
+                        <div class="btn  btn-success btn-apply-disabled">TAG PRODUCT</div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -276,10 +276,10 @@ if (!Yii::$app->user->isGuest) {
         <div class="close-img">
             <img class="image-responsive" src="<?= Url::to('@web/css/images/close.png') ?>">
         </div>
-        Za aplikaciju na ovaj oglas, prijavite se na svoj profil <br>
-        <a href="<?= Url::to(['prijava']); ?>">PRIJAVA</a><br><br>
-        Ukoliko nemate profil, možete ga napraviti na<br>
-        <a href="<?= Url::to(['registracija-posloprimac']); ?>">REGISTRACIJA POSLOPRIMAC</a>
+        IN ORDER TO TAG PRODUCT SIGN IN TO YOUR PROFILE <br>
+        <a href="<?= Url::to(['prijava']); ?>">SIGN IN</a><br><br>
+        IF YOU DONT HAVE A PROFILE - REGISTER<br>
+        <a href="<?= Url::to(['registracija-posloprimac']); ?>">REGISTER</a>
     </div>
 </div>
 

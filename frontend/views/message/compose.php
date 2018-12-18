@@ -30,7 +30,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
             else
                 $to = json_encode($model->to);
 
-            $recipient_label = Yii::t('app', 'Recipient:&nbsp; ');
+            $recipient_label = Yii::t('app', 'RECIPIENT&nbsp; ');
             echo "<label class=\"control-label\" for=\"message-recipient\">$recipient_label</label>";
             echo '<p>' . ($model->recipient->company_name != '') ? $model->recipient->company_name : ($model->recipient->full_name != '') ? $model->recipient->full_name : $model->recipient->username . '</p>';
             echo '<input type=hidden name="Message[to]" value="' . $to . '" />';
