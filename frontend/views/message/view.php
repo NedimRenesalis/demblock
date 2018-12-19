@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Nachricht: ' . $this->title;
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 ?>
 <div class="message-view">
-    <br>
+    <h1 class="info-header">Message</h1>
     <p>
         <?php
 
@@ -40,18 +40,17 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
     $to = ($message->recipient->company_name != '') ? $message->recipient->company_name : (($message->recipient->full_name != '') ? $message->recipient->full_name : $message->recipient->username);
 
     ?>
-    <hr>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <?= Yii::t('app', 'title'); ?>: <?= Html::encode($this->title) ?>
+            <span><?= Yii::t('app', 'title'); ?>:</span> <?= Html::encode($this->title) ?>
         </div>
         <div class="panel-body">
             <?= $message->message ? $message->message : ('<mark>' . Yii::t('app', 'No message content given') . '.</mark>'); ?>
         </div>
         <div class="panel-footer">
-            <small> <?= Yii::t('app', 'Message from'); ?>: <?= $from ?><br>
-                <?= Yii::t('app', 'sent at'); ?>: <?= Yii::$app->formatter->asDate($message->created_at, 'long'); ?>
+            <small> <span><?= Yii::t('app', 'Message from'); ?>: </span><?= $from ?><br>
+                <span><?= Yii::t('app', 'sent at'); ?>: </span><?= Yii::$app->formatter->asDate($message->created_at, 'long'); ?>
                 <?= Yii::t('app', 'at'); ?> <?= Yii::$app->formatter->asDate($message->created_at, 'php:H:i:s'); ?> Uhr<br>
                 <?php if ($message->context) : ?>
                     <?= Yii::t('app', 'Referring to'); ?>: <?= $message->context; ?>
@@ -59,6 +58,5 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
             </small>
         </div>
     </div>
-    <hr>
     <?= Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> ' . Yii::t('app', 'Back to Inbox'), ['/message/inbox']) ?>
 </div>

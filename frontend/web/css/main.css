@@ -197,6 +197,15 @@
     color: red;
 }
 
+.message-view {
+    width: 60%;
+    margin: 50px auto;
+}
+
+.panel span {
+    font-weight: 600;
+}
+
 .normal {
     border: 1px solid grey;
     margin-bottom: 10px;
