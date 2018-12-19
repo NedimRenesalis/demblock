@@ -98,7 +98,7 @@ if ($ini == 0) {
         </div>
 
         <div class="job-location">
-            <?= "&nbsp;·&nbsp; " . $model->location . ", " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
+            <?= "" . $model->location . ", " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
         </div>
 
 

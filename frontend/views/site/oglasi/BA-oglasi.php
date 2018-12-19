@@ -70,9 +70,9 @@ if($searchModel->category) {
             </div>
 <br>
            
-<center><div class="form-group col-lg-3 col-md-6 search-button">
+            <div class="form-group col-lg-3 col-md-6 search-button-again">
                 <?= Html::submitButton('SEARCH AGAIN', ['class' => 'btn btn-success']) ?>
-                </div></center>
+            </div>
 
                 <?php ActiveForm::end(); ?>
         </div> 
@@ -82,7 +82,7 @@ if($searchModel->category) {
 
 <div class="section text-justify">
     <div class="container">
-        <div class="row">
+        <div class="row list-view">
             <?php if ($dataProvider->totalCount > 0): ?>
             <?php echo ListView::widget([
                 'dataProvider' => $dataProvider,

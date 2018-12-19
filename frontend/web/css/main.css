@@ -197,6 +197,18 @@
     color: red;
 }
 
+.list-view .platinum-premium .container > div:nth-child(2) {
+    background: red;
+    height: 500px;
+}
+
+.search-button-again {
+    width: 100% !important;
+}
+
+.search-button-again button {
+    margin: auto;
+}
 .message-view {
     width: 60%;
     margin: 50px auto;
@@ -506,6 +518,10 @@
     padding: 0;
     overflow: hidden;
     margin: 0 15px;
+}
+
+.new-job .container {
+    padding: 15px 10px 0;
 }
 
 hr.job-divider {
