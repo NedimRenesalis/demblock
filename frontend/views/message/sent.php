@@ -13,43 +13,48 @@ $this->params['breadcrumbs'][] = $this->title;
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 
 ?>
-<div>
+<div class="message">
 
-    <div class="message-header">
-        <h1><?= Html::encode($this->title) ?></h1>
-        <span> <?= Html::a(Yii::t('app', 'Write a message') . ' <i class="fa fa-plus"></i>', ['compose'], ['class' => 'btn btn-success']) ?> </span>
+    
+    <h1 class="info-header"><?= Html::encode($this->title) ?></h1>
+    
+    <div class="info-content">
+        <span>
+            <?= Html::a(Yii::t('app', 'Write a message') . ' <i class="fa fa-plus"></i>', ['compose'], ['class' => 'btn btn-success']) ?>
+        </span>
+
+        <?php Pjax::begin(); ?>
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'id' => 'message-inbox',
+            'columns' => [
+                [
+                    'headerOptions' => ['style' => 'width: 200px;'],
+                    'attribute' => 'to',
+                    'format' => 'raw',
+                    'value' => function ($message) {
+                        if ($message->recipient) {
+                            return ($message->recipient->company_name != '') ? $message->recipient->company_name : (($message->recipient->full_name != '') ? $message->recipient->full_name : $message->recipient->username);
+                        }
+                    },
+                    'filter' => $users,
+                ],
+                [
+                    'headerOptions' => ['style' => 'width: 200px;'],
+                    'attribute' => 'created_at',
+                    'format' => 'datetime',
+                ],
+                [
+                    'attribute' => 'title',
+                    'format' => 'raw', // do not use 'format' => 'html' because the 'data-pjax=0' gets swallowed.
+                    'value' => function ($data) {
+                        return Html::a($data->title, ['view', 'hash' => $data->hash], ['data-pjax' => 0]);
+                    },
+                ],
+            ],
+        ]); ?>
+
+        <?php Pjax::end(); ?>
     </div>
-    <?php Pjax::begin(); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'id' => 'message-inbox',
-        'columns' => [
-            [
-                'headerOptions' => ['style' => 'width: 200px;'],
-                'attribute' => 'to',
-                'format' => 'raw',
-                'value' => function ($message) {
-                    if ($message->recipient) {
-                        return ($message->recipient->company_name != '') ? $message->recipient->company_name : (($message->recipient->full_name != '') ? $message->recipient->full_name : $message->recipient->username);
-                    }
-                },
-                'filter' => $users,
-            ],
-            [
-                'headerOptions' => ['style' => 'width: 200px;'],
-                'attribute' => 'created_at',
-                'format' => 'datetime',
-            ],
-            [
-                'attribute' => 'title',
-                'format' => 'raw', // do not use 'format' => 'html' because the 'data-pjax=0' gets swallowed.
-                'value' => function ($data) {
-                    return Html::a($data->title, ['view', 'hash' => $data->hash], ['data-pjax' => 0]);
-                },
-            ],
-        ],
-    ]); ?>
-
-    <?php Pjax::end(); ?></div>
+</div>

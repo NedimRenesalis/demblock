@@ -14,7 +14,25 @@
     max-width: 200px;
 }
 
+.message {
+    margin: 50px auto;
+    width: 90%;
+    background: white;
+    position: relative;
+    -webkit-box-shadow: 2px 6px 31px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px px 31px -15px rgba(0,0,0,0.75);
+    box-shadow: 2px 6px 31px -15px rgba(0,0,0,0.75);
+    flex-direction: column;
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 
+.message div {
+    width: 100%;
+}
 /** Main content **/
 
 .main-content {
