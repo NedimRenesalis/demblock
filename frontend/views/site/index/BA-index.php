@@ -150,11 +150,11 @@ if($searchModel && $searchModel->category) {
                     <?php echo $this->render('_ba-sponzorisani-oglas', ['model' => $p]); ?>
                 </a>
             </div>
-            <?php if ($counter % 12 === 0): ?>
+            <?php /*if ($counter % 12 === 0): */?><!--
                 <div class="col-lg-12">
-                    <?php echo $this->render('_google_advert'); ?>
+                    <?php /*echo $this->render('_google_advert'); */?>
                 </div>
-            <?php endif; ?>
+            --><?php /*endif; */?>
         <?php endforeach; ?>
         <?php foreach ($midi as $m): ?>
             <?php $counter++; ?>
@@ -163,11 +163,11 @@ if($searchModel && $searchModel->category) {
                     <?php echo $this->render('_ba-sponzorisani-oglas', ['model' => $m]); ?>
                 </a>
             </div>
-            <?php if ($counter % 12 === 0): ?>
+            <?php /*if ($counter % 12 === 0): */?><!--
                 <div class="col-lg-12">
-                    <?php echo $this->render('_google_advert'); ?>
+                    <?php /*echo $this->render('_google_advert'); */?>
                 </div>
-            <?php endif; ?>
+            --><?php /*endif; */?>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>

@@ -54,8 +54,12 @@ if ($ini == 0) {
             </div>
         <?php elseif (Advert::getImageByUserId($model->user_id)): ?>
             <div >
-                <img src="<?= Url::to('@web/' . Advert::getImageByUserId($model->user_id)); ?>"
-                     class="img-responsive logo-im">
+                <?php if($model->getFirstImage()): ?>
+                    <img src="<?php  echo $model->getFirstImage()->getAbsImage(); ?>" class="img-responsive logo-im">
+                <?php else: ?>
+                    <img src="<?= Url::to('@web/' . Advert::getImageByUserId($model->user_id)); ?>"
+                         class="img-responsive logo-im">
+                <?php endif; ?>
             </div>
         <?php else: ?>
             <div>
@@ -75,8 +79,15 @@ if ($ini == 0) {
 
           <br>
             <div class="job-location">
-                <?= "&nbsp;·&nbsp; " . $model->location . ", " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
+                <div>Location: <?php echo $model->location; ?></div>
             </div>
+            <div class="">
+                Date: <?php echo Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
+            </div>
+            <div class="job-category">
+                Category: <?php echo $model->category; ?>
+            </div>
+
             <br>
             <br>
         </div>

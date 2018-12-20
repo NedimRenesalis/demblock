@@ -120,4 +120,8 @@ $(document).ready(function () {
     $('.register-failed-close').on('click', function(){
         $('.registration-failed').hide();
     });
+
+    $('#advertsearch-order').on('change', function(){
+        $('.search-again').click();
+    });
 });

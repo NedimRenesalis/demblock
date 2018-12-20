@@ -35,79 +35,87 @@ $ini = strpos($model->description, $start);
 if ($ini == 0) {
     $second = "";
 } else {
-    $ini += strlen($start);
-    $len = strpos($model->description, $end, $ini) - $ini;
+    $ini    += strlen($start);
+    $len    = strpos($model->description, $end, $ini) - $ini;
     $second = substr($model->description, $ini, $len);
     $second = $second . " ...";
 }
+
 ?>
 
 <div class="section new-job">
 
-<div class="platinum-premium">
-<div class="container">
+    <div class="platinum-premium">
+        <div class="container">
 
-    <div class="col-lg-2 col-md-2 ">
-
-              <?php if ($model->anonymously): ?>
-            <div >
-                <img src="<?= Url::to('@web/css/images/for-client.png'); ?>" class="img-responsive logo-im">
-            </div>
-        <?php elseif (Advert::getImageByUserId($model->user_id)): ?>
-            <div >
-                <img src="<?= Url::to('@web/' . Advert::getImageByUserId($model->user_id)); ?>"
-                     class="img-responsive logo-im">
-            </div>
-        <?php else: ?>
-            <div>
-                <img src="<?= Url::to('@web/css/images/big-logo.png'); ?>" class="img-responsive logo-im">
-            </div>
-        <?php endif; ?>
-    </div>
-<br>
-    <div class="col-lg-10 col-md-10 ">
-
-        <div class="job-title">
-            <a target="_blank"
-               href="<?= Url::to(['oglas', "id" => $model->id]); ?>"><?= $model->position; ?></a>
-        </div>
-        <br>
-
-
-        <div class="job-employer-wrapper">
-<br>
-
-
-
-            <div class="job-employer">
+            <div class="col-lg-2 col-md-2 ">
 
                 <?php if ($model->anonymously): ?>
-                    <a href="#">Zaposljavanje.BA</a>
+                    <div>
+                        <img src="<?= Url::to('@web/css/images/for-client.png'); ?>" class="img-responsive logo-im">
+                    </div>
+                <?php elseif (Advert::getImageByUserId($model->user_id)): ?>
+                    <div>
+                        <?php if($model->getFirstImage()): ?>
+                        <img src="<?php  echo $model->getFirstImage()->getAbsImage(); ?>" class="img-responsive logo-im">
+                        <?php else: ?>
+                        <img src="<?= Url::to('@web/' . Advert::getImageByUserId($model->user_id)); ?>" class="img-responsive logo-im">
+                        <?php endif; ?>
+                    </div>
                 <?php else: ?>
-                    <a target="_blank"
-                       href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
+                    <div>
+                        <img src="<?= Url::to('@web/css/images/big-logo.png'); ?>" class="img-responsive logo-im">
+                    </div>
                 <?php endif; ?>
+            </div>
+            <br>
+            <div class="col-lg-10 col-md-10 ">
+
+                <div class="job-title">
+                    <a target="_blank"
+                       href="<?= Url::to(['oglas', "id" => $model->id]); ?>"><?= $model->position; ?></a>
+                </div>
+                <br>
+
+
+                <div class="job-employer-wrapper">
+                    <br>
+
+
+                    <div class="job-employer">
+
+                        <?php if ($model->anonymously): ?>
+                            <a href="#">Zaposljavanje.BA</a>
+                        <?php else: ?>
+                            <a target="_blank"
+                               href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
+                        <?php endif; ?>
+
+
+                    </div>
+                    <br>
+                    <br>
+
+
+                </div>
+
+                <div class="job-location">
+                    <div>Location: <?php echo $model->location; ?></div>
+                </div>
+                <div class="">
+                    Date: <?php echo Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
+                </div>
+                <div class="job-category">
+                    Category: <?php echo $model->category; ?>
+                </div>
 
 
             </div>
-            <br>
-            <br>
-
 
 
         </div>
-
-        <div class="job-location">
-            <?= "&nbsp;·&nbsp; " . $model->location . ", " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
-        </div>
-
-
+        <br>
     </div>
-
-
-</div>
-<br>
-</div>
 
 
 </div>

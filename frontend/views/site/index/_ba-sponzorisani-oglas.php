@@ -32,6 +32,7 @@ use yii\helpers\Url;
 
             <div class="">
          <b><div><?= $model->position; ?></div></b>
+                <div>Category: <?php echo $model->category; ?></div>
         </div>
         <br>
         <div class="promjenafonta">
@@ -39,7 +40,7 @@ use yii\helpers\Url;
         </u></div>
 
         <div class="promjenafonta">
-          <b>  <div><?= $model->location; ?></div> </b>
+          <b>  <div>Shipping From: <?= $model->location; ?></div> </b>
         </div>
 
 
@@ -66,6 +67,7 @@ use yii\helpers\Url;
           <?php endif; ?>
   <div class="">
       <b><div><?= $model->position; ?></div></b>
+      <div>Category: <?php echo $model->category; ?></div>
         </div>
 <br>
         <div class="promjenafonta">
@@ -73,7 +75,7 @@ use yii\helpers\Url;
         </u></div>
 
         <div class="promjenafonta">
-          <b>  <div><?= $model->location; ?></div></b>
+          <b>  <div>Shipping From: <?= $model->location; ?></div></b>
         </div>
 
 

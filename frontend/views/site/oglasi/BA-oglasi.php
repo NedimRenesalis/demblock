@@ -35,6 +35,8 @@ if($searchModel->category) {
         }
     }
 }
+
+
 ?>
 
 <div class="section text-justify">
@@ -69,9 +71,20 @@ if($searchModel->category) {
                 ?>
             </div>
 <br>
-           
+            <div class="col-lg-4 col-md-6">
+                <?php
+                $searchModel->order = 1;
+                if(isset($order) && $order != '' && ($order == 1 || $order == 2)) {
+                    $searchModel->order = $order;
+                }
+                ?>
+                <?= $form->field($searchModel, 'order')
+                    ->dropDownList([1 => 'Newest', 2 => 'Oldest'],['prompt' => "Select order"])
+                    ->label('Order')
+                ?>
+            </div>
 <center><div class="form-group col-lg-3 col-md-6 search-button">
-                <?= Html::submitButton('SEARCH AGAIN', ['class' => 'btn btn-success']) ?>
+                <?= Html::submitButton('SEARCH AGAIN', ['class' => 'btn btn-success search-again']) ?>
                 </div></center>
 
                 <?php ActiveForm::end(); ?>

@@ -362,10 +362,18 @@ class SiteController extends Controller
             if (!$searchModel->position && !$searchModel->category && !$searchModel->location) {
                 return $this->redirect("oglasi");
             } else {
+
+                $params = Yii::$app->request->queryParams;
+                $order = 1;
+                if ($params && isset($params['AdvertSearch']) && isset($params['AdvertSearch']['order'])) {
+                    $order = $params['AdvertSearch']['order'];
+                }
+
                 return $this->render('oglasi/' . $this->language . '-oglasi', [
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
-                    'employee' => $type == 3 || $type == 4
+                    'employee' => $type == 3 || $type == 4,
+                    'order' => $order
                 ]);
             }
         }
@@ -1691,12 +1699,19 @@ class SiteController extends Controller
         $searchModel = new AdvertSearch();
         $searchModel->load(Yii::$app->request->get());
 
-
         $position = false;
+        $order = 1;
+
+        $params = Yii::$app->request->queryParams;
+
 
         if ($searchModel->position != null) {
             $position = true;
         }
+        if ($params && isset($params['AdvertSearch']) && isset($params['AdvertSearch']['order'])) {
+            $order = $params['AdvertSearch']['order'];
+        }
+
         $type = -1;
         if (!Yii::$app->user->isGuest) {
             $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
@@ -1711,7 +1726,8 @@ class SiteController extends Controller
         return $this->render('oglasi/' . $this->language . '-oglasi', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'employee' => $type == 3 || $type == 4
+            'employee' => $type == 3 || $type == 4,
+            'order' => $order
         ]);
     }
 
