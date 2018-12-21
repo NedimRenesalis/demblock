@@ -37,17 +37,18 @@ if($searchModel->category) {
 }
 ?>
 
-<div class="section text-justify">
-    <div class="container">
-        <div class="row">
+<div class="search-filter-container">
 
+<div class="section text-justify search-filter">
+    <h1>FILTERS</h1>
+        <div class="search-filter-content">
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
-                <div class="col-lg-4 col-md-6">
+                <div>
                     <?= $form->field($searchModel, 'location')->label("COUNTRY OF SOURCING") ?>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div>
                     <?=
                     $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or category', 'label' => null,
                                 'onchange' => '
@@ -62,27 +63,22 @@ if($searchModel->category) {
                             ]
                         )->label('PRODUCT OR CATEGORY') ?>
                 </div>
-            <div class="col-lg-4 col-md-6">
+            <div>
                 <?= $form->field($searchModel, 'position')
                         ->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])
                             ->label('SUBCATEGORY')
                 ?>
             </div>
-<br>
-           
-            <div class="form-group col-lg-3 col-md-6 search-button-again">
-                <?= Html::submitButton('SEARCH AGAIN', ['class' => 'btn btn-success']) ?>
+            <div class="form-group search-button-again">
+                <?= Html::submitButton('SEARCH AGAIN', ['class' => 'btn btn-primary']) ?>
             </div>
 
                 <?php ActiveForm::end(); ?>
-        </div> 
-    </div>
+        </div>
 </div>
 
 
-<div class="section text-justify">
-    <div class="container">
-        <div class="row list-view">
+        <div style="margin-left: 20px;">
             <?php if ($dataProvider->totalCount > 0): ?>
             <?php echo ListView::widget([
                 'dataProvider' => $dataProvider,
@@ -101,7 +97,7 @@ if($searchModel->category) {
 
             <?php endif; ?>
         </div>
-    </div>
+
 </div>
 
 <style>

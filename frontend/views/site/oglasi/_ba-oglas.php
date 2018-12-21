@@ -43,12 +43,7 @@ if ($ini == 0) {
 ?>
 
 <div class="section new-job">
-
-<div class="platinum-premium">
-<div class="container">
-
-    <div class="col-lg-2 col-md-2 ">
-
+    <div>
               <?php if ($model->anonymously): ?>
             <div >
                 <img src="<?= Url::to('@web/css/images/for-client.png'); ?>" class="img-responsive logo-im">
@@ -64,20 +59,14 @@ if ($ini == 0) {
             </div>
         <?php endif; ?>
     </div>
-<br>
-    <div class="col-lg-10 col-md-10 ">
 
+    <div class="new-job-content">
         <div class="job-title">
             <a target="_blank"
                href="<?= Url::to(['oglas', "id" => $model->id]); ?>"><?= $model->position; ?></a>
         </div>
-        <br>
-
 
         <div class="job-employer-wrapper">
-<br>
-
-
 
             <div class="job-employer">
 
@@ -87,14 +76,7 @@ if ($ini == 0) {
                     <a target="_blank"
                        href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
                 <?php endif; ?>
-
-
             </div>
-            <br>
-            <br>
-
-
-
         </div>
 
         <div class="job-location">
@@ -103,14 +85,8 @@ if ($ini == 0) {
 
 
     </div>
-
-
 </div>
-<br>
+</div>
 </div>
 
 
-</div>
-
-<br>
-<hr class="job-divider">
