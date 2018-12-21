@@ -31,13 +31,11 @@ use yii\helpers\Url;
           <?php endif; ?>
 
             <div class="">
-         <b><div><?= $model->position; ?></div></b>
-                <div>Category: <?php echo $model->category; ?></div>
+
+                <div><?php echo $model->position; ?></div>
         </div>
         <br>
-        <div class="promjenafonta">
-            <div><u>Datum isteka:&nbsp<?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
-        </u></div>
+
 
         <div class="promjenafonta">
           <b>  <div>Shipping From: <?= $model->location; ?></div> </b>
@@ -66,13 +64,10 @@ use yii\helpers\Url;
               </div>
           <?php endif; ?>
   <div class="">
-      <b><div><?= $model->position; ?></div></b>
-      <div>Category: <?php echo $model->category; ?></div>
+      <div><?= $model->position; ?></div>
         </div>
 <br>
-        <div class="promjenafonta">
-            <div><u>Datum isteka:&nbsp<?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
-        </u></div>
+
 
         <div class="promjenafonta">
           <b>  <div>Shipping From: <?= $model->location; ?></div></b>

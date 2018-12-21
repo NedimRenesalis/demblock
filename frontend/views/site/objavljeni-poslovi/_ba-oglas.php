@@ -82,10 +82,10 @@ if ($ini == 0) {
                 <div>Location: <?php echo $model->location; ?></div>
             </div>
             <div class="">
-                Date: <?php echo Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
+                
             </div>
             <div class="job-category">
-                Category: <?php echo $model->category; ?>
+                <?php echo $model->position; ?>
             </div>
 
             <br>
