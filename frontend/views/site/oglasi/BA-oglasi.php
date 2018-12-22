@@ -35,6 +35,8 @@ if($searchModel->category) {
         }
     }
 }
+
+
 ?>
 
 <div class="search-filter-container">
@@ -69,16 +71,26 @@ if($searchModel->category) {
                             ->label('SUBCATEGORY')
                 ?>
             </div>
+            <div>
+                <?php
+                $searchModel->order = 1;
+                if(isset($order) && $order != '' && ($order == 1 || $order == 2)) {
+                    $searchModel->order = $order;
+                }
+                ?>
+                <?= $form->field($searchModel, 'order')
+                    ->dropDownList([1 => 'Newest', 2 => 'Oldest'],['prompt' => "Select order"])
+                    ->label('Order')
+                ?>
+            </div>
             <div class="form-group search-button-again">
                 <?= Html::submitButton('SEARCH AGAIN', ['class' => 'btn btn-primary']) ?>
             </div>
-
                 <?php ActiveForm::end(); ?>
         </div>
 </div>
 
-
-        <div style="margin-left: 20px;">
+        <div>
             <?php if ($dataProvider->totalCount > 0): ?>
             <?php echo ListView::widget([
                 'dataProvider' => $dataProvider,

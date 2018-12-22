@@ -14,6 +14,7 @@ class AdvertSearch extends Advert
 {
 
     public $company;
+    public $order;
 
     /**
      * @inheritdoc
@@ -47,18 +48,23 @@ class AdvertSearch extends Advert
         $query = Advert::find()
             ->leftJoin('user', 'user_id=user.id');
 
-
         // add conditions that should always apply here
+
+        $this->load($params);
+
+        $order = SORT_DESC;
+        if(isset($params['AdvertSearch']) && isset($params['AdvertSearch']['order']) && $params['AdvertSearch']['order'] == '2'){
+            $order = SORT_ASC;
+        }
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 5,
+                'pageSize' => 10,
             ],
-            'sort'=> ['defaultOrder' => ['start_advert'=>SORT_DESC]]
+            'sort'=> ['defaultOrder' => ['start_advert'=>$order]]
         ]);
 
-        $this->load($params);
 
         if (!$this->validate()) {
             $query->where('0=1');
