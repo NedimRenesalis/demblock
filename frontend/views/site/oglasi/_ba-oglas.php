@@ -80,13 +80,9 @@ if ($ini == 0) {
             <?php endif; ?>
         </div>
         <div class="job-location">
-            <div>Location: <?php echo $model->location; ?></div>
-        </div>
-        <div class="job-category">
-            <?php echo $model->position; ?>
-        </div>
-        <div class="job-location">
-            <?= "" . $model->location . ", " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
-        </div>
+            <div>Shipping from:&nbsp  <?php echo $model->location; ?></div>
+        </div><br>
+       
+       
     </div>
 </div>
