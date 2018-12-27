@@ -6745,7 +6745,7 @@ a.list-group-item-danger.active:focus {
 }
 
 .embed-responsive .embed-responsive-item,
-.embed-responsive iframe,
+.embed-responsive video,
 .embed-responsive embed,
 .embed-responsive object,
 .embed-responsive video {

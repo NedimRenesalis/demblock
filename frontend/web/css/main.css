@@ -721,8 +721,8 @@ textarea {
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%) !important;
-    transform: translate(-50%,-50%) !important;
-    height: 100%;
+    transform: translate(-50%,-69%) !important;
+    z-index: -10000;
 }
 
 .overlay {
@@ -732,9 +732,9 @@ textarea {
     transform: rotate(180deg);
     opacity: 0.6 !important;
     left: 0;
-    z-index: 1;
+    z-index: -6500;
     width: 100%;
-    height: 100%;
+    height: 103%;
 }
 
 body {
@@ -747,9 +747,9 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: -6400;
     width: 100%;
-    height: 100%;
+    height: 103%;
 }
 .header-content-mobile {
     display: none;
