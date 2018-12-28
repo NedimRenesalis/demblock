@@ -324,15 +324,4 @@ if (!Yii::$app->user->isGuest) {
 
 
 <br>
-<center>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 7 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5242454575053212"
-     data-ad-slot="8305373463"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</center>
+

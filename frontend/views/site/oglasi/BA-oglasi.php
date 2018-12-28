@@ -42,7 +42,7 @@ if($searchModel->category) {
 <div class="search-filter-container">
 
 <div class="section text-justify search-filter">
-    <h1>FILTERS</h1>
+    <h1></h1>
         <div class="search-filter-content">
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
@@ -79,8 +79,8 @@ if($searchModel->category) {
                 }
                 ?>
                 <?= $form->field($searchModel, 'order')
-                    ->dropDownList([1 => 'Newest', 2 => 'Oldest'],['prompt' => "Select order"])
-                    ->label('Order')
+                    ->dropDownList([1 => 'Newest', 2 => 'Oldest'],['prompt' => ""])
+                    ->label('SORT BY')
                 ?>
             </div>
             <div class="form-group search-button-again">
