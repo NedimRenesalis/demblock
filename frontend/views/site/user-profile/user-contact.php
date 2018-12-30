@@ -12,7 +12,7 @@ UploadAsset::register($this);
 ?>
 
 <div class="info-edit">
-    <h3 class="info-header">EDIT CONTACT DETAILS</h3>
+    <div class="info-header"><h3>Edit contact details</h3></div>
 
     <div class="info-content-edit">
         <?php $form = ActiveForm::begin(); ?>

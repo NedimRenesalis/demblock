@@ -15,8 +15,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
 ?>
 <div class="message">
 
-    
-    <h1 class="info-header"><?= Html::encode($this->title) ?></h1>
+    <div class="info-header"><h3><?= Html::encode($this->title) ?></h3></div>
     
     <div class="info-content">
         <span>

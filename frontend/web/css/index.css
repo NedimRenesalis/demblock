@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i');
+
 html {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
@@ -8,7 +9,7 @@ html {
 body {
     overflow-x: hidden;
     margin: 0;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 article,
@@ -3740,9 +3741,21 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    color: #ffffff;
-    background-color: #337cbb;
-    border-color: #2e6fa7;
+    margin-top: 20px;
+    position: relative;
+    display: inline-block;
+    background-color: #FE824C !important;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    height: 54px;
+    line-height: 50px;
+    border-radius: 0px !important;
+    box-shadow: none;
+    border: 0;
+    border: 2px solid #FE824C !important;
+    width: 100%;
 }
 
 .btn-primary:hover,

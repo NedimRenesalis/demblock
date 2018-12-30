@@ -42,7 +42,7 @@ if($searchModel->category) {
 <div class="search-filter-container">
 
 <div class="section text-justify search-filter">
-    <h1></h1>
+    <h1>FILTERS</h1>
         <div class="search-filter-content">
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 

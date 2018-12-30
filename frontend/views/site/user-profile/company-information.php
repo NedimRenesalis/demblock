@@ -11,7 +11,7 @@ UploadAsset::register($this);
 /* @var $form ActiveForm */
 ?>
 <div class="info-edit">
-    <h3 class="info-header">EDIT COMPANY INFORMATION</h3>
+    <div class="info-header"><h3>Edit company information</h3></div>
 
     <div class="info-content-edit">
         <?php $form = ActiveForm::begin(); ?>

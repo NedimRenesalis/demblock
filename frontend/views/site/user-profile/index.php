@@ -211,13 +211,18 @@ $countryArray = array(
 <div class="info-container">
 
     <div class="info info-user">
-        <h3 class="info-header">MY DASHBOARD</h3>
+        <div class="info-header">
+            <h3>My Dashboard</h3> 
+
+            <div class="controls">  
+                <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-pencil">&nbsp; </i>MODIFY FORMS</a>
+            </div>   
+        </div>
+
+       
 
         <div class="info-content">
-            <div class="controls">
-            
-            <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-pencil">&nbsp; </i>MODIFY FORMS</a>
-            </div>
+
             <br>
             <div class="logo-img">
                 <?php if ($model->image != null): ?>
@@ -229,7 +234,7 @@ $countryArray = array(
             </div>
 
             <div class="fullname">
-               <b><span class="title">CONTACT PERSON:</span></b>
+               <b><span class="title" style="font-size: 24px;">CONTACT PERSON :</span></b>
                 <?php if($model->full_name != ''){
                         echo $model->full_name;
                     }
@@ -291,14 +296,14 @@ $countryArray = array(
     <div>
         <!-- Start contact information -->
         <div class="info">
-            <h3 class="info-header">
-                Contact information
-            </h3>
-            <div class="info-content">
+            <div class="info-header">
+                <h3>Contact information</h3> 
                 <div class="controls">
                     <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
-                </div>   <br>
-                <div class="table-field" style="margin-top: 20px;">
+                </div>  
+            </div>
+            <div class="info-content">
+                <div class="table-field" >
                    <b><span class="title">Email:</span></b> <?php echo $contactInfo->Email; ?>
                     <p class="verified" style="margin-left: 11px;">
                         [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
@@ -328,13 +333,14 @@ $countryArray = array(
         <!-- End contact information -->
 
         <div class="info">
-            <h3 class="info-header">Company Information</h3>
-
-            <div class="info-content">
+            <div class="info-header">
+                <h3>Company Information</h3> 
                 <div class="controls">
                     <a href="<?= Url::to('company-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
-                </div>
-                <div class="table-field" style="margin-top: 26px;">
+                </div> 
+            </div>
+            <div class="info-content">
+                <div class="table-field" >
                     <b><span class="title">Company name: </span></b><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?>
                 </div>
                 <div class="table-field">
@@ -359,13 +365,14 @@ $countryArray = array(
         </div>
 
         <div class="info">
-            <h3 class="info-header">Sourcing Information</h3>
-
-            <div class="info-content">
+            <div class="info-header">
+                <h3>Sourcing Information</h3> 
                 <div class="controls">
-                    <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil">&nbsp; </i> MODIFY FORMS</a>
-                </div>   <br>
-                <div class="table-field" style="margin-top: 20px;">
+                    <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
+                </div> 
+            </div>
+            <div class="info-content">
+                <div class="table-field" >
                     <b><span class="title" style="margin-right: 18px !important;">Annual Purchasing Volume: </span></b><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?>
                 </div>
                 <div class="table-field">

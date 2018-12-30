@@ -66,7 +66,7 @@ if($searchModel && $searchModel->category) {
                 <div class="search-form-col" style="width: 285px !important;">
                     <?= $form->field($searchModel, 'position')->dropDownList($subCategoriesSelected,['prompt' => "Select subcategory"])->label('') ?>
                 </div>
-                <?= Html::submitButton('Search', ['class' => 'search-button btn btn-info']) ?>
+                <?= Html::submitButton('Search', ['class' => 'search-button btn btn-primary']) ?>
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
@@ -210,8 +210,8 @@ if($searchModel && $searchModel->category) {
                             </div>
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group no-padding no-margin">
-                                    <?=Html::submitButton(\Yii::t('app', 'Subscribe'), ['class' => 'btn btn-block btn-info'])?>
+                                <div class="form-group no-padding no-margin sub-btn">
+                                    <?=Html::submitButton(\Yii::t('app', 'Subscribe'), ['class' => 'btn btn-primary'])?>
                                 </div>
                             </div>
                         </div>

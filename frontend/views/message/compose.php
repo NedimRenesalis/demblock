@@ -16,7 +16,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
 <div class="info" style="margin: 40px auto;">
 
     <?php if (!$dialog): ?>
-        <h1 class="info-header"> <?= Html::encode($this->title) ?> </h1>
+        <div class="info-header"><h3><?= Html::encode($this->title) ?></h3></div>
     <?php endif ?>
 
     <div class="wite-message info-content-edit">
@@ -56,7 +56,7 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
             if ($dialog)
                 echo Html::button(Yii::t('app', 'Send'), ['class' => 'btn btn-success btn-send-message']);
             else
-                echo Html::submitButton(Yii::t('app', 'Send'), ['class' => 'btn btn-success']) ?>
+                echo Html::submitButton(Yii::t('app', 'Send'), ['class' => 'btn btn-primary']) ?>
         </div>
 
 

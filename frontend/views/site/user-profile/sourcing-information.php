@@ -8,8 +8,8 @@ use yii\widgets\ActiveForm;
 /* @var $form ActiveForm */
 ?>
 <div class="info-edit">
-    <h3 class="info-header">EDIT SOURCING INFORMATION</h3>
-    
+    <div class="info-header"><h3>Edit sourcing information</h3></div>
+
     <div class="info-content-edit">
         <?php $form = ActiveForm::begin(); ?>
             <?= $form->field($model, 'AnnualPurchasingVolume') ?>

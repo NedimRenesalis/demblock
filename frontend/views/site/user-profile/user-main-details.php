@@ -216,7 +216,10 @@ $countryArray = array(
 ?>
 
 <div class="info-edit">
-    <h3 class="info-header">Edit user</h3>
+
+        <div class="info-header">
+            <h3>Edit user</h3>  
+        </div>
 
     <div class="info-content-edit">
         <div class="upload-logo">

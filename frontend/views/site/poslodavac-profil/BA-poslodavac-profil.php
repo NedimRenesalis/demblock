@@ -355,7 +355,7 @@ use yii\helpers\Url;
             <div class="info">
                 <?php if($companyInformation != null):?>
 
-                <h3 class="info-header">Company Information</h3>
+                <div class="info-header"><h3>Company Information</h3></div>
 
                 <div class="info-content">
 
@@ -400,7 +400,7 @@ use yii\helpers\Url;
 
             <?php if($sourcingInformation != null): ?>
             <div class="info">
-                <h3 class="info-header">Sourcing Information</h3>
+                <div class="info-header"><h3>Sourcing Information</h3></div>
 
                 <div class="info-content">
                     <br>
