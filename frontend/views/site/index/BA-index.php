@@ -71,7 +71,7 @@ if($searchModel && $searchModel->category) {
             </div>
         </div>
         <span class="header-title">
-            AAAAAAAAAAAAAAAAAAAAAA
+           <b> VERIFIED TRADE - WORLDWIDE </b>
         </span>
     </div>
     <div class="header-content-mobile">
@@ -126,16 +126,13 @@ if($searchModel && $searchModel->category) {
         </a>
         <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
-            <span>Corporate <br>  verfication and <br>   memberships </span>
+            <span>Listing fees</span>
         </a>
         <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
-            <span>About us</span>
+            <span>Corporate verification</span>
         </a>
-        <a class="section-item" href="<?= Url::to('o-nama'); ?>">
-            <img src=<?= Url::to('@web/css/images/section-img/ko-smo-mi.png'); ?> />
-            <span>Tour our marketplace</span>
-        </a>
+       
     </div>
 </div>
 
@@ -268,6 +265,7 @@ if($searchModel && $searchModel->category) {
                     <br>
                     
                 </div>
+                
             </div>
           
         </div>
