@@ -23,7 +23,7 @@ $this->title = 'Zapošljavanje';
         <?= $form->field($model, 'email')->textInput(['autofocus' => true])->label("Your email") ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Send password reset request to email address', ['class' => 'active btn btn-block btn-primary']) ?>
+            <?= Html::submitButton('Send password reset request', ['class' => 'active btn btn-block btn-primary']) ?>
         </div>
  
             
