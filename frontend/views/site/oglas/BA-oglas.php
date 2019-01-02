@@ -124,7 +124,7 @@ if (!Yii::$app->user->isGuest) {
                                 <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
                                      data-applied-id="<?= $model->id; ?>">Product tagged
                                 </div>
-                                    <a class="btn btn-primary btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
+                                    <a class="btn btn-info btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
                                                                     'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
                                     ]); ?>">CONTACT SUPPLIER</a>
                                     <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>
@@ -242,7 +242,7 @@ if (!Yii::$app->user->isGuest) {
                              data-applied-id="<?= $model->id; ?>">Product tagged
                         </div>
                         <div>
-                            <a class="btn btn-primary btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
+                            <a class="btn btn-info btn-apply" href="<?= Url::to(['message/compose', 'to' => $model->user_id,
                                                                     'answers' => null, 'context'=> null, 'add_to_recipient_list' => false, 'fromArticle' => true, 'articleId' => $model->Id
                             ]); ?>">CONTACT SUPPLIER</a>
                             <div class="btn  btn-success btn-apply" <?php if ($apply) echo 'style="display:none"'; ?>

@@ -408,6 +408,8 @@ textarea {
 
 .advert-body {
   margin-top: 43px;
+  background-color: white;
+  padding: 10px 20px;
 }
 
 .advert-header-body {
@@ -842,7 +844,7 @@ body {
 }
 
 body, .main-content {
-    background-color: #333333 !important;
+    background-color: #7b8588 !important;
 }
 .overlay2 {
     background: #000;
@@ -1487,7 +1489,6 @@ label {
 }
 
 .login-btn {
-    background: #999999e6;
     color: #fff !important;
     border-color: #fff;
     padding: 20px 30px 20px !important;
@@ -1496,12 +1497,16 @@ label {
     position: relative !important;
     color: #fff;
     padding: 8px 18px!important;
-    border-radius: 36px;
     text-decoration: none;
     letter-spacing: 1px;
     transition: background 0.15s;
     text-transform: uppercase;
     margin-right: 20px !important;
+    border: 1px solid white;
+}
+
+ul.nav.navbar-nav.navbar-right {
+    margin-top: 5px;
 }
 
 .login-btn img,
@@ -1511,7 +1516,7 @@ label {
 }
 
 .regist-btn {
-    background: #358ecfcc;
+    background: #ff89569e;
     color: #fff !important;
     border-color: #fff;
     font-size: 14px !important;
@@ -1519,7 +1524,6 @@ label {
     position: relative !important;
     color: #fff;
     padding: 8px 18px!important;
-    border-radius: 36px;
     text-decoration: none;
     letter-spacing: 1px;
     transition: background 0.15s;
@@ -1528,13 +1532,14 @@ label {
 }
 
 .regist-btn:hover {
-    border: 1px solid #05defe8c;
+    border: 1px solid #ff89569e;
+    color: black !important;
     padding: 7px 17px!important;
 }
 
 .login-btn:hover {
-    border: 1px solid white;
-    padding: 7px 17px!important;
+    border: 1px solid black;
+    color: black;
 }
 
 .services .container .row {

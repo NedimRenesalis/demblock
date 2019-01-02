@@ -74,21 +74,13 @@ $days = [
 
 ?>
 
-<br><br>
-<div class="col-lg-8 col-md-8 sign-container objava-oglasa" style="margin-top: 47px;width: 100%;max-width: 1200px;">
-    <div class="sign-header">
-        <h2 class="text-center">PRODUCT LISTING</h2>
+<br>
+<div class="col-lg-8 col-md-8 info " style="display: flex; flex-direction: row;margin: 47px auto; padding: 40px;width: 100%;max-width: 1200px;">
+    <div class="info-header">
+        <h3>Product listing</h3>
     </div>
     <br>
-<br>
-
-
-
-</div>
-<div class="section text-justify">
-<br> 
-
-<br>
+    <div class="section text-justify">
     <div class="container">
         <div class="row">
             <?php if ($message != null): ?>
@@ -244,20 +236,13 @@ $days = [
                     ]
                     
                 ])->label('PRODUCT DETAILS<br><br>Please insert below short product description, minimum order quantity, lead time, packaging and delivery options and FAQ. <br>'); ?><br>
+            
+                
+                <div class="form-group"><br>
+                    <?= Html::submitButton('PUBLISH PRODUCT LISTING', ['class' => 'btn btn-primary']) ?>
+                </div>
             </div>          
 
-           
-        </div>
-        <div class="section"> 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="form-group"><br>
-                            <?= Html::submitButton('PUBLISH PRODUCT LISTING', ['class' => 'btn btn-primary']) ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <?php ActiveForm::end(); ?>
     </div>
@@ -271,6 +256,7 @@ $days = [
     </div>
 <?php endif; ?>
 
+</div>
 
 <script>
     $(document).ready(function () {

@@ -34,7 +34,7 @@ if($searchModel && $searchModel->category) {
     $searchBar = ``
 ?> 
 <div>
-<video class="videobg" autoplay loop src="<?= Url::to("@web/css/ad.mp4"); ?>" frameborder="0"></video>
+<video class="videobg" autoplay loop src="<?= Url::to("@web/css/ad"); ?>" frameborder="0"></video>
 <div class="overlay"></div>
 <div class="overlay2"></div>
     <div class="header">
@@ -185,7 +185,7 @@ if($searchModel && $searchModel->category) {
     <div class="subscribe">
         <section class="main-search subscribe-footer ">
             <div class="container">
-                <div class="row">
+                <div class="row"  style="margin-top: 15px;">
                     <div class="col-md-offset-2 col-md-9">
                         <?php $form = ActiveForm::begin([
                             'method' => 'post',
