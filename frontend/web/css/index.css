@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i');
-
 html {
     font-family: 'Raleway', sans-serif;
     -ms-text-size-adjust: 100%;
@@ -3128,7 +3127,7 @@ output {
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #555555;
+    color: #ffffff;
     background-color: #ffffff;
     background-image: none;
     border: 1px solid #cccccc;
