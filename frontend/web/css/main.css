@@ -810,6 +810,7 @@ textarea {
     -webkit-transform: translate(-50%, -50%) !important;
     transform: translate(-50%, -69%) !important;
     z-index: 1;
+    height: 164%;
 }
 
 nav {
