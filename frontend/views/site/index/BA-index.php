@@ -244,11 +244,11 @@ if($searchModel && $searchModel->category) {
                 <div class="">
                     <div class="col-md-12 hidden-lg hidden-md hidden-sm text-center">
                         <a href="https://www.instagram.com/zaposljavanje.ba/" ><i
-                                    class="fa fa-2x fa-fw fa-instagram text-inverse"></i></a>
+                                    class="fab fa-2x fa-fw fa-instagram text-inverse"></i></a>
                         <a href="https://www.linkedin.com/company/18282027/"><i
-                                    class="fa fa-2x fa-fw fa-linkedin text-inverse"></i></a>
+                                    class="fab fa-2x fa-fw fa-linkedin text-inverse"></i></a>
                         <a href="https://www.facebook.com/zaposljavanje.ba/"><i
-                                    class="fa fa-2x fa-facebook fa-fw text-inverse"></i></a>
+                                    class="fab fa-2x fa-facebook fa-fw text-inverse"></i></a>
                         <br>
                         <br>
                        
@@ -256,11 +256,11 @@ if($searchModel && $searchModel->category) {
                 </div>
                 <div class="col-md-12 hidden-xs text-right" style="margin-top: 30px;">
                     <a href="https://www.instagram.com/zaposljavanje.ba/"><i
-                                class="fa fa-2x fa-fw fa-instagram text-inverse"></i></a>
+                                class="fab fa-2x fa-fw fa-instagram text-inverse"></i></a>
                     <a href="https://www.linkedin.com/company/18282027/"><i
-                                class="fa fa-2x fa-fw fa-linkedin text-inverse"></i></a>
+                                class="fab fa-2x fa-fw fa-linkedin text-inverse"></i></a>
                     <a href="https://www.facebook.com/zaposljavanje.ba/"><i
-                                class="fa fa-2x fa-facebook fa-fw text-inverse"></i></a>
+                                class="fab fa-2x fa-facebook fa-fw text-inverse"></i></a>
                     <br>
                     <br>
                     
