@@ -92,7 +92,7 @@ class EmployerController extends Controller
                     ['html' => 'uplata-html', 'text' => 'uplata-text'],
                     ['user' => $model]
                 )
-                ->setFrom("no-reply@zaposljavanje.ba")
+                ->setFrom("support@demblock.com")
                 ->setTo($model->email)
                 ->setSubject("Tokens have been added to your account")
                 ->send();

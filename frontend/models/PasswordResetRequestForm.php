@@ -60,7 +60,7 @@ class PasswordResetRequestForm extends Model
                 ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
                 ['user' => $user]
             )
-            ->setFrom("no-reply@zaposljavanje.ba")
+            ->setFrom("support@demblock.com")
             ->setTo($this->email)
             ->setSubject('Zaposljavanje.BA - Password reset')
             ->send();
@@ -101,7 +101,7 @@ class PasswordResetRequestForm extends Model
                 $mailContent,
                 ['user' => $user]
             )
-            ->setFrom("no-reply@zaposljavanje.ba")
+            ->setFrom("support@demblock.com")
             ->setTo($this->email)
             ->setSubject($subject)
             ->send();

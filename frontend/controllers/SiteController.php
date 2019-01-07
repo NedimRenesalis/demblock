@@ -938,7 +938,7 @@ class SiteController extends Controller
                     'advert' => $advert
                 ]
             )
-            ->setFrom("no-reply@zaposljavanje.ba")
+            ->setFrom("support@demblock.com")
             ->setTo($user->email)
             //->setBcc('samra@renesalis-packaging.com')
             ->setSubject("Your listing")
