@@ -62,7 +62,7 @@ class PasswordResetRequestForm extends Model
             )
             ->setFrom("support@demblock.com")
             ->setTo($this->email)
-            ->setSubject('Zaposljavanje.BA - Password reset')
+            ->setSubject('demblock.com - Password reset')
             ->send();
     }
 
@@ -86,13 +86,13 @@ class PasswordResetRequestForm extends Model
         }
 
         $mailContent =  ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'];
-        $subject = 'Zaposljavanje.BA - Password reset';
+        $subject = 'demblock.com - Password reset';
         if($language == "BA"){
             $mailContent =  ['html' => 'passwordResetToken-BA-html', 'text' => 'passwordResetToken-BA-text'];
-            $subject = 'Zaposljavanje.BA - Promjena lozinke';
+            $subject = 'demblock.com - Promjena lozinke';
         }else if($language == "DE"){
             $mailContent =  ['html' => 'passwordResetToken-DE-html', 'text' => 'passwordResetToken-DE-text'];
-            $subject = 'Zaposljavanje.BA - Passwort zurücksetzen';
+            $subject = 'demblock.com - Passwort zurücksetzen';
         }
 
         return Yii::$app
