@@ -786,7 +786,9 @@ class SiteController extends Controller
         $modelOld = Advert::find()->where(["id" => $id])->one();
         $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
         $data = $modelOld->attributes;
-
+        if($user->language == ''){
+            $user->language = 'BA';
+        }
         $model = new Advert();
         $model->setAttributes($data);
 
@@ -938,7 +940,7 @@ class SiteController extends Controller
                     'advert' => $advert
                 ]
             )
-            ->setFrom("no-reply@zaposljavanje.ba")
+            ->setFrom("support@demblock.com")
             ->setTo($user->email)
             //->setBcc('samra@renesalis-packaging.com')
             ->setSubject("Your listing")
@@ -959,6 +961,10 @@ class SiteController extends Controller
                 $noMoneyMessage = 'Your credit is too low.';
             } else if ($user->language == "DE") {
                 $noMoneyMessage = 'Ihr Guthaben ist zu niedrig.';
+            }
+
+            if($user->language == ''){
+                $user->language = 'BA';
             }
 
             if ($user == null) {
@@ -999,7 +1005,6 @@ class SiteController extends Controller
                 $model->position = (string)$model->position;
 
                 $toPay = $this->calculatePayment($user->language, $model->type, $model->number_of_days, $model->number_of_positions, $model->anonymously);
-
 
                 switch ($model->payment) {
                     case 1:

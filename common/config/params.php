@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'no-reply@zaposljavanje.ba',
-    'supportEmail' =>  'no-reply@zaposljavanje.ba',
+    'adminEmail' => 'support@demblock.com',
+    'supportEmail' =>  'support@demblock.com',
     'user.passwordResetTokenExpire' => 3600,
 ];

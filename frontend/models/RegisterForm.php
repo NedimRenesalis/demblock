@@ -281,6 +281,7 @@ public $countryArray = array(
         $user->last_name = $this->last_name;
         $user->first_name = $this->first_name;
         $user->address = $this->address;
+        $user->language = 'BA';
 
         //$dialCode = '';
         $validCountry = false;
