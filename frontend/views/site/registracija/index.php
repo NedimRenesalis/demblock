@@ -102,7 +102,7 @@ $this->title = 'Registration';
             </div>
 
 
-            <div class="last-column">
+            <div>
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center form-input">
                         <?= $form->field($model, 'userType')->radioList([2 => 'Supplier', 3 =>'Buyer', 4 => 'Both'])->label('I am a: ') ?>
@@ -117,7 +117,7 @@ $this->title = 'Registration';
 
                 <div class="form-group">
                     <div class="col-sm-12 text-center form-input">
-                        <input type="submit" class="active btn btn-block btn-info" value="Confirm"/>
+                        <button type="submit" class="active btn btn-block btn-primary">Confirm</button>
                     </div>
                 </div>
             </div>

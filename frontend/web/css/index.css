@@ -8334,6 +8334,12 @@ footer.section.section-success {
     display: inline-block;
 }
 
+.field-registerform-usertype {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 #registerform-usertype label {
     width: auto;
     display: inline-block;

@@ -215,7 +215,7 @@ $countryArray = array(
             <h3>My Dashboard</h3> 
 
             <div class="controls">  
-                <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fa fa-pencil">&nbsp; </i>MODIFY FORMS</a>
+                <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fas fa-pencil-alt">&nbsp; </i>MODIFY FORMS</a>
             </div>   
         </div>
 
@@ -299,7 +299,7 @@ $countryArray = array(
             <div class="info-header">
                 <h3>Contact information</h3> 
                 <div class="controls">
-                    <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
+                    <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
                 </div>  
             </div>
             <div class="info-content">
@@ -336,7 +336,7 @@ $countryArray = array(
             <div class="info-header">
                 <h3>Company Information</h3> 
                 <div class="controls">
-                    <a href="<?= Url::to('company-details'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
+                    <a href="<?= Url::to('company-details'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
                 </div> 
             </div>
             <div class="info-content">
@@ -368,7 +368,7 @@ $countryArray = array(
             <div class="info-header">
                 <h3>Sourcing Information</h3> 
                 <div class="controls">
-                    <a href="<?= Url::to('sourcing-information'); ?>"><i class="fa fa-pencil"> &nbsp;</i> MODIFY FORMS</a>
+                    <a href="<?= Url::to('sourcing-information'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
                 </div> 
             </div>
             <div class="info-content">
