@@ -197,7 +197,7 @@ if($searchModel && $searchModel->category) {
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 <?=$form
                                 ->field($subscribeModel, 'email', [
-                                    'template' => "{label}\n<i class='fa fa-envelope-o subscribe-icon' aria-hidden='true'></i>\n{input}\n{hint}\n{error}",
+                                    'template' => "{label}\n<i style='padding-top: 7px;' class='fas fa-envelope subscribe-icon' aria-hidden='true'></i>\n{input}\n{hint}\n{error}",
                                 ])
                                 ->textInput([
                                     'placeholder' => \Yii::t('app', 'email address'),
