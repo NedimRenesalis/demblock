@@ -113,7 +113,7 @@ $countryArray = array(
         'LB'=>array('name'=>'LEBANON','code'=>'961'),
         'LC'=>array('name'=>'SAINT LUCIA','code'=>'1758'),
         'LI'=>array('name'=>'LIECHTENSTEIN','code'=>'423'),
-        'LK'
+        
         'LS'=>array('name'=>'LESOTHO','code'=>'266'),
         'LT'=>array('name'=>'LITHUANIA','code'=>'370'),
         'LU'=>array('name'=>'LUXEMBOURG','code'=>'352'),
