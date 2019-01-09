@@ -206,6 +206,60 @@ $countryArray = array(
 'ZA'=>array('name'=>'SOUTH AFRICA','code'=>'27'),
 'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
 );
+
+
+$server_post = Yii::$app->params['postItemDapp'];
+$server_info = Yii::$app->params['itemInfoDapp'];
+$server_chain = Yii::$app->params['offChainServer'];
+
+$script = <<< JS
+    /**
+        Frame render store.
+     */
+    function renderStore(id) {
+        $('<iframe>', {
+            src: "$server_post?id=" + id,
+            id:  'user-frame',
+            frameborder: 0,
+            width: '100%',
+            height: '650',
+            scrolling: 'no'
+            }).appendTo('#user-verification-space');
+    }
+
+    /**
+        Frame render data.
+     */
+    function renderData(id) {
+        $('<iframe>', {
+            src: "$server_info?user=" + id,
+            id:  'user-frame',
+            width: '100%',
+            height: '450',
+            frameborder: 0,
+            scrolling: 'no'
+            }).appendTo('#user-verification-space');
+    }
+
+    /**
+        Set proper frame to profile.
+     */
+    $(document).ready(function(){
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "$server_chain/searchProduct?id=$model->id",
+            "method": "GET",
+            "data": ""
+        }
+
+        $.ajax(settings).done(function (p) {
+            if(p.length == 0)      renderStore($model->id);
+            else                   renderData($model->id);
+        });
+    });
+JS;
+$this->registerJs($script);
 ?>
 
 <div class="info-container">
@@ -287,6 +341,13 @@ $countryArray = array(
                         echo 'none';
                     }
                 ?>
+                </span>
+            </div>
+            <div class="user-info-line"></div><br>
+            <div class="main-info" style="width: 100%; height: 100%; padding-left: 0px; padding-right: 0px;">
+               <b><span class="title" style="font-size: 24px;">Verifications</span></b>
+                <span class="main-info-text">
+                    <div id="user-verification-space"></div>
                 </span>
             </div>
         </div>
@@ -391,4 +452,3 @@ $countryArray = array(
         </div>
     </div>
 </div>
-

@@ -210,6 +210,42 @@ $countryArray = array(
         'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
     );
 use yii\helpers\Url;
+$server_info = Yii::$app->params['itemInfoDapp'];
+$server_chain = Yii::$app->params['offChainServer'];
+
+$script = <<< JS
+    /**
+        Frame render data.
+     */
+    function renderData(id) {
+        $('<iframe>', {
+            src: "$server_info?user=" + id,
+            id:  'user-frame',
+            width: '100%',
+            height: '450',
+            frameborder: 0,
+            scrolling: 'no'
+            }).appendTo('#user-verification-space');
+    }
+
+    /**
+        Set proper frame to profile.
+     */
+    $(document).ready(function(){
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "$server_chain/searchProduct?id=$model->id",
+            "method": "GET",
+            "data": ""
+        }
+
+        $.ajax(settings).done(function (p) {
+            renderData($model->id);
+        });
+    });
+JS;
+$this->registerJs($script);
 ?>
 
 <br>
@@ -305,6 +341,13 @@ use yii\helpers\Url;
                         echo $model->mainProducts;
                     endif; ?>
                 </span>
+                </div>
+                <div class="user-info-line"></div><br>
+                <div class="main-info" style="width: 100%; height: 100%; padding-left: 0px; padding-right: 0px;">
+                <b><span class="title" style="font-size: 24px;">Verifications</span></b>
+                    <span class="main-info-text">
+                        <div id="user-verification-space"></div>
+                    </span>
                 </div>
             </div>
         </div>
