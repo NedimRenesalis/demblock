@@ -27,10 +27,40 @@ $this->title = 'Zapošljavanje';
     </div>
 </div>
 <section class="gprice-section">
-			<div class="container">
-				<div class="row">
+			<div class="container-fluid">
+				<div class="row" style="display: flex;">
+
 					<!-- Single Table -->
-					<div class="col-lg-4 col-12 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+					<div class="col-lg-4 col-12 wow fadeInUp" data-wow-delay="0.4s" style="max-width: 20%;margin-left: 57px;visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+						<div class="g-table5 gprice-single">
+							<!-- Table Head -->
+							<div class="gprice-head-green">
+								<h2 class="g-title-green">Prime</h2>
+								<!-- Table Price -->
+								<div class="g-amount" style="background: linear-gradient(to right, #55edc7 0%, #154724 100%);">
+									<p class="amount">20 </p>
+								</div>
+							</div>
+							<!-- Table List -->
+							<ul class="gprice-list">
+							<li>LISTING FEES</li>
+								<li>20 tokens for 15 days</li>
+								<li>30 tokens for 30 days</li>
+								<li>40 tokens for 40 days</li>
+								<li>Most visible listing</li>
+							
+							</ul>
+							<!-- Table Bottom -->
+							<div class="gprice-bottom">
+								<a class="g-button bordered-green radius" href="#">Good deal</a>
+							</div>
+						</div>
+					</div>
+					<!-- End Single Table-->
+
+					<div style="width: 100%;display: flex;align-items: center;justify-content: center;"> 
+						<!-- Single Table -->
+					<div class="col-lg-4 col-12 wow fadeInUp col-g" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
 						<div class="g-table5 gprice-single">
 							<!-- Table Head -->
 							<div class="gprice-head">
@@ -57,7 +87,7 @@ $this->title = 'Zapošljavanje';
 					</div>
 					<!-- End Single Table-->
 					<!-- Single Table -->
-					<div class="col-lg-4 col-12 wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+					<div class="col-lg-4 col-12 wow fadeInUp col-g" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
 						<div class="g-table5 gprice-single">
 							<!-- Table Head -->
 							<div class="gprice-head">
@@ -83,7 +113,7 @@ $this->title = 'Zapošljavanje';
 					</div>
 					<!-- End Single Table-->
 					<!-- Single Table -->
-					<div class="col-lg-4 col-12 wow fadeInUp" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+					<div class="col-lg-4 col-12 wow fadeInUp col-g" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
 						<div class="g-table5 gprice-single">
 							<!-- Table Head -->
 							<div class="gprice-head">
@@ -110,6 +140,8 @@ $this->title = 'Zapošljavanje';
 						</div>
 					</div>
 					<!-- End Single Table-->
+					</div>
+					
 				</div>	
 			</div>	
 		</section>
