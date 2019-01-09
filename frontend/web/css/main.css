@@ -1238,8 +1238,6 @@ body, .main-content {
 }
 
 .sign-container {
-    height: 100%;
-    margin: auto;
     display: flex;
     background-color: white;
     flex-direction: column;
