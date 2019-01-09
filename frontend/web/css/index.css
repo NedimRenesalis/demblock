@@ -8315,7 +8315,7 @@ footer.section.section-success {
 }
 
 .subscribe-input {
-    padding-left: 2.5em;
+    padding-left: 32px !important;
 }
 
 .field-subscribeform-email .help-block {
