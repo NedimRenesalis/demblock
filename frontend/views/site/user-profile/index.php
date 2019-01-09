@@ -40,9 +40,7 @@ $countryArray = array(
 
 'BZ'=>array('name'=>'BELIZE','code'=>'501'),
 'CA'=>array('name'=>'CANADA','code'=>'1'),
-'CD'=>array('name'=>'CONGO, THE DEMOCRATIC REPUBLIC OF THE','code'=>'243'),
-'CF'=>array('name'=>'CENTRAL AFRICAN REPUBLIC','code'=>'236'),
-'CG'=>array('name'=>'CONGO','code'=>'242'),
+
 'CH'=>array('name'=>'SWITZERLAND','code'=>'41'),
 'CI'=>array('name'=>'COTE D IVOIRE','code'=>'225'),
 'CK'=>array('name'=>'COOK ISLANDS','code'=>'682'),
@@ -64,8 +62,8 @@ $countryArray = array(
 'DZ'=>array('name'=>'ALGERIA','code'=>'213'),
 'EC'=>array('name'=>'ECUADOR','code'=>'593'),
 'EE'=>array('name'=>'ESTONIA','code'=>'372'),
-'EG'=>array('name'=>'EGYPT','code'=>'20'),
-'ER'=>array('name'=>'ERITREA','code'=>'291'),
+
+
 'ES'=>array('name'=>'SPAIN','code'=>'34'),
 
 'FI'=>array('name'=>'FINLAND','code'=>'358'),
@@ -84,7 +82,7 @@ $countryArray = array(
 'GQ'=>array('name'=>'EQUATORIAL GUINEA','code'=>'240'),
 'GR'=>array('name'=>'GREECE','code'=>'30'),
 'GT'=>array('name'=>'GUATEMALA','code'=>'502'),
-'GW'=>array('name'=>'GUINEA-BISSAU','code'=>'245'),
+
 'HK'=>array('name'=>'HONG KONG','code'=>'852'),
 'HN'=>array('name'=>'HONDURAS','code'=>'504'),
 'HR'=>array('name'=>'CROATIA','code'=>'385'),
@@ -117,7 +115,7 @@ $countryArray = array(
 'LT'=>array('name'=>'LITHUANIA','code'=>'370'),
 'LU'=>array('name'=>'LUXEMBOURG','code'=>'352'),
 'LV'=>array('name'=>'LATVIA','code'=>'371'),
-    'LY'=>array('name'=>'LIBYAN ARAB JAMAHIRIYA','code'=>'218'),
+
 'MA'=>array('name'=>'MOROCCO','code'=>'212'),
 'MC'=>array('name'=>'MONACO','code'=>'377'),
 'MD'=>array('name'=>'MOLDOVA, REPUBLIC OF','code'=>'373'),

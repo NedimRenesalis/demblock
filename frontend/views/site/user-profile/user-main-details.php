@@ -89,7 +89,7 @@ $countryArray = array(
 'GQ'=>array('name'=>'EQUATORIAL GUINEA','code'=>'240'),
 'GR'=>array('name'=>'GREECE','code'=>'30'),
 'GT'=>array('name'=>'GUATEMALA','code'=>'502'),
-'GW'=>array('name'=>'GUINEA-BISSAU','code'=>'245'),
+
 'HK'=>array('name'=>'HONG KONG','code'=>'852'),
 'HN'=>array('name'=>'HONDURAS','code'=>'504'),
 'HR'=>array('name'=>'CROATIA','code'=>'385'),

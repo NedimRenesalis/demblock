@@ -116,8 +116,8 @@ class SiteController extends Controller
         'DZ'=>array('name'=>'ALGERIA','code'=>'213'),
         'EC'=>array('name'=>'ECUADOR','code'=>'593'),
         'EE'=>array('name'=>'ESTONIA','code'=>'372'),
-        'EG'=>array('name'=>'EGYPT','code'=>'20'),
-        'ER'=>array('name'=>'ERITREA','code'=>'291'),
+        
+       
         'ES'=>array('name'=>'SPAIN','code'=>'34'),
        
         'FI'=>array('name'=>'FINLAND','code'=>'358'),
@@ -136,7 +136,7 @@ class SiteController extends Controller
         'GQ'=>array('name'=>'EQUATORIAL GUINEA','code'=>'240'),
         'GR'=>array('name'=>'GREECE','code'=>'30'),
         'GT'=>array('name'=>'GUATEMALA','code'=>'502'),
-        'GW'=>array('name'=>'GUINEA-BISSAU','code'=>'245'),
+       
         'HK'=>array('name'=>'HONG KONG','code'=>'852'),
         'HN'=>array('name'=>'HONDURAS','code'=>'504'),
         'HR'=>array('name'=>'CROATIA','code'=>'385'),
@@ -169,7 +169,7 @@ class SiteController extends Controller
         'LT'=>array('name'=>'LITHUANIA','code'=>'370'),
         'LU'=>array('name'=>'LUXEMBOURG','code'=>'352'),
         'LV'=>array('name'=>'LATVIA','code'=>'371'),
-        'LY'=>array('name'=>'LIBYAN ARAB JAMAHIRIYA','code'=>'218'),
+       
         'MA'=>array('name'=>'MOROCCO','code'=>'212'),
         'MC'=>array('name'=>'MONACO','code'=>'377'),
         'MD'=>array('name'=>'MOLDOVA, REPUBLIC OF','code'=>'373'),
@@ -178,7 +178,7 @@ class SiteController extends Controller
         'MG'=>array('name'=>'MADAGASCAR','code'=>'261'),
        
         'MK'=>array('name'=>'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF','code'=>'389'),
-        'ML'=>array('name'=>'MALI','code'=>'223'),
+    
         'MM'=>array('name'=>'MYANMAR','code'=>'95'),
         'MN'=>array('name'=>'MONGOLIA','code'=>'976'),
         'MO'=>array('name'=>'MACAU','code'=>'853'),

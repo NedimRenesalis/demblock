@@ -249,11 +249,11 @@ $this->title = 'Pikpay';
                                         <option value="Slovakia">Slovakia</option>
                                         <option value="Slovenia">Slovenia</option>
                                         <option value="Solomon Islands">Solomon Islands</option>
-                                        <option value="Somalia">Somalia</option>
+                                       
                                         <option value="South Africa">South Africa</option>
                                         <option value="Spain">Spain</option>
                                     
-                                        <option value="Sudan">Sudan</option>
+                                      
                                         <option value="Suriname">Suriname</option>
                                         <option value="Swaziland">Swaziland</option>
                                         <option value="Sweden">Sweden</option>
