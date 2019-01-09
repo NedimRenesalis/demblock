@@ -34,7 +34,7 @@ if($searchModel && $searchModel->category) {
     $searchBar = ``
 ?> 
 <div>
-<video class="videobg" autoplay loop src="<?= Url::to("@web/css/ad.mp4"); ?>" frameborder="0"></video>
+<video class="videobg" autoplay loop src="<?= Url::to("@web/css/ad.mp4"); ?>" muted plays-inline frameborder="0"></video>
 <div class="overlay"></div>
 <div class="overlay2"></div>
     <div class="header">
@@ -197,7 +197,7 @@ if($searchModel && $searchModel->category) {
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 <?=$form
                                 ->field($subscribeModel, 'email', [
-                                    'template' => "{label}\n<i style='padding-top: 7px;' class='fas fa-envelope subscribe-icon' aria-hidden='true'></i>\n{input}\n{hint}\n{error}",
+                                    'template' => "{label}\n<i class='fa fa-envelope-o subscribe-icon' aria-hidden='true'></i>\n{input}\n{hint}\n{error}",
                                 ])
                                 ->textInput([
                                     'placeholder' => \Yii::t('app', 'email address'),
