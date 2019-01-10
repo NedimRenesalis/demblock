@@ -1729,7 +1729,13 @@ ul.nav.navbar-nav.navbar-right {
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    height: 56vh;
+    min-height: 10vh;
+    height: auto;
+}
+
+.info .main-info-text.user-verif {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .user-info {

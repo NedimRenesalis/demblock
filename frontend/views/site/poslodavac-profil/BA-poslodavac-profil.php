@@ -208,8 +208,8 @@ $countryArray = array(
         'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
     );
 use yii\helpers\Url;
-$server_info = Yii::$app->params['itemInfoDapp'];
-$server_chain = Yii::$app->params['offChainServer'];
+$user_query = Yii::$app->params['userQuery'];
+$user_items = Yii::$app->params['itemInfoDapp'];
 
 $script = <<< JS
     /**
@@ -217,31 +217,16 @@ $script = <<< JS
      */
     function renderData(id) {
         $('<iframe>', {
-            src: "$server_info?user=" + id,
+            src: "$user_items?$user_query=" + id,
             id:  'user-frame',
             width: '100%',
             height: '450',
             frameborder: 0,
             scrolling: 'no'
             }).appendTo('#user-verification-space');
+        iFrameResize({log:false}, '#user-frame')
     }
-
-    /**
-        Set proper frame to profile.
-     */
-    $(document).ready(function(){
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "$server_chain/searchProduct?id=$model->id",
-            "method": "GET",
-            "data": ""
-        }
-
-        $.ajax(settings).done(function (p) {
-            renderData($model->id);
-        });
-    });
+    renderData($model->id);
 JS;
 $this->registerJs($script);
 ?>
@@ -340,10 +325,15 @@ $this->registerJs($script);
                     endif; ?>
                 </span>
                 </div>
-                <div class="user-info-line"></div><br>
                 <div class="main-info" style="width: 100%; height: 100%; padding-left: 0px; padding-right: 0px;">
-                <b><span class="title" style="font-size: 24px;">Verifications</span></b>
-                    <span class="main-info-text">
+                    <div class="info-header">
+                        <h3>Verifications</h3> 
+
+                        <div class="controls">  
+                        
+                        </div>   
+                    </div>
+                    <span class="main-info-text" style="padding-left: 0px; padding-right: 0px">
                         <div id="user-verification-space"></div>
                     </span>
                 </div>

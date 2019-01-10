@@ -206,38 +206,71 @@ $countryArray = array(
 );
 
 
-$server_post = Yii::$app->params['postItemDapp'];
-$server_info = Yii::$app->params['itemInfoDapp'];
+$user_query = Yii::$app->params['userQuery'];
+$userId_query = Yii::$app->params['userIdQuery'];
+$exists_query = Yii::$app->params['userExistsQuery'];
+
+$user_items = Yii::$app->params['itemInfoDapp'];
+$user_post = Yii::$app->params['postItemDapp'];
 $server_chain = Yii::$app->params['offChainServer'];
 
 $script = <<< JS
+    jQuery(function($){
+        var lastHeight = 0, curHeight = 0, frame = $('iframe:eq(0)');
+        setInterval(function(){
+            curHeight = frame.contents().find('body').height();
+            if ( curHeight != lastHeight ) {
+                frame.css('height', (lastHeight = curHeight) + 'px' );
+            }
+        }, 500);
+    });
+
     /**
-        Frame render store.
+        Frame render add new.
      */
-    function renderStore(id) {
+    function renderAddNew(id) {
+        $("#user-verification-space").empty();
+
         $('<iframe>', {
-            src: "$server_post?id=" + id,
+            src: "$user_post?$user_query=" + id,
             id:  'user-frame',
             frameborder: 0,
             width: '100%',
-            height: '650',
             scrolling: 'no'
             }).appendTo('#user-verification-space');
+
+        iFrameResize({log:false}, '#user-frame')
     }
 
     /**
         Frame render data.
      */
     function renderData(id) {
+        $("#user-verification-space").empty();
+
         $('<iframe>', {
-            src: "$server_info?user=" + id,
+            src: "$user_items?$user_query=" + id,
             id:  'user-frame',
             width: '100%',
-            height: '450',
             frameborder: 0,
             scrolling: 'no'
             }).appendTo('#user-verification-space');
+            
+        iFrameResize({log:false}, '#user-frame')
     }
+
+    /**
+        On click add new verification button.
+     */
+    $( "#add-verification" ).click(function(e) {
+        e.preventDefault();
+        renderAddNew($model->id);
+    });
+
+    $( "#cancel-verification" ).click(function(e) {
+        e.preventDefault();
+        renderData($model->id);
+    });
 
     /**
         Set proper frame to profile.
@@ -246,14 +279,13 @@ $script = <<< JS
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "$server_chain/searchProduct?id=$model->id",
+            "url": "$server_chain/$exists_query?$userId_query=$model->id",
             "method": "GET",
             "data": ""
         }
 
         $.ajax(settings).done(function (p) {
-            if(p.length == 0)      renderStore($model->id);
-            else                   renderData($model->id);
+            renderData($model->id);
         });
     });
 JS;
@@ -341,10 +373,16 @@ $this->registerJs($script);
                 ?>
                 </span>
             </div>
-            <div class="user-info-line"></div><br>
             <div class="main-info" style="width: 100%; height: 100%; padding-left: 0px; padding-right: 0px;">
-               <b><span class="title" style="font-size: 24px;">Verifications</span></b>
-                <span class="main-info-text">
+                <div class="info-header">
+                    <h3>Verifications</h3> 
+
+                    <div class="controls">  
+                        <a href="#" class="text-red" id="cancel-verification"><i class="fas fa-undo">&nbsp; </i>VIEW MINE</a>
+                        <a href="#" id="add-verification"><i class="fas fa-plus">&nbsp; </i>ADD NEW</a>
+                    </div>   
+                </div>
+                <span class="main-info-text user-verif">
                     <div id="user-verification-space"></div>
                 </span>
             </div>
