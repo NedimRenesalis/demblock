@@ -2269,10 +2269,20 @@ nav {
 	margin:0;
 }
 
-.col-g {
-    max-width: 27%;
+.row-col {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
 }
-
+.col-g {
+    max-width: 21%;
+    min-width: 348px;
+}
+.col-g-b {
+    max-width: 21%;
+    min-width: 548px;
+}
 @keyframes fadeInUp {
     0% {
       opacity: 0;
