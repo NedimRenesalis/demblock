@@ -17,7 +17,7 @@ $this->title = 'Zapošljavanje';
         <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
         <?= $form->field($model, 'password')->passwordInput(['autofocus' => true])->label('') ?>
         <div class="form-group">
-            <?= Html::submitButton('Sačuvaj', ['class' => 'active btn btn-block btn-primary']) ?>
+            <?= Html::submitButton('Save', ['class' => 'active btn btn-block btn-primary']) ?>
         </div>
         <?php ActiveForm::end(); ?>
     </div>

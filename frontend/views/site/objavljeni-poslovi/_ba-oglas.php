@@ -79,25 +79,22 @@ if ($ini == 0) {
 
           <br>
             <div class="job-location">
-                <div>Location: <?php echo $model->location; ?></div>
+                <div>SHIPPING FROM: <?php echo $model->location; ?></div>
             </div>
             <div class="">
                 
             </div>
-            <div class="job-category">
-                <?php echo $model->position; ?>
-            </div>
+           
 
-            <br>
+            
             <br>
         </div>
 
         <div class="applications">
-        <center>    <a class="active btn btn-primary"
-               href="<?= Url::to(['aplikacije', 'id' => $model->id]); ?>">Aplicirali</a> </center>
+        <center>   <br> <br>
             <?php if($model->end_advert < Yii::$app->formatter->asTimestamp(date("Y-m-d H:i:s"))):?>
-            <a class="active btn btn-success"
-               href="<?= Url::to(['obnovi-oglas', 'id' => $model->id]); ?>">Obnovi oglas</a>
+           <a class="active btn btn-success"
+               href="<?= Url::to(['obnovi-oglas', 'id' => $model->id]); ?>">LIST THIS PRODUCT AGAIN</a></center>
             <?php endif; ?>
         </div>
     </div>
