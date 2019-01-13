@@ -228,11 +228,11 @@ $script = <<< JS
     /**
         Frame render add new.
      */
-    function renderAddNew(id) {
+    function renderAddNew(id, hash) {
         $("#user-verification-space").empty();
 
         $('<iframe>', {
-            src: "$user_post?$user_query=" + id,
+            src: "$user_post?$user_query=" + id + "&hash=" + hash,
             id:  'user-frame',
             frameborder: 0,
             width: '100%',
@@ -264,7 +264,7 @@ $script = <<< JS
      */
     $( "#add-verification" ).click(function(e) {
         e.preventDefault();
-        renderAddNew($model->id);
+        renderAddNew($model->id, "$model->profile_hash");
     });
 
     $( "#cancel-verification" ).click(function(e) {

@@ -6,5 +6,8 @@ return [
     'itemInfoDapp' => "http://localhost:8080/user-items.html",
     'userQuery' => "user",
     'userIdQuery' => "userId",
-    'userExistsQuery' => "modelExists"
+    'userExistsQuery' => "modelExists",
+    'allowedDomains'  => [
+        'http://localhost:8080'
+    ]
 ];

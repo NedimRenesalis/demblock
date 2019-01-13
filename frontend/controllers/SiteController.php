@@ -258,6 +258,11 @@ class SiteController extends Controller
         'ZA'=>array('name'=>'SOUTH AFRICA','code'=>'27'),
         'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
     );
+    
+    public static function allowedDomains()
+    {
+        return Yii::$app->params["allowedDomains"];
+    }  
 
     public function beforeAction($action)
     {
@@ -290,7 +295,7 @@ class SiteController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['visit', 'logout', 'signup', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
-                    'objavljeni-poslovi', 'aplicirani-poslovi', 'aplikacije', 'obnovi-oglas', 'html', 'pdf'],
+                    'objavljeni-poslovi', 'aplicirani-poslovi', 'aplikacije', 'obnovi-oglas', 'html', 'pdf', 'checkhash'],
                 'rules' => [
                     [
                         'actions' => ['visit', 'signup'],
@@ -299,7 +304,7 @@ class SiteController extends Controller
                     ],
                     [
                         'actions' => ['subscribe', 'visit', 'logout', 'upload-logo', 'upload-cv', 'upload-banner', 'profil-poslodavac', 'profil-posloprimac', 'download-cv', 'apply',
-                            'objavljeni-poslovi', 'aplicirani-poslovi', 'aplikacije', 'obnovi-oglas', 'html', 'pdf'],
+                            'objavljeni-poslovi', 'aplicirani-poslovi', 'aplikacije', 'obnovi-oglas', 'html', 'pdf', 'checkhash'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -309,6 +314,16 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                ],
+            ],
+            'corsFilter'  => [
+                'class' => \yii\filters\Cors::className(),
+                'cors'  => [
+                    // restrict access to domains:
+                    'Origin'                           => static::allowedDomains(),
+                    'Access-Control-Request-Method'    => ['POST'],
+                    'Access-Control-Allow-Credentials' => true,
+                    'Access-Control-Max-Age'           => 3600,                 // Cache (seconds)
                 ],
             ],
         ];
@@ -1458,7 +1473,7 @@ class SiteController extends Controller
         return ['result' => 'success'];
     }
 
-        /**
+    /**
      * @return array|Response
      * @throws \Exception
      */
@@ -2083,9 +2098,15 @@ class SiteController extends Controller
                 $companyInformation = CompanyInformation::find()->where(['UserId' => $user->id])->one();
                 $sourcingInformation = SourcingInformation::find()->where(['UserId' => $user->id])->one();
 
+
+                /// Generate random hash.
+                $user->profile_hash = Yii::$app->security->generateRandomString() . '_' . time();
+                $user->save();
+
                 if ($user->load(Yii::$app->request->post())) {
                     $user->save();
                 }
+
                 return $this->render('user-profile/index', [
                     'model'       => $user,
                     'registered'  => $this->registered,
@@ -2231,4 +2252,23 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+    
+    /**
+     * @return array|Response
+     */
+    public function actionCheckHash($id, $hash)
+    {
+        /* set the output to json */
+        response()->format = Response::FORMAT_JSON;
+        $user = User::find()->where(['id' => $id])->one();
+        if ($user == null) {
+            return ['success' => false, 'reason' => t('app', 'Invalid user')];
+        }
+
+        if(strcmp($hash, $user->profile_hash) != 0) { 
+            return ["success" => false,  'reason' => t('app', 'Verification failed')];
+        }
+
+        return ["success" => true];
+    }
 }

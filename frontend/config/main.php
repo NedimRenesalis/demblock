@@ -95,6 +95,7 @@ return [
                 'inbox' => 'message/inbox',
                 'sent' => 'message/sent',
                 'compose' => 'message/compose',
+                'check-hash/<id:\d+>/<hash:\w+>' => 'site/check-hash',
             ],
         ],
     ],

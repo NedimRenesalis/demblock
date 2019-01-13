@@ -44,6 +44,7 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property string $password write-only password
  * @property string $mainProducts
+ * @property string $profile_hash
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -82,7 +83,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['company_description'], 'string'],
             [['mainProducts'], 'string', 'max' => 10000],
             [['first_name', 'money', 'last_name', 'year_of_birth', 'gender', 'education_level', 'career_level', 'additional_experience',
-                'phone', 'language', 'address', 'company_name', 'pdv', 'full_name', 'email', 'job', 'location', 'isBlocked', 'zip_code','company_description', 'banner', 'mainProducts'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process']
+                'phone', 'language', 'address', 'company_name', 'pdv', 'full_name', 'email', 'job', 'location', 'isBlocked', 'zip_code','company_description', 'banner', 'mainProducts', 'profile_hash'], 'filter', 'filter' => '\yii\helpers\HtmlPurifier::process']
         ];
     }
 
