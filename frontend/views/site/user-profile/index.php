@@ -204,6 +204,92 @@ $countryArray = array(
 'ZA'=>array('name'=>'SOUTH AFRICA','code'=>'27'),
 'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
 );
+
+
+$user_query = Yii::$app->params['userQuery'];
+$userId_query = Yii::$app->params['userIdQuery'];
+$exists_query = Yii::$app->params['userExistsQuery'];
+
+$user_items = Yii::$app->params['itemInfoDapp'];
+$user_post = Yii::$app->params['postItemDapp'];
+$server_chain = Yii::$app->params['offChainServer'];
+
+$script = <<< JS
+    jQuery(function($){
+        var lastHeight = 0, curHeight = 0, frame = $('iframe:eq(0)');
+        setInterval(function(){
+            curHeight = frame.contents().find('body').height();
+            if ( curHeight != lastHeight ) {
+                frame.css('height', (lastHeight = curHeight) + 'px' );
+            }
+        }, 500);
+    });
+
+    /**
+        Frame render add new.
+     */
+    function renderAddNew(id) {
+        $("#user-verification-space").empty();
+
+        $('<iframe>', {
+            src: "$user_post?$user_query=" + id,
+            id:  'user-frame',
+            frameborder: 0,
+            width: '100%',
+            scrolling: 'no'
+            }).appendTo('#user-verification-space');
+
+        iFrameResize({log:false}, '#user-frame')
+    }
+
+    /**
+        Frame render data.
+     */
+    function renderData(id) {
+        $("#user-verification-space").empty();
+
+        $('<iframe>', {
+            src: "$user_items?$user_query=" + id,
+            id:  'user-frame',
+            width: '100%',
+            frameborder: 0,
+            scrolling: 'no'
+            }).appendTo('#user-verification-space');
+            
+        iFrameResize({log:false}, '#user-frame')
+    }
+
+    /**
+        On click add new verification button.
+     */
+    $( "#add-verification" ).click(function(e) {
+        e.preventDefault();
+        renderAddNew($model->id);
+    });
+
+    $( "#cancel-verification" ).click(function(e) {
+        e.preventDefault();
+        renderData($model->id);
+    });
+
+    /**
+        Set proper frame to profile.
+     */
+    $(document).ready(function(){
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "$server_chain/$exists_query?$userId_query=$model->id",
+            "method": "GET",
+            "data": ""
+        }
+
+        $.ajax(settings).done(function (p) {
+            renderData($model->id);
+        });
+    });
+JS;
+$this->registerJs($script);
 ?>
 
 <div class="info-container">
@@ -285,6 +371,19 @@ $countryArray = array(
                         echo 'none';
                     }
                 ?>
+                </span>
+            </div>
+            <div class="main-info" style="width: 100%; height: 100%; padding-left: 0px; padding-right: 0px;">
+                <div class="info-header">
+                    <h3>Verifications</h3> 
+
+                    <div class="controls">  
+                        <a href="#" class="text-red" id="cancel-verification"><i class="fas fa-undo">&nbsp; </i>VIEW MINE</a>
+                        <a href="#" id="add-verification"><i class="fas fa-plus">&nbsp; </i>ADD NEW</a>
+                    </div>   
+                </div>
+                <span class="main-info-text user-verif">
+                    <div id="user-verification-space"></div>
                 </span>
             </div>
         </div>
@@ -389,4 +488,3 @@ $countryArray = array(
         </div>
     </div>
 </div>
-

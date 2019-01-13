@@ -768,6 +768,7 @@ hr.job-divider {
 
 .job-controls a {
     margin: 0 !important;
+    flex: 1;
     border-radius: 0 !important;
 }
 
@@ -1814,7 +1815,13 @@ ul.nav.navbar-nav.navbar-right {
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    height: 56vh;
+    min-height: 10vh;
+    height: auto;
+}
+
+.info .main-info-text.user-verif {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .user-info {
@@ -2354,10 +2361,20 @@ nav {
 	margin:0;
 }
 
-.col-g {
-    max-width: 27%;
+.row-col {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
 }
-
+.col-g {
+    max-width: 21%;
+    min-width: 348px;
+}
+.col-g-b {
+    max-width: 21%;
+    min-width: 548px;
+}
 @keyframes fadeInUp {
     0% {
       opacity: 0;

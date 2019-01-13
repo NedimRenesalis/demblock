@@ -75,16 +75,18 @@ if ($ini == 0) {
                href="<?= Url::to(['oglas', "id" => $model->id]); ?>"><?=  $model->position; ?></a>
         </div>
 
-        <div class="job-location">
-            Location: <?php echo $model->location; ?>
+        <div class="job-employer-wrapper">
+
+          <br>
+            <div class="job-location">
+                <div>SHIPPING FROM: <?php echo $model->location; ?></div>
+            </div>
         </div>
 
         <div class="job-controls">
-            <a class="btn btn-primary link"
-               href="<?= Url::to(['aplikacije', 'id' => $model->id]); ?>">Aplicirali</a>   
             <?php if($model->end_advert < Yii::$app->formatter->asTimestamp(date("Y-m-d H:i:s"))):?>
-            <a class="btn btn-success link"
-               href="<?= Url::to(['obnovi-oglas', 'id' => $model->id]); ?>">Obnovi oglas</a>
+           <a class="btn btn-success"
+               href="<?= Url::to(['obnovi-oglas', 'id' => $model->id]); ?>">LIST THIS PRODUCT AGAIN</a>
             <?php endif; ?>
         </div>
     </div>

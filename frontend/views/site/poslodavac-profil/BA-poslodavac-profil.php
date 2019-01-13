@@ -113,7 +113,7 @@ $countryArray = array(
         'LB'=>array('name'=>'LEBANON','code'=>'961'),
         'LC'=>array('name'=>'SAINT LUCIA','code'=>'1758'),
         'LI'=>array('name'=>'LIECHTENSTEIN','code'=>'423'),
-        'LK'
+        
         'LS'=>array('name'=>'LESOTHO','code'=>'266'),
         'LT'=>array('name'=>'LITHUANIA','code'=>'370'),
         'LU'=>array('name'=>'LUXEMBOURG','code'=>'352'),
@@ -208,6 +208,27 @@ $countryArray = array(
         'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
     );
 use yii\helpers\Url;
+$user_query = Yii::$app->params['userQuery'];
+$user_items = Yii::$app->params['itemInfoDapp'];
+
+$script = <<< JS
+    /**
+        Frame render data.
+     */
+    function renderData(id) {
+        $('<iframe>', {
+            src: "$user_items?$user_query=" + id,
+            id:  'user-frame',
+            width: '100%',
+            height: '450',
+            frameborder: 0,
+            scrolling: 'no'
+            }).appendTo('#user-verification-space');
+        iFrameResize({log:false}, '#user-frame')
+    }
+    renderData($model->id);
+JS;
+$this->registerJs($script);
 ?>
 
 <br>
@@ -303,6 +324,18 @@ use yii\helpers\Url;
                         echo $model->mainProducts;
                     endif; ?>
                 </span>
+                </div>
+                <div class="main-info" style="width: 100%; height: 100%; padding-left: 0px; padding-right: 0px;">
+                    <div class="info-header">
+                        <h3>Verifications</h3> 
+
+                        <div class="controls">  
+                        
+                        </div>   
+                    </div>
+                    <span class="main-info-text" style="padding-left: 0px; padding-right: 0px">
+                        <div id="user-verification-space"></div>
+                    </span>
                 </div>
             </div>
         </div>

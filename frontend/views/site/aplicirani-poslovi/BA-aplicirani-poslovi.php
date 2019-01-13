@@ -24,7 +24,7 @@ $this->title = 'Zapošljavanje';
 
             <?php else: ?>
 <br><br><br><br><br><br><br><br><br>
-        <b>     <center>   <?= "None of your products has been tagged as favourite yet"; ?></center></b>
+        <b>     <center>   <?= "None product has been tagged as favourite yet"; ?></center></b>
 
             <?php endif; ?>
         </div>
