@@ -7,18 +7,19 @@ $this->title = 'Zapošljavanje';
 <br>
 <div class="section text-justify">
     <div class="container">
-        <div class="row">
-            <div class="a-search-button col-lg-4 col-md-4 col-sm-4  col-xs-12">
-                <a class="active btn btn-primary" href="<?= Url::to('objavljeni-poslovi'); ?>">All listed and delisted products</a>
+        <div class="row tabs">
+            <div class="tab-item is-active">
+                <a
+                    href="<?= Url::to('objavljeni-poslovi'); ?>">All listed and delisted products</a>
             </div>
             
-            <div class="a-search-button col-lg-4 col-md-4  col-sm-4 col-xs-12">
-                <a class="active btn btn-primary"
+            <div class="tab-item">
+                <a
                    href="<?= Url::to(['objavljeni-poslovi', 'type' => 'active']); ?>">All listed products</a>
             </div>
             
-            <div class="a-search-button col-lg-4 col-md-4  col-sm-4 col-xs-12">
-                <a class="active btn btn-primary "
+            <div class="tab-item">
+                <a
                    href="<?= Url::to(['objavljeni-poslovi', 'type' => 'inactive']); ?>">All delisted products</a>
             </div>
             

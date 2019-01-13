@@ -42,11 +42,9 @@ if ($ini == 0) {
 }
 ?>
 
-<div class="platinum-premium">
-
 <div class="section new-job">
 
-    <div class="col-lg-2 col-md-2 ">
+    <div>
 
         <?php if ($model->anonymously): ?>
             <div>
@@ -67,36 +65,25 @@ if ($ini == 0) {
             </div>
         <?php endif; ?>
     </div>
-<br>
-    <div class="col-lg-10 col-md-10 ">
 
+    <div class="new-job-content">
+        <div class="job-category">
+            <span>Category: <?= $model->category ?></span>
+        </div>
         <div class="job-title">
             <a target="_blank"
-               href="<?= Url::to(['oglas', "id" => $model->id]); ?>"><?= $model->category . ": " . $model->position; ?></a>
+               href="<?= Url::to(['oglas', "id" => $model->id]); ?>"><?=  $model->position; ?></a>
         </div>
 
-        <div class="job-employer-wrapper">
-
-          <br>
-            <div class="job-location">
-                <div>Location: <?php echo $model->location; ?></div>
-            </div>
-            <div class="">
-                
-            </div>
-            <div class="job-category">
-                <?php echo $model->position; ?>
-            </div>
-
-            <br>
-            <br>
+        <div class="job-location">
+            Location: <?php echo $model->location; ?>
         </div>
 
-        <div class="applications">
-        <center>    <a class="active btn btn-primary"
-               href="<?= Url::to(['aplikacije', 'id' => $model->id]); ?>">Aplicirali</a> </center>
+        <div class="job-controls">
+            <a class="btn btn-primary link"
+               href="<?= Url::to(['aplikacije', 'id' => $model->id]); ?>">Aplicirali</a>   
             <?php if($model->end_advert < Yii::$app->formatter->asTimestamp(date("Y-m-d H:i:s"))):?>
-            <a class="active btn btn-success"
+            <a class="btn btn-success link"
                href="<?= Url::to(['obnovi-oglas', 'id' => $model->id]); ?>">Obnovi oglas</a>
             <?php endif; ?>
         </div>
@@ -104,6 +91,3 @@ if ($ini == 0) {
 
 
 </div>
-</div>
-
-<hr class="job-divider">
