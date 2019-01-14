@@ -19,6 +19,10 @@
     border-bottom: 1px solid #e0e0e0;
 }
 
+.list-view .text-center {
+    width: 100%;
+}
+
 .tab-item {
     color: #756969;
     margin: 0px 10px;

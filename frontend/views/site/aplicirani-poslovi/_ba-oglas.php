@@ -44,7 +44,7 @@ if ($ini == 0) {
 
 <div class="section new-job">
 
-    <div class="col-lg-2 col-md-2 ">
+    <div>
 
         <?php if ($model->anonymously): ?>
             <div >
@@ -63,15 +63,13 @@ if ($ini == 0) {
 
     </div>
 
-    <div class="col-lg-10 col-md-10 ">
+    <div>
 
         <div class="job-title">
             <a target="_blank"
                href="<?= Url::to(['oglas', "id" => $model->id]); ?>"><?= $model->position; ?></a>
         </div>
-<br>
         <div class="job-employer-wrapper">
-<br>
             <div class="job-employer">
 
                 <?php if ($model->anonymously): ?>
@@ -80,18 +78,10 @@ if ($ini == 0) {
                     <a target="_blank"
                        href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
                 <?php endif; ?>
-<br>
-<br>
             </div>
             <div class="job-location">
                 <?= "&nbsp;·&nbsp; " . $model->location . ", " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
             </div>
-
         </div>
-
-
     </div>
-
-<br>
 </div>
-<hr class="job-divider">
