@@ -236,7 +236,7 @@ if (!Yii::$app->user->isGuest) {
                       </div>
                   <?php endif; ?>
               </div>
-                <div class="sec">
+                <div class="sec" style="flex-direction: row !important;">
                     <?php if ($employee): ?>
                         <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
                              data-applied-id="<?= $model->id; ?>">Product tagged
