@@ -105,7 +105,7 @@ if($searchModel->category) {
             ?>
             <?php else: ?>
 
-                <?= "NO RESULTS"; ?>
+                <span style="margin-left: 27px;"><?= "NO RESULTS"; ?></span>
 
             <?php endif; ?>
         </div>

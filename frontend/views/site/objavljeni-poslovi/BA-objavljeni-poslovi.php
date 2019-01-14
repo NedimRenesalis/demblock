@@ -28,7 +28,7 @@ $this->title = 'Zapošljavanje';
 </div>
 
 <div class="section text-justify">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <?php if ($dataProvider->totalCount > 0): ?>
             <?php echo ListView::widget([

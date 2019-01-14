@@ -6,7 +6,7 @@ $this->title = 'Zapošljavanje';
 ?>
 
 <div class="section text-justify">
-    <div class="container">
+    <div class="container-fluid" style="margin-top: 30px;">
         <div class="row">
 
             <?php if ($dataProvider->totalCount > 0): ?>
