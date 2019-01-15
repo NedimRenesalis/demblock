@@ -14,7 +14,7 @@ $this->title = 'Zapošljavanje';
 
                 <br> <strong>These listing fees only include product listing services on our marketplace for a selected time period without corporate and sourcing verification.</strong>
 <br>
-				<br>Product listings expire and get delisted after the selected time period expires - and can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for an infinite period of time. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
+				<br>Product listings expire and get delisted after the selected time period expires - and can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for a minimum three months period. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
 
                 <br>More information about corporate and sourcing verification can be found in the "Corporate verification" section.
                
@@ -34,7 +34,7 @@ $this->title = 'Zapošljavanje';
 						<div class="g-table5 gprice-single">
 							<!-- Table Head -->
 							<div class="gprice-head-green">
-								<h2 class="g-title-green">Prime</h2>
+								<h2 class="g-title-green">VERIFICATIONS</h2>
 								<!-- Table Price -->
 								<div class="g-amount" style="background: linear-gradient(to right, #55edc7 0%, #154724 100%); border-radius: 21%;">
 									<p class="amount">20 </p>
@@ -42,16 +42,16 @@ $this->title = 'Zapošljavanje';
 							</div>
 							<!-- Table List -->
 							<ul class="gprice-list">
-							<li>LISTING FEES</li>
-								<li>20 tokens for 15 days</li>
-								<li>30 tokens for 30 days</li>
-								<li>40 tokens for 40 days</li>
-								<li>Most visible listing</li>
+							<li>LISTING FEE is 20 tokens per verification</li>
+								<li>Corporate verification</li>
+								<li>Sourcing verification</li>
+								<li>Multiple verifications offered</li>
+								<li>Up to 5 document uploads per verification</li>
 							
 							</ul>
 							<!-- Table Bottom -->
 							<div class="gprice-bottom">
-								<a class="g-button bordered-green radius" href="#">Good deal</a>
+								<a class="g-button bordered-green radius" href="#">Verified supplier</a>
 							</div>
 						</div>
 					</div>
