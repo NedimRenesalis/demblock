@@ -260,19 +260,6 @@ $script = <<< JS
     }
 
     /**
-        On click add new verification button.
-     */
-    $( "#add-verification" ).click(function(e) {
-        e.preventDefault();
-        renderAddNew($model->id, "$model->profile_hash");
-    });
-
-    $( "#cancel-verification" ).click(function(e) {
-        e.preventDefault();
-        renderData($model->id);
-    });
-
-    /**
         Set proper frame to profile.
      */
     $(document).ready(function(){
@@ -284,9 +271,26 @@ $script = <<< JS
             "data": ""
         }
 
-        $.ajax(settings).done(function (p) {
-            renderData($model->id);
-        });
+        $.ajax(settings)
+            .done(function (p) {
+                renderData($model->id);
+
+                /**
+                    On click add new verification button.
+                */
+                $("#add-verification").show();
+                $("#cancel-verification").show();
+                
+                $( "#add-verification" ).click(function(e) {
+                    e.preventDefault();
+                    renderAddNew($model->id, "$model->profile_hash");
+                });
+
+                $( "#cancel-verification" ).click(function(e) {
+                    e.preventDefault();
+                    renderData($model->id);
+                });
+            });
     });
 JS;
 $this->registerJs($script);
@@ -378,12 +382,17 @@ $this->registerJs($script);
                     <h3>Verifications</h3> 
 
                     <div class="controls">  
-                        <a href="#" class="text-red" id="cancel-verification"><i class="fas fa-undo">&nbsp; </i>VIEW MINE</a>
-                        <a href="#" id="add-verification"><i class="fas fa-plus">&nbsp; </i>ADD NEW</a>
+                        <a href="#" class="text-red" id="cancel-verification" style="display: none"><i class="fas fa-undo">&nbsp; </i>VIEW MINE</a>
+                        <a href="#" id="add-verification" style="display: none"><i class="fas fa-plus">&nbsp; </i>ADD NEW</a>
                     </div>   
                 </div>
                 <span class="main-info-text user-verif">
-                    <div id="user-verification-space"></div>
+                    <div id="user-verification-space">
+                        <br>
+                        <div style="border-radius: 0; margin-bottom: 0" class="alert alert-danger">
+                            <h4 style="margin: 0; text-align: center" id="empty-text">⚠ Connection failed!</h4>
+                        </div>
+                    </div>
                 </span>
             </div>
         </div>
