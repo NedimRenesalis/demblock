@@ -213,6 +213,7 @@ $exists_query = Yii::$app->params['userExistsQuery'];
 $user_items = Yii::$app->params['itemInfoDapp'];
 $user_post = Yii::$app->params['postItemDapp'];
 $server_chain = Yii::$app->params['offChainServer'];
+$allowed_domains = implode(",", Yii::$app->params["allowedDomains"]);
 
 $script = <<< JS
     jQuery(function($){
@@ -254,9 +255,24 @@ $script = <<< JS
             width: '100%',
             frameborder: 0,
             scrolling: 'no'
-            }).appendTo('#user-verification-space');
+        }).appendTo('#user-verification-space');
             
-        iFrameResize({log:false}, '#user-frame')
+        iFrameResize({log:false}, '#user-frame');
+    }
+
+    if (!window.addEventListener) {
+        window.attachEvent('onmessage', handleMessage);
+    } else {
+        window.addEventListener('message', handleMessage, false);
+    }
+
+    function handleMessage(event) {
+        if ("$allowed_domains".indexOf(event.origin) >= 0) {
+            if (event.data.event_id === 'zoomimage') {
+                $('#imagepreview').attr('src', event.data.data.hash); 
+                $('#imagemodal').modal('show');
+            }
+        }
     }
 
     /**
@@ -387,7 +403,7 @@ $this->registerJs($script);
                     </div>   
                 </div>
                 <span class="main-info-text user-verif">
-                    <div id="user-verification-space">
+                    <div class="iframetrack" id="user-verification-space">
                         <br>
                         <div style="border-radius: 0; margin-bottom: 0" class="alert alert-danger">
                             <h4 style="margin: 0; text-align: center" id="empty-text">⚠ Connection failed!</h4>
@@ -492,6 +508,24 @@ $this->registerJs($script);
                 </div>
                 <div class="table-field">
                     <span class="title">Preferred Industries: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image show -->
+        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="imagepreview" style="width: 100%;" >
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
                 </div>
             </div>
         </div>

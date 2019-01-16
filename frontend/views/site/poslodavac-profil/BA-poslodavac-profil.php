@@ -226,6 +226,22 @@ $script = <<< JS
             }).appendTo('#user-verification-space');
         iFrameResize({log:false}, '#user-frame')
     }
+    
+    if (!window.addEventListener) {
+        window.attachEvent('onmessage', handleMessage);
+    } else {
+        window.addEventListener('message', handleMessage, false);
+    }
+
+    function handleMessage(event) {
+        if ("$allowed_domains".indexOf(event.origin) >= 0) {
+            if (event.data.event_id === 'zoomimage') {
+                $('#imagepreview').attr('src', event.data.data.hash); 
+                $('#imagemodal').modal('show');
+            }
+        }
+    }
+
     renderData($model->id);
 JS;
 $this->registerJs($script);
@@ -465,10 +481,22 @@ $this->registerJs($script);
             <?php endif; ?>
         </div>
     </div>
-
-
-
-
+    <!-- Image show -->
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+            </div>
+            <div class="modal-body">
+                <img src="" id="imagepreview" style="width: 100%;" >
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 </div>
