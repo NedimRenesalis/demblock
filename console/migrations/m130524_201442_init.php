@@ -58,17 +58,6 @@ class m130524_201442_init extends Migration
             'updated_at' => $this->integer()->notNull(),
             'mainProducts' => $this->string(10000),
         ], $tableOptions);
-
-        $user = new User();
-        $user->username = "admin";
-        $user->email = "admin@admin.com";
-        $user->full_name = "ADMIN";
-        $user->user_type = 1;
-        $user->language = "BA";
-        $user->password_hash = Yii::$app->security->generatePasswordHash("noviposao2017");
-        $user->generateAuthKey();
-        $user->save();
-
     }
 
     public function down()
