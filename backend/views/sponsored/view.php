@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Sponzorisani oglasi', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 <div class="sponsored-view">
 

@@ -10,7 +10,7 @@ use frontend\models\SourcingInformation;
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $this->params['breadcrumbs'][] = ['label' => 'Posloprimci', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 

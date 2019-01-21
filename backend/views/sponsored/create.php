@@ -9,7 +9,7 @@ use yii\helpers\Html;
 $this->title = 'Create Sponsored';
 $this->params['breadcrumbs'][] = ['label' => 'Sponsoreds', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 <div class="sponsored-create">
 

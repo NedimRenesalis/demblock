@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 <div class="site-error">
 

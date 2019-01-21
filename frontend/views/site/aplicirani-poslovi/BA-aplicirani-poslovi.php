@@ -2,7 +2,7 @@
 use yii\widgets\ListView;
 use yii\helpers\Url;
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 
 <div class="section text-justify">

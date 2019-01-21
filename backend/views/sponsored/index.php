@@ -9,7 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Sponsoreds';
 $this->params['breadcrumbs'][] = $this->title;
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 <div class="sponsored-index">
 

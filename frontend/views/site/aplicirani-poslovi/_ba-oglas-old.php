@@ -19,7 +19,7 @@ use yii\helpers\Url;
             <?php if ($model->anonymously): ?>
                 <div class="company col-lg-3 col-md-6">
                     <div>Kompanija:</div>
-                    <div>ZAPOŠLJAVANJE.BA</div>
+                    <div>demblock.BA</div>
                 </div>
             <?php else: ?>
                 <div class="company col-lg-3 col-md-6">
@@ -100,7 +100,7 @@ use yii\helpers\Url;
             <?php if ($model->anonymously): ?>
                 <div class="company col-lg-3 col-md-6">
                     <div>Kompanija:</div>
-                    <div>ZAPOŠLJAVANJE.BA</div>
+                    <div>demblock.BA</div>
                 </div>
             <?php else: ?>
                 <div class="company col-lg-3 col-md-6">

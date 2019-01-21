@@ -11,7 +11,7 @@ use yii\helpers\Url;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $this->params['breadcrumbs'][] = $this->title;
 
 

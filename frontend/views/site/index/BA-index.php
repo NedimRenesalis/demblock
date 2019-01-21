@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use frontend\models\Categories;
 
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $categories = Categories::find()->where(["ParentId" => null])->orderBy(['Name' => SORT_ASC])->all();
 $jobs = [];
 foreach ($categories as $category) {

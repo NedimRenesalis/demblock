@@ -10,7 +10,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use common\models\User;
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -30,7 +30,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Zapošljavanje',
+        'brandLabel' => 'demblock',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',

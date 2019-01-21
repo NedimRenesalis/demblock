@@ -5,7 +5,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 <div class="site-index">
 

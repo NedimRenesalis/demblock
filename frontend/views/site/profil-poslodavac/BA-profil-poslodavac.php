@@ -3,7 +3,7 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use common\models\User;
 use dosamigos\ckeditor\CKEditor;
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $money = User::getUserMoneyByUsername(Yii::$app->user->identity->username)
 
 ?>

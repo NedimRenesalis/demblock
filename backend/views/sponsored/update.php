@@ -9,7 +9,7 @@ $this->title = 'Update Sponsored: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Sponsoreds', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 <div class="sponsored-update">
 

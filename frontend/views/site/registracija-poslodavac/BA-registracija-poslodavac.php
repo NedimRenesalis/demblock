@@ -6,7 +6,7 @@ use dosamigos\ckeditor\CKEditor;
 
 use yii\captcha\Captcha;
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 
 <div class="section" id="registration-page">

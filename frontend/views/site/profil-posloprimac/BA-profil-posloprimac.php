@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 
 $genders = ['Muško' => ' Muško', 'Žensko' => 'Žensko'];
 

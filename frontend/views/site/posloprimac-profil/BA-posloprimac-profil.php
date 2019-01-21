@@ -5,7 +5,7 @@
  * Date: 30.5.2017
  * Time: 18:43
  */
-$this->title="Zapošljavanje";
+$this->title="demblock";
 ?>
 <br>
 <br>

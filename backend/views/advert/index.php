@@ -11,7 +11,7 @@ use backend\models\Categories;
 /* @var $searchModel backend\models\AdvertSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="advert-index">

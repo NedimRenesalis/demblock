@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">

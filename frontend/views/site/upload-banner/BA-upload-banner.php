@@ -3,7 +3,7 @@ use frontend\assets\UploadAsset;
 
 UploadAsset::register($this);
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 
 use yii\widgets\ActiveForm;
 

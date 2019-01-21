@@ -1,7 +1,7 @@
 <?php
 use frontend\assets\UploadAsset;
 UploadAsset::register($this);
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 
 <form id="upload" method="post" action="site/upload-logo-file" enctype="multipart/form-data">

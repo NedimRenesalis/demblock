@@ -10,7 +10,7 @@ use yii\helpers\Url;
 use common\models\User;
 use common\models\Apply;
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $apply = false;
 if (!Yii::$app->user->isGuest) {
     $user = User::find()->where(['username' => Yii::$app->user->identity->username])->one();

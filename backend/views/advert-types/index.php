@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\AdvertTypesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="advert-types-index">

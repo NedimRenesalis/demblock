@@ -1,7 +1,7 @@
 <?php
 use yii\widgets\ListView;
 use yii\helpers\Url;
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 <br>
 <br>

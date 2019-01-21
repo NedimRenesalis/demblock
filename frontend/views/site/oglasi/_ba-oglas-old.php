@@ -28,7 +28,7 @@ if(!Yii::$app->user->isGuest){
             <?php if ($model->anonymously): ?>
                 <div class="company col-lg-3 col-md-6">
                     <div><b>Kompanija:</b></div>
-                    <div>ZAPOŠLJAVANJE.BA</div>
+                    <div>demblock.BA</div>
                 </div>
             <?php else: ?>
                 <div class="company col-lg-3 col-md-6">
@@ -117,7 +117,7 @@ if(!Yii::$app->user->isGuest){
             <?php if ($model->anonymously): ?>
                 <div class="company col-lg-3 col-md-6">
                     <div><b>Kompanija:</b></div>
-                    <div>ZAPOŠLJAVANJE.BA</div>
+                    <div>demblock.BA</div>
                 </div>
             <?php else: ?>
                 <div class="company col-lg-3 col-md-6">

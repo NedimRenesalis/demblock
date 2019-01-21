@@ -9,7 +9,7 @@ use kartik\datetime\DateTimePicker;
 use dosamigos\ckeditor\CKEditor;
 use frontend\models\Categories;
 
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 
 UploadAsset::register($this);
 $script = <<< JS

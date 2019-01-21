@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
-$this->title = 'Zapošljavanje';
+$this->title = 'demblock';
 ?>
 
 <div class="sign-container">
