@@ -5,10 +5,23 @@
     border-bottom: none;
     position: relative;
     margin-bottom: 0;
-    height: 55px;
     display: flex;
     align-items: center;
 }
+
+@media screen and (max-width: 770px) {
+    .navbar-collapse ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+
+.navbar-collapse ul li {
+    margin-top: 10px;
+}
+
 
 .tabs {
     display: flex;
@@ -1578,7 +1591,7 @@ label {
 }
 
 ul.nav.navbar-nav.navbar-right {
-    margin-top: 5px;
+    margin-top: 24px;
 }
 
 .login-btn img,
