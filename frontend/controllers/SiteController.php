@@ -2100,7 +2100,7 @@ class SiteController extends Controller
 
 
                 /// Generate random hash.
-                $user->profile_hash = Yii::$app->security->generateRandomString() . '_' . time();
+                $user->profile_hash = bin2hex(random_bytes(16)) . '_' . time();
                 $user->save();
 
                 if ($user->load(Yii::$app->request->post())) {
