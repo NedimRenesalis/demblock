@@ -302,11 +302,17 @@ textarea {
 .navbar-inverse .navbar-nav>li>a {
     color: white !important;
     margin: 5px 0 0 2px;
-    font-size: 14px;
+    font-size: 16px;
     padding: 5px;
     padding: 3px 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 5px !important;
 }
 
+.navbar-inverse .navbar-nav>.active>a {
+    
+}
 .navbar-inverse .navbar-nav>li>a>i {
     border: unset;
     color: black;
