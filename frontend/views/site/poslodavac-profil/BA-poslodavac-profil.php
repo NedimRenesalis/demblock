@@ -210,6 +210,7 @@ $countryArray = array(
 use yii\helpers\Url;
 $user_query = Yii::$app->params['userQuery'];
 $user_items = Yii::$app->params['itemInfoDapp'];
+$allowed_domains = implode(",", Yii::$app->params["allowedDomains"]);
 
 $script = <<< JS
     /**
