@@ -41,7 +41,7 @@ class m190113_205020_profile_hash_create extends Migration
         if(isset($table->columns['profile_hash'])) {
             $this->dropColumn('user', 'profile_hash');
         }
-        return false;
+        return true;
     }
     
 }
