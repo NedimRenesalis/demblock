@@ -28,7 +28,7 @@ class m170405_201039_advert_types extends Migration
         $advertType1->type = "platinum";
         $advertType1->language = "BA";
         $advertType1->days = 15;
-        $advertType1->price = 117;
+        $advertType1->price = 20;
         $advertType1->positions = 1000;
         $advertType1->save();
 
@@ -37,7 +37,7 @@ class m170405_201039_advert_types extends Migration
         $advertType2->type = "platinum";
         $advertType2->language = "BA";
         $advertType2->days = 30;
-        $advertType2->price = 175.5;
+        $advertType2->price = 30;
         $advertType2->positions = 1000;
         $advertType2->save();
 
@@ -46,7 +46,7 @@ class m170405_201039_advert_types extends Migration
         $advertType3->type = "platinum";
         $advertType3->language = "BA";
         $advertType3->days = 40;
-        $advertType3->price = 234;
+        $advertType3->price = 40;
         $advertType3->positions = 1000;
         $advertType3->save();
 
@@ -55,7 +55,7 @@ class m170405_201039_advert_types extends Migration
         $advertType4->type = "premium";
         $advertType4->language = "BA";
         $advertType4->days = 30;
-        $advertType4->price = 81.9;
+        $advertType4->price = 25;
         $advertType4->positions = 1;
         $advertType4->save();
 
@@ -64,7 +64,7 @@ class m170405_201039_advert_types extends Migration
         $advertType5->type = "premium";
         $advertType5->language = "BA";
         $advertType5->days = 30;
-        $advertType5->price = 140.4;
+        $advertType5->price = 25;
         $advertType5->positions = 5;
         $advertType5->save();
 
@@ -73,7 +73,7 @@ class m170405_201039_advert_types extends Migration
         $advertType6->type = "premium";
         $advertType6->language = "BA";
         $advertType6->days = 30;
-        $advertType6->price = 198.9;
+        $advertType6->price = 25;
         $advertType6->positions = 10;
         $advertType6->save();
 
@@ -82,7 +82,7 @@ class m170405_201039_advert_types extends Migration
         $advertType7->type = "premium";
         $advertType7->language = "BA";
         $advertType7->days = 30;
-        $advertType7->price = 257.4;
+        $advertType7->price = 25;
         $advertType7->positions = 1000;
         $advertType7->save();
 
@@ -91,7 +91,7 @@ class m170405_201039_advert_types extends Migration
         $advertType8->type = "normal";
         $advertType8->language = "BA";
         $advertType8->days = 30;
-        $advertType8->price = 40.95;
+        $advertType8->price = 10;
         $advertType8->positions = 1000;
         $advertType8->save();
 

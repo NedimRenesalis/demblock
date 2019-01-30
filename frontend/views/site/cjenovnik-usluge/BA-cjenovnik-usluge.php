@@ -46,7 +46,7 @@ $this->title = 'demblock';
 								<li>Corporate verification</li>
 								<li>Sourcing verification</li>
 								<li>Multiple verifications offered</li>
-								<li>Up to 5 document uploads per verification</li>
+								<li>Upload one page per verification</li>
 							
 							</ul>
 							<!-- Table Bottom -->
