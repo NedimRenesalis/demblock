@@ -51,7 +51,7 @@ $this->title = 'demblock';
 							</ul>
 							<!-- Table Bottom -->
 							<div class="gprice-bottom">
-								<a class="g-button bordered-green radius" href="#">Verified supplier</a>
+								<a class="g-button bordered-green radius" href="#">BECOME VERIFIED SUPPLIER</a>
 							</div>
 						</div>
 					</div>
