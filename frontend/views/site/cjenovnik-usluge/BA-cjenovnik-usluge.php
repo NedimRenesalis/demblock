@@ -12,15 +12,15 @@ $this->title = 'demblock';
             <div class="col-md-12 text-center">
                 <h3 class="text-center sign-header" style="color: white;"><b>LISTING FEES</b></h3>
 
-                <br> <strong>These listing fees only include product listing services on our marketplace for a selected time period with optional corporate and sourcing verification.</strong>
+                <br> <strong>These listing fees feature product listing services on our marketplace as well as optional corporate and sourcing verification on the blockchain.</strong>
 <br>
-				<br>Product listings expire and get delisted after the selected time period expires - and can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for an infinite period of time. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
+				<br>Product listings expire and get delisted after the selected time period expires - which optionally can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for an infinite period of time. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
 
                 <br>More information about corporate and sourcing verification can be found in the "Corporate verification" section.
                
 			   <br><br>Our product listing packages are: Prime, Selected and Classic listings. They all include the same extent of product listing features, but are very different considering their visibility on our marketplace. Prime listings are always visible directly without search on the landing page on the top. After them the Selected listings are listed on the landing page. The Classic listings are only visible as results to direct searches in our product search engine.
 			   
-			   <br><br>Nevertheless, prior listing your product we recommend to verify your corporate details and sourcing information on the blockchain, which can - with our tokens - seamlessly be done directly on our marketplace. Thus you as a seller will increase trust and transparency towards your customers.  
+			   <br><br>Nevertheless, prior listing your product we recommend to verify your corporate details and sourcing information on the blockchain, which can - with our tokens - seamlessly be done directly in the "MY DASHBOARD" section. Thus you as a seller will increase trust and transparency towards your customers.  
 			   </u></a>
                 </div>
         </div>
