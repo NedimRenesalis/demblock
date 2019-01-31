@@ -14,7 +14,7 @@ $this->title = 'demblock';
 
                 <br> <strong>These listing fees only include product listing services on our marketplace for a selected time period with optional corporate and sourcing verification.</strong>
 <br>
-				<br>Product listings expire and get delisted after the selected time period expires - and can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for a minimum three months period. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
+				<br>Product listings expire and get delisted after the selected time period expires - and can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for an infinite period of time. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
 
                 <br>More information about corporate and sourcing verification can be found in the "Corporate verification" section.
                
