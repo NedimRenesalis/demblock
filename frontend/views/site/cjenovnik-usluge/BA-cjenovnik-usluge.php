@@ -12,7 +12,7 @@ $this->title = 'demblock';
             <div class="col-md-12 text-center">
                 <h3 class="text-center sign-header" style="color: white;"><b>LISTING FEES</b></h3>
 
-                <br> <strong>These listing fees only include product listing services on our marketplace for a selected time period without corporate and sourcing verification.</strong>
+                <br> <strong>These listing fees only include product listing services on our marketplace for a selected time period with optional corporate and sourcing verification.</strong>
 <br>
 				<br>Product listings expire and get delisted after the selected time period expires - and can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for a minimum three months period. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
 
