@@ -128,10 +128,7 @@ if($searchModel && $searchModel->category) {
             <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;"/>
             <span>Listing fees</span>
         </a>
-        <a class="section-item" href="<?= Url::to('kontakt-prodaja'); ?>">
-            <img src=<?= Url::to('@web/css/images/section-img/kontakt-prodaja.png'); ?> />
-            <span>Corporate verification</span>
-        </a>
+        
        
     </div>
 </div>

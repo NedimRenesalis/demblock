@@ -16,7 +16,7 @@ $this->title = 'demblock';
 <br>
 				<br>Product listings expire and get delisted after the selected time period expires - which optionally can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for an infinite period of time. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
 
-                <br>More information about corporate and sourcing verification can be found in the "Corporate verification" section.
+                <br>More information about corporate and sourcing verification can be found in the "MY DASHBOARD" - VERIFICATION section.
                
 			   <br><br>Our product listing packages are: Prime, Selected and Classic listings. They all include the same extent of product listing features, but are very different considering their visibility on our marketplace. Prime listings are always visible directly without search on the landing page on the top. After them the Selected listings are listed on the landing page. The Classic listings are only visible as results to direct searches in our product search engine.
 			   
