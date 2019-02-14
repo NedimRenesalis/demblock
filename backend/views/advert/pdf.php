@@ -69,7 +69,7 @@ if ($advert->type == 1) {
             <div style="width: 50%; float: left; text-align: center">
                 <div>&nbsp;</div>
                 <div>&nbsp;</div>
-                <div><b>Renesalis d.o.o. - www.zaposljavanje.ba</b></div>
+                <div><b>la la www.zaposljavanje.ba</b></div>
                 <div>Igmanska bb, 71320 Vogošća, BiH</div>
                 <div>Tel: 00387-62-332-325</div>
                 <div>oglasi@zaposljavanje.ba</div>
