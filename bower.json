@@ -1,0 +1,22 @@
+{
+  "name": "machinepicker1",
+  "homepage": "https://github.com/NedimRenesalis/machinepicker1",
+  "authors": [
+    "Nedim Begic <nedim@renesalis-packaging.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "blueimp-gallery": "^2.33.0",
+    "bootstrap": "3.3.7"
+  }
+}
