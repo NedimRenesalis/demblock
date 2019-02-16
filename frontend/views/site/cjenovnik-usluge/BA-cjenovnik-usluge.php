@@ -16,10 +16,10 @@ $this->title = 'demblock';
 <br>
 				<br>Product listings expire and get delisted after the selected time period expires - which optionally can be relisted for the below mentioned fees again -  whereas corporate and sourcing verification is paid only once to get notarized as decentralized information on the blockchain immutably for an infinite period of time. Both services - the product listing as well as the corporate and sourcing verification only can be paid with our tokens.
 
-                <br>More information about corporate and sourcing verification can be found in the "MY DASHBOARD" - VERIFICATION section.
+                <br><br>More information about corporate and sourcing verification can be found in the "MY DASHBOARD" - VERIFICATION section. Payment of the corporate and sourcing verification on the blockchain is done f.e. via Metamask. When you access your dashboard section on the DemBlock marketplace, make sure you are logged on your Metamask account. After filling the verification form and clicking on "Verify on the blockchain" Metamask transaction confirmation will pop up, where you can confirm your transaction with 20 DemBlock tokens per verification and a small ETH gas fee.
                
 			   <br><br>Our product listing packages are: Prime, Selected and Classic listings. They all include the same extent of product listing features, but are very different considering their visibility on our marketplace. Prime listings are always visible directly without search on the landing page on the top. After them the Selected listings are listed on the landing page. The Classic listings are only visible as results to direct searches in our product search engine.
-			   
+			   The payment of the product listing is done on a prepaid basis. Please send DemBlock tokens from the wallet address you registed with to this address: 0x1238eF7E752c7956E9bDDf1aa9e0262B5811E285. Minimum amount is 100 DemBlock tokens. After that the DemBlock tokens will be addredd to your account. You will get an automated notification email.
 			   <br><br>Nevertheless, prior listing your product we recommend to verify your corporate details and sourcing information on the blockchain, which can - with our tokens - seamlessly be done directly in the "MY DASHBOARD" section. Thus you as a seller will increase trust and transparency towards your customers.  
 			   </u></a>
                 </div>

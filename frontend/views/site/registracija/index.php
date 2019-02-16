@@ -59,7 +59,7 @@ $this->title = 'Registration';
                 </div>
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center form-input">
-                        <?= $form->field($model, 'address')->textInput(['placeholder' => ''])->label('Your wallet address from which you are going to pay with our tokens on our marketplace') ?>
+                        <?= $form->field($model, 'address')->textInput(['placeholder' => ''])->label('Your wallet address from which you are going to pay using DemBlock tokens') ?>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@ $this->title = 'Registration';
             <div class="last-section">
                 <div class="col-md-12 text-center">
                     <br><p class="text-center">
-                        In order to upload your corporate logo, provide corporate verification and list your product/s, please login into your account after successfull registration. </p>
+                        In order to upload your corporate information and logo, to list your product/s as well as to notarize corporate and sourcing information on the blockchain, please login into your account after successfull registration. </p>
                     <p class="text-center" contenteditable="true">
                       
                         &nbsp;By pressing the CONFIRM button you agree to our Listing Policy, Terms Of Use and Privacy Policy. &nbsp;</p>
