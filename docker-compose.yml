@@ -26,8 +26,8 @@ services:
       - nginx-proxy
       - login-proxy
     environment:
-      - MYSQL_DATABASE
-      - MYSQL_USER
+      - MYSQL_DATABASE=zaposljavanje
+      - MYSQL_USER=zaposljavanje
       - MYSQL_PASSWORD
   # -
   # - MySQL 5.7 db
@@ -44,8 +44,8 @@ services:
       - mysql-network
     environment:
       - MYSQL_ROOT_PASSWORD
-      - MYSQL_DATABASE
-      - MYSQL_USER
+      - MYSQL_DATABASE=zaposljavanje
+      - MYSQL_USER=zaposljavanje
       - MYSQL_PASSWORD
   # -
   # - PHPMYADMIN
@@ -61,7 +61,7 @@ services:
     ports:
       - 8181:80
     environment:
-      - MYSQL_USER
+      - MYSQL_USER=zaposljavanje
       - MYSQL_PASSWORD
       - MYSQL_ROOT_PASSWORD
       - PMA_HOST=mysql
