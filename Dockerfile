@@ -6,6 +6,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && mv composer /usr/local/bin/ \
     && rm -rf /var/cache/apk/* 
 
+# Get composer fixes
+RUN composer global require "fxp/composer-asset-plugin:dev-master"
+
 WORKDIR /app
 COPY . .
 
@@ -13,10 +16,6 @@ COPY . .
 ENV MYSQL_DATABASE=${MYSQL_DATABASE}
 ENV MYSQL_USER=${MYSQL_USER}
 ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
-
-# Load app
-RUN printf '1\nyes\nno' | php init \
-    && composer global require "fxp/composer-asset-plugin:dev-master"
 
 # Give permissions
 RUN chmod 777 /app && \
@@ -26,6 +25,7 @@ RUN chmod 777 /app && \
 
 # Install Composer dependencies
 RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader
+RUN RUN printf '1\nyes\nall' | php init
 
 # Change document root for Apache
 RUN mv /app/server/* /etc/apache2/sites-available/ \
