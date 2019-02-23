@@ -14,11 +14,7 @@ ENV MYSQL_DATABASE=${MYSQL_DATABASE}
 ENV MYSQL_USER=${MYSQL_USER}
 ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
-RUN echo $MYSQL_DATABASE
-RUN echo $MYSQL_USER
-RUN echo $MYSQL_PASSWORD
 # Provision app
-
 RUN printf '1\nyes\nno' | php init \
     && composer install --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader
 
