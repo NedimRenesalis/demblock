@@ -25,7 +25,7 @@ RUN chmod 777 /app && \
 
 # Install Composer dependencies
 RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader
-RUN RUN printf '1\nyes\nall' | php init
+RUN printf '1\nyes\nall' | php init
 
 # Change document root for Apache
 RUN mv /app/server/* /etc/apache2/sites-available/ \
