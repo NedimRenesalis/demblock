@@ -1,0 +1,1 @@
+printf 'yes\n' | php yii migrate

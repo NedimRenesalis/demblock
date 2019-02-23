@@ -1,0 +1,39 @@
+version: '3.2'
+
+services:
+  web:
+    build: .
+    container_name: web_demblock_login
+    ports:
+      - 21080:21080
+      - 20080:20080
+    restart: always
+    volumes:
+      - ./:/app
+    links: 
+      - mysql
+    networks:
+      - nginx-proxy
+      - login-proxy
+  mysql:
+    image: mysql:5.7
+    container_name: db_demblock_login
+    restart: always
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - login-proxy
+    environment:
+      - MYSQL_ROOT_PASSWORD=verysecret!
+      - MYSQL_DATABASE=zaposljavanje
+      - MYSQL_USER=zaposljavanje
+      - MYSQL_PASSWORD=noviposao2017
+
+networks:
+  login-proxy:
+    driver: bridge
+  nginx-proxy:
+    external: true
+
+volumes:
+  dbdata:
