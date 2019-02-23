@@ -14,14 +14,16 @@ ENV MYSQL_DATABASE=${MYSQL_DATABASE}
 ENV MYSQL_USER=${MYSQL_USER}
 ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
-# Provision app
+# Load app
 RUN printf '1\nyes\nno' | php init \
-    && composer global require "fxp/composer-asset-plugin:~1.2.0" \
-    && composer install --no-ansi --no-interaction --no-progress --optimize-autoloader
+    && composer global require "fxp/composer-asset-plugin:dev-master"
 
 # Give permissions
 RUN chmod 775 /app \
     && chmod 775 /app/*
+
+# Install Composer dependencies
+RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader
 
 # Change document root for Apache
 RUN mv /app/server/* /etc/apache2/sites-available/ \
