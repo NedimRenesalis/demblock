@@ -19,8 +19,10 @@ RUN printf '1\nyes\nno' | php init \
     && composer global require "fxp/composer-asset-plugin:dev-master"
 
 # Give permissions
-RUN chmod 775 /app \
-    && chmod 775 /app/*
+RUN chmod 777 /app && \
+    chmod 777 /app/* \
+    chown www-data:www-data /run/apache2/ && \
+    chmod 777 /run/apache2/
 
 # Install Composer dependencies
 RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader
@@ -29,4 +31,4 @@ RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --opt
 RUN mv /app/server/* /etc/apache2/sites-available/ \
     && a2ensite frontend.conf \
     && a2ensite backend.conf \
-    rm -rf /etc/apache2/sites-enabled/000-default.conf
+    && a2dissite 000-default.conf
