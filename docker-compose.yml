@@ -21,9 +21,6 @@ services:
     volumes:
       - ./frontend:/app/frontend
       - ./backend:/app/backend
-    ports:
-      - 20080:20080
-      - 21080:21080
     links: 
       - mysql
     networks:
@@ -63,7 +60,7 @@ services:
     networks:
       - mysql-network
     ports:
-      - 8181:80
+      - 22080:80
     environment:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
