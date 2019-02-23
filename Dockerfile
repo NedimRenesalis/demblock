@@ -4,7 +4,8 @@ FROM yiisoftware/yii2-php:7.2-apache
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=. --filename=composer \
     && mv composer /usr/local/bin/ \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && composer global require "fxp/composer-asset-plugin:~1.1.1"
 
 WORKDIR /app
 COPY . .
