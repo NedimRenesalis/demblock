@@ -16,7 +16,7 @@ ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
 # Provision app
 RUN printf '1\nyes\nno' | php init \
-    && composer install --no-ansi --no-interaction --no-progress --no-scripts --optimize-autoloader
+    && composer install --no-ansi --no-interaction --no-progress --optimize-autoloader
 
 # Give permissions
 RUN chmod 775 /app \
