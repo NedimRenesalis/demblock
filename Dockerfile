@@ -6,11 +6,16 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && mv composer /usr/local/bin/ \
     && rm -rf /var/cache/apk/*
 
+# Set environmental variables
+ENV MYSQL_DATABASE=${MYSQL_DATABASE}
+ENV MYSQL_USER=${MYSQL_USER}
+ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
 # Provision app
 WORKDIR /app
 COPY . .
 RUN printf '1\nyes\nno' | php init \
-    && composer install
+    && composer install --no-ansi --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader
 
 # Give permissions
 RUN chmod 775 /app \

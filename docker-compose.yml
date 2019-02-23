@@ -1,12 +1,22 @@
 version: '3.2'
 
+# -
+# - Service stack
+# - 1) php yii app
+# - 2) mysql
+# - 2) phpmyadmin
+# - networks
+# - volumes
+# -
 services:
+  # -
+  # - Yii2 web service running on:
+  # - 20080 - backend
+  # - 21080 - frontend
+  # -
   web:
     build: .
     container_name: web_demblock_login
-    ports:
-      - 21080:21080
-      - 20080:20080
     restart: always
     volumes:
       - ./:/app
@@ -15,6 +25,14 @@ services:
     networks:
       - nginx-proxy
       - login-proxy
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+  # -
+  # - MySQL 5.7 db
+  # - 3306 - not exposed outside
+  # -
   mysql:
     image: mysql:5.7
     container_name: db_demblock_login
@@ -23,17 +41,48 @@ services:
       - dbdata:/var/lib/mysql
     networks:
       - login-proxy
+      - mysql-network
     environment:
-      - MYSQL_ROOT_PASSWORD=verysecret!
-      - MYSQL_DATABASE=zaposljavanje
-      - MYSQL_USER=zaposljavanje
-      - MYSQL_PASSWORD=noviposao2017
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+  # -
+  # - PHPMYADMIN
+  # - 3306 - not exposed outside
+  # -
+  db-admin:
+    image: phpmyadmin/phpmyadmin:4.6
+    container_name: admin_demblock_login
+    links:
+      - mysql
+    networks:
+      - mysql-network
+    ports:
+      - 8181:80
+    environment:
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
 
+# -
+# - Communication networks
+# - login-proxy   - myslq-app
+# - mysql-network - myslq-phpmyadmin
+# - nginx-proxy   - app-nginx
+# -
 networks:
   login-proxy:
+    driver: bridge
+  mysql-network:
     driver: bridge
   nginx-proxy:
     external: true
 
+# -
+# - Persistance disks
+# -
 volumes:
   dbdata:
