@@ -19,7 +19,8 @@ services:
     container_name: web_demblock_machinepicker
     restart: always
     volumes:
-      - ./:/app
+      - ./frontend:/app/frontend
+      - ./backend:/app/backend
     ports:
       - 20080:20080
       - 21080:21080
