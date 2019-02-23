@@ -24,7 +24,7 @@ RUN chmod 777 /app && \
     chmod 777 /run/apache2/
 
 # Install Composer dependencies
-RUN printf '1\nyes\nno\nall' | php init
+RUN php init --env=Production --overwrite=All
 RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader
 
 # Change document root for Apache
