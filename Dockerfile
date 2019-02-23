@@ -20,7 +20,7 @@ RUN printf '1\nyes\nno' | php init \
 
 # Give permissions
 RUN chmod 777 /app && \
-    chmod 777 /app/* \
+    chmod 777 /app/* && \
     chown www-data:www-data /run/apache2/ && \
     chmod 777 /run/apache2/
 
