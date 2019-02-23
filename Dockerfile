@@ -4,8 +4,7 @@ FROM yiisoftware/yii2-php:7.2-apache
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=. --filename=composer \
     && mv composer /usr/local/bin/ \
-    && rm -rf /var/cache/apk/* \
-    && composer global require "fxp/composer-asset-plugin:~1.1.1"
+    && rm -rf /var/cache/apk/* 
 
 WORKDIR /app
 COPY . .
@@ -17,6 +16,7 @@ ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
 # Provision app
 RUN printf '1\nyes\nno' | php init \
+    && composer global require "fxp/composer-asset-plugin:~1.2.0" \
     && composer install --no-ansi --no-interaction --no-progress --optimize-autoloader
 
 # Give permissions
