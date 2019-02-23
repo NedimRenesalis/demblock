@@ -2,4 +2,4 @@
 
 # Build and apply migrations
 docker-compose up -d --build
-docker exec -it web_demblock_login /bin/bash ./run.sh
+docker exec -it web_demblock_machinepicker /bin/bash ./run.sh

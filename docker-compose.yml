@@ -16,7 +16,7 @@ services:
   # -
   web:
     build: .
-    container_name: web_demblock_login
+    container_name: web_demblock_machinepicker
     restart: always
     volumes:
       - ./:/app
@@ -24,7 +24,7 @@ services:
       - mysql
     networks:
       - nginx-proxy
-      - login-proxy
+      - machinepicker-proxy
     environment:
       - MYSQL_DATABASE=zaposljavanje
       - MYSQL_USER=zaposljavanje
@@ -35,12 +35,12 @@ services:
   # -
   mysql:
     image: mysql:5.7
-    container_name: db_demblock_login
+    container_name: db_demblock_machinepicker
     restart: always
     volumes:
       - dbdata:/var/lib/mysql
     networks:
-      - login-proxy
+      - machinepicker-proxy
       - mysql-network
     environment:
       - MYSQL_ROOT_PASSWORD
@@ -53,7 +53,7 @@ services:
   # -
   db-admin:
     image: phpmyadmin/phpmyadmin:4.6
-    container_name: admin_demblock_login
+    container_name: admin_demblock_machinepicker
     links:
       - mysql
     networks:
@@ -69,12 +69,12 @@ services:
 
 # -
 # - Communication networks
-# - login-proxy   - myslq-app
-# - mysql-network - myslq-phpmyadmin
-# - nginx-proxy   - app-nginx
+# - machinepicker-proxy   - myslq-app
+# - mysql-network         - myslq-phpmyadmin
+# - nginx-proxy           - app-nginx
 # -
 networks:
-  login-proxy:
+  machinepicker-proxy:
     driver: bridge
   mysql-network:
     driver: bridge
