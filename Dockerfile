@@ -29,4 +29,4 @@ RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --opt
 RUN mv /app/server/* /etc/apache2/sites-available/ \
     && a2ensite frontend.conf \
     && a2ensite backend.conf \
-    && a2dissite 000-default.conf
+    rm -rf /etc/apache2/sites-enabled/000-default.conf
