@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export MYSQL_DATABASE="zaposljavanje"
-export MYSQL_USER="zaposljavanje"
+export MYSQL_DATABASE=zaposljavanje
+export MYSQL_USER=zaposljavanje
 
 # Build and apply migrations
 docker-compose up --build -d
