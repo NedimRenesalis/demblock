@@ -1,6 +1,24 @@
 <?php
 return [
     'components' => [
+        'urlManagerFrontend' => [
+            'class' => 'common\components\UrlManager',
+            'subDomain' => Yii::getAlias('@frontendSubdomain'),
+            'domainName' => Yii::getAlias('@domainName'),
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],
+        'urlManagerBackend' => [
+            'class' => 'common\components\UrlManager',
+            'subDomain' => Yii::getAlias('@backendSubdomain'),
+            'domainName' => Yii::getAlias('@domainName'),
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=mysql;dbname='.getenv("MYSQL_DATABASE").'',
