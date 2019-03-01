@@ -5,11 +5,12 @@ return [
     'user.passwordResetTokenExpire' => 3600,
     
     // Machinepicker + Demblock sale config
-    'offChainServer' => "https://token.demblock.com",
-    'postItemDapp' => "https://token.demblock.com/list-item.html",
-    'itemInfoDapp' => "https://token.demblock.com/user-items.html",
+    'offChainServer' => "https://token.demblock-tge.com",
+    'postItemDapp' => "https://token.demblock-tge.com/list-item.html",
+    'itemInfoDapp' => "https://token.demblock-tge.com/user-items.html",
     'allowedDomains'  => [
-        'http://token.demblock.com'
+        'http://token.demblock-tge.com',
+        'https://token.demblock-tge.com'
     ],
 
     // Static
