@@ -10,6 +10,11 @@ use yii\captcha\Captcha;
 $this->title = 'Registration';
 ?>
 
+<div class="sign-container">
+    <div class="login">
+    </div>
+</div>
+
 <div class="sign-container" id="registration-page">
     <div class="reg">
         
