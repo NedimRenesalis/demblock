@@ -1360,9 +1360,6 @@ body, .main-content {
     .login {
         width: 100%;
     }
-    #registration-page {
-        margin-top: 250px !important;
-    }
 }
 
 .sign-container {
