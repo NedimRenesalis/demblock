@@ -206,13 +206,13 @@ $countryArray = array(
 );
 
 
-$user_query = Yii::$app->params['userQuery'];
-$userId_query = Yii::$app->params['userIdQuery'];
-$exists_query = Yii::$app->params['userExistsQuery'];
+$user_query = Yii::$app->params['CROWDSALE_USERQUERY'];
+$userId_query = Yii::$app->params['CROWDSALE_USERQUERY_ID'];
+$exists_query = Yii::$app->params['CROWDSALE_USERQUERY_EXISTS'];
 
-$user_items = Yii::$app->params['itemInfoDapp'];
-$user_post = Yii::$app->params['postItemDapp'];
-$server_chain = Yii::$app->params['offChainServer'];
+$user_items = Yii::$app->params['CROWDSALE_ITEMINFO_URL'];
+$user_post = Yii::$app->params['CROWDSALE_ITEMPOST_URL'];
+$server_chain = Yii::$app->params['CROWDSALE_DAPP_API'];
 $allowed_domains = implode(",", Yii::$app->params["allowedDomains"]);
 
 $script = <<< JS

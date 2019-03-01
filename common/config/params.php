@@ -1,20 +1,25 @@
 <?php
+$domain = "token.demblock-tge.com";
 return [
     'adminEmail' => 'support@demblock.com',
     'supportEmail' =>  'support@demblock.com',
     'user.passwordResetTokenExpire' => 3600,
-    
-    // Machinepicker + Demblock sale config
-    'offChainServer' => "https://token.demblock-tge.com",
-    'postItemDapp' => "https://token.demblock-tge.com/list-item.html",
-    'itemInfoDapp' => "https://token.demblock-tge.com/user-items.html",
+
+    // Whitelisted domains
     'allowedDomains'  => [
-        'http://token.demblock-tge.com',
-        'https://token.demblock-tge.com'
+        'http://'.$domain,
+        'https://'.$domain
     ],
 
+    // Machinepicker + Demblock sale config
+    'CROWDSALE_DAPP_API' => "https://".$domain,
+    'CROWDSALE_ITEMPOST_URL' => "https://".$domain."/list-item.html",
+    'CROWDSALE_ITEMINFO_URL' => "https://".$domain."/user-items.html",
+    'CROWDSALE_SALE_INFO' => "https://".$domain."/crowdsale",
+    'CROWDSALE_TOKEN_INFO' => "https://".$domain."/token",
+
     // Static
-    'userQuery' => "user",
-    'userIdQuery' => "userId",
-    'userExistsQuery' => "modelExists",
+    'CROWDSALE_USERQUERY' => "user",
+    'CROWDSALE_USERQUERY_ID' => "userId",
+    'CROWDSALE_USERQUERY_EXISTS' => "modelExists",
 ];
