@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.navbar-fixed-top {
+    margin-bottom: 115px !important;
+}
+
 @media screen and (max-width: 770px) {
     .navbar-collapse ul {
         flex-direction: column;
