@@ -10,6 +10,7 @@ use yii\captcha\Captcha;
 $this->title = 'Registration';
 ?>
 
+
 <div class="sign-container" id="registration-page">
     <div class="reg">
         
@@ -17,7 +18,6 @@ $this->title = 'Registration';
             <h2>Registration</h2>
         </div>
         
-        <div class="reg-controls">
             <?php $form = ActiveForm::begin(['id' => 'register-form', 'action' => ['site/registracija', ], 'fieldConfig' => ['template' => '{label}{input}']]); ?>
 
             <input type="hidden" name="_csrf" value="<?= Yii::$app->request->getCsrfToken() ?>"/>
@@ -133,7 +133,6 @@ $this->title = 'Registration';
             </div>
             <?php ActiveForm::end(); ?>
             </div>
-        </div>
 
         
     </div>
