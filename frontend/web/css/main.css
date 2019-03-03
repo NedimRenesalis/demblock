@@ -2430,6 +2430,13 @@ nav {
   End GPrice Style Five
 ====================================*/
 
+/* Phones and Tablets */
+@media (min-width: 0px) and (max-width: 767px) {
+    .videobg {
+        display: none !important;
+    }
+}
 
-
-
+.row:before, .row:after {
+    display: inline-block !important;
+}
