@@ -60,8 +60,6 @@ services:
     networks:
       - mysql-network
       - nginx-proxy
-    expose:
-      - "22080"
     environment:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
