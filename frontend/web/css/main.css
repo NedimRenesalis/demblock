@@ -203,6 +203,9 @@ textarea {
 	-ms-flex-direction: column;
 	        flex-direction: column;
     z-index: -10000;
+    
+    position: relative;
+    top: 0px;
 }
 
 .raw-text {
@@ -2448,6 +2451,9 @@ nav {
 @media (min-width: 0px) and (max-width: 767px) {
     .videobg {
         display: none !important;
+    }
+    .sign-container {
+        display: block;
     }
 }
 
