@@ -59,8 +59,7 @@ services:
       - mysql
     networks:
       - mysql-network
-    ports:
-      - 22080:80
+      - nginx-proxy
     environment:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
