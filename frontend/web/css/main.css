@@ -203,9 +203,6 @@ textarea {
 	-ms-flex-direction: column;
 	        flex-direction: column;
     z-index: -10000;
-    
-    position: relative;
-    top: 0px;
 }
 
 .raw-text {
