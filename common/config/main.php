@@ -10,7 +10,7 @@ return [
         ],
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=zaposljavanje',
+            'dsn' => 'mysql:host=mysql;dbname=zaposljavanje',
             'username' => 'zaposljavanje',
             'password' => 'noviposao2017',
             'charset' => 'utf8',

@@ -1,0 +1,89 @@
+version: '3.2'
+
+# -
+# - Service stack
+# - 1) php yii app
+# - 2) mysql
+# - 2) phpmyadmin
+# - networks
+# - volumes
+# -
+services:
+  # -
+  # - Yii2 web service running on:
+  # - 20080 - backend
+  # - 21080 - frontend
+  # -
+  web:
+    build: .
+    container_name: web_demblock_machinepicker
+    restart: always
+    volumes:
+      - ./frontend:/app/frontend
+      - ./backend:/app/backend
+    links: 
+      - mysql
+    networks:
+      - nginx-proxy
+      - machinepicker-proxy
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  # -
+  # - MySQL 5.7 db
+  # - 3306 - not exposed outside
+  # -
+  mysql:
+    image: mysql:5.7
+    container_name: db_demblock_machinepicker
+    restart: always
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - machinepicker-proxy
+      - mysql-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  # -
+  # - PHPMYADMIN
+  # - 3306 - not exposed outside
+  # -
+  db-admin:
+    image: phpmyadmin/phpmyadmin:4.6
+    container_name: admin_demblock_machinepicker
+    links:
+      - mysql
+    networks:
+      - mysql-network
+    ports:
+      - 22080:80
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+
+# -
+# - Communication networks
+# - machinepicker-proxy   - myslq-app
+# - mysql-network         - myslq-phpmyadmin
+# - nginx-proxy           - app-nginx
+# -
+networks:
+  machinepicker-proxy:
+    driver: bridge
+  mysql-network:
+    driver: bridge
+  nginx-proxy:
+    external: true
+
+# -
+# - Persistance disks
+# -
+volumes:
+  dbdata:

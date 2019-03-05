@@ -2003,7 +2003,7 @@ class SiteController extends Controller
             if($parent) {
                 $pid = $parent['Id'];
                 $subCategories = Categories::find()->where(['ParentId' => $pid])->orderBy(['Name' => SORT_ASC])->all();
-                if(sizeof($subCategories) > 0) {
+                if(count($subCategories) > 0) {
                     $dropDown = '<option value>Select subcategory</option>';
 
                     foreach ($subCategories as $subCategory) {
@@ -2018,7 +2018,7 @@ class SiteController extends Controller
 
 
     /**
-        Registration as Buyer or seller or both
+     *  Registration as Buyer or seller or both
      */
 
     public function actionRegistracija()

@@ -41,7 +41,7 @@ Hello
 <br>In order to be able to open the link, first log into your account with this device.
 <br>
 <br>
-<a href="<?= Yii::$app->urlManager->createAbsoluteUrl(['site/html', 'id' => $advert->id]);?>">
+<a href="<?= Yii::$app->urlManagerFrontend->createAbsoluteUrl(['site/html', 'id' => $advert->id]);?>">
   Your listing invoice
 </a>
 <br>
