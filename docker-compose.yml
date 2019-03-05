@@ -59,7 +59,8 @@ services:
       - mysql
     networks:
       - mysql-network
-    ports:
+      - nginx-proxy
+    ports: 
       - 22080:80
     environment:
       - MYSQL_USER=${MYSQL_USER}

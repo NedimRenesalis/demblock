@@ -208,8 +208,8 @@ $countryArray = array(
         'ZM'=>array('name'=>'ZAMBIA','code'=>'260'),
     );
 use yii\helpers\Url;
-$user_query = Yii::$app->params['userQuery'];
-$user_items = Yii::$app->params['itemInfoDapp'];
+$user_query = Yii::$app->params['CROWDSALE_USERQUERY'];
+$user_items = Yii::$app->params['CROWDSALE_ITEMINFO_URL'];
 $allowed_domains = implode(",", Yii::$app->params["allowedDomains"]);
 
 $script = <<< JS
