@@ -228,37 +228,35 @@ if($searchModel && $searchModel->category) {
         <div>
             <div class="col-sm-6">
                 <p class="text-center"></p>
-                <h3 class="text-center">zaposljavanje.ba - oglasi za posao</h3>
+                <h3 class="text-center">DemBlock marketplace</h3>
                 <p style="border-bottom: 1px solid gray;"></p>
                 <p></p>
                 <p class="text-center">
-                    <br>Renesalis d.o.o.
-                    <br>Igmanska bb - 71320 Vogošća - BiH
+                    <br>DemBlock
                     <br>
-                    <a href="mailto:#">oglasi@zaposljavanje.ba</a>
-                    <br>Tel: 062-332-325</p>
+                    <br>
+                    <a href="mailto:#">support@demblock.com</a>
+                    <br></p>
             </div>
             <div class="col-sm-6">
                 <div class="">
                     <div class="col-md-12 hidden-lg hidden-md hidden-sm text-center">
-                        <a href="https://www.instagram.com/zaposljavanje.ba/" ><i
+                        <a href="https://www.instagram.com/" ><i
                                     class="fab fa-2x fa-fw fa-instagram text-inverse"></i></a>
-                        <a href="https://www.linkedin.com/company/18282027/"><i
+                        <a href="https://www.linkedin.com/"><i
                                     class="fab fa-2x fa-fw fa-linkedin text-inverse"></i></a>
-                        <a href="https://www.facebook.com/zaposljavanje.ba/"><i
-                                    class="fab fa-2x fa-facebook fa-fw text-inverse"></i></a>
+                        
                         <br>
                         <br>
                        
                     </div>
                 </div>
                 <div class="col-md-12 hidden-xs text-right" style="margin-top: 30px;">
-                    <a href="https://www.instagram.com/zaposljavanje.ba/"><i
+                    <a href="https://www.instagram.com"><i
                                 class="fab fa-2x fa-fw fa-instagram text-inverse"></i></a>
-                    <a href="https://www.linkedin.com/company/18282027/"><i
+                    <a href="https://www.linkedin.com"><i
                                 class="fab fa-2x fa-fw fa-linkedin text-inverse"></i></a>
-                    <a href="https://www.facebook.com/zaposljavanje.ba/"><i
-                                class="fab fa-2x fa-facebook fa-fw text-inverse"></i></a>
+                   
                     <br>
                     <br>
                     
