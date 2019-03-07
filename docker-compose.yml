@@ -19,8 +19,7 @@ services:
     container_name: web_demblock_machinepicker
     restart: always
     volumes:
-      - ./frontend:/app/frontend
-      - ./backend:/app/backend
+      - uploads-machinepicker:/app/frontend/web/uploads
     links: 
       - mysql
     networks:
@@ -88,3 +87,4 @@ networks:
 # -
 volumes:
   dbdata:
+  uploads-machinepicker:

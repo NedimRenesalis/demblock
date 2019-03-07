@@ -18,8 +18,7 @@ ENV MYSQL_USER=${MYSQL_USER}
 ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
 # Give permissions
-RUN chmod 777 /app && \
-    chmod 777 /app/* && \
+RUN chmod -R 777 /app && \
     chown www-data:www-data /run/apache2/ && \
     chmod 777 /run/apache2/
 
