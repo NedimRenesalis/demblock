@@ -239,8 +239,7 @@ $script = <<< JS
             width: '100%',
             scrolling: 'no'
             }).appendTo('#user-verification-space');
-
-        iFrameResize({log:false}, '#user-frame')
+        iFrameResize({log:false, checkOrigin: false}, '#user-frame')
     }
 
     /**
@@ -257,7 +256,7 @@ $script = <<< JS
             scrolling: 'no'
         }).appendTo('#user-verification-space');
             
-        iFrameResize({log:false}, '#user-frame');
+        iFrameResize({log:false, checkOrigin: false}, '#user-frame')
     }
 
     if (!window.addEventListener) {

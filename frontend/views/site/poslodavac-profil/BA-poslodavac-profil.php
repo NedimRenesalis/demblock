@@ -213,37 +213,40 @@ $user_items = Yii::$app->params['CROWDSALE_ITEMINFO_URL'];
 $allowed_domains = implode(",", Yii::$app->params["allowedDomains"]);
 
 $script = <<< JS
-    /**
-        Frame render data.
-     */
-    function renderData(id) {
-        $('<iframe>', {
-            src: "$user_items?$user_query=" + id,
-            id:  'user-frame',
-            width: '100%',
-            height: '450',
-            frameborder: 0,
-            scrolling: 'no'
+    $(function() {
+        /**
+            Frame render data.
+        */
+        function renderData(id) {
+            $('<iframe>', {
+                src: "$user_items?$user_query=" + id,
+                id:  'user-frame',
+                width: '100%',
+                height: '450',
+                frameborder: 0,
+                scrolling: 'no'
             }).appendTo('#user-verification-space');
-        iFrameResize({log:false}, '#user-frame')
-    }
-    
-    if (!window.addEventListener) {
-        window.attachEvent('onmessage', handleMessage);
-    } else {
-        window.addEventListener('message', handleMessage, false);
-    }
 
-    function handleMessage(event) {
-        if ("$allowed_domains".indexOf(event.origin) >= 0) {
-            if (event.data.event_id === 'zoomimage') {
-                $('#imagepreview').attr('src', event.data.data.hash); 
-                $('#imagemodal').modal('show');
+            iFrameResize({checkOrigin: false, log: false}, '#user-frame')
+        }
+        
+        if (!window.addEventListener) {
+            window.attachEvent('onmessage', handleMessage);
+        } else {
+            window.addEventListener('message', handleMessage, false);
+        }
+
+        function handleMessage(event) {
+            if ("$allowed_domains".indexOf(event.origin) >= 0) {
+                if (event.data.event_id === 'zoomimage') {
+                    $('#imagepreview').attr('src', event.data.data.hash); 
+                    $('#imagemodal').modal('show');
+                }
             }
         }
-    }
 
-    renderData($model->id);
+        renderData($model->id);     
+    });
 JS;
 $this->registerJs($script);
 ?>
