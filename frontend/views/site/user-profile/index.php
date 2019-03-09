@@ -349,7 +349,7 @@ $this->registerJs($script);
                  <?php if($model->location != ''): ?>
                     <?php foreach ($countryArray as $key => $val): ?>
                         <?php if($val['name'] == $model->location):?>
-                            <img src="<?= Url::to('@web/css/images/blank.gif'); ?>" class="flag flag-<?php echo strtolower($key); ?>"> <span><?php echo $key; ?></span>
+                            <img class="flag flag-<?php echo strtolower($key); ?>"> <span><?php echo $key; ?></span>
                             <?php break; ?>
                         <?php endif;?>
                     <?php endforeach; ?>
