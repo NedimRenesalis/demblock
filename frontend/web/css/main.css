@@ -2449,11 +2449,13 @@ nav {
     .videobg {
         display: none !important;
     }
-    .sign-container {
+    .sign-container, .info-container {
         display: block;
     }
 }
 
+/*
 .row:before, .row:after {
     display: inline-block !important;
 }
+*/
