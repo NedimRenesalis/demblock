@@ -222,13 +222,13 @@ if (!Yii::$app->user->isGuest) {
 
             <!-- END HEADER -->
 
-            <div class="advert-sec">
-              <div class="sec">
+            <div class="advert-sec row">
+              <div class="sec col-xs-12 col-sm-4 col-md-4">
                   <div><b>AD VALID FROM - TO</b></div>
                   <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?>&nbsp - &nbsp
                       <?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
               </div>
-              <div class="sec">
+              <div class="sec col-xs-12 col-sm-4 col-md-4">
                   <?php if (strpos($model->web_address, 'http') !== false) : ?>
                       <div><a href="<?= $model->web_address; ?>" target="_blank"><?= $model->web_address; ?></a></div>
                   <?php else : ?>
@@ -236,7 +236,7 @@ if (!Yii::$app->user->isGuest) {
                       </div>
                   <?php endif; ?>
               </div>
-                <div class="sec" style="flex-direction: row !important;">
+                <div class="sec col-xs-12 col-sm-4 col-md-4" style="text-align: center;">
                     <?php if ($employee): ?>
                         <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?>
                              data-applied-id="<?= $model->id; ?>">Product tagged

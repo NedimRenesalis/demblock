@@ -496,7 +496,6 @@ border-top: 2px solid #b8c0c6;
 }
 
 .advert-sec {
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 16px;
@@ -1416,8 +1415,11 @@ nav>.container {
     width: 300px;
     align-self: center;
     position: relative;
+    text-align: center;
 }
-
+.login-footer {
+    text-align: center;
+}
 label {
     font-size: 12px;
     font-weight: 600;
@@ -2449,7 +2451,7 @@ nav {
     .videobg {
         display: none !important;
     }
-    .sign-container, .info-container {
+    .sign-container {
         display: block;
     }
 }
