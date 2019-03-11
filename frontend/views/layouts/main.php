@@ -155,7 +155,7 @@ if(!Yii::$app->user->isGuest){
                 ['label' => '<i class="fas fa-inbox"></i> Inbox', 'url' => ['message/inbox']],
                 ['label' => '<i class="fas fa-share-square"></i> Sent', 'url' => ['message/sent']],
                 '<hr>',
-                ['label' => '<i class="fas fa-plus"></i> Compose a Message', 'url' => ['message/compose']],
+                ['label' => '<i class="fas fa-plus"></i> &nbsp;Compose a Message', 'url' => ['message/compose']],
             ]];
             if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 1) {
                 $menuItems = [];

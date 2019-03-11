@@ -147,7 +147,6 @@ class MessageController extends Controller
 
             Yii::$app->user->setReturnUrl(['sent']);
 
-
             $messages = Message::find()->where(['from' => Yii::$app->user->id])->groupBy('to')->all();
             $users    = [];
 
@@ -241,6 +240,9 @@ class MessageController extends Controller
 
             if (Yii::$app->request->isPost) {
                 $recipients = Yii::$app->request->post()['Message']['to'];
+
+                if($recipients == null)
+                    throw new NotFoundHttpException(Yii::t('app', 'Recipient must be set'));
 
                 if (is_numeric($recipients)) # Only one recipient given
                     $recipients = [$recipients];
