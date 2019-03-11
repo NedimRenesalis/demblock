@@ -51,7 +51,6 @@ services:
       - /bin/bash
       - -c
       - |
-          /etc/init.d/mysqld start
           mysql -u root -p ${MYSQL_ROOT_PASSWORD} < "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
   # -
   # - PHPMYADMIN
