@@ -47,11 +47,6 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-    command:
-      - /bin/bash
-      - -c
-      - |
-          mysql -u root -p ${MYSQL_ROOT_PASSWORD} < "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
   # -
   # - PHPMYADMIN
   # - 3306 - not exposed outside
