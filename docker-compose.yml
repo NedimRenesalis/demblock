@@ -42,7 +42,7 @@ services:
     networks:
       - machinepicker-proxy
       - mysql-network
-    command: --sql_mode=''
+    command: --sql_mode=\"\"
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
