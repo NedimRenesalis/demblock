@@ -51,7 +51,7 @@ services:
       - /bin/bash
       - -c
       - |
-          /etc/init.d/mysqld start
+          /etc/init.d/mysql start
           mysql -u root -p ${MYSQL_ROOT_PASSWORD} -h ${MYSQL_ROOT_HOST} <<< "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
 
   # -
