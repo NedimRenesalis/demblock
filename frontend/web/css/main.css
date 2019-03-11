@@ -1765,12 +1765,6 @@ ul.nav.navbar-nav.navbar-right {
 
 .info-container {
     margin: 35px 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 .info-content {
@@ -1794,18 +1788,11 @@ ul.nav.navbar-nav.navbar-right {
 
 .info {
     background: #eeededf0;
-    position: relative;
-    flex-direction: column;
-    flex: 1;
-    display: flex;
-    margin: 13px 5px;
+    margin: 13px 0;
     border: 2px solid lightgray;
     padding: 33px 30px;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    min-width: 500px;
     max-width: 700px;
+    width: 100%;
     min-height: 100px;
 }
 
@@ -1847,11 +1834,16 @@ ul.nav.navbar-nav.navbar-right {
 
 .info .controls {
     position: absolute;
+    border-top: 1px solid #c5bdbd;
     right: 0;
-    margin-top: 10px;
-    top: 0;
-    display: flex;
-    justify-content: flex-end;
+    width: 100%;
+    background: gainsboro;
+    top: 36px;
+    text-align: center;
+    padding: 6px 0px;
+}
+.d-block {
+    display: block !important;
 }
 
 .info .controls a {
@@ -1876,12 +1868,7 @@ ul.nav.navbar-nav.navbar-right {
 }
 
 .user-info {
-    display: flex;
     align-items: center;
-}
-
-.info-user {
-    flex: 3;
 }
 
 .info-content-edit {
@@ -1944,17 +1931,18 @@ nav {
 .info-header {
     margin-top: 0px;
     width: 100%;
-    height: 55px;
+    height: auto;
+    margin-bottom: 24px;
     position: relative;
     border-bottom: 1px solid #c5bdbd;
 }
 
 .info-header h3 {
-    line-height: 3px;
     text-transform: inherit;
     font-family: 'Raleway', 'Open Sans', Arial, sans-serif;
     color: #999;
     font-size: 28px;
+    line-height: 28px;
     font-weight: 300;
 }
 
@@ -2010,6 +1998,7 @@ nav {
     width: 209px;
     margin-right: 13px !important;
     padding: 2px;
+    padding-left: 0px;
 }
 
 .user-info-line {
@@ -2019,6 +2008,9 @@ nav {
     padding-top: 17px;
 }
 
+img.flag {
+    margin-right: 5px !important;
+}
 
 /*==================================
    GPrice Style Five
@@ -2452,6 +2444,20 @@ nav {
         display: none !important;
     }
     .sign-container {
+        display: block;
+    }
+
+    .table-field {
+        align-items: center;
+        width: 100%;
+        display: block;
+        margin-top: 6px;
+    }
+
+    .table-field b, .table-field span {
+        width: 100%;
+        margin-right: 13px !important;
+        padding: 0px;
         display: block;
     }
 }
