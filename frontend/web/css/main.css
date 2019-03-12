@@ -442,7 +442,7 @@ border-top: 2px solid #b8c0c6;
     border: 1px solid gainsboro;
     background-color: #ffffff;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 0px;
     box-shadow: 5px 5px 5px grey;
 }
 
@@ -489,9 +489,7 @@ border-top: 2px solid #b8c0c6;
 }
 
 .advert-header {
-    display: flex;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -520,14 +518,7 @@ border-top: 2px solid #b8c0c6;
 .advert-header-body {
     position: relative;
     flex-direction: column;
-    flex: 1;
-    display: flex;
-    margin: 20px 5px;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    min-width: 500px;
-    max-width: 700px;
+    margin: 20px 0px;
     height: 100%;
 }
 
@@ -1834,20 +1825,38 @@ ul.nav.navbar-nav.navbar-right {
 
 .info .controls {
     position: absolute;
-    border-top: 1px solid #c5bdbd;
     right: 0;
     width: 100%;
-    background: gainsboro;
-    top: 36px;
-    text-align: center;
+    top: -6px;
+    text-align: right;
     padding: 6px 0px;
 }
+
+.info .controls ul.dropdown-menu {
+    min-width: 50%;
+}
+
 .d-block {
     display: block !important;
 }
 
-.info .controls a {
-    margin: 4px 15px;
+.info .controls ul.dropdown-menu li {
+    margin: 4px 0px;
+}
+
+.info .controls a.dropdown-toggle {
+    background-color: #c5bdbd !important;
+    padding: 8px 12px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.info .controls a.dropdown-toggle:hover {
+    background-color: #777 !important;
+}
+
+.info .controls ul.dropdown-menu li a {
+    padding: 0px 36px;
 }
 
 .info .verified {
@@ -1932,7 +1941,7 @@ nav {
     margin-top: 0px;
     width: 100%;
     height: auto;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
     position: relative;
     border-bottom: 1px solid #c5bdbd;
 }
@@ -2460,6 +2469,14 @@ img.flag {
         padding: 0px;
         display: block;
     }
+
+    .info {
+        padding: 8px 8px;
+    }
+
+    .info .controls ul.dropdown-menu {
+        width: 100%;
+    }
 }
 
 /*
@@ -2467,3 +2484,12 @@ img.flag {
     display: inline-block !important;
 }
 */
+
+/* profile information data */
+.profile-information.container {
+    padding: 0;
+}
+
+.controls a.dropdown-toggle  {
+    color: white;
+}

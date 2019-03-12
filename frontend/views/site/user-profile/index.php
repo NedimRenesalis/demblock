@@ -311,222 +311,263 @@ JS;
 $this->registerJs($script);
 ?>
 
-<div class="info-container container">
-
-<div class="col-md-7">
-    <div class="info">
-        <div class="info-header">
-            <h3>My Dashboard</h3>
-
-            <div class="controls">
-                <a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fas fa-pencil-alt">&nbsp; </i>MODIFY FORMS</a>
-            </div>
-        </div>
+<div class="info-container profile-information container">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="info">
+                <div class="info-header">
+                    <h3>My Dashboard</h3>
 
 
+                    <div class="controls">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <span class="fas fa-chevron-down"></span>
+                        </a>
+                        <ul id="w1" class="dropdown-menu dropdown-menu-right">
+                            <li><a href="<?= Url::to('edit-user-main-details'); ?>"><i class="fas fa-pencil-alt">&nbsp; </i>MODIFY FORMS</a></li>
+                        </ul>
 
-        <div class="info-content">
+                    </div>
+                </div>
 
-            <br>
-            <div class="logo-img">
-                <?php if ($model->image != null) : ?>
-                <img src="<?= $model->image; ?>" class="logo">
-                <?php endif; ?>
-                <?php if ($model->image == null) : ?>
-                <span class="logo-no-image"></span>
-                <?php endif; ?>
-            </div>
 
-            <div class="fullname">
-                <b><span class="title" style="font-size: 24px;">CONTACT PERSON:</span></b>
-                <?php if ($model->full_name != '') {
-                    echo $model->full_name;
-                }
-                ?>
+
+                <div class="info-content">
+
+                    <br>
+                    <div class="logo-img">
+                        <?php if ($model->image != null) : ?>
+                        <img src="<?= $model->image; ?>" class="logo">
+                        <?php endif; ?>
+                        <?php if ($model->image == null) : ?>
+                        <span class="logo-no-image"></span>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="fullname">
+                        <b><span class="title" style="font-size: 24px;">CONTACT PERSON:</span></b>
+                        <?php if ($model->full_name != '') {
+                            echo $model->full_name;
+                        }
+                        ?>
+                    </div>
+                    <div class="user-info-line"></div>
+                    <div class="table-field" style="margin-top: 18px;">
+                        <b> <span class="title">COUNTRY: </span> </b>
+                        <?php if ($model->location != '') : ?>
+                        <?php foreach ($countryArray as $key => $val) : ?>
+                        <?php if ($val['name'] == $model->location) : ?>
+                        <img class="flag flag-<?php echo strtolower($key); ?>"> <span><?php echo $key; ?></span>
+                        <?php break; ?>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="company-name table-field">
+                        <?php if ($companyInformation != null && $companyInformation->Website != '' && $companyInformation->CompanyName != '') :  ?>
+                        <b><span class="title">COMPANY NAME:</span></b><a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a>
+                        <?php elseif ($companyInformation != null && $companyInformation->CompanyName != '') : ?>
+                        <b><span class="title">COMPANY NAME:</span></b><a><?php echo $companyInformation->CompanyName; ?></a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="table-field">
+                        <b><span class="title">Address</span></b>
+                        <?php if ($model->address != '') {
+                            echo $model->address;
+                        }
+                        ?>
+                    </div>
+                    <div class="table-field">
+                        <b> <span class="title">Email:</span> </b><?php echo $contactInfo->Email; ?>
+                        <p class="verified" style="margin-left: 5px;">
+                            [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
+                        </p>
+                    </div>
+                    <div class="table-field">
+                        <b> <span class="title">Your current balance is:</span> </b><?php echo $model->money; ?>
+                    </div>
+                    <div class="user-info-line"></div>
+                    <br>
+                    <div class="main-info">
+                        <b> <span class="title">Main products:</span></b>
+                        <span class="main-info-text">
+                            <?php
+                            if ($model->mainProducts != null && $model->mainProducts != '') {
+                                echo $model->mainProducts;
+                            } else {
+                                echo 'none';
+                            }
+                            ?>
+                        </span>
+                    </div>
+                </div>
+
             </div>
-            <div class="user-info-line"></div>
-            <div class="table-field" style="margin-top: 18px;">
-                <b> <span class="title">COUNTRY: </span> </b>
-                <?php if ($model->location != '') : ?>
-                <?php foreach ($countryArray as $key => $val) : ?>
-                <?php if ($val['name'] == $model->location) : ?>
-                <img class="flag flag-<?php echo strtolower($key); ?>"> <span><?php echo $key; ?></span>
-                <?php break; ?>
-                <?php endif; ?>
-                <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <div class="company-name table-field">
-                <?php if ($companyInformation != null && $companyInformation->Website != '' && $companyInformation->CompanyName != '') :  ?>
-                <b><span class="title">COMPANY NAME:</span></b><a href="<?php echo $companyInformation->Website; ?>"><?php echo $companyInformation->CompanyName; ?></a>
-                <?php elseif ($companyInformation != null && $companyInformation->CompanyName != '') : ?>
-                <b><span class="title">COMPANY NAME:</span></b><a><?php echo $companyInformation->CompanyName; ?></a>
-                <?php endif; ?>
-            </div>
-            <div class="table-field">
-                <b><span class="title">Address</span></b>
-                <?php if ($model->address != '') {
-                    echo $model->address;
-                }
-                ?>
-            </div>
-            <div class="table-field">
-                <b> <span class="title">Email:</span> </b><?php echo $contactInfo->Email; ?>
-                <p class="verified" style="margin-left: 5px;">
-                    [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
-                </p>
-            </div>
-            <div class="table-field">
-                <b> <span class="title">Your current balance is:</span> </b><?php echo $model->money; ?>
-            </div>
-            <div class="user-info-line"></div>
-            <br>
-            <div class="main-info">
-                <b> <span class="title">Main products:</span></b>
-                <span class="main-info-text">
-                    <?php
-                    if ($model->mainProducts != null && $model->mainProducts != '') {
-                        echo $model->mainProducts;
-                    } else {
-                        echo 'none';
-                    }
-                    ?>
+            <div class="info">
+                <div class="info-header">
+                    <h3>Verifications</h3>
+
+                    <div class="controls">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <span class="fas fa-chevron-down"></span>
+                        </a>
+                        <ul id="w1" class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="#" class="text-red" id="cancel-verification" style="display: none"><i class="fas fa-undo">&nbsp; </i>VIEW MINE</a>
+                            </li>
+                            <li>
+                                <a href="#" id="add-verification" style="display: none"><i class="fas fa-plus">&nbsp; </i>ADD NEW</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <span class="main-info-text user-verif">
+                    <div class="iframetrack" id="user-verification-space">
+                        <br>
+                        <div style="border-radius: 0; margin-bottom: 0" class="alert alert-danger">
+                            <h4 style="margin: 0; text-align: center" id="empty-text">⚠ Connection failed!</h4>
+                        </div>
+                    </div>
                 </span>
             </div>
         </div>
+        <div class="col-md-5">
+            <!-- Start contact information -->
+            <div class="info">
+                <div class="info-header">
+                    <h3>Contact information</h3>
 
-    </div>
-    <div class="info">
-        <div class="info-header">
-            <h3>Verifications</h3>
-
-            <div class="controls">
-                <a href="#" class="text-red" id="cancel-verification" style="display: none"><i class="fas fa-undo">&nbsp; </i>VIEW MINE</a>
-                <a href="#" id="add-verification" style="display: none"><i class="fas fa-plus">&nbsp; </i>ADD NEW</a>
-            </div>
-        </div>
-        <span class="main-info-text user-verif">
-            <div class="iframetrack" id="user-verification-space">
-                <br>
-                <div style="border-radius: 0; margin-bottom: 0" class="alert alert-danger">
-                    <h4 style="margin: 0; text-align: center" id="empty-text">⚠ Connection failed!</h4>
-                </div>
-            </div>
-        </span>
-    </div>
-</div>
-    <div class="col-md-5">
-        <!-- Start contact information -->
-        <div class="info">
-            <div class="info-header">
-                <h3>Contact information</h3>
-                <div class="controls">
-                    <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
-                </div>
-            </div>
-            <div class="info-content">
-                <div class="table-field d-block full-width">
-                    <span class="title d-block">Email:</span> <?php echo $contactInfo->Email; ?>
-                    <p class="verified" style="margin-left: 11px;">
-                        [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
-                    </p>
-                </div>
-                <div class="table-field d-block">
-                    <span class="title d-block">Alternative Email:</span> <?php echo $contactInfo->AlternativeEmail; ?>
-                </div>
-                <?php if (
-                    $contactInfo->Facebook == "none"
-                    && $contactInfo->Twitter == "none"
-                    && $contactInfo->Instagram == "none"
-                ) echo 'none'; ?>
-                <?php if ($contactInfo->Facebook != "none") : ?>
-                <div class="table-field"> <span class="title">Facebook: </span><?php echo $contactInfo->Facebook; ?></div>
-                <?php endif; ?>
-                <?php if ($contactInfo->Twitter != "none") : ?>
-                <div class="table-field"> <span class="title">Twitter: </span><?php echo $contactInfo->Twitter; ?></div>
-                <?php endif; ?>
-                <?php if ($contactInfo->Instagram != "none") : ?>
-                <div class="table-field"> <span class="title">Instagram: </span><?php echo $contactInfo->Instagram; ?></div>
-                <?php endif; ?>
-                <div class="table-field"> <span class="title">Fax:</span> <?php echo $contactInfo->Fax; ?></div>
-                <div class="table-field"><span class="title">Telephone:</span> <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?></div>
-                <div class="table-field"><span class="title">Mobile:</span> <?php echo $contactInfo->Mobile; ?></div>
-            </div>
-        </div>
-
-        <!-- End contact information -->
-
-        <div class="info">
-            <div class="info-header">
-                <h3>Company Information</h3>
-                <div class="controls">
-                    <a href="<?= Url::to('company-details'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
-                </div>
-            </div>
-            <div class="info-content">
-                <div class="table-field">
-                    <b><span class="title">Company name: </span></b><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Year Estabilished: </span> <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Official Website: </span><?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Total Number of Employees: </span><?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Registered Address: </span><?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Operational Address: </span><?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">About Us:</span> <?php echo ($companyInformation != null && $companyInformation->AboutUs != '') ? $companyInformation->AboutUs : 'none';  ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="info">
-            <div class="info-header">
-                <h3>Sourcing Information</h3>
-                <div class="controls">
-                    <a href="<?= Url::to('sourcing-information'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
-                </div>
-            </div>
-            <div class="info-content">
-                <div class="table-field">
-                    <b><span class="title" style="margin-right: 18px !important;">Annual Purchasing Volume: </span></b><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Primary Sourcing Purpose: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $sourcingInformation->AverageSourcingFrequency : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Preferred Supplier Qualifications: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?>
-                </div>
-                <div class="table-field">
-                    <span class="title">Preferred Industries: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?>
-                </div>
-            </div>
-        </div>
-
-        <!-- Image show -->
-        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                    <div class="controls">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <span class="fas fa-chevron-down"></span>
+                        </a>
+                        <ul id="w1" class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="<?= Url::to('edit-user-contact-details'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="modal-body">
-                        <img src="" id="imagepreview" style="width: 100%;">
+                </div>
+                <div class="info-content">
+                    <div class="table-field d-block full-width">
+                        <span class="title d-block">Email:</span> <?php echo $contactInfo->Email; ?>
+                        <p class="verified" style="margin-left: 11px;">
+                            [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
+                        </p>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="table-field d-block">
+                        <span class="title d-block">Alternative Email:</span> <?php echo $contactInfo->AlternativeEmail; ?>
+                    </div>
+                    <?php if (
+                        $contactInfo->Facebook == "none"
+                        && $contactInfo->Twitter == "none"
+                        && $contactInfo->Instagram == "none"
+                    ) echo 'none'; ?>
+                    <?php if ($contactInfo->Facebook != "none") : ?>
+                    <div class="table-field"> <span class="title">Facebook: </span><?php echo $contactInfo->Facebook; ?></div>
+                    <?php endif; ?>
+                    <?php if ($contactInfo->Twitter != "none") : ?>
+                    <div class="table-field"> <span class="title">Twitter: </span><?php echo $contactInfo->Twitter; ?></div>
+                    <?php endif; ?>
+                    <?php if ($contactInfo->Instagram != "none") : ?>
+                    <div class="table-field"> <span class="title">Instagram: </span><?php echo $contactInfo->Instagram; ?></div>
+                    <?php endif; ?>
+                    <div class="table-field"> <span class="title">Fax:</span> <?php echo $contactInfo->Fax; ?></div>
+                    <div class="table-field"><span class="title">Telephone:</span> <?php echo ($contactInfo->Phone == '') ? 'none' : $contactInfo->Phone; ?></div>
+                    <div class="table-field"><span class="title">Mobile:</span> <?php echo $contactInfo->Mobile; ?></div>
+                </div>
+            </div>
+
+            <!-- End contact information -->
+
+            <div class="info">
+                <div class="info-header">
+                    <h3>Company Information</h3>
+
+                    <div class="controls">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <span class="fas fa-chevron-down"></span>
+                        </a>
+                        <ul id="w1" class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="<?= Url::to('company-details'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-content">
+                    <div class="table-field">
+                        <b><span class="title">Company name: </span></b><?php echo ($companyInformation != null && $companyInformation->CompanyName != '') ? $companyInformation->CompanyName : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Year Estabilished: </span> <?php echo ($companyInformation != null && $companyInformation->Year != '') ? $companyInformation->Year : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Official Website: </span><?php echo ($companyInformation != null && $companyInformation->Website != '') ? "<a href='$companyInformation->Website'>$companyInformation->Website</a>" : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Total Number of Employees: </span><?php echo ($companyInformation != null && $companyInformation->NumberOfEmployees != '') ? $companyInformation->NumberOfEmployees : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Registered Address: </span><?php echo ($companyInformation != null && $companyInformation->RegisteredAddress != '') ? $companyInformation->RegisteredAddress : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Operational Address: </span><?php echo ($companyInformation != null && $companyInformation->OperationalAddress != '') ? $companyInformation->OperationalAddress : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">About Us:</span> <?php echo ($companyInformation != null && $companyInformation->AboutUs != '') ? $companyInformation->AboutUs : 'none';  ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="info-header">
+                    <h3>Sourcing Information</h3>
+
+                    <div class="controls">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <span class="fas fa-chevron-down"></span>
+                        </a>
+                        <ul id="w1" class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="<?= Url::to('sourcing-information'); ?>"><i class="fas fa-pencil-alt"> &nbsp;</i> MODIFY FORMS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-content">
+                    <div class="table-field">
+                        <b><span class="title" style="margin-right: 18px !important;">Annual Purchasing Volume: </span></b><?php echo ($sourcingInformation != null && $sourcingInformation->AnnualPurchasingVolume != '') ? $sourcingInformation->AnnualPurchasingVolume : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Primary Sourcing Purpose: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PrimarySourcingPurpose != '') ? $sourcingInformation->PrimarySourcingPurpose : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Average Sourcing Frequency: </span><?php echo ($sourcingInformation != null && $sourcingInformation->AverageSourcingFrequency != '') ? $sourcingInformation->AverageSourcingFrequency : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Preferred Supplier Qualifications: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredSupplierQualifications != '') ? $sourcingInformation->PreferredSupplierQualifications : 'none';  ?>
+                    </div>
+                    <div class="table-field">
+                        <span class="title">Preferred Industries: </span><?php echo ($sourcingInformation != null && $sourcingInformation->PreferredIndustries != '') ? $sourcingInformation->PreferredIndustries : 'none';  ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image show -->
+            <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="" id="imagepreview" style="width: 100%;">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>

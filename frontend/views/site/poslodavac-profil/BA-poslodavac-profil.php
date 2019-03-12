@@ -256,25 +256,25 @@ $this->registerJs($script);
 <br>
 <div class="platinum-premium">
 
-    <div class="container profile-wrapper">
+    <div class="profile-information container profile-wrapper">
 
-        <div class="col-lg-12 employer-banner">
-            <?php if ($model->banner != null) : ?>
-            <div class="form-group">
-                <div class=" text-center">
-                    <img class="image-responsive" src="<?= "../" . $model->banner; ?>">
+        <div class="row">
+            <div class="col-lg-12 employer-banner">
+                <?php if ($model->banner != null) : ?>
+                <div class="form-group">
+                    <div class=" text-center">
+                        <img class="image-responsive" src="<?= "../" . $model->banner; ?>">
+                    </div>
                 </div>
+                <?php endif; ?>
             </div>
-            <?php endif; ?>
-        </div>
-        <br>
+            <br>
 
 
-        <br>
-        <hr>
+            <br>
+            <hr>
 
 
-        <div class="info-container container">
 
             <div class="col-md-7">
                 <div class="info info-user">
@@ -371,7 +371,7 @@ $this->registerJs($script);
                         <h3>Contact information</h3>
                     </div>
                     <div class="info-content">
-                        <div class="table-field d-block" style="margin-top: 20px;">
+                        <div class="table-field d-block">
                             <span class="title d-block">Email:</span> <?php echo $contactInfo->Email; ?>
                             <p class="verified" style="margin-left: 11px;">
                                 [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
@@ -417,7 +417,7 @@ $this->registerJs($script);
                     <div class="info-content">
 
                         <?php if ($companyInformation->CompanyName != '') :  ?>
-                        <div class="table-field" style="margin-top: 26px;">
+                        <div class="table-field">
                             <b><span class="title">Company name: </span></b><?php echo $companyInformation->CompanyName;  ?>
                         </div>
                         <?php endif; ?>
