@@ -41,7 +41,7 @@ foreach ($categories as $category) {
     $jobs[$category->Name] = $category->Name;
 }
 $subCategoriesSelected = [];
-if($model && $model->category) {
+if ($model && $model->category) {
     $parent = Categories::find()->where(['like', 'Name', $model->category])->one();
     if ($parent) {
         $pid = $parent['Id'];
@@ -63,7 +63,7 @@ $types = [
 
 $payments = [
     1 => "CLICK HERE TO CHOOSE PAYMENT WITH TOKENS",
-   
+
 ];
 
 $days = [
@@ -75,37 +75,43 @@ $days = [
 ?>
 
 <br>
-<div class="col-lg-8 col-md-8 info " style="display: flex; flex-direction: row;margin: 47px auto; padding: 40px;width: 100%;max-width: 1200px;">
-    <div class="info-header">
-        <h3>Product listing</h3>
-    </div>
-    <br>
-    <div class="section text-justify">
-    <div class="container">
-        <div class="row">
-            <?php if ($message != null): ?>
-                <div class="form-group no-money">
-                    <?= $message; ?>
-                </div>
-            <?php endif; ?>
-            <?php 
-                $form = ActiveForm::begin([
-                    'options' => [
-                        'enctype' => 'multipart/form-data',
-                        'data-company'   => $advert_id,
-                        'data-err-msg-img-limit' => t('app', 'The number of uploaded images exceeds the maximum allowed limit of {limitNumber} images', [
-                            'limitNumber' => 20,
-                        ]),
-                    ],
-                    'id'        => 'upload-data',
-                    'method'    => 'post',
-                    'fieldConfig' => ['template' => '{label}{input}']]); 
-            ?>
+<div class="d-block">
+    <div class="info " style="margin: 47px auto; padding: 40px 0px;width: 100%;max-width: 1200px;">
+        <div class="section text-justify">
+            <div class="container posting-container">
+                <div class="row justify-content">
+                    <div class="col-12">
+                        <div class="info-header">
+                            <h3>Product listing</h3>
+                        </div>
+                    </div>
+                    <?php if ($message != null) : ?>
+                    <div class="form-group no-money">
+                        <?= $message; ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php 
+                    $form = ActiveForm::begin([
+                        'options' => [
+                            'enctype' => 'multipart/form-data',
+                            'data-company'   => $advert_id,
+                            'data-err-msg-img-limit' => t('app', 'The number of uploaded images exceeds the maximum allowed limit of {limitNumber} images', [
+                                'limitNumber' => 20,
+                            ]),
+                        ],
+                        'id'        => 'upload-data',
+                        'method'    => 'post',
+                        'fieldConfig' => ['template' => '{label}{input}']
+                    ]);
+                    ?>
 
-            <div class="row text-center oglas-form">
-                <div class="col-md-4">
-                    <?= $form->field($model, 'category')->dropDownList($jobs, ['prompt' => 'SELECT', 'label' => null,
-                            'onchange' => '
+                    <div class="row text-center oglas-form">
+                        <div class="col-md-4">
+                            <?= $form->field($model, 'category')->dropDownList(
+                                $jobs,
+                                [
+                                    'prompt' => 'SELECT', 'label' => null,
+                                    'onchange' => '
                                                         $.post(
                                                             "' . Url::toRoute('get-subcategories') . '", 
                                                             {selected: $(this).val()}, 
@@ -116,151 +122,152 @@ $days = [
                                                                     console.log($("#advert-position"));
                                                             }
                                                         );
-                                                    ']
-                        )->label("PRODUCT OR CATEGORY") ?>
+                                                    '
+                                ]
+                            )->label("PRODUCT OR CATEGORY") ?>
 
-                    <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected,['prompt' => "SELECT"])->label('SUBCATEGORY') ?>
-                    <?= $form->field($model, 'location')->textInput(['maxlength' => true])->label('SHIPPING FROM') ?>
-                    <?= $form->field($model, 'type')->dropDownList($types, ['prompt' => 'LISTING TYPE'])->label('CHOOSE LISTING TYPE') ?>
-                    <?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'LISTING DURATION'])->label('CHOOSE LISTING DURATION') ?>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
+                            <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected, ['prompt' => "SELECT"])->label('SUBCATEGORY') ?>
+                            <?= $form->field($model, 'location')->textInput(['maxlength' => true])->label('SHIPPING FROM') ?>
+                            <?= $form->field($model, 'type')->dropDownList($types, ['prompt' => 'LISTING TYPE'])->label('CHOOSE LISTING TYPE') ?>
+                            <?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'LISTING DURATION'])->label('CHOOSE LISTING DURATION') ?>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
 
-                        <?php echo '<label>CHOOSE LISTING STARTING DATE</label>'; ?>
-                        <?php echo DateTimePicker::widget([
-                            'model' => $model,
-                            'attribute' => 'start_advert',
-                            'type' => DateTimePicker::TYPE_COMPONENT_PREPEND,
-                            'pluginOptions' => [
-                                'autoclose' => true,
-                                'startDate' => date('d-m-Y 00:00'),
-                                'format' => 'd M yyyy, hh:ii'
-                            ]
-                        ]); ?>
+                                <?php echo '<label>CHOOSE LISTING STARTING DATE</label>'; ?>
+                                <?php echo DateTimePicker::widget([
+                                    'model' => $model,
+                                    'attribute' => 'start_advert',
+                                    'type' => DateTimePicker::TYPE_COMPONENT_PREPEND,
+                                    'pluginOptions' => [
+                                        'autoclose' => true,
+                                        'startDate' => date('d-m-Y 00:00'),
+                                        'format' => 'd M yyyy, hh:ii'
+                                    ]
+                                ]); ?>
+                            </div>
+
+                            <?= $form->field($model, 'contact_person')->textInput(['maxlength' => true])->label('CONTACT PERSON') ?>
+                            <?= $form->field($model, 'contact_email')->textInput(['maxlength' => true])->label('EMAIL') ?>
+                            <?= $form->field($model, 'web_address')->textInput(['maxlength' => true])->label('PRODUCT URL ON YOUR CORPORATE WEBSITE') ?>
+                            <?= $form->field($model, 'payment')->dropDownList($payments, ['prompt' => 'PAY WITH TOKENS'])->label('PAYMENT') ?>
+                        </div>
                     </div>
-
-                    <?= $form->field($model, 'contact_person')->textInput(['maxlength' => true])->label('CONTACT PERSON') ?>
-                    <?= $form->field($model, 'contact_email')->textInput(['maxlength' => true])->label('EMAIL') ?>
-                    <?= $form->field($model, 'web_address')->textInput(['maxlength' => true])->label('PRODUCT URL ON YOUR CORPORATE WEBSITE') ?>
-                    <?= $form->field($model, 'payment')->dropDownList($payments, ['prompt' => 'PAY WITH TOKENS'])->label('PAYMENT') ?>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="advert-description">
-            <?php 
-                    $imagesPreview = [];
-                    $imagesPreviewConfig = [];
-                    if ($action == 'update') {
-                        // sort for images sort_order
-                        usort($uploadedImages, function ($a, $b) { 
-                            if($a != null && $b != null) return strnatcmp($a['sort_order'], $b['sort_order']); 
-                        });
-                        if ($uploadedImages) foreach ($uploadedImages as $key => $image) {
-                            $imagesPreview[] =  Url::base('') . $image->image_path;
-                            $imagesPreviewConfig[$key]['caption'] = $image->image_path;
-                            $imagesPreviewConfig[$key]['url'] = url(['/remove-photo']);
-                            $imagesPreviewConfig[$key]['key'] = $image->image_id;
+                    <br>
+                    <br>
+                    <div class="advert-description">
+                        <?php 
+                        $imagesPreview = [];
+                        $imagesPreviewConfig = [];
+                        if ($action == 'update') {
+                            // sort for images sort_order
+                            usort($uploadedImages, function ($a, $b) {
+                                if ($a != null && $b != null) return strnatcmp($a['sort_order'], $b['sort_order']);
+                            });
+                            if ($uploadedImages) foreach ($uploadedImages as $key => $image) {
+                                $imagesPreview[] =  Url::base('') . $image->image_path;
+                                $imagesPreviewConfig[$key]['caption'] = $image->image_path;
+                                $imagesPreviewConfig[$key]['url'] = url(['/remove-photo']);
+                                $imagesPreviewConfig[$key]['key'] = $image->image_id;
+                            }
                         }
-                    }
-                    
-                    echo $form->field($images, 'image_form_key', [
-                        'template' => '{input} {error}',
-                        'options'    => ['style' => 'display:none'],
-                    ])->hiddenInput(['value'=> $image_random_key, 'class' => 'form-control'])->label(false);
 
-                    echo $form->field($images, 'imagesGallery[]')->widget(FileInput::classname(), [
-                        'options' => [
-                            'multiple'                  => true,
-                            'accept'                    => 'image/*',
-                            'class'                     =>'file-loading',
-                            'data-sort-company-images'  => url(['/sort-photos'])
-                        ],
-                        'pluginOptions' => [
-                            'initialPreview'=> $imagesPreview,
-                            'initialPreviewConfig' =>
-                                $imagesPreviewConfig
-                            ,
-                            'initialPreviewAsData'=>true,
-                            'uploadUrl' => url(['/upload-photos']),
-                            'uploadExtraData' => [
-                                'image_form_key' => $image_random_key,
-                                'action' => $action,
-                                'adId'  => $advert_id,
+                        echo $form->field($images, 'image_form_key', [
+                            'template' => '{input} {error}',
+                            'options'    => ['style' => 'display:none'],
+                        ])->hiddenInput(['value' => $image_random_key, 'class' => 'form-control'])->label(false);
+
+                        echo $form->field($images, 'imagesGallery[]')->widget(FileInput::classname(), [
+                            'options' => [
+                                'multiple'                  => true,
+                                'accept'                    => 'image/*',
+                                'class'                     => 'file-loading',
+                                'data-sort-company-images'  => url(['/sort-photos'])
                             ],
-                            'uploadAsync' => true,
-                            'allowedFileTypes' => ["image"],
+                            'pluginOptions' => [
+                                'initialPreview' => $imagesPreview,
+                                'initialPreviewConfig' =>
+                                $imagesPreviewConfig,
+                                'initialPreviewAsData' => true,
+                                'uploadUrl' => url(['/upload-photos']),
+                                'uploadExtraData' => [
+                                    'image_form_key' => $image_random_key,
+                                    'action' => $action,
+                                    'adId'  => $advert_id,
+                                ],
+                                'uploadAsync' => true,
+                                'allowedFileTypes' => ["image"],
 
-                            'showUpload' => false,
-                            'showRemove' => false,
-                            'showClose' => false,
-                            'showCancel' => false,
-                            'browseOnZoneClick' => true,
-                            'dropZoneEnabled' => false,
+                                'showUpload' => false,
+                                'showRemove' => false,
+                                'showClose' => false,
+                                'showCancel' => false,
+                                'browseOnZoneClick' => true,
+                                'dropZoneEnabled' => false,
 
-                            'browseLabel' => t('app', 'CLICK TO UPLOAD'),
-                            'browseClass' => 'btn btn-success',
-                            'uploadClass' => 'btn btn-info',
-                            'removeClass' => 'btn btn-danger ',
-                            'removeIcon' => '<i class="glyphicon glyphicon-trash"></i> ',
-                            'msgPlaceholder' => t('app', 'Upload upto 20 sreenshots, pictures, graphics'),
-                            'captionClass'  => [
+                                'browseLabel' => t('app', 'CLICK TO UPLOAD'),
+                                'browseClass' => 'btn btn-success',
+                                'uploadClass' => 'btn btn-info',
+                                'removeClass' => 'btn btn-danger ',
+                                'removeIcon' => '<i class="glyphicon glyphicon-trash"></i> ',
+                                'msgPlaceholder' => t('app', 'Upload upto 20 sreenshots, pictures, graphics'),
+                                'captionClass'  => [
                                     'height' => '150px'
-                            ],
-                            'layoutTemplates' =>
+                                ],
+                                'layoutTemplates' =>
                                 [
                                     'fileIcon' => ''
                                 ],
-                            'fileActionSettings' => [
-                                'showUpload' => false,
-                                'showZoom' => true,
-                                'zoomClass' => 'btn btn btn-kv btn-default btn-outline-secondary zoombtn',
-                                'showDrag' => true,
+                                'fileActionSettings' => [
+                                    'showUpload' => false,
+                                    'showZoom' => true,
+                                    'zoomClass' => 'btn btn btn-kv btn-default btn-outline-secondary zoombtn',
+                                    'showDrag' => true,
+                                ],
+                                'maxFileCount' => 20,
+
+                                'validateInitialCount' => true,
+                                'overwriteInitial' => false,
+                            ]
+                        ])->label(false);
+                        ?>
+
+                        <?= $form->field($model, 'description')->widget(CKEditor::className(), [
+                            'options' => [
+                                'rows' => 2,
                             ],
-                            'maxFileCount' => 20,
-                    
-                            'validateInitialCount'=> true,
-                            'overwriteInitial'=>false,
-                        ]
-                    ])->label(false);
-                ?>
+                            'preset' => 'advanced',
+                            'clientOptions' => [
+                                'language' => 'en'
+                            ]
 
-                <?= $form->field($model, 'description')->widget(CKEditor::className(), [
-                    'options' => [
-                            'rows' => 2,
-                    ],
-                    'preset' => 'advanced',
-                    'clientOptions' => [
-                            'language'=>'en'
-                    ]
-                    
-                ])->label('PRODUCT DETAILS<br><br>Please insert below short product description, minimum order quantity, lead time, packaging and delivery options and FAQ. <br>'); ?><br>
-            
-                
-                <div class="form-group"><br>
-                    <?= Html::submitButton('PUBLISH PRODUCT LISTING', ['class' => 'btn btn-primary']) ?>
+                        ])->label('PRODUCT DETAILS<br><br>Please insert below short product description, minimum order quantity, lead time, packaging and delivery options and FAQ. <br>'); ?><br>
+
+
+                        <div class="form-group"><br>
+                            <?= Html::submitButton('PUBLISH PRODUCT LISTING', ['class' => 'btn btn-primary']) ?>
+                        </div>
+                    </div>
+
                 </div>
-            </div>          
-
+                <?php ActiveForm::end(); ?>
+            </div>
         </div>
-        <?php ActiveForm::end(); ?>
     </div>
-</div>
 
-<?php if (!$isEmployer): ?>
+    <?php if (!$isEmployer) : ?>
     <div class="just-for-employers-wrapper">
         <div class="just-for-employers oglas-modal">
             Please first log in before listing product.
         </div>
     </div>
-<?php endif; ?>
+    <?php endif; ?>
 
 </div>
 
 <script>
-    $(document).ready(function () {
-        $("#advert-anonymously").on("click", function () {
+    $(document).ready(function() {
+        $("#advert-anonymously").on("click", function() {
 
             if ($('#advert-anonymously').is(':checked')) {
                 $("#advert-contact_person").val("-").prop("disabled", true);
@@ -274,4 +281,4 @@ $days = [
 
         });
     });
-</script>
+</script> 

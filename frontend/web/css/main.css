@@ -2446,7 +2446,9 @@ img.flag {
 /*==================================
   End GPrice Style Five
 ====================================*/
-
+.posting-container.container {
+    padding: 0px 40px !important;
+}
 /* Phones and Tablets */
 @media (min-width: 0px) and (max-width: 767px) {
     .videobg {
@@ -2476,6 +2478,9 @@ img.flag {
 
     .info .controls ul.dropdown-menu {
         width: 100%;
+    }
+    .posting-container.container {
+        padding: 0px 24px !important;
     }
 }
 
