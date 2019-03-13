@@ -924,6 +924,11 @@ textarea {
     overflow: hidden;
 }
 
+#particles-js {
+    display: none;
+    height: 100%;
+}
+
 .videobg {
     position: absolute;
     left: 50%;
@@ -2454,6 +2459,11 @@ img.flag {
     .videobg {
         display: none !important;
     }
+
+    #particles-js {
+        display: block !important;
+    }
+
     .sign-container {
         display: block;
     }

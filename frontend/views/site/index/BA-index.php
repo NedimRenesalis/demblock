@@ -5,7 +5,9 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use frontend\models\Categories;
+use frontend\assets\ParticleAssets;
 
+ParticleAssets::register($this);
 
 $this->title = 'demblock';
 $categories = Categories::find()->where(["ParentId" => null])->orderBy(['Name' => SORT_ASC])->all();
@@ -34,9 +36,10 @@ if($searchModel && $searchModel->category) {
     $searchBar = ``
 ?> 
 <div>
+
 <video class="videobg" autoplay loop src="<?= Url::to("@web/css/ad.mp4"); ?>" muted plays-inline frameborder="0"></video>
 <div class="overlay"></div>
-<div class="overlay2"></div>
+<div class="overlay2"><div id="particles-js"></div></div>
     <div class="header">
         <div class="header-content">
             <div class="search-form">
