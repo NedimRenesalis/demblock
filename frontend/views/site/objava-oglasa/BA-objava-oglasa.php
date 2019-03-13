@@ -76,7 +76,7 @@ $days = [
 
 <br>
 <div class="d-block">
-    <div class="info " style="margin: 47px auto; padding: 40px 0px;width: 100%;max-width: 1200px;">
+    <div class="info" style="margin: 47px auto; padding: 40px 0px;width: 100%;max-width: 1200px;">
         <div class="section text-justify">
             <div class="container posting-container">
                 <div class="row justify-content">

@@ -12,6 +12,8 @@ $this->params['breadcrumbs'][] = 'Nachricht: ' . $this->title;
 
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 ?>
+
+<div class="d-block">
 <div class="message-view">
     <h1 class="info-header">Message</h1>
     <p>
@@ -59,4 +61,5 @@ rmrevin\yii\fontawesome\AssetBundle::register($this);
         </div>
     </div>
     <?= Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> ' . Yii::t('app', 'Back to Inbox'), ['/message/inbox']) ?>
+</div>
 </div>
