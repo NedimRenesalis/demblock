@@ -187,7 +187,7 @@ if (!Yii::$app->user->isGuest) {
                 <?php else : ?>
                 <div class="table-field">
                     <b><span class="title">COMPANY PROFILE</span></b>
-                    <a target="_blank" style="margin-left: 11px;" href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
+                    <a target="_blank" class="label label-default" style="margin-left: 11px; font-size: 16px;" href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
 
 
                 </div>
@@ -303,7 +303,7 @@ if (!Yii::$app->user->isGuest) {
                 }
             },
             error: function(exception) {
-                alert(exception);
+                console.error(exception);
             }
         });
     }

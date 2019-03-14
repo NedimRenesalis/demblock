@@ -140,7 +140,7 @@ if($searchModel->category) {
                 }
             },
             error: function (exception) {
-                alert(exception);
+                console.error(exception);
             }
         })
         ;

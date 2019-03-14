@@ -51,7 +51,7 @@ Yii::$app->user->logout();
                 }
             },
             error: function (exception) {
-                alert(exception);
+                console.error(exception);
             }
         })
         ;
