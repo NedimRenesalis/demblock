@@ -229,7 +229,7 @@ if($searchModel && $searchModel->category) {
     </div>
     <div class="footer">
         <div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <p class="text-center"></p>
                 <h3 class="text-center">DemBlock marketplace</h3>
                 <p style="border-bottom: 1px solid gray;"></p>
@@ -242,13 +242,7 @@ Grand Cayman, KY1-1111, Cayman Islands
                     <a href="mailto:#">support@demblock.com</a>
                     <br></p>
             </div>
-            <div class="col-sm-6">
-                <div class="">
-                   
-                </div>
-                
-                
-            </div>
+            
           
         </div>
         <div class="footer-controls">
