@@ -246,16 +246,7 @@ Grand Cayman, KY1-1111, Cayman Islands
                 <div class="">
                    
                 </div>
-                <div class="col-md-12 hidden-xs text-right" style="margin-top: 30px;">
-                    <a href="https://www.instagram.com"><i
-                                class="fab fa-2x fa-fw fa-instagram text-inverse"></i></a>
-                    <a href="https://www.linkedin.com"><i
-                                class="fab fa-2x fa-fw fa-linkedin text-inverse"></i></a>
-                   
-                    <br>
-                    <br>
-                    
-                </div>
+                
                 
             </div>
           
