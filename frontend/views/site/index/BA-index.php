@@ -236,23 +236,15 @@ if($searchModel && $searchModel->category) {
                 <p></p>
                 <p class="text-center">
                     <br>DemBlock
-                    <br>
+                    <br>Artemis House, 67 Fort Street <br>
+Grand Cayman, KY1-1111, Cayman Islands 
                     <br>
                     <a href="mailto:#">support@demblock.com</a>
                     <br></p>
             </div>
             <div class="col-sm-6">
                 <div class="">
-                    <div class="col-md-12 hidden-lg hidden-md hidden-sm text-center">
-                        <a href="https://www.instagram.com/" ><i
-                                    class="fab fa-2x fa-fw fa-instagram text-inverse"></i></a>
-                        <a href="https://www.linkedin.com/"><i
-                                    class="fab fa-2x fa-fw fa-linkedin text-inverse"></i></a>
-                        
-                        <br>
-                        <br>
-                       
-                    </div>
+                   
                 </div>
                 <div class="col-md-12 hidden-xs text-right" style="margin-top: 30px;">
                     <a href="https://www.instagram.com"><i
