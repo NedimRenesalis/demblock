@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.4'
 
 # -
 # - Service stack
@@ -15,7 +15,10 @@ services:
   # - 21080 - frontend
   # -
   web:
-    build: .
+    build: 
+      context: .
+      network: host
+      dockerfile: ./Dockerfile
     container_name: web_demblock_machinepicker
     restart: always
     volumes:
