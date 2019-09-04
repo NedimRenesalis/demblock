@@ -19,10 +19,10 @@
               "value": "#0d0d0d"
             },
             "shape": {
-              "type": "circle",
+              "type": "dot",
               "stroke": {
                 "width": 0,
-                "color": "#000000"
+                "color": "transparent"
               },
               "polygon": {
                 "nb_sides": 6

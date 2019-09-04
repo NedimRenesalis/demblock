@@ -38,9 +38,8 @@ if($searchModel && $searchModel->category) {
 <div>
 
 <video class="videobg" autoplay loop src="<?= Url::to("@web/css/ad.mp4"); ?>" muted plays-inline frameborder="0"></video>
-<div class="overlay"></div>
-<div class="overlay2"><div id="particles-js"></div></div>
     <div class="header">
+    <div id="particles-js"></div>
         <div class="header-content">
             <div class="search-form">
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
