@@ -1097,7 +1097,7 @@ body, .main-content {
         left: -50%;
     }
     .header { 
-        height: 32vh !important;
+        height: 36vh !important;
     }
     .search-form form {
         flex-direction: column;
@@ -1120,6 +1120,20 @@ body, .main-content {
         display: none;
     }
 
+    .header-title {
+        top: -12vh !important;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    .header { 
+        height: 30vh !important;
+    }
+    .logo-mobile {
+        top: 4vh;
+    }
+    
     .header-title {
         top: -8vh !important;
     }
