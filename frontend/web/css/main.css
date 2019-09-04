@@ -924,8 +924,12 @@ textarea {
 }
 
 #particles-js {
-    display: none;
+    display: block;
     height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .navbar-brand>img.mobile {
@@ -1075,6 +1079,9 @@ body, .main-content {
 }
 
 @media screen and (max-width: 972px) {
+    .header { 
+        height: 35vh !important;
+    }
     .search-form form {
         flex-direction: column;
         width: 400px;
@@ -1097,7 +1104,7 @@ body, .main-content {
     }
 
     .header-title {
-        top: -50% !important;
+        top: -65% !important;
     }
 }
 
@@ -2476,6 +2483,7 @@ img.flag {
 
     #particles-js {
         display: block !important;
+        position: relative;
     }
 
     .sign-container {
