@@ -15,6 +15,7 @@ use app\models\Message;
 ?>  
 <?php
 $logoUrl = Url::to('@web/css/images/logo.png');
+$logoUrlMobile = Url::to('@web/css/images/logo-small.png');
 $ba = Url::to('@web/css/images/bosna.gif');
 $en = Url::to('@web/css/images/germany.png');
 $de = Url::to('@web/css/images/england.png');
@@ -70,7 +71,10 @@ if(!Yii::$app->user->isGuest){
         <?php
         NavBar::begin([
             'brandLabel' => '
-            <img src="' . $logoUrl . '" class="img-responsive"> ' . $languages,
+            <img src="' . $logoUrl . '" class="img-responsive desktop">
+            <img src="' . $logoUrlMobile . '" class="img-responsive mobile">
+            
+            ' . $languages,
             'brandUrl' => Yii::$app->homeUrl . 'index',
             'options' => [
                 'id' => 'top',

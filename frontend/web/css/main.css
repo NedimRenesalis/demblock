@@ -1,7 +1,7 @@
 /** Navigation **/
 
 .navbar#top {
-    background-color: #8d8d8d4d;
+    background-color: #425a6cab !important;
     border-bottom: none;
     position: relative;
     margin-bottom: 0;
@@ -929,6 +929,11 @@ textarea {
     height: 100%;
 }
 
+.navbar-brand>img.mobile {
+    display: none;
+    width: 64px;
+}
+
 .videobg {
     position: absolute;
     left: 50%;
@@ -1084,6 +1089,12 @@ body, .main-content {
     }
     .header-content-mobile {
         display: flex;
+    }
+    .navbar-brand>img.mobile {
+        display: block;
+    }
+    .navbar-brand>img.desktop {
+        display: none;
     }
 }
 
