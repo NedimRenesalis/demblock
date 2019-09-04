@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use frontend\assets\AppAsset;
 use yii\helpers\Html;
 use frontend\models\Categories;
 use frontend\assets\ParticleAssets;
@@ -10,6 +11,7 @@ use frontend\assets\ParticleAssets;
 ParticleAssets::register($this);
 
 $this->title = 'demblock';
+$logoUrlMobile = Url::to('@web/css/images/logo-small.png');
 $categories = Categories::find()->where(["ParentId" => null])->orderBy(['Name' => SORT_ASC])->all();
 $jobs = [];
 foreach ($categories as $category) {
@@ -71,6 +73,9 @@ if($searchModel && $searchModel->category) {
                 <?= Html::submitButton('Search', ['class' => 'search-button btn btn-primary']) ?>
                 <?php ActiveForm::end(); ?>
             </div>
+        </div>
+        <div class="logo-mobile">
+            <img src="<?=$logoUrlMobile?>" class="img-responsive mobile">
         </div>
         <span class="header-title">
            <b> VERIFIED SOURCING - WORLDWIDE </b>
