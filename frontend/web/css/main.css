@@ -1084,19 +1084,20 @@ body, .main-content {
 
 @media screen and (max-width: 972px) {
     .logo-mobile {
-        top: 10vh;
+        top: 5vh;
         display: block;
         position: absolute;
         left: 50%;
         margin: 0 auto;
     }
     .logo-mobile img {
-        height: 55vh;
+        height: 20vh;
+        width: auto;
         position: relative;
         left: -50%;
     }
     .header { 
-        height: 35vh !important;
+        height: 32vh !important;
     }
     .search-form form {
         flex-direction: column;
@@ -1120,7 +1121,7 @@ body, .main-content {
     }
 
     .header-title {
-        top: -33% !important;
+        top: -26vh !important;
     }
 }
 
