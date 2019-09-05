@@ -1084,14 +1084,14 @@ body, .main-content {
 
 @media screen and (max-width: 972px) {
     .logo-mobile {
-        top: 5vh;
+        top: 2vh;
         display: block;
         position: absolute;
         left: 50%;
         margin: 0 auto;
     }
     .logo-mobile img {
-        height: 16vh;
+        height: 20vh;
         width: auto;
         position: relative;
         left: -50%;
@@ -1131,7 +1131,7 @@ body, .main-content {
         height: 30vh !important;
     }
     .logo-mobile {
-        top: 4vh;
+        top: 1vh;
     }
     
     .header-title {
