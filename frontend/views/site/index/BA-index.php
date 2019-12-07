@@ -240,8 +240,6 @@ if($searchModel && $searchModel->category) {
                 <p></p>
                 <p class="text-center">
                     <br>DemBlock
-                    <br>Artemis House, 67 Fort Street <br>
-Grand Cayman, KY1-1111, Cayman Islands 
                     <br>
                     <a href="mailto:#">support@demblock.com</a>
                     <br></p>
