@@ -21,7 +21,7 @@ return [
         ],
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=mysql;dbname='.getenv("MYSQL_DATABASE").'',
+            'dsn' => 'mysql:host='.getenv("MYSQL_HOST").';dbname='.getenv("MYSQL_DATABASE").'',
             'username' => ''.getenv("MYSQL_USER").'',
             'password' => ''.getenv("MYSQL_PASSWORD").'',
             'charset' => 'utf8',
@@ -31,10 +31,10 @@ return [
           'viewPath' => '@common/mail',
           'transport' => [
               'class' => 'Swift_SmtpTransport',
-              'host' => 'smtp.gmail.com',
-              'username' => 'support@demblock.com',
-              'password' => '123Lolakola!!',
-              'port' => '587',
+              'host' => ''.getenv("MAILER_HOST").'',
+              'username' => ''.getenv("MAILER_USERNAME").'',
+              'password' => ''.getenv("MAILER_PASSWORD").'',
+              'port' => ''.getenv("MAILER_PORT").'',
               'encryption' => 'tls',
               'streamOptions' => [
                   'ssl' => [

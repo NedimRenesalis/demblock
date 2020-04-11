@@ -14,8 +14,8 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'support@demblock.com',
-                'password' => '123Lolakola!!',
+                'username' => 'email@address.com',
+                'password' => 'password',
                 'port' => '587',
                 'encryption' => 'tls',
                 'streamOptions' => [

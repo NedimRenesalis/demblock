@@ -12,10 +12,16 @@ RUN composer global require "fxp/composer-asset-plugin:dev-master"
 WORKDIR /app
 COPY . .
 
-# Set environmental variables
-ENV MYSQL_DATABASE=${MYSQL_DATABASE}
-ENV MYSQL_USER=${MYSQL_USER}
-ENV MYSQL_PASSWORD=${MYSQL_PASSWORD}
+# Required environmental variables
+# ENV MYSQL_DATABASE=demblock
+# ENV MYSQL_USER=
+# ENV MYSQL_PASSWORD=
+# ENV MYSQL_HOST=
+
+# ENV MAILER_HOST=smtp.gmail.com
+# ENV MAILER_PORT=587
+# ENV MAILER_USERNAME=support@demblock.com
+# ENV MAILER_PASSWORD=
 
 # Give permissions
 RUN chmod -R 777 /app && \
