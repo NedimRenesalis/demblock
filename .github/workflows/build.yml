@@ -1,4 +1,4 @@
-name: Build
+name: Build image
 on:
   push:
     branches: [ master ]
@@ -8,11 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Publish to Registry
-      uses: HurricanKai/Publish-Docker-Github-Action@master
+      uses: docker/build-push-action@v1
       with:
-        name: demblock/demblock
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: eu.gcr.io
-        tagging: true
-        cache: true
+        repository: eu.gcr.io/demblock
+        tag_with_ref: true
