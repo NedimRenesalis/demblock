@@ -14,5 +14,5 @@ jobs:
       with:
         image: demblock/demblock
         registry: eu.gcr.io
-        username: ${{ secrets.DOCKER_USERNAME }}
+        username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
