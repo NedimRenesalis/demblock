@@ -1,11 +1,11 @@
-name: Pipeline - Versioning
+name: CI
 on:
   push:
     branches:
       - master
 jobs:
   build:
-    name: 'CI - Bump version'
+    name: 'Bum version'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master

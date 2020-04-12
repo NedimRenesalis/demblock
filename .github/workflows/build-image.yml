@@ -1,11 +1,11 @@
-name: Pipeline - Build
+name: CI
 on:
   push:
     tags:
     - '*'
 jobs:
   build:
-    name: 'CI - Build image'
+    name: 'Build image'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
