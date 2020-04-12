@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
+      release: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+    spec:
+      initContainers:
+        - name: yii2-init-db
+          image: {{ template "repo.image" . }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          command: ["php", "yii", "migrate", "--interactive=0"]
+          env:
+            - name: MYSQL_USER
+              value: {{ default "root"  .Values.db.username | quote }}
+            - name: MYSQL_PASSWORD
+              value: {{ default ""  .Values.db.password | quote }}
+            - name: MYSQL_HOST
+              value: {{ default "localhost"  .Values.db.host }}
+            - name: MYSQL_DATABASE
+              value: {{ .Values.db.database }}
+      containers:
+        - name: yii2
+          image: {{ template "repo.image" . }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          ports:
+            - containerPort: {{ .Values.ports.frontend }}
+            - containerPort: {{ .Values.ports.backend }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.ports.frontend }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.ports.frontend }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          env:
+            - name: MYSQL_USER
+              value: {{ default "root"  .Values.db.username | quote }}
+            - name: MYSQL_PASSWORD
+              value: {{ default ""  .Values.db.password | quote }}
+            - name: MYSQL_HOST
+              value: {{ default "localhost"  .Values.db.host }}
+            - name: MYSQL_DATABASE
+              value: {{ .Values.db.database }}
+            - name: MAILER_HOST
+              value: {{ .Values.smtp.host }}
+            - name: MAILER_PORT
+              value: {{ .Values.smtp.port }}
+            - name: MAILER_USERNAME
+              value: {{ .Values.smtp.username }}
+            - name: MAILER_PASSWORD
+              value: {{ .Values.smtp.password }}
+          volumeMounts:
+            - name: yii2-storage
+              mountPath: /app/frontend/web/uploads
+              subPath: frontend/web/uploads
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- if .Values.image.pullSecrets }}
+      imagePullSecrets:
+      - name: {{ .Values.image.pullSecrets.name | quote }}
+    {{ end }}
+      volumes:
+        - name: yii2-storage
+        {{- if .Values.persistence.enabled }}
+          gcePersistentDisk:
+            pdName: {{ .Values.persistence.disk }}
+            fsType: ext4
+        {{- else }}
+          emptyDir: {}
+        {{ end }}

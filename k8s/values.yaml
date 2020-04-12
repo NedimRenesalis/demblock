@@ -1,0 +1,76 @@
+# Default values for demblock.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+## =================================================================
+## Services configuration
+##
+image:
+  registry: eu.gcr.io
+  repository: demblock/demblock
+  tag: latest
+  pullPolicy: IfNotPresent
+  pullSecrets: 
+    name: pull-docker-creds
+    dockerjson: 
+
+# PostgreSQL configuration
+db:
+  host: 
+  username: 
+  password: 
+  database: 
+
+# SMTP mailer configuration
+smtp:
+  host:
+  port:
+  username:
+  password:
+
+ports:
+  frontend: 21080
+  backend: 20080
+
+## =================================================================
+## Kubernetes configuration
+##
+##
+## Enable client source IP preservation
+## ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
+##
+serviceType: LoadBalancer
+serviceExternalTrafficPolicy: Cluster
+
+## Configure the ingress resource that allows you to access the
+## installation. Set up the URL
+## ref: http://kubernetes.io/docs/user-guide/ingress/
+##
+ingress:
+  enabled: true
+  hosts:
+  - name: frontend.yii2.local
+    port: 21080
+    tls: false
+    certManager: false
+  - name: backend.yii2.local
+    path: /backend/
+    port: 20080
+    tls: false
+    certManager: false
+
+## Enable persistence using Persistent Volume Claims
+## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+##
+persistence:
+  enabled: true
+  disk: demblock-disk
+
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+replicaCount: 1
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 300m
