@@ -13,6 +13,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v2
       with:
         image: demblock/demblock
+        tag: latest
         registry: eu.gcr.io
         username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
