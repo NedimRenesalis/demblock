@@ -13,13 +13,6 @@ jobs:
     - uses: actions/checkout@master
     - name: Get version
       run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/heads/master/v}
-    - name: Get kubeconfig file from GKE
-      uses: machine-learning-apps/gke-kubeconfig@master
-      with:
-        application_credentials: ${{ secrets.GOOGLE_SA_KEY }}
-        project_id: demblock
-        location_zone: europe-north1-a
-        cluster_name: eu-demblock-cluster
     - name: 'Deploy Helm Chart'
       uses: 'deliverybot/helm@v1'
       with:
@@ -34,4 +27,4 @@ jobs:
           db.database: ${{ secrets.DB_DATABASE }}
           db.host: ${{ secrets.DB_HOST }}
       env:
-        KUBECONFIG_FILE: '/github/workspace/.kube/config'
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
