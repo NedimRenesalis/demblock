@@ -1,10 +1,7 @@
 name: CD
 on:
-#  schedule:
-#    - cron:  '* * * * *'
-  push:
-    branches:
-      - master
+  schedule:
+    - cron:  '30 2 * * *' # Runs every day at 2:30 AM
 env:
   # Project settings
   GKE_CLUSTER: eu-demblock-cluster
