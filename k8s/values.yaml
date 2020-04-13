@@ -49,12 +49,11 @@ serviceExternalTrafficPolicy: Cluster
 ingress:
   enabled: true
   hosts:
-  - name: frontend.yii2.local
+  - name: demblock.com
     port: 21080
     tls: false
     certManager: false
-  - name: backend.yii2.local
-    path: /backend/
+  - name: backend.demblock.com
     port: 20080
     tls: false
     certManager: false
