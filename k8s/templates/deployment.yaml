@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ template "name" . }}
   labels:
@@ -13,6 +13,7 @@ spec:
     matchLabels:
       app: {{ template "name" . }}
       release: "{{ .Release.Name }}"
+  serviceName: {{ template "name" . }}
   template:
     metadata:
       labels:
@@ -69,8 +70,8 @@ spec:
             - name: MAILER_PASSWORD
               value: {{ .Values.smtp.password }}
           volumeMounts:
-            - name: yii2-storage
-              mountPath: /app/
+            - name: storage-pv
+              mountPath: /app/frontend/web/uploads
               subPath: frontend/web/uploads
           resources:
 {{ toYaml .Values.resources | indent 12 }}
@@ -78,12 +79,12 @@ spec:
       imagePullSecrets:
       - name: {{ .Values.image.pullSecrets.name | quote }}
     {{ end }}
-      volumes:
-        - name: yii2-storage
-        {{- if .Values.persistence.enabled }}
-          gcePersistentDisk:
-            pdName: {{ .Values.persistence.disk }}
-            fsType: ext4
-        {{- else }}
-          emptyDir: {}
-        {{ end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: storage-pv
+    spec:
+      accessModes: 
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
