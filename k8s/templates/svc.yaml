@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ template "name" . }}
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: demblock.com
   labels:
     app: {{ template "name" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
