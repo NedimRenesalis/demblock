@@ -34,7 +34,7 @@ jobs:
 
     - name: CD - Set version
       run: |
-        echo ::set-env name=RELEASE_VERSION::$(steps.tagName.outputs.tag)
+        echo ::set-env name=RELEASE_VERSION::${{ steps.tagName.outputs.tag }}
         echo $RELEASE_VERSION
 
     # Setup gcloud CLI
