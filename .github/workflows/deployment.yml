@@ -29,7 +29,8 @@ jobs:
         gcloud --quiet auth configure-docker
     - run: |-
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-        echo ::set-env name=KUBECONFIG_FILE::$(cat ~/.kube/config)
+        echo ::set-env name=KUBECONFIG_FILE::~/.kube/config
+        cat $KUBECONFIG_FILE
     - name: 'Deploy Helm Chart'
       uses: 'deliverybot/helm@v1'
       with:
