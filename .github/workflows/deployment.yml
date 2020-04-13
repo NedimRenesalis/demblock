@@ -96,4 +96,4 @@ jobs:
     # Deploy chart
     - name: Helm - Deploy chart
       run: |
-        helm upgrade $HELM_APP ./k8s/ --install --wait --atomic --namespace=$HELM_NAMESPACE --values=./k8s/values.yaml
+        helm upgrade $HELM_APP ./k8s/ --install --wait --timeout 15m0s --atomic --namespace=$HELM_NAMESPACE --values=./k8s/values.yaml
