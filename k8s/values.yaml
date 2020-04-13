@@ -12,7 +12,6 @@ image:
   pullPolicy: IfNotPresent
   pullSecrets: 
     name: pull-docker-creds
-    dockerjson: 
 
 # PostgreSQL configuration
 db:
