@@ -4,8 +4,8 @@ on:
     - cron:  '30 2 * * *' # Runs every day at 2:30 AM
 env:
   # Project settings
-  GKE_CLUSTER: eu-demblock-cluster
-  GKE_ZONE: europe-north1-a
+  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
+  GKE_ZONE: ${{ secrets.GKE_ZONE }}
   KUBECONFIG: ./kube/config
   HELM_APP: demblock
   HELM_NAMESPACE: default
@@ -13,8 +13,8 @@ env:
   # Secrets
   DB_USERNAME: ${{ secrets.DB_USERNAME }}
   DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-  DB_DATABASE: ${{ secrets.DB_DATABASE }}
   DB_HOST: ${{ secrets.DB_HOST }}
+  DB_DATABASE: demblock
   SMTP_HOST: ${{ secrets.SMTP_HOST }}
   SMTP_PORT: ${{ secrets.SMTP_PORT }}
   SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
