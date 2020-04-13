@@ -6,11 +6,27 @@ on:
     branches:
       - master
 env:
+  # Project settings
   GKE_CLUSTER: eu-demblock-cluster
   GKE_ZONE: europe-north1-a
   KUBECONFIG: ./kube/config
   HELM_APP: demblock
   HELM_NAMESPACE: default
+
+  # Secrets
+  DB_USERNAME: ${{ secrets.DB_USERNAME }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  DB_DATABASE: ${{ secrets.DB_DATABASE }}
+  DB_HOST: ${{ secrets.DB_HOST }}
+  SMTP_HOST: ${{ secrets.SMTP_HOST }}
+  SMTP_PORT: ${{ secrets.SMTP_PORT }}
+  SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+
+  #### Also required:
+  # GOOGLE_SA_EMAIL
+  # GOOGLE_SA_KEY
+  # GIT_AUTH_TOKEN
 
 jobs:
   build:
