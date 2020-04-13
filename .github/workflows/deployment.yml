@@ -5,10 +5,6 @@ on:
   push:
     branches:
       - master
-env:
-  GKE_CLUSTER: eu-demblock-cluster
-  GKE_ZONE: europe-north1-a
-
 jobs:
   build:
     name: 'Deployment'
@@ -17,18 +13,13 @@ jobs:
     - uses: actions/checkout@master
     - name: Get version
       run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/heads/master/v}
-    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+    - name: Get kubeconfig file from GKE
+      uses: machine-learning-apps/gke-kubeconfig@master
       with:
-        version: '286.0.0'
-        service_account_email: ${{ secrets.GOOGLE_SA_EMAIL }}
-        service_account_key: ${{ secrets.GOOGLE_SA_KEY }}
+        application_credentials: ${{ secrets.GOOGLE_SA_KEY }}
         project_id: demblock
-        export_default_credentials: true
-    - run: |-
-        gcloud --quiet auth configure-docker
-    - run: |-
-        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-    - run: gcloud info
+        location_zone: europe-north1-a
+        cluster_name: eu-demblock-cluster
     - name: 'Deploy Helm Chart'
       uses: 'deliverybot/helm@v1'
       with:
