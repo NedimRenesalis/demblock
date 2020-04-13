@@ -20,14 +20,14 @@ jobs:
       matrix:
         python-version: [3.7]
     steps:
+    - name: CD - Set version
+      run: |
+        echo ::set-env name=RELEASE_VERSION::$(git describe --tags --abbrev=0)
+
     - name: Checkout
       uses: actions/checkout@v2
       with:
         fetch-depth: '0'
-  
-    - name: CD - Set version
-      run: |
-        echo ::set-env name=RELEASE_VERSION::$(git describe --tags --abbrev=0)
 
     # Setup gcloud CLI
     - name: CD - GCP Auth
