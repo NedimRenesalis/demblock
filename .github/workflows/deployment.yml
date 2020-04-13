@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
+        python-version: [3.7]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -41,10 +41,16 @@ jobs:
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
     # Setup dependencies
-    - name: DEP - Get dependencies
+    - name: DEP - Install Python
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
+
+    - name: DEP - Install Helm
+      run: |
+        curl -fsSLo get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+        chmod 700 get_helm.sh
+        ./get_helm.sh
 
     - name: DEP - Install dependencies
       run: |
@@ -59,6 +65,5 @@ jobs:
 
     # Deploy chart
     - name: Helm - Deploy chart
-      uses: WyriHaximus/github-action-helm3@v1
-      with:
-        exec: helm upgrade $HELM_APP ./k8s/ --install --wait --atomic --namespace=$HELM_NAMESPACE --values=./k8s/values.yaml
+      run: |
+        helm upgrade $HELM_APP ./k8s/ --install --wait --atomic --namespace=$HELM_NAMESPACE --values=./k8s/values.yaml
