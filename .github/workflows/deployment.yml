@@ -5,26 +5,60 @@ on:
   push:
     branches:
       - master
+env:
+  PROJECT_ID: demblock
+  GKE_CLUSTER: eu-demblock-cluster
+  GKE_ZONE: europe-north1-a
+  KUBECONFIG: ./kube/config
+  HELM_APP: demblock
+  HELM_NAMESPACE: default
+
 jobs:
   build:
     name: 'Deployment'
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
     steps:
-    - uses: actions/checkout@master
-    - name: Get version
+    - name: Checkout
+      uses: actions/checkout@v2
+  
+    - name: CD - Set version
       run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/heads/master/v}
-    - name: 'Deploy Helm Chart'
-      uses: 'deliverybot/helm@v1'
+
+    # Setup gcloud CLI
+    - name: CD - Auth
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
-        release: 'demblock'
-        namespace: 'default'
-        chart: 'k8s'
-        token: '${{ secrets.GIT_AUTH_TOKEN }}'
-        values: |
-          image.tag: $RELEASE_VERSION
-          db.username: ${{ secrets.DB_USERNAME }}
-          db.password: ${{ secrets.DB_PASSWORD }}
-          db.database: ${{ secrets.DB_DATABASE }}
-          db.host: ${{ secrets.DB_HOST }}
-      env:
-        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+        version: '286.0.0'
+        service_account_email: ${{ secrets.GKE_SA_EMAIL }}
+        service_account_key: ${{ secrets.GKE_SA_KEY }}
+        project_id: ${{ secrets.GKE_PROJECT }}
+
+    # Get the GKE credentials so we can deploy to the cluster
+    - run: |-
+        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+
+    # Setup dependencies
+    - name: DEP - Get dependencies
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: DEP - Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Update chart
+    - name: Helm - Update chart
+      run: |
+        python ./ci.py
+        cat ./k8s/values.yaml
+
+    # Deploy chart
+    - name: Helm - Deploy chart
+      uses: WyriHaximus/github-action-helm3@v1
+      with:
+        exec: helm upgrade $HELM_APP ./k8s/ --install --wait --atomic --namespace=$HELM_NAMESPACE --values=./k8s/values.yaml
