@@ -10,7 +10,6 @@ metadata:
 spec:
   type: {{ .Values.serviceType }}
   {{- if (or (eq .Values.serviceType "LoadBalancer") (eq .Values.serviceType "NodePort")) }}
-  loadBalancerIP: {{ .Values.globalIP }}
   externalTrafficPolicy: {{ .Values.serviceExternalTrafficPolicy | quote }}
   {{- end }}
   selector:
