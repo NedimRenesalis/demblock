@@ -16,9 +16,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Get version
-      run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:19}
-    - name: Print version
-      run: echo $RELEASE_VERSION
+      run: |-
+        echo ${GITHUB_REF}
+        echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:19}
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '286.0.0'
