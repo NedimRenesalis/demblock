@@ -47,6 +47,7 @@ serviceExternalTrafficPolicy: Cluster
 ##
 ingress:
   enabled: true
+  globalIP: demblock-global-ip
   hosts:
   - name: demblock.com
     port: 21080
