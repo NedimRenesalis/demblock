@@ -16,21 +16,19 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Get version
-      run: |-
-        echo ${GITHUB_REF}
-        echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:19}
+      run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/heads/master/v}
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '286.0.0'
         service_account_email: ${{ secrets.GOOGLE_SA_EMAIL }}
         service_account_key: ${{ secrets.GOOGLE_SA_KEY }}
         project_id: demblock
+        export_default_credentials: true
     - run: |-
         gcloud --quiet auth configure-docker
     - run: |-
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-        echo ::set-env name=KUBECONFIG_FILE::~/.kube/config
-        cat $KUBECONFIG_FILE
+    - run: gcloud info
     - name: 'Deploy Helm Chart'
       uses: 'deliverybot/helm@v1'
       with:
@@ -44,3 +42,5 @@ jobs:
           db.password: ${{ secrets.DB_PASSWORD }}
           db.database: ${{ secrets.DB_DATABASE }}
           db.host: ${{ secrets.DB_HOST }}
+      env:
+        KUBECONFIG_FILE: '/github/workspace/.kube/config'
