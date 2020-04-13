@@ -39,6 +39,7 @@ ports:
 ## ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
 ##
 serviceType: LoadBalancer
+globalIP: demblock-global-ip
 serviceExternalTrafficPolicy: Cluster
 
 ## Configure the ingress resource that allows you to access the
@@ -47,7 +48,6 @@ serviceExternalTrafficPolicy: Cluster
 ##
 ingress:
   enabled: true
-  globalIP: demblock-global-ip
   hosts:
   - name: demblock.com
     port: 21080
