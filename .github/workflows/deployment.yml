@@ -20,9 +20,16 @@ jobs:
       matrix:
         python-version: [3.7]
     steps:
+    - name: 'CD - Get version'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@master"
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
     - name: CD - Set version
       run: |
-        echo ::set-env name=RELEASE_VERSION::$(git describe --tags --abbrev=0)
+        echo ::set-env name=RELEASE_VERSION::${{ steps.previoustag.outputs.tag }}
+        echo $RELEASE_VERSION
 
     - name: Checkout
       uses: actions/checkout@v2
