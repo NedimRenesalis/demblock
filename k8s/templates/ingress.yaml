@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled }}
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ template "name" . }}
@@ -11,7 +11,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    # kubernetes.io/ingress.global-static-ip-name: {{ .Values.globaIP | quote }}
+    kubernetes.io/ingress.global-static-ip-name: {{ .Values.globaIP }}
 spec:
   rules:
 {{- range .Values.ingress.hosts }}
@@ -20,7 +20,7 @@ spec:
         paths:
         - path: {{ default "/" .path }}
           backend:
-            serviceName: {{ template "name" $ }}
+            serviceName: {{ template "name" . }}
             servicePort: {{ .port }}
 {{- end }}
   tls:

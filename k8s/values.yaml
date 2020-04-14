@@ -38,9 +38,8 @@ ports:
 ## Enable client source IP preservation
 ## ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
 ##
-serviceType: LoadBalancer
-globalIP: 35.186.230.88
-# globaIP: demblock-global-ip
+serviceType: NodePort
+globaIP: demblock-global-ip
 
 ## Configure the ingress resource that allows you to access the
 ## installation. Set up the URL
