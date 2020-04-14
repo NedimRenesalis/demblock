@@ -9,7 +9,7 @@ metadata:
     heritage: "{{ .Release.Service }}"
   annotations:
     #kubernetes.io/ingress.class: nginx
-    kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globaIP | quote }}
+    kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
     #cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
