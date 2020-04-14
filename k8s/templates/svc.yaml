@@ -9,6 +9,7 @@ metadata:
     heritage: "{{ .Release.Service }}"
 spec:
   type: {{ .Values.serviceType }}
+  loadBalancerIP: {{ .Values.globalIP }}
   #{{- if (or (eq .Values.serviceType "LoadBalancer") (eq .Values.serviceType "NodePort")) }}
   #externalTrafficPolicy: {{ .Values.serviceExternalTrafficPolicy | quote }}
   #{{- end }}
