@@ -1,15 +1,25 @@
-name: CD
+name: CI/CD Pipeline
 on:
+  # Run either on tagging or every day at 2:30 AM
   push:
     tags:
     - '*'
   schedule:
-    - cron:  '30 2 * * *' # Runs every day at 2:30 AM
+    - cron:  '30 2 * * *'
+
+# ========================================================
 env:
   # Project settings
+  GCP_PROJECT: demblock
+  ARTIFACT_NAME: demblock
   GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
   GKE_ZONE: ${{ secrets.GKE_ZONE }}
-  KUBECONFIG: ./kube/config
+
+  # DB settings
+  DB_DATABASE: demblock
+
+  # CD Deployment
+  CHART_PATH: "./k8s"
   HELM_APP: demblock
   HELM_NAMESPACE: default
 
@@ -17,24 +27,54 @@ env:
   DB_USERNAME: ${{ secrets.DB_USERNAME }}
   DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
   DB_HOST: ${{ secrets.DB_HOST }}
-  DB_DATABASE: demblock
   SMTP_HOST: ${{ secrets.SMTP_HOST }}
   SMTP_PORT: ${{ secrets.SMTP_PORT }}
   SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
   SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
 
+  # Consts
+  KUBECONFIG: ./kube/config
+
   #### Also required:
   # GOOGLE_SA_EMAIL
   # GOOGLE_SA_KEY
   # GIT_AUTH_TOKEN
+  # DOCKER_PASSWORD
 
 jobs:
-  build:
-    name: 'Deployment'
+  # ========================================================
+  # ============= CI WORKFLOW
+  # ========================================================
+  ci:
+    name: 'CI - Build artifacts'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.7]
+    steps:
+    - uses: actions/checkout@master
+  
+    - name: Push to Registry - tagged
+      uses: mr-smithers-excellent/docker-build-push@v2
+      with:
+        image: ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
+        registry: eu.gcr.io
+        username: _json_key
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Push to Registry - latest
+      uses: mr-smithers-excellent/docker-build-push@v2
+      with:
+        image: ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
+        tag: latest
+        registry: eu.gcr.io
+        username: _json_key
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+  # ========================================================
+  # ============= CD WORKFLOW
+  # ========================================================
+  cd:
+    name: 'CD - Deploy artifacts'
+    needs: ci
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -60,7 +100,7 @@ jobs:
         version: '286.0.0'
         service_account_email: ${{ secrets.GOOGLE_SA_EMAIL }}
         service_account_key: ${{ secrets.GOOGLE_SA_KEY }}
-        project_id: "demblock"
+        project_id: ${{ env.GCP_PROJECT }}
 
     # Get GKE credentials
     - name: CD - GKE Auth
@@ -71,7 +111,7 @@ jobs:
     - name: DEP - Install Python
       uses: actions/setup-python@v1
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: "3.7"
 
     - name: DEP - Install Helm
       run: |
@@ -98,4 +138,4 @@ jobs:
     # Deploy chart
     - name: Helm - Deploy chart
       run: |
-        helm upgrade $HELM_APP ./k8s/ --install --wait --timeout 15m0s --atomic --namespace=$HELM_NAMESPACE --values=./k8s/values.yaml
+        helm upgrade $HELM_APP $CHART_PATH/ --install --wait --timeout 15m0s --atomic --namespace=$HELM_NAMESPACE --values=$CHART_PATH/values.yaml
