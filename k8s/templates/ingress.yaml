@@ -17,10 +17,10 @@ spec:
     - host: {{ .name }}
       http:
         paths:
-          - path: {{ default "/" .path }}
-            backend:
-              serviceName: {{ template "name" $ }}
-              servicePort: {{ .port }}
+        - path: {{ default "/" .path }}
+          backend:
+            serviceName: {{ template "name" $ }}
+            servicePort: {{ .port }}
 {{- end }}
   tls:
   - hosts:
