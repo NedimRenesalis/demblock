@@ -10,6 +10,7 @@ metadata:
 spec:
   type: {{ .Values.network.serviceType }}
   loadBalancerIP: {{ .Values.network.globalIP }}
+  externalTrafficPolicy: Local
   selector:
     app: {{ template "name" . }}
   ports:

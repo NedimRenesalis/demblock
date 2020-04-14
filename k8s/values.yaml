@@ -34,7 +34,7 @@ smtp:
 
 network:
   serviceType: LoadBalancer
-  globaIP: 35.228.15.174
+  globalIP: 35.228.15.174
   healthPort: 21080
   hosts:
   - name: demblock.com
