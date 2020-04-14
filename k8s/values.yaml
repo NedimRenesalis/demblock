@@ -33,8 +33,8 @@ smtp:
 # Services configuration
 
 network:
-  serviceType: NodePort
-  globaIP: demblock-global-ip
+  serviceType: LoadBalancer
+  globaIP: 35.228.15.174
   healthPort: 21080
   hosts:
   - name: demblock.com

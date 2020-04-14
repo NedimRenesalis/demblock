@@ -9,6 +9,7 @@ metadata:
     heritage: "{{ .Release.Service }}"
 spec:
   type: {{ .Values.network.serviceType }}
+  loadBalancerIP: {{ .Values.network.globalIP }}
   selector:
     app: {{ template "name" . }}
   ports:
