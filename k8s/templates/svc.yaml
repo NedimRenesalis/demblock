@@ -18,6 +18,8 @@ spec:
     - name: frontend-http
       port: {{ .Values.ports.frontend }}
       targetPort: {{ .Values.ports.frontend }}
+      nodePort: {{ .Values.ports.frontend }}
     - name: backend-http
       port: {{ .Values.ports.backend }}
       targetPort: {{ .Values.ports.backend }}
+      nodePort: {{ .Values.ports.backend }}
