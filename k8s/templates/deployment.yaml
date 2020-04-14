@@ -44,12 +44,14 @@ spec:
             - containerPort: {{ .port }}
           {{- end }}
           readinessProbe:
-            tcpSocket:
+            httpGet:
+              path: /
               port: {{ .Values.network.healthPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
-            tcpSocket:
+            httpGet:
+              path: /
               port: {{ .Values.network.healthPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
