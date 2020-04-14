@@ -27,7 +27,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error', 'prijava', 'change-password'],
+                        'actions' => ['prijava', 'error', 'change-password'],
                         'allow' => true,
                     ],
                     [
@@ -168,7 +168,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionLogin()
+    public function actionPrijava()
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -223,10 +223,4 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-
-    public function actionPrijava()
-    {
-        return $this->redirect('login');
-    }
-
 }

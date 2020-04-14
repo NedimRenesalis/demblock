@@ -39,7 +39,7 @@ AppAsset::register($this);
     $menuItems = [];
 
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/site/prijava']];
     } else if (User::getUserTypeByUsername(Yii::$app->user->identity->username) == 1) {
 
         $menuItems = [

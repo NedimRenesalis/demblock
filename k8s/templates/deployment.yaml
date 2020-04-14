@@ -45,13 +45,13 @@ spec:
           {{- end }}
           readinessProbe:
             httpGet:
-              path: /
+              path: /site/prijava
               port: {{ .Values.network.healthPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /
+              path: /site/prijava
               port: {{ .Values.network.healthPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
