@@ -5,6 +5,7 @@
 ## =================================================================
 ## Services configuration
 ##
+
 image:
   registry: eu.gcr.io
   repository: demblock/demblock
@@ -14,48 +15,40 @@ image:
     name: pull-docker-creds
 
 # PostgreSQL configuration
-db:
-  host: 
-  username: 
-  password: 
-  database: 
 
-# SMTP mailer configuration
-smtp:
-  host:
-  port:
+db:
   username:
   password:
+  host:
+  database:
 
-ports:
-  frontend: 21080
-  backend: 20080
+# SMTP mailer configuration
 
-## =================================================================
-## Kubernetes configuration
-##
-##
-## Enable client source IP preservation
-## ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
-##
-serviceType: NodePort
-globaIP: demblock-global-ip
+smtp:
+  host: 
+  port: 
+  username: 
+  password: 
 
-## Configure the ingress resource that allows you to access the
-## installation. Set up the URL
-## ref: http://kubernetes.io/docs/user-guide/ingress/
-##
-ingress:
-  enabled: true
+# Services configuration
+
+network:
+  serviceType: NodePort
+  globaIP: demblock-global-ip
+  healthPort: 21080
   hosts:
   - name: demblock.com
+    type: frontend
     port: 21080
-    tls: false
+    tls: true
     certManager: false
   - name: backend.demblock.com
+    type: backend
     port: 20080
-    tls: false
+    tls: true
     certManager: false
+
+## =================================================================
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/

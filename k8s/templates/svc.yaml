@@ -8,18 +8,46 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 spec:
-  type: {{ .Values.serviceType }}
-  #{{- if (or (eq .Values.serviceType "LoadBalancer") (eq .Values.serviceType "NodePort")) }}
-  #externalTrafficPolicy: {{ .Values.serviceExternalTrafficPolicy | quote }}
-  #{{- end }}
+  type: {{ .Values.network.serviceType }}
+  # {{- if (or (eq .Values.network.serviceType "LoadBalancer") (eq .Values.network.serviceType "NodePort")) }}
+  # externalTrafficPolicy: {{ .Values.network.serviceExternalTrafficPolicy | quote }}
+  # {{- end }}
   selector:
     app: {{ template "name" . }}
   ports:
-    - name: frontend-http
-      port: {{ .Values.ports.frontend }}
-      targetPort: {{ .Values.ports.frontend }}
-      nodePort: {{ .Values.ports.frontend }}
-    - name: backend-http
-      port: {{ .Values.ports.backend }}
-      targetPort: {{ .Values.ports.backend }}
-      nodePort: {{ .Values.ports.backend }}
+{{- range .Values.network.hosts }}
+    - name: {{ .type }}
+      port: {{ .port }}
+      targetPort: {{ .port }}
+{{- end }}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "name" . }}
+  labels:
+    app: {{ template "name" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globaIP }}
+spec:
+  rules:
+    {{- range .Values.network.hosts }}
+    - host: {{ .name }}
+      http:
+        paths:
+        - path: {{ default "/" .path }}
+          backend:
+            serviceName: {{ .type }}
+            servicePort: {{ .port }}
+    {{- end }}
+  tls:
+  - hosts:
+    {{- range .Values.network.hosts }}
+    - {{ .name }}
+    {{- end }}
+    secretName: {{ template "name" . }}-certs

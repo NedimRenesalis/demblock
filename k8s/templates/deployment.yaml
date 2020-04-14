@@ -22,34 +22,35 @@ spec:
         release: "{{ .Release.Name }}"
     spec:
       initContainers:
-        - name: yii2-init-db
+        - name: init-db
           image: {{ template "repo.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           command: ["php", "yii", "migrate", "--interactive=0"]
           env:
             - name: MYSQL_USER
-              value: {{ default "root"  .Values.db.username | quote }}
+              value: {{ .Values.db.username | quote }}
             - name: MYSQL_PASSWORD
-              value: {{ default ""  .Values.db.password | quote }}
+              value: {{ .Values.db.password }}
             - name: MYSQL_HOST
-              value: {{ default "localhost"  .Values.db.host }}
+              value: {{ .Values.db.host }}
             - name: MYSQL_DATABASE
               value: {{ .Values.db.database }}
       containers:
-        - name: yii2
+        - name: yii-apache
           image: {{ template "repo.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
-            - containerPort: {{ .Values.ports.frontend }}
-            - containerPort: {{ .Values.ports.backend }}
+          {{- range .Values.network.hosts }}
+            - containerPort: {{ .port }}
+          {{- end }}
           readinessProbe:
             tcpSocket:
-              port: {{ .Values.ports.frontend }}
+              port: {{ .Values.network.healthPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             tcpSocket:
-              port: {{ .Values.ports.frontend }}
+              port: {{ .Values.network.healthPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
           env:
@@ -75,10 +76,10 @@ spec:
               subPath: frontend/web/uploads
           resources:
 {{ toYaml .Values.resources | indent 12 }}
-    {{- if .Values.image.pullSecrets }}
+      {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
       - name: {{ .Values.image.pullSecrets.name | quote }}
-    {{ end }}
+      {{ end }}
   volumeClaimTemplates:
   - metadata:
       name: storage-pv
