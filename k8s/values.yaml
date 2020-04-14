@@ -34,7 +34,7 @@ smtp:
 
 network:
   serviceType: NodePort
-  globalIP: demblock-global
+  globalIP: demblock-global-ip
   healthPort: 21080
   hosts:
   - name: demblock.com
