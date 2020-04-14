@@ -19,7 +19,7 @@ spec:
         paths:
         - path: {{ default "/" .path }}
           backend:
-            serviceName: {{ .type }}
+            serviceName: {{ template "name" $ }}
             servicePort: {{ .port }}
     {{- end }}
   tls:
