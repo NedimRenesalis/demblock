@@ -117,7 +117,6 @@ jobs:
       run: |
         python3 ./.cicd/update_chart.py
         cat ./k8s/values.yaml
-        echo ::set-env name=HELM_ARTIFACT::$HELM_APP-$RELEASE_VERSION.tgz
 
     # Lint chart
     - name: HELM - Lint
@@ -126,9 +125,9 @@ jobs:
 
     # Upload artifact
     - uses: actions/upload-artifact@v1
-      name: HELM - Upload Helm artifact
+      name: HELM - Upload artifact
       with:
-        name: ${{ env.HELM_ARTIFACT }}
+        name: ${{ env.HELM_APP }}-${{ env.RELEASE_VERSION }}
         path: ./k8s/
         
     # Deploy chart
