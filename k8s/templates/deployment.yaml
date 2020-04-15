@@ -39,7 +39,7 @@ spec:
         - name: frontend
           image: {{ template "repo.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          command: ["php", "yii", "serve", "--docroot", "@frontend/web", "--port", {{ .Values.network.frontend.port | quote }}, "--interactive", "0"]
+          #command: ["php", "yii", "serve", "--docroot", "@frontend/web", "--port", {{ .Values.network.frontend.port | quote }}, "--interactive", "0"]
           ports:
             - containerPort: {{ .Values.network.frontend.port }}
           readinessProbe:
@@ -80,7 +80,7 @@ spec:
         - name: backend
           image: {{ template "repo.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          command: ["php", "yii", "serve", "--docroot", "@backend/web", "--port", {{ .Values.network.backend.port | quote }}, "--interactive", "0"]
+          #command: ["php", "yii", "serve", "--docroot", "@backend/web", "--port", {{ .Values.network.backend.port | quote }}, "--interactive", "0"]
           ports:
             - containerPort: {{ .Values.network.backend.port }}
           readinessProbe:
