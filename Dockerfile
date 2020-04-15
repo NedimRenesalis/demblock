@@ -37,3 +37,5 @@ RUN mv /app/server/* /etc/apache2/sites-available/ \
     && a2ensite frontend.conf \
     && a2ensite backend.conf \
     && a2dissite 000-default.conf
+
+EXPOSE 20080 21080
