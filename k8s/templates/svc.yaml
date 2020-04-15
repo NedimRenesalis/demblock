@@ -14,8 +14,9 @@ spec:
   selector:
     app: {{ template "name" . }}
   ports:
-{{- range .Values.network.hosts }}
-    - name: {{ .type }}
-      port: {{ .port }}
-      targetPort: {{ .port }}
-{{- end }}
+    - name: {{ template "name" . }}-frontend
+      port: {{ .Values.network.frontend.port }}
+      targetPort: {{ .Values.network.frontend.port }}
+    - name: {{ template "name" . }}-backend
+      port: {{ .Values.network.backend.port }}
+      targetPort: {{ .Values.network.backend.port }}

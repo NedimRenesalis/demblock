@@ -36,14 +36,13 @@ network:
   serviceType: NodePort
   globalIP: demblock-global-ip
   healthPort: 21080
-  hosts:
-  - name: demblock.com
-    type: frontend
+  frontend:
+    name: demblock.com
     port: 21080
     tls: true
     certManager: false
-  - name: backend.demblock.com
-    type: backend
+  backend:
+    name: backend.demblock.com
     port: 20080
     tls: true
     certManager: false

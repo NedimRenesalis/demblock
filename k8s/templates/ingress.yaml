@@ -13,14 +13,18 @@ metadata:
     #cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
-    {{- range .Values.network.hosts }}
-    - host: {{ .name }}
+    - host: {{ .Values.network.frontend.name }}
       http:
         paths:
         - backend:
-            serviceName: {{ template "name" $ }}
-            servicePort: {{ .port }}
-    {{- end }}
+            serviceName: {{ template "name" . }}
+            servicePort: {{ .Values.network.frontend.port }}
+    - host: {{ .Values.network.backend.name }}
+      http:
+        paths:
+        - backend:
+            serviceName: {{ template "name" . }}
+            servicePort: {{ .Values.network.backend.port }}
   #tls:
   #- hosts:
   #  {{- range .Values.network.hosts }}
