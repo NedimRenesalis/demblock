@@ -42,16 +42,16 @@ spec:
           ports:
             - containerPort: {{ .Values.network.frontend.port }}
             - containerPort: {{ .Values.network.backend.port }}
-          readinessProbe:
-            httpGet:
-              path: /site/prijava
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /site/prijava
-            initialDelaySeconds: 5
-            periodSeconds: 10
+          #readinessProbe:
+          #  httpGet:
+          #    path: /site/prijava
+          #  initialDelaySeconds: 5
+          #  periodSeconds: 10
+          #livenessProbe:
+          #  httpGet:
+          #    path: /site/prijava
+          #  initialDelaySeconds: 5
+          #  periodSeconds: 10
           env:
             - name: MYSQL_USER
               value: {{ default "root"  .Values.db.username | quote }}
