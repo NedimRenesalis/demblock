@@ -36,57 +36,20 @@ spec:
             - name: MYSQL_DATABASE
               value: {{ .Values.db.database }}
       containers:
-        - name: {{ template "name" . }}-backend
-          image: {{ template "repo.image" . }}
-          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          ports:
-            - containerPort: {{ .Values.network.backend.port }}
-          readinessProbe:
-            httpGet:
-              path: /site/prijava
-              port: {{ .Values.network.backend.port }}
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /site/prijava
-              port: {{ .Values.network.backend.port }}
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          env:
-            - name: MYSQL_USER
-              value: {{ default "root"  .Values.db.username | quote }}
-            - name: MYSQL_PASSWORD
-              value: {{ default ""  .Values.db.password | quote }}
-            - name: MYSQL_HOST
-              value: {{ default "localhost"  .Values.db.host }}
-            - name: MYSQL_DATABASE
-              value: {{ .Values.db.database }}
-            - name: MAILER_HOST
-              value: {{ .Values.smtp.host }}
-            - name: MAILER_PORT
-              value: {{ .Values.smtp.port }}
-            - name: MAILER_USERNAME
-              value: {{ .Values.smtp.username }}
-            - name: MAILER_PASSWORD
-              value: {{ .Values.smtp.password }}
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
-        - name: {{ template "name" . }}-frontend
+        - name: {{ template "name" . }}-yii2
           image: {{ template "repo.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           ports:
             - containerPort: {{ .Values.network.frontend.port }}
+            - containerPort: {{ .Values.network.backend.port }}
           readinessProbe:
             httpGet:
               path: /site/prijava
-              port: {{ .Values.network.frontend.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /site/prijava
-              port: {{ .Values.network.frontend.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
           env:
