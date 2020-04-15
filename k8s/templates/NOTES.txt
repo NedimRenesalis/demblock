@@ -2,5 +2,5 @@
   You should be able to access your application through:
 
   {{- range .Values.network.hosts }}
-  Host: {{ if .tls }}https{{ else }}http{{ end }}://{{ .name }}
+  Host: https://{{ .name }}
   {{- end }}

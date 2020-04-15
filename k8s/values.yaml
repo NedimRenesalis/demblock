@@ -2,52 +2,50 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-## =================================================================
-## Services configuration
-##
-
+# =================================================================
+# =========  Services configuration
+# Defaults:
+#     registry/eu.gcr.io - created by demblock infrastructure pipeline
+#     repository/demblock/demblock - created by demblock infrastructure pipeline
+#     pullSecrets/pull-docker-creds - created by demblock infrastructure pipeline (delete to disable)
 image:
-  registry: eu.gcr.io
-  repository: demblock/demblock
-  tag: latest
-  pullPolicy: IfNotPresent
+  registry   : eu.gcr.io
+  repository : demblock/demblock
+  tag        : 
+  pullPolicy : IfNotPresent
   pullSecrets: 
     name: pull-docker-creds
 
-# PostgreSQL configuration
-
+# ========= PostgreSQL configuration
+# Defaults:
+#     secret/db-data - created by demblock infrastructure pipeline
 db:
-  username:
-  password:
-  host:
-  database:
+  secret  : db-data
+  host    : 
+  database: 
 
-# SMTP mailer configuration
-
+# ========= SMTP mailer configuration
+# Defaults:
+#     secret/smtp-data - created by demblock infrastructure pipeline
 smtp:
-  host: 
-  port: 
-  username: 
-  password: 
+  host  : 
+  port  : 
+  secret: smtp-data
 
-# Services configuration
-
+# ========= Services configuration
+# Defaults:
+#     globalIP/demblock-global-ip - created by demblock infrastructure pipeline
 network:
   serviceType: NodePort
-  globalIP: demblock-global-ip
+  globalIP   : demblock-global-ip
   frontend:
-    name: demblock.com
-    port: 21080
-    tls: true
-    certManager: false
+    name       : demblock.com
+    port       : 21080
   backend:
-    name: backend.demblock.com
-    port: 20080
-    tls: true
-    certManager: false
+    name       : backend.demblock.com
+    port       : 20080
 
 ## =================================================================
-
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##

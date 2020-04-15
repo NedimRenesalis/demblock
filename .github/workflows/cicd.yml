@@ -9,37 +9,26 @@ on:
 
 # ========================================================
 env:
-  # Project settings
-  GCP_PROJECT: demblock
-  ARTIFACT_NAME: demblock
-  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
-  GKE_ZONE: ${{ secrets.GKE_ZONE }}
-
-  # DB settings
-  DB_DATABASE: demblock
-
-  # CD Deployment
-  CHART_PATH: "./k8s"
-  HELM_APP: demblock
+  # Project shared
+  GCP_PROJECT   : demblock
+  ARTIFACT_NAME : demblock
+  DB_DATABASE   : demblock
+  HELM_APP      : demblock
   HELM_NAMESPACE: default
-
-  # Secrets
-  DB_USERNAME: ${{ secrets.DB_USERNAME }}
-  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-  DB_HOST: ${{ secrets.DB_HOST }}
-  SMTP_HOST: ${{ secrets.SMTP_HOST }}
-  SMTP_PORT: ${{ secrets.SMTP_PORT }}
-  SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
-  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  GKE_CLUSTER   : ${{ secrets.GKE_CLUSTER }}
+  GKE_ZONE      : ${{ secrets.GKE_ZONE }}
+  DB_HOST       : ${{ secrets.DB_HOST }}
+  SMTP_HOST     : ${{ secrets.SMTP_HOST }}
+  SMTP_PORT     : ${{ secrets.SMTP_PORT }}
 
   # Consts
+  CHART_PATH: "./k8s"
   KUBECONFIG: ./kube/config
 
   #### Also required:
   # GOOGLE_SA_EMAIL
   # GOOGLE_SA_KEY
   # GIT_AUTH_TOKEN
-  # DOCKER_PASSWORD
 
 jobs:
   # ========================================================
@@ -51,19 +40,19 @@ jobs:
     steps:
     - uses: actions/checkout@master
   
-    - name: CI - Push to Registry [tagged]
+    - name: Push to Registry [tagged]
       uses: mr-smithers-excellent/docker-build-push@v2
       with:
-        image: ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
+        image   : ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
         registry: eu.gcr.io
         username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
     
-    - name: CI - Push to Registry [latest]
+    - name: Push to Registry [latest]
       uses: mr-smithers-excellent/docker-build-push@v2
       with:
-        image: ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
-        tag: latest
+        image   : ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
+        tag     : latest
         registry: eu.gcr.io
         username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -85,8 +74,8 @@ jobs:
       id: tagName
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
-        WITH_V: true
-        DRY_RUN: true
+        WITH_V      : true
+        DRY_RUN     : true
 
     - name: CD - Set version
       run: |
@@ -107,30 +96,30 @@ jobs:
       run: |-
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
-    - name: HELM - Install dependencies
+    - name: Helm - Install dependencies
       run: |
         pip3 install --upgrade setuptools pip
         pip3 install -r ./.cicd/requirements.txt
 
     # Update chart
-    - name: HELM - Update chart
+    - name: Helm - Update chart
       run: |
         python3 ./.cicd/update_chart.py
         cat ./k8s/values.yaml
 
     # Lint chart
-    - name: HELM - Lint
+    - name: Helm - Lint
       run: |
         helm lint ./k8s/
 
     # Upload artifact
     - uses: actions/upload-artifact@v1
-      name: HELM - Upload artifact
+      name: Helm - Upload artifact
       with:
         name: ${{ env.HELM_APP }}-${{ env.RELEASE_VERSION }}
         path: ./k8s/
         
     # Deploy chart
-    - name: HELM - Deploy chart
+    - name: Helm - Deploy chart
       run: |
         helm upgrade $HELM_APP $CHART_PATH/ --install --wait --timeout 15m0s --atomic --namespace=$HELM_NAMESPACE --values=$CHART_PATH/values.yaml

@@ -28,9 +28,15 @@ spec:
           command: ["php", "yii", "migrate", "--interactive=0"]
           env:
             - name: MYSQL_USER
-              value: {{ .Values.db.username | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.db.secret }}
+                  key: username
             - name: MYSQL_PASSWORD
-              value: {{ .Values.db.password }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.db.secret }}
+                  key: password
             - name: MYSQL_HOST
               value: {{ .Values.db.host }}
             - name: MYSQL_DATABASE
@@ -56,9 +62,15 @@ spec:
             periodSeconds: 10
           env:
             - name: MYSQL_USER
-              value: {{ default "root"  .Values.db.username | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.db.secret }}
+                  key: username
             - name: MYSQL_PASSWORD
-              value: {{ default ""  .Values.db.password | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.db.secret }}
+                  key: password
             - name: MYSQL_HOST
               value: {{ default "localhost"  .Values.db.host }}
             - name: MYSQL_DATABASE
@@ -68,9 +80,15 @@ spec:
             - name: MAILER_PORT
               value: {{ .Values.smtp.port }}
             - name: MAILER_USERNAME
-              value: {{ .Values.smtp.username }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.smtp.secret }}
+                  key: username
             - name: MAILER_PASSWORD
-              value: {{ .Values.smtp.password }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.smtp.secret }}
+                  key: password
           volumeMounts:
             - name: storage-pv
               mountPath: /app/frontend/web/uploads
@@ -97,9 +115,15 @@ spec:
             periodSeconds: 10
           env:
             - name: MYSQL_USER
-              value: {{ default "root"  .Values.db.username | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.db.secret }}
+                  key: username
             - name: MYSQL_PASSWORD
-              value: {{ default ""  .Values.db.password | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.db.secret }}
+                  key: password
             - name: MYSQL_HOST
               value: {{ default "localhost"  .Values.db.host }}
             - name: MYSQL_DATABASE
@@ -109,9 +133,15 @@ spec:
             - name: MAILER_PORT
               value: {{ .Values.smtp.port }}
             - name: MAILER_USERNAME
-              value: {{ .Values.smtp.username }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.smtp.secret }}
+                  key: username
             - name: MAILER_PASSWORD
-              value: {{ .Values.smtp.password }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.smtp.secret }}
+                  key: password
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       {{- if .Values.image.pullSecrets }}

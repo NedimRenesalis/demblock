@@ -213,6 +213,16 @@ class SiteController extends Controller
     }
 
     /**
+     * Login action.
+     *
+     * @return string
+     */
+    public function actionLogin()
+    {
+        return $this->redirect('prijava');
+    }
+
+    /**
      * Logout action.
      *
      * @return string
