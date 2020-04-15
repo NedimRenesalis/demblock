@@ -80,7 +80,7 @@ spec:
         - name: {{ template "name" . }}-backend
           image: {{ template "repo.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          cmd: ["./enable_service.sh", "backend"]
+          command: ["./enable_service.sh", "backend"]
           ports:
             - containerPort: {{ .Values.network.backend.port }}
           readinessProbe:
