@@ -33,10 +33,9 @@ RUN php init --env=Production --overwrite=All
 RUN composer install --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader
 
 # Change document root for Apache
-RUN echo "" > /etc/apache2/ports.conf && \
-    cat /etc/apache2/ports.conf
-
+RUN echo "" > /etc/apache2/ports.conf
 # Add services
 RUN mv /app/server/* /etc/apache2/sites-available/ && \
-    a2ensite services.conf && \
     a2dissite 000-default.conf
+
+# By default, we don't expose any services unless asked to
