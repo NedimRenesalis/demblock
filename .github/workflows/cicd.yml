@@ -117,12 +117,21 @@ jobs:
       run: |
         python3 ./.cicd/update_chart.py
         cat ./k8s/values.yaml
+        tar -cvzf $HELM_APP-$RELEASE_VERSION.tgz ./k8s/
+        echo ::set-env name=HELM_ARTIFACT::$HELM_APP-$RELEASE_VERSION.tgz
 
     # Lint chart
     - name: HELM - Lint
       run: |
         helm lint ./k8s/
 
+    # Upload artifact
+    - uses: actions/upload-artifact@v1
+      name: HELM - Upload Helm artifact
+      with:
+        name: ${{ env.HELM_ARTIFACT }}
+        path: ./${{ env.HELM_ARTIFACT }}
+        
     # Deploy chart
     - name: HELM - Deploy chart
       run: |
