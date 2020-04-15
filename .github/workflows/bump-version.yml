@@ -5,6 +5,8 @@ on:
       - master
 jobs:
   # ========================================================
+  # TODO: Reformat logic to use custom tagging based on params
+  # such as nums of lines changed, etc...
   build:
     name: 'Bump version'
     runs-on: ubuntu-latest

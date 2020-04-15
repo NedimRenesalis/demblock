@@ -35,7 +35,6 @@ smtp:
 network:
   serviceType: NodePort
   globalIP: demblock-global-ip
-  healthPort: 21080
   frontend:
     name: demblock.com
     port: 21080

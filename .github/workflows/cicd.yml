@@ -46,12 +46,12 @@ jobs:
   # ============= CI WORKFLOW
   # ========================================================
   ci:
-    name: 'CI - Build artifacts'
+    name: 'Build artifacts'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
   
-    - name: Push to Registry - tagged
+    - name: CI - Push to Registry [tagged]
       uses: mr-smithers-excellent/docker-build-push@v2
       with:
         image: ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
@@ -59,7 +59,7 @@ jobs:
         username: _json_key
         password: ${{ secrets.DOCKER_PASSWORD }}
     
-    - name: Push to Registry - latest
+    - name: CI - Push to Registry [latest]
       uses: mr-smithers-excellent/docker-build-push@v2
       with:
         image: ${{ env.GCP_PROJECT }}/${{ env.ARTIFACT_NAME }}
@@ -72,7 +72,7 @@ jobs:
   # ============= CD WORKFLOW
   # ========================================================
   cd:
-    name: 'CD - Deploy artifacts'
+    name: 'Deploy artifacts'
     needs: ci
     runs-on: ubuntu-latest
     steps:
@@ -107,35 +107,23 @@ jobs:
       run: |-
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
-    # Setup dependencies
-    - name: DEP - Install Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: "3.7"
-
-    - name: DEP - Install Helm
-      run: |
-        curl -fsSLo get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-        chmod 700 get_helm.sh
-        ./get_helm.sh
-
-    - name: DEP - Install dependencies
+    - name: CD - Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r ./.cicd/requirements.txt
 
     # Update chart
-    - name: Helm - Update chart
+    - name: CD - Update chart
       run: |
-        python ./ci.py
+        python ./.cicd/update_chart.py
         cat ./k8s/values.yaml
 
     # Lint chart
-    - name: Helm - Lint
+    - name: CD - Lint
       run: |
         helm lint ./k8s/
 
     # Deploy chart
-    - name: Helm - Deploy chart
+    - name: CD - Deploy chart
       run: |
         helm upgrade $HELM_APP $CHART_PATH/ --install --wait --timeout 15m0s --atomic --namespace=$HELM_NAMESPACE --values=$CHART_PATH/values.yaml
