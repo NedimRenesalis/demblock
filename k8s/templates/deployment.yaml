@@ -103,13 +103,13 @@ spec:
             - containerPort: {{ .Values.network.backend.port }}
           readinessProbe:
             httpGet:
-              path: /site/prijava
+              path: /site/login
               port: {{ .Values.network.backend.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /site/prijava
+              path: /site/login
               port: {{ .Values.network.backend.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
