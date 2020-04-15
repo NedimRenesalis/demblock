@@ -107,23 +107,23 @@ jobs:
       run: |-
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
-    - name: CD - Install dependencies
+    - name: HELM - Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r ./.cicd/requirements.txt
 
     # Update chart
-    - name: CD - Update chart
+    - name: HELM - Update chart
       run: |
         python ./.cicd/update_chart.py
         cat ./k8s/values.yaml
 
     # Lint chart
-    - name: CD - Lint
+    - name: HELM - Lint
       run: |
         helm lint ./k8s/
 
     # Deploy chart
-    - name: CD - Deploy chart
+    - name: HELM - Deploy chart
       run: |
         helm upgrade $HELM_APP $CHART_PATH/ --install --wait --timeout 15m0s --atomic --namespace=$HELM_NAMESPACE --values=$CHART_PATH/values.yaml

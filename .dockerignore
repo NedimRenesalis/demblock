@@ -1,1 +1,5 @@
-vendor
+# Folders
+vendor/
+k8s/
+.cicd/
+.github/

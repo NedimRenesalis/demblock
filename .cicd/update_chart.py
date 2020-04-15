@@ -6,8 +6,8 @@ import yaml
 import os
 
 # === Helm chart files
-fname = "../k8s/values.yaml"
-chart_name = "../k8s/Chart.yaml"
+fname = "./k8s/values.yaml"
+chart_name = "./k8s/Chart.yaml"
 # Open files
 stream, chart_stream = open(fname, 'r'), open(chart_name, 'r')
 data, chart_data = yaml.load(stream, Loader=yaml.FullLoader), yaml.load(chart_stream, Loader=yaml.FullLoader)
