@@ -55,5 +55,5 @@ network:
 replicaCount: 1
 resources:
   requests:
-    memory: 512Mi
-    cpu: 300m
+    memory: 150Mi
+    cpu: 100m
