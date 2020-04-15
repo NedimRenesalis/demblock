@@ -37,6 +37,7 @@ smtp:
 #     globalIP/demblock-global-ip - created by demblock infrastructure pipeline
 network:
   serviceType: NodePort
+  certName   : demblock-certs
   globalIP   : demblock-global-ip
   frontend:
     name       : demblock.com
