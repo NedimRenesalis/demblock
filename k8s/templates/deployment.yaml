@@ -36,12 +36,12 @@ spec:
             - name: MYSQL_DATABASE
               value: {{ .Values.db.database }}
       containers:
-        - name: frontend
+        - name: {{ template "name" . }}-yii2
           image: {{ template "repo.image" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          #command: ["php", "yii", "serve", "--docroot", "@frontend/web", "--port", {{ .Values.network.frontend.port | quote }}, "--interactive", "0"]
           ports:
             - containerPort: {{ .Values.network.frontend.port }}
+            - containerPort: {{ .Values.network.backend.port }}
           readinessProbe:
             httpGet:
               path: /
@@ -75,43 +75,6 @@ spec:
             - name: storage-pv
               mountPath: /app/frontend/web/uploads
               subPath: frontend/web/uploads
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
-        - name: backend
-          image: {{ template "repo.image" . }}
-          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          #command: ["php", "yii", "serve", "--docroot", "@backend/web", "--port", {{ .Values.network.backend.port | quote }}, "--interactive", "0"]
-          ports:
-            - containerPort: {{ .Values.network.backend.port }}
-          readinessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.network.backend.port }}
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.network.backend.port }}
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          env:
-            - name: MYSQL_USER
-              value: {{ default "root"  .Values.db.username | quote }}
-            - name: MYSQL_PASSWORD
-              value: {{ default ""  .Values.db.password | quote }}
-            - name: MYSQL_HOST
-              value: {{ default "localhost"  .Values.db.host }}
-            - name: MYSQL_DATABASE
-              value: {{ .Values.db.database }}
-            - name: MAILER_HOST
-              value: {{ .Values.smtp.host }}
-            - name: MAILER_PORT
-              value: {{ .Values.smtp.port }}
-            - name: MAILER_USERNAME
-              value: {{ .Values.smtp.username }}
-            - name: MAILER_PASSWORD
-              value: {{ .Values.smtp.password }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       {{- if .Values.image.pullSecrets }}
