@@ -13,6 +13,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     cert-manager.io/http01-edit-in-place: "true"
     kubernetes.io/tls-acme: "true"
+    
     # ingress.gcp.kubernetes.io/pre-shared-cert: {{ .Values.network.certName | quote }}
 spec:
   rules:
