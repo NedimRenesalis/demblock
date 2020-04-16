@@ -10,7 +10,9 @@ metadata:
   annotations:
     # networking.gke.io/managed-certificates: "{{ .Values.network.frontend.cert }},{{ .Values.network.backend.cert }}"
     kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
-    ingress.gcp.kubernetes.io/pre-shared-cert: {{ .Values.network.certName | quote }}
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+    # ingress.gcp.kubernetes.io/pre-shared-cert: {{ .Values.network.certName | quote }}
 spec:
   rules:
     - host: {{ .Values.network.frontend.name }}
@@ -25,3 +27,8 @@ spec:
         - backend:
             serviceName: {{ template "name" . }}
             servicePort: {{ .Values.network.backend.port }}
+  tls:
+  - secretName: demblock-certs
+    hosts:
+    - {{ .Values.network.frontend.name }}
+    - {{ .Values.network.backend.name }}
