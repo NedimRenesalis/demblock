@@ -168,7 +168,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionLogin()
+    public function actionPrijava()
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -217,9 +217,9 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionPrijava()
+    public function actionLogin()
     {
-        return $this->redirect('login');
+        return $this->redirect(['prijava']);
     }
 
     /**

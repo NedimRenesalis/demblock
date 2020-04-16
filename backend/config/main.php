@@ -43,7 +43,9 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-
+            'rules' => [
+                'login' => 'site/prijava',
+            ],
         ],
         'urlManagerFrontEnd' => [
             'class' => 'yii\web\urlManager',
