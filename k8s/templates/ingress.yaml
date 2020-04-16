@@ -8,8 +8,9 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
   annotations:
-    networking.gke.io/managed-certificates: "{{ .Values.network.frontend.cert }},{{ .Values.network.backend.cert }}"
+    # networking.gke.io/managed-certificates: "{{ .Values.network.frontend.cert }},{{ .Values.network.backend.cert }}"
     kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
+    ingress.gcp.kubernetes.io/pre-shared-cert: {{ .Values.network.certName | quote }}
 spec:
   rules:
     - host: {{ .Values.network.frontend.name }}
@@ -24,11 +25,3 @@ spec:
         - backend:
             serviceName: {{ template "name" . }}
             servicePort: {{ .Values.network.backend.port }}
-  tls:
-  - secretName: {{ .Values.network.frontend.cert }}
-    hosts:
-    - {{ .Values.network.frontend.name }}
-
-  - secretName: {{ .Values.network.backend.cert }}
-    hosts:
-    - {{ .Values.network.backend.name }}

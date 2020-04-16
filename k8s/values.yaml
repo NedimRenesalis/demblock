@@ -39,6 +39,7 @@ smtp:
 network:
   serviceType: NodePort
   globalIP   : demblock-global-ip
+  certName   : demblock-ssl
   frontend:
     cert: demblock-cert
     name: demblock.com
