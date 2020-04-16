@@ -40,15 +40,13 @@ network:
   serviceType: NodePort
   globalIP   : demblock-global-ip
   frontend:
-    name       : demblock.com
-    port       : 21080
+    cert: demblock-cert
+    name: demblock.com
+    port: 21080
   backend:
-    name       : backend.demblock.com
-    port       : 20080
-
-  certs:
-  - demblock-cert
-  - backend-demblock-cert
+    cert: backend-demblock-cert
+    name: backend.demblock.com
+    port: 20080
 
 ## =================================================================
 ## Configure resource requests and limits
