@@ -8,13 +8,8 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
   annotations:
-    kubernetes.io/tls-acme: "true"
-    networking.gke.io/managed-certificates: {{ .Values.network.certName | quote }}
+    networking.gke.io/managed-certificates: {{ include "repo.utils.joinListWithComma" .Values.network.certs | quote }}
     kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
-    kubernetes.io/ingress.class: "gce"
-    cert-manager.io/acme-challenge-type: "http01"
-    cert-manager.io/acme-http01-edit-in-place: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
   rules:
     - host: {{ .Values.network.frontend.name }}
@@ -29,9 +24,3 @@ spec:
         - backend:
             serviceName: {{ template "name" . }}
             servicePort: {{ .Values.network.backend.port }}
-  tls:
-  - hosts:
-    {{- range .Values.network.hosts }}
-    - {{ .name }}
-    {{- end }}
-    secretName: {{ template "name" . }}-certs

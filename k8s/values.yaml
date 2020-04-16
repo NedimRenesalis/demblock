@@ -35,9 +35,9 @@ smtp:
 # ========= Services configuration
 # Defaults:
 #     globalIP/demblock-global-ip - created by demblock infrastructure pipeline
+#     certs - created by demblock infrastructure pipeline
 network:
   serviceType: NodePort
-  certName   : demblock-certs
   globalIP   : demblock-global-ip
   frontend:
     name       : demblock.com
@@ -45,6 +45,10 @@ network:
   backend:
     name       : backend.demblock.com
     port       : 20080
+
+  certs:
+  - demblock-cert
+  - backend-demblock-cert
 
 ## =================================================================
 ## Configure resource requests and limits
