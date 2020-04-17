@@ -8,10 +8,8 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
   annotations:
-    kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
-    cert-manager.io/cluster-issuer: {{ .Values.network.certIssuer }}
-    acme.cert-manager.io/http01-edit-in-place: "true"
+    networking.gke.io/managed-certificates: {{ .Values.network.managedCert | quote }}
 spec:
   rules:
     - host: {{ .Values.network.frontend.name }}
@@ -26,8 +24,3 @@ spec:
         - backend:
             serviceName: {{ template "name" . }}
             servicePort: {{ .Values.network.backend.port }}
-  tls:
-  - secretName: demblock-certs
-    hosts:
-    - {{ .Values.network.backend.name }}
-    - {{ .Values.network.frontend.name }}
