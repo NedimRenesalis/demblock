@@ -9,10 +9,10 @@ metadata:
     heritage: "{{ .Release.Service }}"
   annotations:
     # networking.gke.io/managed-certificates: "{{ .Values.network.frontend.cert }},{{ .Values.network.backend.cert }}"
-    kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    cert-manager.io/http01-edit-in-place: "true"
     kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    acme.cert-manager.io/http01-edit-in-place: "true"
     
     # ingress.gcp.kubernetes.io/pre-shared-cert: {{ .Values.network.certName | quote }}
 spec:
