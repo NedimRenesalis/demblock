@@ -8,13 +8,10 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
   annotations:
-    # networking.gke.io/managed-certificates: "{{ .Values.network.frontend.cert }},{{ .Values.network.backend.cert }}"
     kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: {{ .Values.network.certIssuer }}
     acme.cert-manager.io/http01-edit-in-place: "true"
-    
-    # ingress.gcp.kubernetes.io/pre-shared-cert: {{ .Values.network.certName | quote }}
 spec:
   rules:
     - host: {{ .Values.network.frontend.name }}
@@ -32,5 +29,5 @@ spec:
   tls:
   - secretName: demblock-certs
     hosts:
-    - {{ .Values.network.frontend.name }}
     - {{ .Values.network.backend.name }}
+    - {{ .Values.network.frontend.name }}

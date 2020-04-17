@@ -35,11 +35,11 @@ smtp:
 # ========= Services configuration
 # Defaults:
 #     globalIP/demblock-global-ip - created by demblock infrastructure pipeline
-#     certs - created by demblock infrastructure pipeline
+#     certIssuer - created by demblock infrastructure pipeline
 network:
   serviceType: NodePort
   globalIP   : demblock-global-ip
-  # certName   : demblock-ssl
+  certIssuer : letsencrypt-prod
   frontend:
     cert: demblock-cert
     name: demblock.com
