@@ -76,9 +76,9 @@ spec:
             - name: MYSQL_DATABASE
               value: {{ .Values.db.database }}
             - name: MAILER_HOST
-              value: {{ .Values.smtp.host }}
+              value: {{ .Values.smtp.host | quote }}
             - name: MAILER_PORT
-              value: {{ .Values.smtp.port }}
+              value: {{ .Values.smtp.port | quote }}
             - name: MAILER_USERNAME
               valueFrom:
                 secretKeyRef:
@@ -129,9 +129,9 @@ spec:
             - name: MYSQL_DATABASE
               value: {{ .Values.db.database }}
             - name: MAILER_HOST
-              value: {{ .Values.smtp.host }}
+              value: {{ .Values.smtp.host | quote }}
             - name: MAILER_PORT
-              value: {{ .Values.smtp.port }}
+              value: {{ .Values.smtp.port | quote }}
             - name: MAILER_USERNAME
               valueFrom:
                 secretKeyRef:
