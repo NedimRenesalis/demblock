@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+    - '*.md'
 jobs:
   # ==========================================================
   # TODO: Reformat logic to use custom tagging based on params

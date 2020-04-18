@@ -1,13 +1,13 @@
 name: CI/CD Pipeline
 on:
-  # Run every day at 2:30 AM
+  # Run every Sunday at 2:30 AM
   # Run on starred
   # Run on pushed version
   push:
     tags:
     - '*'
   schedule:
-    - cron:  '30 2 * * *'
+    - cron:  '30 2 * * 0'
   watch:
     types: [started]
 
