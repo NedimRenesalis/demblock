@@ -10,7 +10,6 @@ metadata:
   annotations:
     kubernetes.io/ingress.global-static-ip-name: {{ .Values.network.globalIP | quote }}
     networking.gke.io/managed-certificates: {{ .Values.network.managedCert | quote }}
-    kubernetes.io/ingress.allow-http: "false"
 spec:
   rules:
     - host: {{ .Values.network.frontend.name }}
