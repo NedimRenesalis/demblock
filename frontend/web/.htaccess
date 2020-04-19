@@ -6,8 +6,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # otherwise forward it to index.php
 RewriteRule . index.php
-
-# rewrite to HTTPS non-www
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\.demblock\.com [NC]
-RewriteRule ^(.*)$ https://demblock.com/$1 [L,R=301]
