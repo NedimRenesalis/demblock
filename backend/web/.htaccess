@@ -9,5 +9,5 @@ RewriteRule . index.php
 
 # rewrite to HTTPS non-www
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\.backend.demblock\.com [NC]
+RewriteCond %{HTTP_HOST} ^www\.backend\.demblock\.com [NC]
 RewriteRule ^(.*)$ https://backend.demblock.com/$1 [L,R=301]
