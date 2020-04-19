@@ -34,9 +34,6 @@ if($searchModel && $searchModel->category) {
 }
 ?>
 
-<?php 
-    $searchBar = ``
-?> 
 <div>
 
 <video class="videobg" autoplay loop src="<?= Url::to("@web/css/ad.mp4"); ?>" muted plays-inline frameborder="0"></video>
