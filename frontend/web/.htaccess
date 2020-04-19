@@ -6,3 +6,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # otherwise forward it to index.php
 RewriteRule . index.php
+
+# switch to https
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*) https://%{HTTP_HOST}/$1
