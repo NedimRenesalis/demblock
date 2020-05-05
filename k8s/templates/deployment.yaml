@@ -21,6 +21,8 @@ spec:
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         release: "{{ .Release.Name }}"
     spec:
+      tolerations: 
+{{ toYaml .Values.tolerations | indent 8 }}
       initContainers:
         - name: init-db
           image: {{ template "repo.image" . }}

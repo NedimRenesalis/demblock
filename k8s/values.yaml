@@ -38,8 +38,6 @@ smtp:
 #     managedCert - created by demblock infrastructure pipeline
 network:
   serviceType: NodePort
-  globalIP   : demblock-global-ip
-  managedCert: demblock-certs
   frontend:
     name: demblock.com
     port: 21080
@@ -56,3 +54,8 @@ resources:
   requests:
     memory: 150Mi
     cpu: 100m
+tolerations:
+  - effect: NoSchedule
+    key: task
+    operator: Equal
+    value: preemptive
