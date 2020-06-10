@@ -7,6 +7,8 @@ on:
       - master
     paths-ignore:
     - '*.md'
+  watch:
+    types: [started]
 jobs:
   # ==========================================================
   # TODO: Reformat logic to use custom tagging based on params
