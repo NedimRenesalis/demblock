@@ -13,6 +13,7 @@ stream, chart_stream = open(fname, 'r'), open(chart_name, 'r')
 data, chart_data = yaml.load(stream, Loader=yaml.FullLoader), yaml.load(chart_stream, Loader=yaml.FullLoader)
 
 # === Update values.yaml
+data['image']['repository'] = os.getenv("GCP_PROJECT") + "/" + os.getenv("ARTIFACT_NAME")
 data['image']['tag'] = os.getenv("RELEASE_VERSION", "v0.1.0")
 data['db']['host'] = os.getenv("DB_HOST", "")
 data['db']['database'] = os.getenv("DB_DATABASE", "")
