@@ -8,7 +8,7 @@ on:
 # ========================================================
 env:
   # Project shared
-  GCP_PROJECT   : demblock
+  GCP_PROJECT   : ${{ secrets.GCP_PROJECT }}
   ARTIFACT_NAME : demblock
   DB_DATABASE   : demblock
   HELM_APP      : demblock
