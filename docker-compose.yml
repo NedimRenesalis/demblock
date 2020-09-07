@@ -1,0 +1,46 @@
+version: '3.7'
+services:
+  demblock_frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    command: ["/enable_service.sh", "frontend"]
+    volumes:
+      - /backup/demblock:/app/frontend/web/uploads
+    depends_on:
+      - demblock_db
+    ports:
+      - "21080:21080"
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_PORT: 3306
+      MYSQL_HOST: demblock_db
+
+  demblock_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    command: ["/enable_service.sh", "backend"]
+    depends_on:
+      - demblock_db
+    ports:
+      - "20080:20080"
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_PORT: 3306
+      MYSQL_HOST: demblock_db
+
+  demblock_db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - /backup/db/demblock:/var/lib/mysql
+    ports:
+      - '3100:3306'
+    env_file:
+      - ./.env

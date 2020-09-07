@@ -39,3 +39,5 @@ RUN mv /app/server/* /etc/apache2/sites-available/ && \
     a2dissite 000-default.conf
 
 # By default, we don't expose any services unless asked to
+COPY ./enable_service.sh /enable_service.sh
+RUN ["chmod", "+x", "/enable_service.sh"]
