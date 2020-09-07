@@ -11,7 +11,7 @@ services:
     depends_on:
       - demblock_db
     ports:
-      - "21080:21080"
+      - "8000:21080"
     env_file:
       - ./.env
     environment:
@@ -27,7 +27,7 @@ services:
     depends_on:
       - demblock_db
     ports:
-      - "20080:20080"
+      - "8001:20080"
     env_file:
       - ./.env
     environment:
