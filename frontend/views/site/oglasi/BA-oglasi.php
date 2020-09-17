@@ -47,7 +47,7 @@ if($searchModel->category) {
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
                 <div>
-                    <?= $form->field($searchModel, 'location')->label("COUNTRY OF SOURCING") ?>
+                    <?= $form->field($searchModel, 'location')->label("Country of sourcing") ?>
                 </div>
 
                 <div>

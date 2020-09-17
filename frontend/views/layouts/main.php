@@ -57,7 +57,6 @@ if(!Yii::$app->user->isGuest){
         <?php $this->head() ?>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.0.min.js"></script>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.3/ie8.polyfils.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.3/iframeResizer.contentWindow.min.js"></script>
@@ -70,7 +69,6 @@ if(!Yii::$app->user->isGuest){
         <?php
         NavBar::begin([
             'brandLabel' => '
-            <img src="' . $logoUrl . '" class="img-responsive">
             
             ' . $languages,
             'brandUrl' => Yii::$app->homeUrl . 'index',
@@ -122,9 +120,16 @@ if(!Yii::$app->user->isGuest){
             }
 
             echo '
-
-
+<a href="'.Yii::$app->homeUrl.'">
         <div class="collapse navbar-collapse in" id="navbar-ex-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="' . Url::to('@web/index') . '" class="login-btn no-background">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <a href="' . Url::to('@web/prijava') . '" class="login-btn">
