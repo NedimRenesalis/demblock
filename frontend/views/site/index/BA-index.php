@@ -404,7 +404,7 @@ if ($searchModel && $searchModel->category) {
                 <p class="text-center">
                     <br>DemBlock
                     <br>
-                    <a href="mailto:#">support@demblock.com</a>
+                    <a class="mailtoui" href="mailto:support@demblock.com">support@demblock.com</a>
                     <br>
                 </p>
                 <div class="row">
@@ -419,13 +419,14 @@ if ($searchModel && $searchModel->category) {
                 </div>
             </div>
         </div>
-        <div class="footer-controls">
-
-            <a class="btn btn-block btn-info" style="margin-top: 5px;" href="INSERT_LINK">
-                Left
+        <div class="footer-controls text-center">
+            <a href="INSERT_LINK" class="btn regist-btn">
+                <span class="fa fa-globe"></span>
+                <span>Link A</span>
             </a>
-            <a class="btn btn-block btn-info" href="INSERT_LINK">
-                Right
+            <a href="INSERT_LINK" class="btn regist-btn">
+                <span class="fa fa-globe"></span>
+                <span>Link B</span>
             </a>
         </div>
     </div>

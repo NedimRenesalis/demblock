@@ -1222,8 +1222,7 @@ body, .main-content {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 86%;
-    border-top: 1px solid gray;
+    width: 60%;
     padding: 20px;
 }
 
@@ -2567,4 +2566,16 @@ img.flag {
 
 .controls a.dropdown-toggle  {
     color: white;
+}
+
+.mailtoui-button-icon {
+    top: -18px;
+}
+
+.mailtoui-button-text {
+    margin-left: 32px;
+}
+
+.mailtoui-modal-close:focus, .mailtoui-modal-close:hover {
+    text-decoration: none;
 }

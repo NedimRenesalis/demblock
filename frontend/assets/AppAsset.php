@@ -26,7 +26,8 @@ class AppAsset extends AssetBundle
         'js/iconify.min.js',
         'js/choreographer.min.js',
         'js/anime.min.js',
-        'js/index.js'
+        'js/index.js',
+        'js/mailtoui-min.js'
     ];
 
     public $depends = [
