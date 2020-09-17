@@ -69,7 +69,7 @@ if ($searchModel && $searchModel->category) {
 
                 <div class="search-form-col" style="width: 172px;">
                     <?= $form->field($searchModel, 'location')
-                        ->textInput(['maxlength' => true, 'placeholder' => "DeFi financing"])
+                        ->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])
                         ->label('') ?>
                 </div>
 
@@ -102,7 +102,7 @@ if ($searchModel && $searchModel->category) {
 
             <div class="search-form-col">
                 <?= $form->field($searchModel, 'location')
-                    ->textInput(['maxlength' => true, 'placeholder' => "DeFi financing"])
+                    ->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])
                     ->label('') ?>
             </div>
 
@@ -301,7 +301,6 @@ if ($searchModel && $searchModel->category) {
         </a>
     </div>
 </div>
-
 
 <?php if ($platinum || $midi) : ?>
     <?php $counter = 0; ?>
