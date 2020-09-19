@@ -285,7 +285,7 @@ if ($searchModel && $searchModel->category) {
     <div class="section-menu">
         <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png'); ?> style="width: 88px;" />
-            <span>Publish DeFi service or product listing</span>
+            <center><span>Publish DeFi service or product listing</span></center>
         </a>
         <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;" />
