@@ -1006,7 +1006,7 @@ body, .main-content {
     display: none;
     justify-content: center;
     align-items: center;
-    background-color: #333639d9;
+    background-size: cover !important;
 }
 
 .search-form-mobile form {
@@ -1128,7 +1128,7 @@ body, .main-content {
 
 @media screen and (max-width: 540px) {
     .header { 
-        height: 30vh !important;
+        height: 0vh !important;
     }
     .logo-mobile {
         top: 1vh;
@@ -2519,7 +2519,7 @@ img.flag {
     }
 
     #particles-js {
-        display: block !important;
+        display: none !important;
         position: relative;
     }
 

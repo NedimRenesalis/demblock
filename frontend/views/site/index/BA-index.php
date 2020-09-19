@@ -37,15 +37,19 @@ if ($searchModel && $searchModel->category) {
 
 <div>
     <div class="container-header logo-wrapper">
-        <div class="container-logo">
+    <div class="container">
+    <div class="row">
+        <div class="container-logo col-12 col-xs-12">
             <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
-            <svg viewBox="0 0 1320 200">
+            <svg viewBox="0 0 1600 200" preserveAspectRatio="none">
                 <text x="50%" y="50%" dy=".35em" text-anchor="middle">
                     Demblock Terminal
                 </text>
             </svg>
 
+            </div>
+</div>
         </div>
     </div>
     <div class="container-header logo-wrapper">
@@ -90,7 +94,7 @@ if ($searchModel && $searchModel->category) {
             </div>
         </div>
     </div>
-    <div class="header-content-mobile">
+    <div class="header-content-mobile" style="background: url(<?= Url::to('@web/css/containers.gif'); ?>) 10%;">
         <div class="search-form-mobile">
             <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
