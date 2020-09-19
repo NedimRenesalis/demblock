@@ -47,10 +47,6 @@ if($searchModel->category) {
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
                 <div>
-                    <?= $form->field($searchModel, 'location')->label("Country of sourcing") ?>
-                </div>
-
-                <div>
                     <?=
                     $form->field($searchModel, 'category')->dropDownList($jobs, ['prompt' => 'Product or category', 'label' => null,
                                 'onchange' => '

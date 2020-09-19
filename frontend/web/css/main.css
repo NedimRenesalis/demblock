@@ -2579,3 +2579,9 @@ img.flag {
 .mailtoui-modal-close:focus, .mailtoui-modal-close:hover {
     text-decoration: none;
 }
+
+.line-animation {
+    height: 460px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

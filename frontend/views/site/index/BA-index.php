@@ -67,13 +67,7 @@ if ($searchModel && $searchModel->category) {
             <div class="search-form">
                 <?php $form = ActiveForm::begin(['method' => 'get']); ?>
 
-                <div class="search-form-col" style="width: 172px;">
-                    <?= $form->field($searchModel, 'location')
-                        ->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])
-                        ->label('') ?>
-                </div>
-
-                <div class="search-form-col" style="width: 285px !important;">
+                <div class="search-form-col" style="width: 300px !important;">
                     <?= $form->field($searchModel, 'category')->dropDownList($jobs, [
                         'prompt' => 'Product or category', 'label' => null,
                         'onchange' => '
@@ -99,12 +93,6 @@ if ($searchModel && $searchModel->category) {
     <div class="header-content-mobile">
         <div class="search-form-mobile">
             <?php $form = ActiveForm::begin(['method' => 'get']); ?>
-
-            <div class="search-form-col">
-                <?= $form->field($searchModel, 'location')
-                    ->textInput(['maxlength' => true, 'placeholder' => "Country of sourcing"])
-                    ->label('') ?>
-            </div>
 
             <div class="search-form-col">
                 <?= $form->field($searchModel, 'category')->dropDownList($jobs, [
@@ -145,10 +133,9 @@ if ($searchModel && $searchModel->category) {
 </div>
 
 <div class="container-header logo-wrapper">
-    <div class="container">
+    <div class="container line-animation">
         <div class="anim">
-            <br><br>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 200 1100 400">
                 <g fill="none" fill-rule="evenodd">
                     <path stroke="#31B495" d="M781.02 488.77v69.78c0 1.08-.88 1.96-1.97 1.96l-135.12-.04c-1.09 0-2.6.62-3.38 1.39l-39.23 38.96a5.52 5.52 0 0 1-3.37 1.4h-75.38a1.97 1.97 0 0 1-1.97-1.97v-33.5" />
                     <path stroke="#F4D21F" d="M674.88 355.57l45.54-45.24a5.42 5.42 0 0 0 1.39-3.35l-.06-10.38c0-1.08-.63-2.58-1.4-3.35l-43.38-43.07a1.94 1.94 0 0 1 0-2.77l82.83-82.25a5.52 5.52 0 0 1 3.37-1.4l44.94.1c1.08 0 2.6-.62 3.37-1.37L952.5 22.65" />
@@ -207,7 +194,6 @@ if ($searchModel && $searchModel->category) {
                     <path stroke="#9DCA40" d="M-34.94 402.19v111.19c0 1.07.63 2.58 1.4 3.35l49.06 48.71c.76.77 2.28 1.4 3.37 1.4h21.8c1.08 0 2.6.62 3.37 1.39l113 112.22c.78.77 2.3 1.4 3.38 1.4h170.6c1.08 0 1.97.87 1.97 1.95v60.41" />
                 </g>
             </svg>
-            <br><br>
         </div>
     </div>
 </div>
@@ -233,7 +219,7 @@ if ($searchModel && $searchModel->category) {
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
         </div>
         <br><br>
-        <div class="col-6">
+        <div class="col-12">
             <div class="sphere-animation">
                 <svg class="sphere" viewBox="0 0 440 440" stroke="rgba(80,80,80,.35)">
                     <defs>
