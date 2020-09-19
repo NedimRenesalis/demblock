@@ -285,11 +285,11 @@ if ($searchModel && $searchModel->category) {
     <div class="section-menu">
         <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png'); ?> style="width: 88px;" />
-            <center><span>Publish DeFi service or product listing</span></center>
+           <b> <center><span>Publish DeFi service or product listing</span></center></b>
         </a>
         <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;" />
-            <span>Listing fees</span>
+            <b> <center>  <span>Listing fees</span></center></b>
         </a>
     </div>
 </div>
