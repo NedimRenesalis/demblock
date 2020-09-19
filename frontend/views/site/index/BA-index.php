@@ -220,7 +220,7 @@ if ($searchModel && $searchModel->category) {
 <div class="container">
     <div class="row">
         <div class="col-12 col-xs-12">
-            <h3>Features</h3>
+            <h3>ACTION</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
         </div>
         <br><br>
