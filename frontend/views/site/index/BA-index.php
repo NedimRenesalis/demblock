@@ -285,7 +285,7 @@ if ($searchModel && $searchModel->category) {
     <div class="section-menu">
         <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png'); ?> style="width: 88px;" />
-            <span>List your product</span>
+            <span>Publish DeFi service or product listing</span>
         </a>
         <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;" />
@@ -390,7 +390,7 @@ if ($searchModel && $searchModel->category) {
         <div>
             <div class="col-sm-12 text-center">
                 <p class="text-center"></p>
-                <h3 class="text-center">DemBlock marketplace</h3>
+                <h3 class="text-center">DemBlock Terminal</h3>
                 <p style="border-bottom: 1px solid gray;"></p>
                 <br>
                 <a class="mailtoui login-btn" style="margin: 0px !important;" href="mailto:support@demblock.com">support@demblock.com</a>
@@ -411,11 +411,11 @@ if ($searchModel && $searchModel->category) {
         <div class="footer-controls text-center">
             <a href="INSERT_LINK" class="regist-btn">
                 <span class="fa fa-globe"></span>
-                <span>Link A</span>
+                <span>Get started</span>
             </a>
             <a href="INSERT_LINK" class="regist-btn">
                 <span class="fa fa-globe"></span>
-                <span>Link B</span>
+                <span>Incorporation certificate</span>
             </a>
         </div>
     </div>
