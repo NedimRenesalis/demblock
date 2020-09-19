@@ -42,7 +42,7 @@ if ($searchModel && $searchModel->category) {
         <div class="container-logo col-12 col-xs-12">
             <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
-            <svg viewBox="0 0 1600 200" preserveAspectRatio="none">
+            <svg viewBox="0 0 1800 200" preserveAspectRatio="none" style="left: 0;">
                 <text x="50%" y="50%" dy=".35em" text-anchor="middle">
                     Demblock Terminal
                 </text>
@@ -216,14 +216,15 @@ if ($searchModel && $searchModel->category) {
     </div>
 </div>
 
+<div class="section">
 <div class="container">
     <div class="row">
-        <h3>Features</h3>
-        <div class="col-12">
+        <div class="col-12 col-xs-12">
+            <h3>Features</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
         </div>
         <br><br>
-        <div class="col-12">
+        <div class="col-12 col-xs-12" style="padding-top: 20px; padding-bottom: 20px;">
             <div class="sphere-animation">
                 <svg class="sphere" viewBox="0 0 440 440" stroke="rgba(80,80,80,.35)">
                     <defs>
@@ -259,6 +260,7 @@ if ($searchModel && $searchModel->category) {
         </div>
     </div>
 </div>
+</div>
 
 <div class="container-header">
     <div class="container">
@@ -272,7 +274,7 @@ if ($searchModel && $searchModel->category) {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center text-orange" id="fourth-typing">Also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lore</h3><span class="typed-cursor">|</span>
+                <h3 class="text-center text-orange" id="fourth-typing">Also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lore</h3>
                 <br>
             </div>
         </div>
@@ -386,17 +388,14 @@ if ($searchModel && $searchModel->category) {
     </div>
     <div class="footer">
         <div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 text-center">
                 <p class="text-center"></p>
                 <h3 class="text-center">DemBlock marketplace</h3>
                 <p style="border-bottom: 1px solid gray;"></p>
-                <p></p>
-                <p class="text-center">
-                    <br>DemBlock
-                    <br>
-                    <a class="mailtoui" href="mailto:support@demblock.com">support@demblock.com</a>
-                    <br>
-                </p>
+                <br>
+                <a class="mailtoui login-btn" style="margin: 0px !important;" href="mailto:support@demblock.com">support@demblock.com</a>
+                <br>
+                <br>
                 <div class="row">
                     <div class="col-6 col-xs-6 text-center h5">
                         <a href="TWITTER">Twitter <span class="fa fa-twitter"></span></a>
@@ -410,11 +409,11 @@ if ($searchModel && $searchModel->category) {
             </div>
         </div>
         <div class="footer-controls text-center">
-            <a href="INSERT_LINK" class="btn regist-btn">
+            <a href="INSERT_LINK" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Link A</span>
             </a>
-            <a href="INSERT_LINK" class="btn regist-btn">
+            <a href="INSERT_LINK" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Link B</span>
             </a>

@@ -8289,7 +8289,7 @@ img.thumbnail.banner {
 
 .container-header {
     padding: 20px;
-    background: ghostwhite !important;
+    background: white !important;
 }
 
 footer.section.section-success {
@@ -8731,3 +8731,11 @@ svg text {
       stroke-width: .4px;
     }
   }
+
+  .typed-cursor {
+    display: none !important;
+}
+
+a.regist-btn:hover, a.login-btn:hover {
+    text-decoration: none !important;
+}
