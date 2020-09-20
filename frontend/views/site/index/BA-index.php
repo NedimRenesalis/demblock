@@ -390,7 +390,10 @@ if ($searchModel && $searchModel->category) {
         <div>
             <div class="col-sm-12 text-center">
                 <p class="text-center"></p>
-                <h3 class="text-center">DemBlock Terminal</h3>
+                <b><h3 class="text-center">DemBlock Terminal</h3></b>
+                <h4 class="text-center">Artemis House - 67 Fort Street</h4>
+                <h4 class="text-center">Grand Cayman - KY1-1111</h4>
+                <h4 class="text-center">Cayman Islands</h4>
                 <p style="border-bottom: 1px solid gray;"></p>
                 <br>
                 <a class="mailtoui login-btn" style="margin: 0px !important;" href="mailto:support@demblock.com">support@demblock.com</a>
