@@ -234,8 +234,8 @@ $(document).ready(function() {
             "The DemBlock Terminal offers creation, notarization, management and trade of DeFi contracts on the blockchain.  <br>The DemBlock Terminal enables you to seamlessly merger the tokenized and non-tokenized aspects of the real business world.",
             "The DemBlock Terminal offers creation, notarization, management and trade of DeFi contracts on the blockchain.  <br>The DemBlock Terminal enables you to seamlessly merger the tokenized and non-tokenized aspects of the real business world."
         ],
-        typeSpeed: 20,
-        backSpeed: 20,
+        typeSpeed: 10,
+        backSpeed: 10,
         //fadeOut: true,
         loop: true
     });
@@ -246,8 +246,8 @@ $(document).ready(function() {
             "The DemBlock Terminal offers the possibility to list, advertise, discover, retrieve, display, manage and trade DeFi contracts and other DeFi related documents that are notarized on the Ethereum blockchain and globally connect buyers, suppliers and DeFi liquidity providers. <br>The DemBlock Terminal helps you explore a huge and rapidly expanding universe of DeFi information and gives you powerful new capabilities for interacting with that information.",
             "The DemBlock Terminal offers the possibility to list, advertise, discover, retrieve, display, manage and trade DeFi contracts and other DeFi related documents that are notarized on the Ethereum blockchain and globally connect buyers, suppliers and DeFi liquidity providers. <br>The DemBlock Terminal helps you explore a huge and rapidly expanding universe of DeFi information and gives you powerful new capabilities for interacting with that information."
         ],
-        typeSpeed: 20,
-        backSpeed: 20,
+        typeSpeed: 10,
+        backSpeed: 10,
         //fadeOut: true,
         loop: true
     });
@@ -258,8 +258,8 @@ $(document).ready(function() {
             "Everbody can invest crypto on the DemBlock Terminal and earn yield. <br> Everybody can trade DeFi contracts on the DemBlock Terminal. <br>The DemBlock Terminal is a layered environment. <br> It is a global sourcing platform and an aggregator of buyers, suppliers and DeFi liquidity providers. <br>On the top it works like every classic global trade marketplace, connecting buyers and sellers.  <br> On the 2nd layer it is a DeFi platform providing a staging ground for buyers looking for a financing in crypto and for DeFi liquidity providers offering crypto financing as well as advertising of sale of their open claims positions to interested parties.",
             "Everbody can invest crypto on the DemBlock Terminal and earn yield. <br> Everybody can trade DeFi contracts on the DemBlock Terminal. <br>The DemBlock Terminal is a layered environment. <br> It is a global sourcing platform and an aggregator of buyers, suppliers and DeFi liquidity providers. <br>On the top it works like every classic global trade marketplace, connecting buyers and sellers.  <br> On the 2nd layer it is a DeFi platform providing a staging ground for buyers looking for a financing in crypto and for DeFi liquidity providers offering crypto financing as well as advertising of sale of their open claims positions to interested parties."
         ],
-        typeSpeed: 20,
-        backSpeed: 20,
+        typeSpeed: 10,
+        backSpeed: 10,
         //fadeOut: true,
         loop: true
     });
@@ -270,8 +270,8 @@ $(document).ready(function() {
             "How does the DemBlock Terminal work and how does it offer possibility for everybody to invest in DeFi and earn yields.<br><br>In order to access the DeFi space for common assets like a cargo of bananas being shipped from Costa Rica to the Netherlands or a shipment of sugar cane traded between a company in the Dominican Republic and Sweden, it makes no sense to wait for the fully tokenized world economy, which probably will never happen.<br><br>Therefore the DemBlock Terminal offers an approach that provides a solution that covers more asset classes than synthetic asset providers. We offer a seamless integration between the tokenized DeFi and the world trade and businesses as they are today, nearly thoroughly untokenized.",
             "How does the DemBlock Terminal work and how does it offer possibility for everybody to invest in DeFi and earn yields.<br><br>In order to access the DeFi space for common assets like a cargo of bananas being shipped from Costa Rica to the Netherlands or a shipment of sugar cane traded between a company in the Dominican Republic and Sweden, it makes no sense to wait for the fully tokenized world economy, which probably will never happen.<br><br>Therefore the DemBlock Terminal offers an approach that provides a solution that covers more asset classes than synthetic asset providers. We offer a seamless integration between the tokenized DeFi and the world trade and businesses as they are today, nearly thoroughly untokenized."
         ],
-        typeSpeed: 20,
-        backSpeed: 20,
+        typeSpeed: 10,
+        backSpeed: 10,
         //fadeOut: true,
         loop: true
     });
