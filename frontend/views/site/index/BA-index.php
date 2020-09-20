@@ -57,7 +57,7 @@ if ($searchModel && $searchModel->category) {
             <div class="row">
                 <div class="col-12">
                     <h3 class="text-center text-orange" id="first-typing">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+                    Use the DemBlock Terminal to tokenize - notarize a DeFi contract on the blockchain.  <br>The DemBlock Terminal enables you to seamlessly merger the tokenized and non-tokenized aspects of the real business world.
                     </h3>
                     <br>
                 </div>
@@ -128,7 +128,7 @@ if ($searchModel && $searchModel->category) {
         <div class="row">
             <div class="col-12">
                 <h3 class="text-center text-orange" id="second-typing">
-                    HALOOO is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+                The DemBlock Terminal offers users the possibility to list, advertise, discover, retrieve, and display DeFi contracts and documents that are notarized on the Ethereum blockchain and globally connect buyers, suppliers and DeFi liquidity providers. The DemBlock Terminal helps you explore a huge and rapidly expanding universe of DeFi information and gives you powerful new capabilities for interacting with that information
                 </h3>
                 <br>
             </div>
@@ -208,7 +208,7 @@ if ($searchModel && $searchModel->category) {
         <div class="row">
             <div class="col-12">
                 <h3 class="text-center text-orange" id="third-typing">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+                The DemBlock Terminal is a layered environment. <br> It is a global sourcing platform and an aggregator of buyers, suppliers and DeFi liquidity providers. <br>On the top it works like every classic global trade marketplace, connecting buyers and sellers.  <br> On the 2nd layer it is a DeFi platform providing a staging ground for buyers looking for a financing in crypto and for DeFi liquidity providers offering crypto financing as well as advertising of sale of their open claims positions to interested parties.
                 </h3>
                 <br>
             </div>
@@ -219,10 +219,10 @@ if ($searchModel && $searchModel->category) {
 <div class="section">
 <div class="container">
     <div class="row">
-        <div class="col-12 col-xs-12">
+       <!--<div class="col-12 col-xs-12">
             <h3>ACTION</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry...</p>
-        </div>
+        </div>-->
         <br><br>
         <div class="col-12 col-xs-12" style="padding-top: 20px; padding-bottom: 20px;">
             <div class="sphere-animation">
