@@ -49,7 +49,7 @@ $this->title = 'Registration';
             <div class="sec-column">
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center form-input">
-                        <?= $form->field($model, 'company_name')->textInput(['placeholder' => 'Must be a legally registered company'])->label('Company Name') ?>
+                        <?= $form->field($model, 'company_name')->textInput(['placeholder' => 'If you a crypto investor type your name'])->label('Investor name or company name') ?>
                     </div>
                 </div>
                 <div class="form-group has-feedback">
