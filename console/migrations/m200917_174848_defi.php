@@ -13,7 +13,7 @@ class m200917_174848_defi extends Migration
     public function safeUp()
     {
         $categories = array(
-            'DeFi Financing' => array()
+            'DeFi Solutions' => array()
         );
 
         foreach ($categories as $parentCategory => $category){
