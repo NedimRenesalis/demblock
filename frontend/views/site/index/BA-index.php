@@ -397,7 +397,7 @@ if ($searchModel && $searchModel->category) {
                 <br>
                 <br>
                 <div class="row">
-                    <div class="col-6 col-xs-6 text-center h5">
+                    <div class="col-12 col-xs-12 text-center h5">
                         <a href="TWITTER">Twitter <span class="fa fa-twitter"></span></a>
                     </div>
                     <!--<div class="col-6 col-xs-6 text-center h5">
