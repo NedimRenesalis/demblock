@@ -401,7 +401,7 @@ if ($searchModel && $searchModel->category) {
                 <br>
                 <div class="row">
                     <div class="col-12 col-xs-12 text-center h5">
-                        <a href="TWITTER">Twitter <span class="fa fa-twitter"></span></a>
+                        <a href="https://twitter.com/_demblock_">Twitter <span class="fa fa-twitter"></span></a>
                     </div>
                     <!--<div class="col-6 col-xs-6 text-center h5">
                         <a href="DISCORD">
@@ -416,7 +416,7 @@ if ($searchModel && $searchModel->category) {
                 <span class="fa fa-globe"></span>
                 <span>Get started</span>
             </a>
-            <a href="INSERT_LINK" class="regist-btn">
+            <a href="picsdocs/incertificate.pdf" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Incorporation certificate</span>
             </a>
