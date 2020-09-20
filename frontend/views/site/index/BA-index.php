@@ -274,7 +274,11 @@ if ($searchModel && $searchModel->category) {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center text-orange" id="fourth-typing">Also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lore</h3>
+                <h3 class="text-center text-orange" id="fourth-typing">How does the DemBlock Terminal work and how does it offer possibility for everybody to offer and participate in DeFi and earn yields?<br><br>
+In order to access the DeFi space for common assets like a cargo of bananas being shipped from Costa Rica to the Netherlands or a shipment of sugar cane traded between a company in the Dominican Republic and Sweden, it makes no sense to wait for the fully tokenized world economy, which probably will never happen.  
+<br><br>
+Therefore the DemBlock Terminal offers an approach that provides a solution that covers more asset classes than synthetic asset providers. We offer a seamless integration between the tokenized DeFi and the world trade and businesses as they are today, nearly thoroughly untokenized.
+</h3>
                 <br>
             </div>
         </div>
