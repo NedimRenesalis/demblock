@@ -400,11 +400,11 @@ if ($searchModel && $searchModel->category) {
                     <div class="col-6 col-xs-6 text-center h5">
                         <a href="TWITTER">Twitter <span class="fa fa-twitter"></span></a>
                     </div>
-                    <div class="col-6 col-xs-6 text-center h5">
+                    <!--<div class="col-6 col-xs-6 text-center h5">
                         <a href="DISCORD">
                         <i class="fab fa-discord"></i> Discord
                         </a>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
