@@ -416,7 +416,7 @@ if ($searchModel && $searchModel->category) {
                 <span class="fa fa-globe"></span>
                 <span>Get started</span>
             </a>
-            <a href="picsdocs/incertificate.pdf" class="regist-btn">
+            <a href="picsdocs/Incertificate.pdf" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Incorporation certificate</span>
             </a>
