@@ -384,7 +384,7 @@ if ($searchModel && $searchModel->category) {
         <div>
             <div class="col-sm-12 text-center">
                 <p class="text-center"></p>
-                <b><h3 class="text-center">DemBlock Terminal</h3></b>
+                <b><h3 class="text-center">DemBlock</h3></b>
                 <h4 class="text-center">Artemis House - 67 Fort Street</h4>
                 <h4 class="text-center">Grand Cayman - KY1-1111</h4>
                 <h4 class="text-center">Cayman Islands</h4>
