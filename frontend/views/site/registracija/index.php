@@ -49,7 +49,7 @@ $this->title = 'Registration';
             <div class="sec-column">
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center form-input">
-                        <?= $form->field($model, 'company_name')->textInput(['placeholder' => 'If you a crypto investor type your name'])->label('Investor name or company name') ?>
+                        <?= $form->field($model, 'company_name')->textInput(['placeholder' => ''])->label('Your nickname or  your company name') ?>
                     </div>
                 </div>
                 <div class="form-group has-feedback">
@@ -124,7 +124,11 @@ $this->title = 'Registration';
             <div class="last-section">
                 <div class="col-md-12 text-center">
                     <br><p class="text-center">
-                        In order to upload your corporate information and logo, to list your product/s as well as to notarize corporate and sourcing information on the blockchain, please login into your account after successfull registration. </p>
+                    <br>If you are not registering as a company but as an individual trader or individual DeFi liquidity provider, write your nickname instead of company name.
+                    <br>If you do not want to provide your telephone number, just type 0 in the phone number section.    
+                    <br>After the registration go to your dashboard - and fill the forms with other relevant information if you like.
+                    <b><br>You can conduct DeFi contract notarization as well as supplier and product verification on your dashboard.</b>
+                </p>
                     <p class="text-center" contenteditable="true">
                       
                         &nbsp;By pressing the CONFIRM button you agree to our Listing Policy, Terms Of Use and Privacy Policy. &nbsp;</p>
