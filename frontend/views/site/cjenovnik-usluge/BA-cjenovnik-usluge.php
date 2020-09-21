@@ -34,7 +34,7 @@ $this->title = 'demblock';
 						<div class="g-table5 gprice-single">
 							<!-- Table Head -->
 							<div class="gprice-head-green">
-								<h2 class="g-title-green">VERIFICATIONS</h2>
+								<h2 class="g-title-green">VERIFICATIONS and DeFi SOLUTIONS</h2>
 								<!-- Table Price -->
 								<div class="g-amount" style="background: linear-gradient(to right, #55edc7 0%, #154724 100%); border-radius: 21%;">
 									<p class="amount">20 </p>
@@ -42,16 +42,17 @@ $this->title = 'demblock';
 							</div>
 							<!-- Table List -->
 							<ul class="gprice-list">
-							<li>LISTING FEE is 20 tokens per verification</li>
-								<li>Corporate verification</li>
+							<li>The fee is 20 tokens per notarization or verification</li>
+							<li>DeFi contract notarization</li>
+							<li>Corporate verification</li>
 								<li>Sourcing verification</li>
 								<li>Multiple verifications offered</li>
-								<li>Upload one page per verification</li>
+								<li>Upload one page per verification or notarization</li>
 							
 							</ul>
 							<!-- Table Bottom -->
 							<div class="gprice-bottom">
-								<a class="g-button bordered-green radius" href="#">BECOME VERIFIED SUPPLIER</a>
+								<a class="g-button bordered-green radius" href="#">Complete package</a>
 							</div>
 						</div>
 					</div>

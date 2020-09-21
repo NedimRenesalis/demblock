@@ -406,7 +406,7 @@ if ($searchModel && $searchModel->category) {
             </div>
         </div>
         <div class="footer-controls text-center">
-            <a href="<?= Url::to('@web/css/INSERT_LINK') ?>" class="regist-btn">
+            <a href="<?= Url::to('@web/css/images/getstarted.pdf') ?>" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Get started</span>
             </a>
