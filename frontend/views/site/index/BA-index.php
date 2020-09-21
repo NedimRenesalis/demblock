@@ -56,9 +56,7 @@ if ($searchModel && $searchModel->category) {
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-center text-orange" id="first-typing">
-                    The DemBlock Terminal offers creation, notarization, management and trade of DeFi contracts on the blockchain.  <br>The DemBlock Terminal enables you to seamlessly merger the tokenized and non-tokenized aspects of the real business world.
-                    </h3>
+                    <h3 class="text-center text-orange typing" id="first-typing"></h3>
                     <br>
                 </div>
             </div>
@@ -127,9 +125,7 @@ if ($searchModel && $searchModel->category) {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center text-orange" id="second-typing">
-                The DemBlock Terminal offers the possibility to list, advertise, discover, retrieve, display, manage and trade DeFi contracts and other DeFi related documents that are notarized on the Ethereum blockchain and globally connect buyers, suppliers and DeFi liquidity providers. <br>The DemBlock Terminal helps you explore a huge and rapidly expanding universe of DeFi information and gives you powerful new capabilities for interacting with that information.
-                </h3>
+                <h3 class="text-center text-orange typing" id="second-typing"></h3>
                 <br>
             </div>
         </div>
@@ -207,9 +203,7 @@ if ($searchModel && $searchModel->category) {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center text-orange" id="third-typing">
-                Everbody can invest crypto on the DemBlock Terminal and earn yield. <br> Everybody can trade DeFi contracts on the DemBlock Terminal. <br>The DemBlock Terminal is a layered environment. <br> It is a global sourcing platform and an aggregator of buyers, suppliers and DeFi liquidity providers. <br>On the top it works like every classic global trade marketplace, connecting buyers and sellers.  <br> On the 2nd layer it is a DeFi platform providing a staging ground for buyers looking for a financing in crypto and for DeFi liquidity providers offering crypto financing as well as advertising of sale of their open claims positions to interested parties.
-                </h3>
+                <h3 class="text-center text-orange typing" id="third-typing"></h3>
                 <br>
             </div>
         </div>
@@ -274,10 +268,7 @@ if ($searchModel && $searchModel->category) {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center text-orange" id="fourth-typing">How does the DemBlock Terminal work and how does it offer possibility for everybody to invest in DeFi and earn yields<br><br>
-In order to access the DeFi space for common assets like a cargo of bananas being shipped from Costa Rica to the Netherlands or a shipment of sugar cane traded between a company in the Dominican Republic and Sweden, it makes no sense to wait for the fully tokenized world economy, which probably will never happen.  
-<br><br>Therefore the DemBlock Terminal offers an approach that provides a solution that covers more asset classes than synthetic asset providers. We offer a seamless integration between the tokenized DeFi and the world trade and businesses as they are today, nearly thoroughly untokenized.
-</h3>
+                <h3 class="text-center text-orange typing" id="fourth-typing"></h3>
                 <br>
             </div>
         </div>
@@ -415,11 +406,11 @@ In order to access the DeFi space for common assets like a cargo of bananas bein
             </div>
         </div>
         <div class="footer-controls text-center">
-            <a href="INSERT_LINK" class="regist-btn">
+            <a href="<?= Url::to('@web/css/INSERT_LINK') ?>" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Get started</span>
             </a>
-            <a href="frontend/web/css/images/certificate.pdf" class="regist-btn">
+            <a href="<?= Url::to('@web/css/images/certificate.pdf') ?>" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Incorporation certificate</span>
             </a>

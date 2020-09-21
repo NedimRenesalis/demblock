@@ -8733,9 +8733,15 @@ svg text {
   }
 
   .typed-cursor {
-    display: none !important;
+    visibility:hidden;
 }
 
 a.regist-btn:hover, a.login-btn:hover {
     text-decoration: none !important;
+}
+
+h3.typing {
+    line-height: 2.5ex;
+    min-height: 7.5ex;
+    overflow: hidden;
 }

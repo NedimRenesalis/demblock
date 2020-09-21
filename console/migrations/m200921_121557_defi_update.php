@@ -3,16 +3,17 @@
 use yii\db\Migration;
 
 /**
- * Class m200917_174848_defi
+ * Class m200921_121557_defi_update
  */
-class m200917_174848_defi extends Migration
+class m200921_121557_defi_update extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->insert('categories', array('Name' => 'DeFi Financing') );
+        $this->delete('categories', ['Name' => 'DeFi Financing']);
+        $this->insert('categories', array('Name' => 'DeFi Solutions'));
     }
 
     /**
@@ -20,7 +21,7 @@ class m200917_174848_defi extends Migration
      */
     public function safeDown()
     {
-        echo "m200917_174848_defi cannot be reverted.\n";
+        echo "m200921_121557_defi_update cannot be reverted.\n";
 
         return false;
     }
@@ -34,7 +35,7 @@ class m200917_174848_defi extends Migration
 
     public function down()
     {
-        echo "m200917_174848_defi cannot be reverted.\n";
+        echo "m200921_121557_defi_update cannot be reverted.\n";
 
         return false;
     }
