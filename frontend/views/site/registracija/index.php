@@ -124,9 +124,12 @@ $this->title = 'Registration';
             <div class="last-section">
                 <div class="col-md-12 text-center">
                     <br><p class="text-center">
-                    <br>If you are not registering as a company but as an individual trader or individual DeFi liquidity provider, write your nickname instead of company name.
+                    <b><br>If you are not registering as a company but as an individual trader or individual DeFi liquidity provider, write your nickname instead of company name.</b>
+                    <br>
                     <br>If you do not want to provide your telephone number, just type 0 in the phone number section.    
+                    <br>
                     <br>After the registration go to your dashboard - and fill the forms with other relevant information if you like.
+                    <br>
                     <b><br>You can conduct DeFi contract notarization as well as supplier and product verification on your dashboard.</b>
                 </p>
                     <p class="text-center" contenteditable="true">
