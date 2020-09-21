@@ -34,7 +34,7 @@ $this->title = 'demblock';
 						<div class="g-table5 gprice-single">
 							<!-- Table Head -->
 							<div class="gprice-head-green">
-								<h2 class="g-title-green">VERIFICATIONS and DeFi SOLUTIONS</h2>
+								<h2 class="g-title-green">DeFi SOLUTIONS <br> & <br> VERIFICATIONS</h2>
 								<!-- Table Price -->
 								<div class="g-amount" style="background: linear-gradient(to right, #55edc7 0%, #154724 100%); border-radius: 21%;">
 									<p class="amount">20 </p>
