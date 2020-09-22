@@ -134,7 +134,7 @@ $this->title = 'Registration';
                 </p>
                     <p class="text-center" contenteditable="true">
                       
-                        &nbsp;By pressing the CONFIRM button you agree to our Listing Policy, Terms Of Use and Privacy Policy. &nbsp;</p>
+                        &nbsp;By pressing the CONFIRM button you confirm that the DemBlock business model is allowed without any licences in your local jurisdiction and that you dont need any licences to interact via the Terminal and that you waive any rights to hold DemBlock responsible for any damages of any kind you may encounter by using the Terminal. &nbsp;</p>
                     
                 </div>
             </div>
