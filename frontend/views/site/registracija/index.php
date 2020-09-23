@@ -105,7 +105,7 @@ $this->title = 'Registration';
             <div>
                 <div class="form-group has-feedback">
                     <div class="col-sm-12 text-center form-input">
-                        <?= $form->field($model, 'userType')->radioList([2 => 'Supplier or DeFi liquidity provider', 3 =>'Buyer', 4 => 'Both'])->label('I am a: ') ?>
+                        <?= $form->field($model, 'userType')->radioList([2 => 'Product supplier or DeFi liquidity provider', 3 =>'Looking for prodcuts and DeFi solutions', 4 => 'Both - recommended type of registration'])->label('I am a: ') ?>
                     </div>
                 </div>
 
