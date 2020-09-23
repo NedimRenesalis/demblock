@@ -23,7 +23,7 @@ $countryArray = array(
     'AO' => array('name' => 'ANGOLA', 'code' => '244'),
     'AQ' => array('name' => 'ANTARCTICA', 'code' => '672'),
     'AR' => array('name' => 'ARGENTINA', 'code' => '54'),
-    'AS' => array('name' => 'AMERICAN SAMOA', 'code' => '1684'),
+  
     'AT' => array('name' => 'AUSTRIA', 'code' => '43'),
     'AU' => array('name' => 'AUSTRALIA', 'code' => '61'),
     'AW' => array('name' => 'ARUBA', 'code' => '297'),
@@ -95,7 +95,7 @@ $countryArray = array(
     'GQ' => array('name' => 'EQUATORIAL GUINEA', 'code' => '240'),
     'GR' => array('name' => 'GREECE', 'code' => '30'),
     'GT' => array('name' => 'GUATEMALA', 'code' => '502'),
-    'GU' => array('name' => 'GUAM', 'code' => '1671'),
+ 
     'GW' => array('name' => 'GUINEA-BISSAU', 'code' => '245'),
     'GY' => array('name' => 'GUYANA', 'code' => '592'),
     'HK' => array('name' => 'HONG KONG', 'code' => '852'),
