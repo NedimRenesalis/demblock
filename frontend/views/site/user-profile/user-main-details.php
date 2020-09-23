@@ -60,7 +60,7 @@ $countryArray = array(
     'CN' => array('name' => 'CHINA', 'code' => '86'),
     'CO' => array('name' => 'COLOMBIA', 'code' => '57'),
     'CR' => array('name' => 'COSTA RICA', 'code' => '506'),
-    'CU' => array('name' => 'CUBA', 'code' => '53'),
+  
     'CV' => array('name' => 'CAPE VERDE', 'code' => '238'),
     'CX' => array('name' => 'CHRISTMAS ISLAND', 'code' => '61'),
     'CY' => array('name' => 'CYPRUS', 'code' => '357'),
@@ -108,8 +108,7 @@ $countryArray = array(
     'IL' => array('name' => 'ISRAEL', 'code' => '972'),
     'IM' => array('name' => 'ISLE OF MAN', 'code' => '44'),
     'IN' => array('name' => 'INDIA', 'code' => '91'),
-    'IQ' => array('name' => 'IRAQ', 'code' => '964'),
-    'IR' => array('name' => 'IRAN, ISLAMIC REPUBLIC OF', 'code' => '98'),
+   
     'IS' => array('name' => 'ICELAND', 'code' => '354'),
     'IT' => array('name' => 'ITALY', 'code' => '39'),
     'JM' => array('name' => 'JAMAICA', 'code' => '1876'),
@@ -180,7 +179,7 @@ $countryArray = array(
     'PL' => array('name' => 'POLAND', 'code' => '48'),
     'PM' => array('name' => 'SAINT PIERRE AND MIQUELON', 'code' => '508'),
     'PN' => array('name' => 'PITCAIRN', 'code' => '870'),
-    'PR' => array('name' => 'PUERTO RICO', 'code' => '1'),
+    
     'PT' => array('name' => 'PORTUGAL', 'code' => '351'),
     'PW' => array('name' => 'PALAU', 'code' => '680'),
     'PY' => array('name' => 'PARAGUAY', 'code' => '595'),
@@ -192,7 +191,7 @@ $countryArray = array(
     'SA' => array('name' => 'SAUDI ARABIA', 'code' => '966'),
     'SB' => array('name' => 'SOLOMON ISLANDS', 'code' => '677'),
     'SC' => array('name' => 'SEYCHELLES', 'code' => '248'),
-    'SD' => array('name' => 'SUDAN', 'code' => '249'),
+  
     'SE' => array('name' => 'SWEDEN', 'code' => '46'),
     'SG' => array('name' => 'SINGAPORE', 'code' => '65'),
     'SH' => array('name' => 'SAINT HELENA', 'code' => '290'),
@@ -224,14 +223,14 @@ $countryArray = array(
     'TZ' => array('name' => 'TANZANIA, UNITED REPUBLIC OF', 'code' => '255'),
     'UA' => array('name' => 'UKRAINE', 'code' => '380'),
     'UG' => array('name' => 'UGANDA', 'code' => '256'),
-    'US' => array('name' => 'UNITED STATES', 'code' => '1'),
+   
     'UY' => array('name' => 'URUGUAY', 'code' => '598'),
     'UZ' => array('name' => 'UZBEKISTAN', 'code' => '998'),
     'VA' => array('name' => 'HOLY SEE (VATICAN CITY STATE)', 'code' => '39'),
     'VC' => array('name' => 'SAINT VINCENT AND THE GRENADINES', 'code' => '1784'),
-    'VE' => array('name' => 'VENEZUELA', 'code' => '58'),
+ 
     'VG' => array('name' => 'VIRGIN ISLANDS, BRITISH', 'code' => '1284'),
-    'VI' => array('name' => 'VIRGIN ISLANDS, U.S.', 'code' => '1340'),
+   
     'VN' => array('name' => 'VIET NAM', 'code' => '84'),
     'VU' => array('name' => 'VANUATU', 'code' => '678'),
     'WF' => array('name' => 'WALLIS AND FUTUNA', 'code' => '681'),

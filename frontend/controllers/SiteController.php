@@ -61,7 +61,7 @@ class SiteController extends Controller
     public $countryArray = array(
         'AD' => array('name' => 'ANDORRA', 'code' => '376'),
         'AE' => array('name' => 'UNITED ARAB EMIRATES', 'code' => '971'),
-        'AF' => array('name' => 'AFGHANISTAN', 'code' => '93'),
+        
         'AG' => array('name' => 'ANTIGUA AND BARBUDA', 'code' => '1268'),
         'AI' => array('name' => 'ANGUILLA', 'code' => '1264'),
         'AL' => array('name' => 'ALBANIA', 'code' => '355'),
@@ -107,7 +107,7 @@ class SiteController extends Controller
         'CN' => array('name' => 'CHINA', 'code' => '86'),
         'CO' => array('name' => 'COLOMBIA', 'code' => '57'),
         'CR' => array('name' => 'COSTA RICA', 'code' => '506'),
-        'CU' => array('name' => 'CUBA', 'code' => '53'),
+       
         'CV' => array('name' => 'CAPE VERDE', 'code' => '238'),
         'CX' => array('name' => 'CHRISTMAS ISLAND', 'code' => '61'),
         'CY' => array('name' => 'CYPRUS', 'code' => '357'),
@@ -155,8 +155,7 @@ class SiteController extends Controller
         'IL' => array('name' => 'ISRAEL', 'code' => '972'),
         'IM' => array('name' => 'ISLE OF MAN', 'code' => '44'),
         'IN' => array('name' => 'INDIA', 'code' => '91'),
-        'IQ' => array('name' => 'IRAQ', 'code' => '964'),
-        'IR' => array('name' => 'IRAN, ISLAMIC REPUBLIC OF', 'code' => '98'),
+       
         'IS' => array('name' => 'ICELAND', 'code' => '354'),
         'IT' => array('name' => 'ITALY', 'code' => '39'),
         'JM' => array('name' => 'JAMAICA', 'code' => '1876'),
@@ -168,7 +167,7 @@ class SiteController extends Controller
         'KI' => array('name' => 'KIRIBATI', 'code' => '686'),
         'KM' => array('name' => 'COMOROS', 'code' => '269'),
         'KN' => array('name' => 'SAINT KITTS AND NEVIS', 'code' => '1869'),
-        'KP' => array('name' => 'KOREA DEMOCRATIC PEOPLES REPUBLIC OF', 'code' => '850'),
+   
         'KR' => array('name' => 'KOREA REPUBLIC OF', 'code' => '82'),
         'KW' => array('name' => 'KUWAIT', 'code' => '965'),
         'KY' => array('name' => 'CAYMAN ISLANDS', 'code' => '1345'),
@@ -183,7 +182,7 @@ class SiteController extends Controller
         'LT' => array('name' => 'LITHUANIA', 'code' => '370'),
         'LU' => array('name' => 'LUXEMBOURG', 'code' => '352'),
         'LV' => array('name' => 'LATVIA', 'code' => '371'),
-        'LY' => array('name' => 'LIBYAN ARAB JAMAHIRIYA', 'code' => '218'),
+    
         'MA' => array('name' => 'MOROCCO', 'code' => '212'),
         'MC' => array('name' => 'MONACO', 'code' => '377'),
         'MD' => array('name' => 'MOLDOVA, REPUBLIC OF', 'code' => '373'),
@@ -239,7 +238,7 @@ class SiteController extends Controller
         'SA' => array('name' => 'SAUDI ARABIA', 'code' => '966'),
         'SB' => array('name' => 'SOLOMON ISLANDS', 'code' => '677'),
         'SC' => array('name' => 'SEYCHELLES', 'code' => '248'),
-        'SD' => array('name' => 'SUDAN', 'code' => '249'),
+      
         'SE' => array('name' => 'SWEDEN', 'code' => '46'),
         'SG' => array('name' => 'SINGAPORE', 'code' => '65'),
         'SH' => array('name' => 'SAINT HELENA', 'code' => '290'),
@@ -248,11 +247,11 @@ class SiteController extends Controller
         'SL' => array('name' => 'SIERRA LEONE', 'code' => '232'),
         'SM' => array('name' => 'SAN MARINO', 'code' => '378'),
         'SN' => array('name' => 'SENEGAL', 'code' => '221'),
-        'SO' => array('name' => 'SOMALIA', 'code' => '252'),
+   
         'SR' => array('name' => 'SURINAME', 'code' => '597'),
         'ST' => array('name' => 'SAO TOME AND PRINCIPE', 'code' => '239'),
         'SV' => array('name' => 'EL SALVADOR', 'code' => '503'),
-        'SY' => array('name' => 'SYRIAN ARAB REPUBLIC', 'code' => '963'),
+      
         'SZ' => array('name' => 'SWAZILAND', 'code' => '268'),
         'TC' => array('name' => 'TURKS AND CAICOS ISLANDS', 'code' => '1649'),
         'TD' => array('name' => 'CHAD', 'code' => '235'),

@@ -134,7 +134,7 @@ $this->title = 'Registration';
                 </p>
                     <p class="text-center" contenteditable="true">
                       
-                        &nbsp;By pressing the CONFIRM button you confirm that the DemBlock business model is allowed without any licences in your local jurisdiction and that you dont need any licences to interact via the Terminal and that you waive any rights to hold DemBlock responsible for any damages of any kind you may encounter by using the Terminal. &nbsp;</p>
+                        &nbsp;By pressing the CONFIRM button you confirm that you have read the "Get started" document on the bottom of the page and agree to all points states under the section "Rules and policies" and besides you confirm that the DemBlock business model is allowed without any licences in your local jurisdiction and that you dont need any licences to interact via the Terminal and that you waive any rights to hold DemBlock responsible for any damages of any kind you may encounter by using the Terminal. Besides you confirm that you are NOT a resident and/or citizen of the USA or any USA dependent territory or citizen/resident of any country which is NOT listed in the registration form. &nbsp;</p>
                     
                 </div>
             </div>
