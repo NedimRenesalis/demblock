@@ -84,12 +84,6 @@ if (!Yii::$app->user->isGuest) {
                         <div><b>SUBCATEGORY</b>&nbsp
                             <?= $model->position; ?></div>
                     </div>
-
-                    <div class="number-of-positions col-lg-1.5 col-md-6">
-                        <div><b>HIPPING FROM</b>&nbsp
-                            <?= $model->location; ?></div>
-                    </div>
-                    <br>
                     <br>
                     <div class="date col-lg-1.5 col-md-6">
                         <div><b>AD VALID FROM - TO</b></div>
@@ -98,14 +92,6 @@ if (!Yii::$app->user->isGuest) {
                     </div>
                     <br>
                     <br>
-                    <div class="contact col-lg-1.5 col-md-6">
-                        <?php if (strpos($model->web_address, 'http') !== false) : ?>
-                        <div><a href="<?= $model->web_address; ?>" target="_blank"><?= $model->web_address; ?></a>
-                        </div>
-                        <?php else : ?>
-                        <div><a href="http://<?= $model->web_address; ?>" target="_blank"><?= $model->web_address; ?></a></div>
-                        <?php endif; ?>
-                    </div>
 
                 </div>
 
@@ -201,10 +187,6 @@ if (!Yii::$app->user->isGuest) {
                     <b><span class="title">SUBCATEGORY</span></b>&nbsp
                     <?= $model->position; ?>
                 </div>
-                <div class="table-field">
-                    <b><span class="title">SHIPPING FROM</span></b>&nbsp
-                    <?= $model->location; ?>
-                </div>
 
             </div>
 
@@ -219,14 +201,7 @@ if (!Yii::$app->user->isGuest) {
                 <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?>&nbsp - &nbsp
                     <?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
             </div>
-            <div class="sec col-xs-12 col-sm-4 col-md-4">
-                <?php if (strpos($model->web_address, 'http') !== false) : ?>
-                <div><a href="<?= $model->web_address; ?>" target="_blank"><?= $model->web_address; ?></a></div>
-                <?php else : ?>
-                <div><a href="http://<?= $model->web_address; ?>" target="_blank"><?= $model->web_address; ?></a>
-                </div>
-                <?php endif; ?>
-            </div>
+
             <div class="sec col-xs-12 col-sm-4 col-md-4" style="text-align: center;">
                 <?php if ($employee) : ?>
                 <div class="btn  btn-info btn-warning btn-applied" <?php if (!$apply) echo 'style="display:none"'; ?> data-applied-id="<?= $model->id; ?>">Product tagged

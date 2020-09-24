@@ -120,10 +120,10 @@ $countryArray = array(
     'KI' => array('name' => 'KIRIBATI', 'code' => '686'),
     'KM' => array('name' => 'COMOROS', 'code' => '269'),
     'KN' => array('name' => 'SAINT KITTS AND NEVIS', 'code' => '1869'),
-    'KP' => array('name' => 'KOREA DEMOCRATIC PEOPLES REPUBLIC OF', 'code' => '850'),
+    
     'KR' => array('name' => 'KOREA REPUBLIC OF', 'code' => '82'),
     'KW' => array('name' => 'KUWAIT', 'code' => '965'),
-    'KY' => array('name' => 'CAYMAN ISLANDS', 'code' => '1345'),
+    
     'KZ' => array('name' => 'KAZAKSTAN', 'code' => '7'),
     'LA' => array('name' => 'LAO PEOPLES DEMOCRATIC REPUBLIC', 'code' => '856'),
     'LB' => array('name' => 'LEBANON', 'code' => '961'),
@@ -200,11 +200,11 @@ $countryArray = array(
     'SL' => array('name' => 'SIERRA LEONE', 'code' => '232'),
     'SM' => array('name' => 'SAN MARINO', 'code' => '378'),
     'SN' => array('name' => 'SENEGAL', 'code' => '221'),
-    'SO' => array('name' => 'SOMALIA', 'code' => '252'),
+    
     'SR' => array('name' => 'SURINAME', 'code' => '597'),
     'ST' => array('name' => 'SAO TOME AND PRINCIPE', 'code' => '239'),
     'SV' => array('name' => 'EL SALVADOR', 'code' => '503'),
-    'SY' => array('name' => 'SYRIAN ARAB REPUBLIC', 'code' => '963'),
+    
     'SZ' => array('name' => 'SWAZILAND', 'code' => '268'),
     'TC' => array('name' => 'TURKS AND CAICOS ISLANDS', 'code' => '1649'),
     'TD' => array('name' => 'CHAD', 'code' => '235'),

@@ -36,12 +36,6 @@ use yii\helpers\Url;
         </div>
         <br>
 
-
-        <div class="promjenafonta">
-          <b>  <div>Shipping From: <?= $model->location; ?></div> </b>
-        </div>
-
-
     </div>
 
 
@@ -67,12 +61,6 @@ use yii\helpers\Url;
       <div><?= $model->position; ?></div>
         </div>
 <br>
-
-
-        <div class="promjenafonta">
-          <b>  <div>Shipping From: <?= $model->location; ?></div></b>
-        </div>
-
 
     </div>
 

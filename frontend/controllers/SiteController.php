@@ -70,7 +70,7 @@ class SiteController extends Controller
         'AO' => array('name' => 'ANGOLA', 'code' => '244'),
         'AQ' => array('name' => 'ANTARCTICA', 'code' => '672'),
         'AR' => array('name' => 'ARGENTINA', 'code' => '54'),
-        'AS' => array('name' => 'AMERICAN SAMOA', 'code' => '1684'),
+        
         'AT' => array('name' => 'AUSTRIA', 'code' => '43'),
         'AU' => array('name' => 'AUSTRALIA', 'code' => '61'),
         'AW' => array('name' => 'ARUBA', 'code' => '297'),
@@ -170,7 +170,7 @@ class SiteController extends Controller
    
         'KR' => array('name' => 'KOREA REPUBLIC OF', 'code' => '82'),
         'KW' => array('name' => 'KUWAIT', 'code' => '965'),
-        'KY' => array('name' => 'CAYMAN ISLANDS', 'code' => '1345'),
+        
         'KZ' => array('name' => 'KAZAKSTAN', 'code' => '7'),
         'LA' => array('name' => 'LAO PEOPLES DEMOCRATIC REPUBLIC', 'code' => '856'),
         'LB' => array('name' => 'LEBANON', 'code' => '961'),
@@ -226,7 +226,7 @@ class SiteController extends Controller
         'PL' => array('name' => 'POLAND', 'code' => '48'),
         'PM' => array('name' => 'SAINT PIERRE AND MIQUELON', 'code' => '508'),
         'PN' => array('name' => 'PITCAIRN', 'code' => '870'),
-        'PR' => array('name' => 'PUERTO RICO', 'code' => '1'),
+        
         'PT' => array('name' => 'PORTUGAL', 'code' => '351'),
         'PW' => array('name' => 'PALAU', 'code' => '680'),
         'PY' => array('name' => 'PARAGUAY', 'code' => '595'),
@@ -270,14 +270,14 @@ class SiteController extends Controller
         'TZ' => array('name' => 'TANZANIA, UNITED REPUBLIC OF', 'code' => '255'),
         'UA' => array('name' => 'UKRAINE', 'code' => '380'),
         'UG' => array('name' => 'UGANDA', 'code' => '256'),
-        'US' => array('name' => 'UNITED STATES', 'code' => '1'),
+        
         'UY' => array('name' => 'URUGUAY', 'code' => '598'),
         'UZ' => array('name' => 'UZBEKISTAN', 'code' => '998'),
         'VA' => array('name' => 'HOLY SEE (VATICAN CITY STATE)', 'code' => '39'),
         'VC' => array('name' => 'SAINT VINCENT AND THE GRENADINES', 'code' => '1784'),
         'VE' => array('name' => 'VENEZUELA', 'code' => '58'),
         'VG' => array('name' => 'VIRGIN ISLANDS, BRITISH', 'code' => '1284'),
-        'VI' => array('name' => 'VIRGIN ISLANDS, U.S.', 'code' => '1340'),
+        
         'VN' => array('name' => 'VIET NAM', 'code' => '84'),
         'VU' => array('name' => 'VANUATU', 'code' => '678'),
         'WF' => array('name' => 'WALLIS AND FUTUNA', 'code' => '681'),
@@ -852,7 +852,6 @@ class SiteController extends Controller
             $model->created_at = $nowTimestamp;
 
             if ($model->anonymously) {
-
                 $model->contact_person = "-";
                 $model->web_address = "-";
                 $model->contact_email = "-";
@@ -868,6 +867,13 @@ class SiteController extends Controller
             } else if ($model->number_of_days > 30) {
                 $model->number_of_days = 30;
             }
+
+            // Disable following fields.
+            // ============================
+            $model->contact_person = "-";
+            $model->contact_email  = "-";
+            $model->web_address    = "-";
+            $model->location       = "-";
 
             $model->end_advert = $model->start_advert + $model->number_of_days * 24 * 60 * 60;
 
@@ -1039,6 +1045,12 @@ class SiteController extends Controller
                 } else if ($model->number_of_days > 30) {
                     $model->number_of_days = 30;
                 }
+
+                // Disable following fields.
+                $model->contact_person = "-";
+                $model->contact_email  = "-";
+                $model->web_address    = "-";
+                $model->location       = "-";
 
                 $model->end_advert = $model->start_advert + $model->number_of_days * 24 * 60 * 60;
 

@@ -17,7 +17,7 @@ $countryArray = array(
     'AO' => array('name' => 'ANGOLA', 'code' => '244'),
     'AQ' => array('name' => 'ANTARCTICA', 'code' => '672'),
     'AR' => array('name' => 'ARGENTINA', 'code' => '54'),
-    'AS' => array('name' => 'AMERICAN SAMOA', 'code' => '1684'),
+    
     'AT' => array('name' => 'AUSTRIA', 'code' => '43'),
     'AU' => array('name' => 'AUSTRALIA', 'code' => '61'),
     'AW' => array('name' => 'ARUBA', 'code' => '297'),
@@ -54,7 +54,7 @@ $countryArray = array(
     'CN' => array('name' => 'CHINA', 'code' => '86'),
     'CO' => array('name' => 'COLOMBIA', 'code' => '57'),
     'CR' => array('name' => 'COSTA RICA', 'code' => '506'),
-    'CU' => array('name' => 'CUBA', 'code' => '53'),
+    
     'CV' => array('name' => 'CAPE VERDE', 'code' => '238'),
     'CX' => array('name' => 'CHRISTMAS ISLAND', 'code' => '61'),
     'CY' => array('name' => 'CYPRUS', 'code' => '357'),
@@ -102,8 +102,8 @@ $countryArray = array(
     'IL' => array('name' => 'ISRAEL', 'code' => '972'),
     'IM' => array('name' => 'ISLE OF MAN', 'code' => '44'),
     'IN' => array('name' => 'INDIA', 'code' => '91'),
-    'IQ' => array('name' => 'IRAQ', 'code' => '964'),
-    'IR' => array('name' => 'IRAN, ISLAMIC REPUBLIC OF', 'code' => '98'),
+    
+    
     'IS' => array('name' => 'ICELAND', 'code' => '354'),
     'IT' => array('name' => 'ITALY', 'code' => '39'),
     'JM' => array('name' => 'JAMAICA', 'code' => '1876'),
@@ -115,10 +115,10 @@ $countryArray = array(
     'KI' => array('name' => 'KIRIBATI', 'code' => '686'),
     'KM' => array('name' => 'COMOROS', 'code' => '269'),
     'KN' => array('name' => 'SAINT KITTS AND NEVIS', 'code' => '1869'),
-    'KP' => array('name' => 'KOREA DEMOCRATIC PEOPLES REPUBLIC OF', 'code' => '850'),
+    
     'KR' => array('name' => 'KOREA REPUBLIC OF', 'code' => '82'),
     'KW' => array('name' => 'KUWAIT', 'code' => '965'),
-    'KY' => array('name' => 'CAYMAN ISLANDS', 'code' => '1345'),
+    
     'KZ' => array('name' => 'KAZAKSTAN', 'code' => '7'),
     'LA' => array('name' => 'LAO PEOPLES DEMOCRATIC REPUBLIC', 'code' => '856'),
     'LB' => array('name' => 'LEBANON', 'code' => '961'),
@@ -174,7 +174,7 @@ $countryArray = array(
     'PL' => array('name' => 'POLAND', 'code' => '48'),
     'PM' => array('name' => 'SAINT PIERRE AND MIQUELON', 'code' => '508'),
     'PN' => array('name' => 'PITCAIRN', 'code' => '870'),
-    'PR' => array('name' => 'PUERTO RICO', 'code' => '1'),
+    
     'PT' => array('name' => 'PORTUGAL', 'code' => '351'),
     'PW' => array('name' => 'PALAU', 'code' => '680'),
     'PY' => array('name' => 'PARAGUAY', 'code' => '595'),
@@ -195,11 +195,11 @@ $countryArray = array(
     'SL' => array('name' => 'SIERRA LEONE', 'code' => '232'),
     'SM' => array('name' => 'SAN MARINO', 'code' => '378'),
     'SN' => array('name' => 'SENEGAL', 'code' => '221'),
-    'SO' => array('name' => 'SOMALIA', 'code' => '252'),
+    
     'SR' => array('name' => 'SURINAME', 'code' => '597'),
     'ST' => array('name' => 'SAO TOME AND PRINCIPE', 'code' => '239'),
     'SV' => array('name' => 'EL SALVADOR', 'code' => '503'),
-    'SY' => array('name' => 'SYRIAN ARAB REPUBLIC', 'code' => '963'),
+    
     'SZ' => array('name' => 'SWAZILAND', 'code' => '268'),
     'TC' => array('name' => 'TURKS AND CAICOS ISLANDS', 'code' => '1649'),
     'TD' => array('name' => 'CHAD', 'code' => '235'),
@@ -218,14 +218,14 @@ $countryArray = array(
     'TZ' => array('name' => 'TANZANIA, UNITED REPUBLIC OF', 'code' => '255'),
     'UA' => array('name' => 'UKRAINE', 'code' => '380'),
     'UG' => array('name' => 'UGANDA', 'code' => '256'),
-    'US' => array('name' => 'UNITED STATES', 'code' => '1'),
+    
     'UY' => array('name' => 'URUGUAY', 'code' => '598'),
     'UZ' => array('name' => 'UZBEKISTAN', 'code' => '998'),
     'VA' => array('name' => 'HOLY SEE (VATICAN CITY STATE)', 'code' => '39'),
     'VC' => array('name' => 'SAINT VINCENT AND THE GRENADINES', 'code' => '1784'),
     'VE' => array('name' => 'VENEZUELA', 'code' => '58'),
     'VG' => array('name' => 'VIRGIN ISLANDS, BRITISH', 'code' => '1284'),
-    'VI' => array('name' => 'VIRGIN ISLANDS, U.S.', 'code' => '1340'),
+    
     'VN' => array('name' => 'VIET NAM', 'code' => '84'),
     'VU' => array('name' => 'VANUATU', 'code' => '678'),
     'WF' => array('name' => 'WALLIS AND FUTUNA', 'code' => '681'),

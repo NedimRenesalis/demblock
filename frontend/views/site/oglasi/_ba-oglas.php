@@ -79,10 +79,6 @@ if ($ini == 0) {
                     href="<?= Url::to(['poslodavac-profil', 'id' => $model->user_id]); ?>"><?= Advert::getCompanyByUserId($model->user_id); ?></a>
             <?php endif; ?>
         </div>
-        <div class="job-location">
-            <div>Shipping from:&nbsp  <?php echo $model->location; ?></div>
-        </div><br>
-       
        
     </div>
 </div>

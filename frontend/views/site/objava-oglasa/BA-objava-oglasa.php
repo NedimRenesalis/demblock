@@ -127,9 +127,7 @@ $days = [
                             )->label("PRODUCT OR CATEGORY") ?>
 
                             <?= $form->field($model, 'position')->dropDownList($subCategoriesSelected, ['prompt' => "SELECT"])->label('SUBCATEGORY') ?>
-                            <?= $form->field($model, 'location')->textInput(['maxlength' => true])->label('SHIPPING FROM') ?>
                             <?= $form->field($model, 'type')->dropDownList($types, ['prompt' => 'LISTING TYPE'])->label('CHOOSE LISTING TYPE') ?>
-                            <?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'LISTING DURATION'])->label('CHOOSE LISTING DURATION') ?>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
@@ -147,9 +145,7 @@ $days = [
                                 ]); ?>
                             </div>
 
-                            <?= $form->field($model, 'contact_person')->textInput(['maxlength' => true])->label('CONTACT PERSON') ?>
-                            <?= $form->field($model, 'contact_email')->textInput(['maxlength' => true])->label('EMAIL') ?>
-                            <?= $form->field($model, 'web_address')->textInput(['maxlength' => true])->label('PRODUCT URL ON YOUR CORPORATE WEBSITE') ?>
+                            <?= $form->field($model, 'number_of_days')->dropDownList($days, ['prompt' => 'LISTING DURATION'])->label('CHOOSE LISTING DURATION') ?>
                             <?= $form->field($model, 'payment')->dropDownList($payments, ['prompt' => 'PAY WITH TOKENS'])->label('PAYMENT') ?>
                         </div>
                     </div>

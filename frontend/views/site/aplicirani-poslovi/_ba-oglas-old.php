@@ -39,11 +39,6 @@ use yii\helpers\Url;
                 <div><?= $model->position; ?></div>
             </div>
 
-            <div class="number-of-positions col-lg-3 col-md-6">
-                <div>Lokacija:</div>
-                <div><?= $model->location; ?></div>
-            </div>
-
         </div>
         <hr>
         <div class="advert-body">
@@ -63,13 +58,6 @@ use yii\helpers\Url;
                 <div>Početak - kraj:</div>
                 <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?></div>
                 <div><?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
-            </div>
-
-            <div class="contact col-lg-3 col-md-6">
-                <div>Kontakt:</div>
-                <div><?= $model->contact_person; ?></div>
-                <div><?= $model->contact_email; ?></div>
-                <div><a href="<?= $model->web_address; ?>" target="_blank"><?= $model->web_address; ?></a></div>
             </div>
 
             <div class="number-of-positions col-lg-3 col-md-6">
@@ -120,11 +108,6 @@ use yii\helpers\Url;
                 <div><?= $model->position; ?></div>
             </div>
 
-            <div class="number-of-positions col-lg-3 col-md-6">
-                <div>Lokacija:</div>
-                <div><?= $model->location; ?></div>
-            </div>
-
         </div>
         <hr>
         <div class="advert-body">
@@ -144,13 +127,6 @@ use yii\helpers\Url;
                 <div>Početak - kraj:</div>
                 <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?></div>
                 <div><?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
-            </div>
-
-            <div class="contact col-lg-3 col-md-6">
-                <div>Kontakt:</div>
-                <div><?= $model->contact_person; ?></div>
-                <div><?= $model->contact_email; ?></div>
-                <div><a href="<?= $model->web_address; ?>" target="_blank"><?= $model->web_address; ?></a></div>
             </div>
 
             <div class="number-of-positions col-lg-3 col-md-6">

@@ -48,11 +48,6 @@ if(!Yii::$app->user->isGuest){
                 <div><?= $model->position; ?></div>
             </div>
 
-            <div class="number-of-positions col-lg-3 col-md-6">
-                <div><b>Lokacija:</b></div>
-                <div><?= $model->location; ?></div>
-            </div>
-
         </div>
         <hr>
         <div class="advert-body">
@@ -72,13 +67,6 @@ if(!Yii::$app->user->isGuest){
                 <div><b>Početak - kraj:</b></div>
                 <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?></div>
                 <div><?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
-            </div>
-
-            <div class="contact col-lg-3 col-md-6">
-                <div><b>Kontakt:</b></div>
-                <div><?= $model->contact_person; ?></div>
-                <div><?= $model->contact_email; ?></div>
-                <div><?= $model->web_address; ?></div>
             </div>
 
             <div class="number-of-positions col-lg-3 col-md-6">
@@ -137,11 +125,6 @@ if(!Yii::$app->user->isGuest){
                 <div><?= $model->position; ?></div>
             </div>
 
-            <div class="number-of-positions col-lg-3 col-md-6">
-                <div><b>Lokacija:</b></div>
-                <div><?= $model->location; ?></div>
-            </div>
-
         </div>
         <hr>
         <div class="advert-body">
@@ -161,13 +144,6 @@ if(!Yii::$app->user->isGuest){
                 <div><b>Početak - kraj:</b></div>
                 <div><?= Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy'); ?></div>
                 <div><?= Yii::$app->formatter->asDatetime($model->end_advert, 'dd.MM.yyyy'); ?></div>
-            </div>
-
-            <div class="contact col-lg-3 col-md-6">
-                <div><b>Kontakt:</b></div>
-                <div><?= $model->contact_person; ?></div>
-                <div><?= $model->contact_email; ?></div>
-                <div><?= $model->web_address; ?></div>
             </div>
 
             <div class="number-of-positions col-lg-3 col-md-6">

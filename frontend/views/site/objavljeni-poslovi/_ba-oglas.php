@@ -78,9 +78,6 @@ if ($ini == 0) {
         <div class="job-employer-wrapper">
 
           <br>
-            <div class="job-location">
-                <div>SHIPPING FROM: <?php echo $model->location; ?></div>
-            </div>
         </div>
 
         <div class="job-controls">

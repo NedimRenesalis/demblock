@@ -120,7 +120,7 @@ if(!Yii::$app->user->isGuest){
             }
 
             echo '
-<a href="'.Yii::$app->homeUrl.'">
+        <a href="'.Yii::$app->homeUrl.'">
         <div class="collapse navbar-collapse in" id="navbar-ex-collapse">
         <ul class="nav navbar-nav navbar-left">
             <li>
@@ -154,7 +154,8 @@ if(!Yii::$app->user->isGuest){
 
      ';
         } else {
-               $menuItems[] = ['label' => $profile, 'url' => ['/site/user-profile']];
+            $menuItems[] = ['label' => 'Home', 'url' => ['/index']];
+            $menuItems[] = ['label' => $profile, 'url' => ['/site/user-profile']];
             $menuItems[] = [
                 'label' => $messagelabel,
                 'url' => '',

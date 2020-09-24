@@ -80,7 +80,7 @@ if ($ini == 0) {
                 <?php endif; ?>
             </div>
             <div class="job-location">
-                <?= "&nbsp;·&nbsp; " . $model->location . ", " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
+                <?= "&nbsp;·&nbsp; " . Yii::$app->formatter->asDatetime($model->start_advert, 'dd.MM.yyyy') ?>
             </div>
         </div>
     </div>
