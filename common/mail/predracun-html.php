@@ -36,18 +36,11 @@ Hello
 <br>Your listing is online.
 <br>
 
-<br>You will find your invoice in the link below.
 
-<br>In order to be able to open the link, first log into your account with this device.
-<br>
-<br>
-<a href="<?= Yii::$app->urlManagerFrontend->createAbsoluteUrl(['site/html', 'id' => $advert->id]);?>">
-  Your listing invoice
-</a>
-<br>
 
 <br>
 <br>Best regards
 <br>
+The DemBlock Terminal team
 
 </center>
