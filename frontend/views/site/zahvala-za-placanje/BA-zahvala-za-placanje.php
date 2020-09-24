@@ -15,7 +15,7 @@ $this->title = 'demblock';
                 <br>
                 <br><b>Your product has been listed successfully.</b>
 <br>
-                <br>You will receive your invoice by email in a couple of seconds.
+                <br>
                 <br>
                 
               </p>
