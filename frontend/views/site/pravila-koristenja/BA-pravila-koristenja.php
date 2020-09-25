@@ -122,7 +122,7 @@ Listings claiming to provide governmental services and related products.
  <br><br>
 <b>COLLECTIONS, ARTIFACTS AND PRECIOUS METALS</b>
 <br><br>
-The sale and purchase of currency, coins, banknotes, stocks, bonds, money orders, credit and debit cards, investment interest, currency in digital or any intangible form as well as the equipment and materials used to produce such items. Users are only allowed to use our own token to pay for listing their products. Trading cryptocurrencies, offering of those and/or listings are strictly prohibited. On our marketplace users also aren`t allowed to offer our token in exchange for anything: these are, among others, other cryptotokens, fiat money, checks, assets, commodities. 
+The sale and purchase of currency, coins, banknotes, stocks, bonds, money orders, credit and debit cards, investment interest as well as the equipment and materials used to produce such items. Users are only allowed to use our own token to pay for listing their products. Trading cryptocurrencies, offering of those and/or listings are strictly prohibited. On our marketplace users also aren`t allowed to offer our token in exchange for anything: these are, among others, other cryptotokens, fiat money, checks, assets, commodities. 
 <br><br>
 - Reproductions or replicas of coins as collectible items must be clearly marked with the word "COPY", "REPRODUCTION" or "REPLICA" and comply with all relevant national laws
 <br>- Listings that offer the sale or buying of gold, silver and other precious metals (not including jewelry) are prohibited
