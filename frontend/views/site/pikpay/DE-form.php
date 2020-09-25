@@ -51,7 +51,7 @@ $this->title = 'Pikpay';
                         <select name="ch_country" class="form-control" id="ch_country">
                             <option value="Andorra">Andorra</option>
                             <option value="United Arab Emirates">United Arab Emirates</option>
-                            <option value="Afghanistan">Afghanistan</option>
+                            
                             <option value="Antigua And Barbuda">Antigua And Barbuda</option>
                             <option value="Anguilla">Anguilla</option>
                             <option value="Albania">Albania</option>
@@ -266,7 +266,7 @@ $this->title = 'Pikpay';
                             <option value="Uzbekistan">Uzbekistan</option>
                             <option value="Holy See (vatican City State)">Holy See (vatican City State)</option>
                             <option value="Saint Vincent And The Grenadines">Saint Vincent And The Grenadines</option>
-                            <option value="Venezuela">Venezuela</option>
+                            
                             <option value="Virgin Islands, British">Virgin Islands, British</option>
                             
                             <option value="Viet Nam">Viet Nam</option>
@@ -274,7 +274,7 @@ $this->title = 'Pikpay';
                             <option value="Wallis And Futuna">Wallis And Futuna</option>
                             <option value="Samoa">Samoa</option>
                             <option value="Kosovo">Kosovo</option>
-                            <option value="Yemen">Yemen</option>
+                            
                             <option value="Mayotte">Mayotte</option>
                             <option value="South Africa">South Africa</option>
                             <option value="Zambia">Zambia</option>

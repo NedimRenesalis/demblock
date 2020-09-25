@@ -275,7 +275,7 @@ class SiteController extends Controller
         'UZ' => array('name' => 'UZBEKISTAN', 'code' => '998'),
         'VA' => array('name' => 'HOLY SEE (VATICAN CITY STATE)', 'code' => '39'),
         'VC' => array('name' => 'SAINT VINCENT AND THE GRENADINES', 'code' => '1784'),
-        'VE' => array('name' => 'VENEZUELA', 'code' => '58'),
+        
         'VG' => array('name' => 'VIRGIN ISLANDS, BRITISH', 'code' => '1284'),
         
         'VN' => array('name' => 'VIET NAM', 'code' => '84'),
@@ -283,7 +283,7 @@ class SiteController extends Controller
         'WF' => array('name' => 'WALLIS AND FUTUNA', 'code' => '681'),
         'WS' => array('name' => 'SAMOA', 'code' => '685'),
         'XK' => array('name' => 'KOSOVO', 'code' => '381'),
-        'YE' => array('name' => 'YEMEN', 'code' => '967'),
+        
         'YT' => array('name' => 'MAYOTTE', 'code' => '262'),
         'ZA' => array('name' => 'SOUTH AFRICA', 'code' => '27'),
         'ZM' => array('name' => 'ZAMBIA', 'code' => '260'),

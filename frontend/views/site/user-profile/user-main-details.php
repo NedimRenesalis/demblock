@@ -14,7 +14,7 @@ UploadAsset::register($this);
 $countryArray = array(
     'AD' => array('name' => 'ANDORRA', 'code' => '376'),
     'AE' => array('name' => 'UNITED ARAB EMIRATES', 'code' => '971'),
-    'AF' => array('name' => 'AFGHANISTAN', 'code' => '93'),
+    
     'AG' => array('name' => 'ANTIGUA AND BARBUDA', 'code' => '1268'),
     'AI' => array('name' => 'ANGUILLA', 'code' => '1264'),
     'AL' => array('name' => 'ALBANIA', 'code' => '355'),
@@ -236,7 +236,7 @@ $countryArray = array(
     'WF' => array('name' => 'WALLIS AND FUTUNA', 'code' => '681'),
     'WS' => array('name' => 'SAMOA', 'code' => '685'),
     'XK' => array('name' => 'KOSOVO', 'code' => '381'),
-    'YE' => array('name' => 'YEMEN', 'code' => '967'),
+    
     'YT' => array('name' => 'MAYOTTE', 'code' => '262'),
     'ZA' => array('name' => 'SOUTH AFRICA', 'code' => '27'),
     'ZM' => array('name' => 'ZAMBIA', 'code' => '260'),
