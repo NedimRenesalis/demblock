@@ -354,22 +354,9 @@ $this->registerJs($script);
                                 <b><span class="title">COMPANY NAME:</span></b><a><?php echo $companyInformation->CompanyName; ?></a>
                             <?php endif; ?>
                         </div>
-                        <div class="table-field">
-                            <?php if ($model->address != '') : ?>
-                                <b><span class="title">Address</span></b>
-                            <?php
-                                echo $model->address;
-                            endif;
-                            ?>
-                        </div>
-                        <div class="table-field">
-                            <b> <span class="title">Email:</span> </b><?php echo $contactInfo->Email; ?>
-                            <span class="verified" style="margin-left: 5px;">
-                            </span>
-                        </div>
-                        <div class="table-field">
+                        <!--div class="table-field">
 
-                        </div>
+                        </div-->
                         <div class="user-info-line"></div>
                         <br>
                         <div class="main-info">
@@ -405,15 +392,6 @@ $this->registerJs($script);
                         <h3>Contact information</h3>
                     </div>
                     <div class="info-content">
-                        <div class="table-field d-block">
-                            <span class="title d-block">Email:</span> <?php echo $contactInfo->Email; ?>
-                            <p class="verified" style="margin-left: 11px;">
-                                [<?php echo ($model->status == 10) ? 'Verified' : 'Not Verified';  ?>]
-                            </p>
-                        </div>
-                        <div class="table-field d-block">
-                            <span class="title d-block">Alternative Email:</span> <?php echo $contactInfo->AlternativeEmail; ?>
-                        </div>
                         <?php if (
                             $contactInfo->Facebook == "none"
                             && $contactInfo->Twitter == "none"
