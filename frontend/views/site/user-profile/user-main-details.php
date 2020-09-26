@@ -251,6 +251,9 @@ $countryArray = array(
     </div>
 
     <div class="info-content-edit">
+        <div class="alert" id="msg-upload-status" style="display: none;">
+        </div>
+
         <div class="upload-logo">
             <?php
             $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id' => 'upload']]); ?>
@@ -260,7 +263,7 @@ $countryArray = array(
                 (MAX 2MB)<br />
             </div>
 
-            <ul>
+            <ul class="uploaded-files">
                 <!-- The file uploads will be shown here -->
             </ul>
             <?php ActiveForm::end(); ?>
