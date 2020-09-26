@@ -1420,7 +1420,7 @@ class SiteController extends Controller
                 }
                 $extension = $model->file->extension;
                 if (!in_array(strtolower($extension), $allowed)) {
-                    echo '{"status":"error"}';
+                    Yii::$app->session->addFlash('error', 'Invalid file uploaded!');
                     exit;
                 }
                 $newImage = 'uploads/logo/' . $user->getId() . '-' . time() . '.' . $extension;
@@ -1428,7 +1428,7 @@ class SiteController extends Controller
                     unlink($user->image);
                 }
                 if ($model->file->size > 1024 * 1024 * 2) {
-                    echo '{"status":"error"}';
+                    Yii::$app->session->addFlash('error', 'Uploaded file bigger than 2MB!');
                     exit;
                 }
                 if ($model->file->saveAs($newImage)) {
@@ -2203,7 +2203,7 @@ class SiteController extends Controller
 
                             $extension = $item->file->extension;
                             if (!in_array(strtolower($extension), $allowed)) {
-                                echo '{"status":"error"}';
+                                Yii::$app->session->addFlash('error', 'Uploaded filetype is not allowed.');
                                 exit;
                             }
 
@@ -2212,10 +2212,11 @@ class SiteController extends Controller
                                 unlink($user->image);
                             }
                             if ($item->file->size > 1024 * 1024 * 2) {
-                                echo '{"status":"error"}';
+                                Yii::$app->session->addFlash('error', 'Uploaded file is larger than 2MB.');
                                 exit;
                             }
                             if ($item->file->saveAs($newImage)) {
+                                Yii::$app->session->addFlash('success', 'Your profile is updated.');
                                 $user->image = $newImage;
                                 $user->save();
                                 return $this->redirect("user-profile");

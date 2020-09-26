@@ -271,5 +271,9 @@ $(document).ready(function() {
         //fadeOut: true,
         loop: true
     });
-
 });
+
+// autoclose alerts after 5 seconds
+setTimeout(function() {
+    $(".alert").alert('close');
+}, 5000);

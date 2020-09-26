@@ -2,6 +2,7 @@
 namespace common\widgets;
 
 use Yii;
+use yii\helpers\Html;
 
 /**
  * Alert widget renders a message from session flash. All flash messages are displayed
@@ -41,6 +42,7 @@ class Alert extends \yii\bootstrap\Widget
      * @var array the options for rendering the close button tag.
      */
     public $closeButton = [];
+    public $message;
 
 
     public function init()
@@ -61,7 +63,7 @@ class Alert extends \yii\bootstrap\Widget
                     /* assign unique id to each alert box */
                     $this->options['id'] = $this->getId() . '-' . $type . '-' . $i;
 
-                    echo \yii\bootstrap\Alert::widget([
+                    $this->message .= \yii\bootstrap\Alert::widget([
                         'body' => $message,
                         'closeButton' => $this->closeButton,
                         'options' => $this->options,
@@ -71,5 +73,10 @@ class Alert extends \yii\bootstrap\Widget
                 $session->removeFlash($type);
             }
         }
+    }
+
+    public function run()
+    {
+        return ($this->message);
     }
 }

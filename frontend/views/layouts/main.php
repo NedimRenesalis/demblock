@@ -233,14 +233,14 @@ if(!Yii::$app->user->isGuest){
 
         <?php NavBar::end();
         ?>
-        <!--
-    <div class="container">
+
+    <div class="container" style="padding: 0; padding-top: 20px;">
         <?php /* echo Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) */ ?>
         <?php echo Alert::widget() ?>
     </div>
-    -->
+
     <div class="main-content">
         <?= $content ?>
     </div>
