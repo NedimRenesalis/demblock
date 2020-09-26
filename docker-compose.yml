@@ -45,5 +45,5 @@ services:
     env_file:
       - ./.env
 
-volumes:	
+volumes:
   uploads-demblock: 
