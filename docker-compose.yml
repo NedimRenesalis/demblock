@@ -8,6 +8,7 @@ services:
     command: ["/enable_service.sh", "frontend"]
     volumes:
       - uploads-demblock:/app/frontend/web/uploads
+      - logs-demblock:/app/frontend/runtime
     depends_on:
       - demblock_db
     ports:
@@ -47,3 +48,4 @@ services:
 
 volumes:
   uploads-demblock: 
+  logs-demblock: 
