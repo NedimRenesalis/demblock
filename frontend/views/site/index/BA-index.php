@@ -279,7 +279,7 @@ if ($searchModel && $searchModel->category) {
     <div class="section-menu">
         <a class="section-item" href="<?= Url::to('objava-oglasa'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/objava-oglasa.png'); ?> style="width: 88px;" />
-           <b> <center><span>Publish DeFi service or product listing</span></center></b>
+           <b> <center><span>Publish Product listing</span></center></b>
         </a>
         <a class="section-item" href="<?= Url::to('cjenovnik-usluge'); ?>">
             <img src=<?= Url::to('@web/css/images/section-img/cjenovnik-i-usluge.png'); ?> style="width: 74px;" />
@@ -383,7 +383,7 @@ if ($searchModel && $searchModel->category) {
     <div class="footer">
         <div>
             <div class="col-sm-12 text-center">
-                <p class="text-center"></p>
+               <!-- <p class="text-center"></p>
                 <b><h3 class="text-center">DemBlock</h3></b>
                 <h4 class="text-center">Artemis House - 67 Fort Street</h4>
                 <h4 class="text-center">Grand Cayman - KY1-1111</h4>
@@ -392,7 +392,7 @@ if ($searchModel && $searchModel->category) {
                 <br>
                 <a class="mailtoui login-btn" style="margin: 0px !important;" href="mailto:support@demblock.com">support@demblock.com</a>
                 <br>
-                <br>
+                <br>-->
                 <div class="row">
                     <div class="col-12 col-xs-12 text-center h5">
                         <a href="https://twitter.com/_demblock_">Twitter <span class="fa fa-twitter"></span></a>
@@ -405,7 +405,7 @@ if ($searchModel && $searchModel->category) {
                 </div>
             </div>
         </div>
-        <div class="footer-controls text-center">
+       <!-- <div class="footer-controls text-center">
             <a href="<?= Url::to('@web/css/images/getstarted.pdf') ?>" class="regist-btn">
                 <span class="fa fa-globe"></span>
                 <span>Get started</span>
@@ -414,7 +414,7 @@ if ($searchModel && $searchModel->category) {
                 <span class="fa fa-globe"></span>
                 <span>Incorporation certificate</span>
             </a>
-        </div>
+        </div>-->
     </div>
 </footer>
 
